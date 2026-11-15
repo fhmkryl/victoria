@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "prototype",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server@14.1.1", "prototype", "-p", "5180", "-c-1", "--silent"],
+      "port": 5180
+    },
+    {
+      "name": "demo",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["--yes", "http-server@14.1.1", "demo", "-p", "5181", "-c-1", "--silent"],
+      "port": 5181
+    }
+  ]
+}

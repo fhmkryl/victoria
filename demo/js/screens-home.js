@@ -61,7 +61,7 @@
 
   // ---------- Requirements summary ----------
   V.screens.ozet = () => V.header('Gereksinim özeti', 'Uygulamanın ilk sürümde ne yapacağı, ne yapmayacağı ve sizden beklenen kararlar. Teknik ayrıntı içermez.',
-    '<a class="btn" href="#/baslangic"><i data-lucide="flag"></i>Deneme görevleri</a><button class="btn" onclick="window.print()"><i data-lucide="printer"></i>Yazdır</button>') +
+    '<a class="btn" href="#/baslangic"><i data-lucide="flag"></i>Deneme görevleri</a>') +
     '<div class="card"><div class="card-body summary">' +
     '<p>Victoria, merkezin günlük işini tek yerde toplayan bir <b>arka ofis</b> uygulamasıdır. Yalnızca siz ve personeliniz kullanır; müşteriler uygulamaya girmez, onlarla SMS üzerinden iletişim kurulur. Tablet, telefon ve bilgisayarda çalışır, Türkçe ve İngilizce kullanılabilir.</p>' +
     '<h2>İlk sürümde neler var?</h2><ul>' +
@@ -87,7 +87,7 @@
     const sel = V.UI.loginUser || 'ad', pin = V.UI.pin || 0;
     const tiles = S().staff.map((s) => '<div class="user-tile' + (s.id === sel ? ' on' : '') + '" data-act="pickUser" data-id="' + s.id + '"><span class="avatar">' + V.esc(s.initials) + '</span><b>' + V.esc(s.name) + '</b><span class="small muted">' + V.esc(s.title) + '</span></div>').join('');
     return '<div class="login"><div class="login-box">' +
-      '<div class="row between mb"><div class="row"><img src="assets/logo.jpg" alt="Victoria" style="width:56px;height:56px;border-radius:12px"><div><div style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:24px;letter-spacing:.14em;color:#9a7b45">VICTORIA</div><div class="small muted">Güzellik &amp; Bakım</div></div></div><a class="small" href="#/baslangic">Görevler</a></div>' +
+      '<div class="row between mb"><div class="row"><img src="' + V.LOGO + '" alt="Victoria" style="width:56px;height:56px;border-radius:12px"><div><div style="font-family:\'Cormorant Garamond\',Georgia,serif;font-size:24px;letter-spacing:.14em;color:#9a7b45">VICTORIA</div><div class="small muted">Güzellik &amp; Bakım</div></div></div><a class="small" href="#/baslangic">Görevler</a></div>' +
       '<h2 style="font-size:18px;margin:8px 0 12px">Bu tableti kim kullanıyor?</h2><div class="user-tiles">' + tiles + '</div>' +
       '<div style="text-align:center;margin-top:18px"><b>' + V.esc(V.staff(sel).name) + '</b>, 4 haneli PIN\'inizi girin <span class="small muted">(denemede herhangi 4 rakam)</span></div>' +
       '<div class="pin">' + [0, 1, 2, 3].map((i) => '<span class="' + (i < pin ? 'f' : '') + '"></span>').join('') + '</div>' +
@@ -100,7 +100,7 @@
     V.UI.pin = (V.UI.pin || 0) + 1; V.render();
     if (V.UI.pin >= 4) setTimeout(() => {
       S().session = { user: V.UI.loginUser || 'ad' }; V.UI.pin = 0; V.UI.loginUser = null; V.save();
-      V.UI.pendingToast = 'Hoş geldiniz, ' + V.user().name.split(' ')[0]; location.hash = V.isSpecialist() ? '#/gunum' : '#/bugun';
+      V.UI.pendingToast = 'Hoş geldiniz, ' + V.user().name.split(' ')[0]; V.go(V.isSpecialist() ? '#/gunum' : '#/bugun');
     }, 200);
   };
 
@@ -189,7 +189,8 @@
   V.screens.gunum = () => {
     let u = V.user(); if (u.kind !== 'specialist') u = V.staff('ad');
     const mine = S().appts.filter((a) => a.date === V.TODAY && a.staff === u.id && a.status !== 'cancelled').sort((a, b) => a.start.localeCompare(b.start));
-    const next = mine.find((a) => !['completed', 'paid', 'noshow'].includes(a.status));
+    const open = mine.filter((a) => !['completed', 'paid', 'noshow'].includes(a.status));
+    const next = open.find((a) => ['checkedin', 'inprogress'].includes(a.status)) || open.find((a) => a.start >= V.NOW) || open[0];
     const done = mine.filter((a) => ['completed', 'paid'].includes(a.status)).length;
     document.body.classList.add('touch');
     let nextHtml = '<div class="alert success"><i data-lucide="check-circle"></i>Bugün için bekleyen randevunuz yok.</div>';

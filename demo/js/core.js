@@ -1,7 +1,7 @@
 /* Victoria demo — core: helpers, state, router, shell, drawers, event wiring. */
 (function () {
   // ---------- Formatting & dates ----------
-  V.money = (n) => '₺' + Math.round(n || 0).toLocaleString('tr-TR');
+  V.money = (n) => (n < -0.5 ? '−' : '') + '₺' + Math.abs(Math.round(n || 0)).toLocaleString('tr-TR');
   V.esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   V.d = (s) => { const [y, m, d] = s.split('-').map(Number); return new Date(Date.UTC(y, m - 1, d || 1)); };
   V.iso = (d) => d.toISOString().slice(0, 10);
@@ -18,7 +18,7 @@
   const KEY = 'victoria-demo-v1';
   V.load = () => { try { const s = localStorage.getItem(KEY); if (s) { const o = JSON.parse(s); if (o && o.v === 1) return o; } } catch (e) {} return V.seed(); };
   V.save = () => { try { localStorage.setItem(KEY, JSON.stringify(V.S)); } catch (e) {} };
-  V.reset = () => { V.S = V.seed(); V.UI = {}; V.save(); location.hash = '#/baslangic'; V.render(); V.toast('Demo sıfırlandı'); };
+  V.reset = () => { V.S = V.seed(); V.UI = {}; V.save(); V.go('#/baslangic'); V.toast('Demo sıfırlandı'); };
   V.id = (k, prefix, pad) => { V.S.seq[k] = (V.S.seq[k] || 0) + 1; return prefix + String(V.S.seq[k]).padStart(pad || 0, '0'); };
   V.UI = {};
 
@@ -87,13 +87,19 @@
   V.drawers = {};
   V.act = {};
   V.route = () => {
-    const h = (location.hash || '').replace(/^#\/?/, '');
+    const h = (V.UI.at || '').replace(/^#\/?/, '');
     const [path, qs] = h.split('?');
     const parts = path.split('/').filter(Boolean);
     const q = {}; (qs || '').split('&').filter(Boolean).forEach((kv) => { const [k, v] = kv.split('='); q[k] = decodeURIComponent(v || ''); });
     return { name: parts[0] || '', param: parts[1], q };
   };
-  V.go = (h) => { if (location.hash === h) V.render(); else location.hash = h; };
+  // In-page navigation: hosted pages only allow plain #name hashes, so the route lives in V.UI.at.
+  V.go = (h) => {
+    const changed = V.UI.at !== h;
+    V.UI.at = h;
+    if (changed) { V.UI.drawer = V.UI.keepDrawer ? V.UI.drawer : null; V.UI.keepDrawer = false; }
+    V.render(); if (changed) window.scrollTo(0, 0); V.flushToast();
+  };
 
   const NAV_OWNER = [
     ['Demo', [['baslangic', 'Nasıl test edilir?', 'flag'], ['ozet', 'Gereksinim özeti', 'file-text']]],
@@ -110,6 +116,7 @@
     const r = V.route();
     if (!r.name) { V.go(V.S.seenStart ? (V.S.session ? (V.isSpecialist() ? '#/gunum' : '#/bugun') : '#/giris') : '#/baslangic'); return; }
     const app = document.getElementById('app');
+    document.body.classList.remove('touch');
     if (r.name === 'giris') { app.innerHTML = V.screens.giris(r); V.icons(); return; }
     const screen = V.screens[r.name] || V.screens.bugun;
     let body;
@@ -121,7 +128,7 @@
       '<a href="#/' + id + '" class="' + (active === id ? 'active' : '') + '"><i data-lucide="' + icon + '"></i>' + label +
       (id === 'kasa' && overdue + missing ? '<span class="pill">' + (overdue + missing) + '</span>' : '') + '</a>').join('')).join('');
     app.innerHTML =
-      '<div class="shell"><aside class="sider"><a class="brand" href="#/' + (spec ? 'gunum' : 'bugun') + '"><img class="logo-img" src="assets/logo.jpg" alt="Victoria"><span><span class="brand-name">VICTORIA</span><span class="brand-tag">Güzellik &amp; Bakım</span></span></a>' +
+      '<div class="shell"><aside class="sider"><a class="brand" href="#/' + (spec ? 'gunum' : 'bugun') + '"><img class="logo-img" src="' + V.LOGO + '" alt="Victoria"><span><span class="brand-name">VICTORIA</span><span class="brand-tag">Güzellik &amp; Bakım</span></span></a>' +
       '<nav class="nav">' + nav + '</nav><div class="foot">Demo · ' + V.ds(V.TODAY) + ' ' + V.dayName(V.TODAY) + ', ' + V.NOW + '<br><a href="#" data-act="reset" style="color:#a08a63">Demoyu sıfırla</a></div></aside>' +
       '<div class="main"><header class="header"><label class="search"><i data-lucide="search"></i><input placeholder="Müşteri ara: isim veya telefon" data-input="search" value="' + V.esc(V.UI.search || '') + '"></label><div class="spacer"></div>' +
       '<a class="btn sm ai" href="#/danisma"><i data-lucide="sparkles"></i>Hızlı danışma</a>' +
@@ -171,7 +178,7 @@
   V.commit = (msg, hash) => {
     V.save();
     V.UI.pendingToast = msg || null;
-    if (hash && location.hash !== hash) { location.hash = hash; return; }
+    if (hash && V.UI.at !== hash) { V.go(hash); return; }
     V.render(); V.flushToast();
   };
   V.flushToast = () => { if (V.UI.pendingToast) { V.toast(V.UI.pendingToast); V.UI.pendingToast = null; } };
@@ -188,10 +195,15 @@
 
   // ---------- Common actions ----------
   V.act.closeDrawer = () => V.closeDrawer();
-  V.act.reset = () => { if (confirm('Demo baştan başlasın mı? Yaptığınız tüm değişiklikler silinir.')) V.reset(); };
-  V.act.tab = (el) => { V.UI['tab_' + el.dataset.key] = el.dataset.id; V.render(); };
+  V.act.reset = () => V.openDrawer('confirmReset');
+  V.drawers.confirmReset = () => ({ title: '<i data-lucide="rotate-ccw"></i>Demoyu sıfırla',
+    body: '<p>Demo baştan başlasın mı? Yaptığınız tüm değişiklikler (randevular, satışlar, cevaplar) silinir.</p>',
+    foot: '<button class="btn" data-act="closeDrawer">Vazgeç</button><button class="btn danger" data-act="doReset">Evet, sıfırla</button>' });
+  V.act.doReset = () => V.reset();
+  // A tab click wins over a ?tab= / ?appt= in the current route, so drop the query.
+  V.act.tab = (el) => { V.UI['tab_' + el.dataset.key] = el.dataset.id; V.UI.at = (V.UI.at || '').split('?')[0]; V.render(); };
   V.act.go = (el) => V.go(el.dataset.href);
-  V.act.search = (el) => { V.UI.search = el.value; V.UI.focusSearch = true; if (V.route().name !== 'musteriler') location.hash = '#/musteriler'; else V.render(); };
+  V.act.search = (el) => { V.UI.search = el.value; V.UI.focusSearch = true; if (V.route().name !== 'musteriler') V.go('#/musteriler'); else V.render(); };
   V.act.toggleUI = (el) => { const k = el.dataset.key, v = el.dataset.val; const s = new Set(V.UI[k] || []); s.has(v) ? s.delete(v) : s.add(v); V.UI[k] = [...s]; V.render(); };
   V.act.setUI = (el) => { V.UI[el.dataset.key] = el.dataset.val; V.render(); };
   V.act.drawerSync = () => { V.syncDrawer(); V.renderDrawer(); };
@@ -205,12 +217,15 @@
       const fn = V.act[a.dataset.act]; if (fn) fn(a, e); else console.warn('no action', a.dataset.act);
       return;
     }
+    const link = e.target.closest('a[href^="#/"]');
+    if (link) { e.preventDefault(); V.go(link.getAttribute('href')); return; }
     const r = e.target.closest('[data-href]');
     if (r && !e.target.closest('a,button,input,select,textarea')) V.go(r.dataset.href);
   });
   document.addEventListener('change', (e) => { const a = e.target.closest('[data-change]'); if (a) { const fn = V.act[a.dataset.change]; if (fn) fn(a, e); } });
   document.addEventListener('input', (e) => { const a = e.target.closest('[data-input]'); if (a) { const fn = V.act[a.dataset.input]; if (fn) fn(a, e); } });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') V.closeDrawer(); });
-  window.addEventListener('hashchange', () => { V.UI.drawer = V.UI.keepDrawer ? V.UI.drawer : null; V.UI.keepDrawer = false; V.render(); window.scrollTo(0, 0); V.flushToast(); });
-  window.addEventListener('DOMContentLoaded', () => { V.S = V.load(); V.render(); });
+  window.addEventListener('hashchange', () => { if ((location.hash || '').startsWith('#/')) V.go(location.hash); });
+  const boot = () => { V.S = V.load(); V.UI.at = (location.hash || '').startsWith('#/') ? location.hash : ''; V.render(); };
+  if (document.readyState === 'loading') window.addEventListener('DOMContentLoaded', boot); else boot();
 })();

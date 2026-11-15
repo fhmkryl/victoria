@@ -2,6 +2,7 @@
    V.seed() returns a fresh copy so "Demoyu sıfırla" starts over. */
 window.V = window.V || {};
 
+V.LOGO = V.LOGO || 'assets/logo.jpg';
 V.TODAY = '2026-11-12';
 V.NOW = '12:45';
 
@@ -100,7 +101,8 @@ V.seed = function () {
     ],
     customers: [
       { id: 'c1', name: 'Burcu Koç', phone: '0532 *** 41 18', since: '2025-03-05', tags: ['Hassas cilt'], skin: 'Karma, hassas', fitz: 'III', allergies: ['lidokain'], flags: ['hassas', 'lazer_kur'],
-        note: 'İzotretinoin 08/2026\'da bırakıldı.', consents: { kvkk: '2027-03-05', health: '2027-03-05', photo: '2027-03-05', ai: '2027-08-20', laser: '2026-07-05' }, sms: true, staffPref: 'ad' },
+        note: 'İzotretinoin 08/2026\'da bırakıldı.', consents: { kvkk: '2027-03-05', health: '2027-03-05', photo: '2027-03-05', ai: '2027-08-20', laser: '2026-07-05' }, sms: true, staffPref: 'ad',
+        purchases: [{ p: 'spf', date: '2026-08-20', price: 1150 }, { p: 'niasinamid', date: '2026-09-15', price: 980 }, { p: 'spf', date: '2026-09-15', price: 1150 }, { p: 'temizleyici', date: '2026-09-15', price: 640 }, { p: 'aloe', date: '2026-10-01', price: 890 }] },
       { id: 'c2', name: 'Deniz Yılmaz', phone: '0505 *** 22 70', since: '2024-11-02', tags: ['VIP'], skin: 'Normal', fitz: 'II', allergies: [], flags: ['lazer_kur'], consents: { kvkk: '2027-01-01', health: '2027-01-01', photo: '2027-01-01', ai: '2027-01-01', laser: '2027-07-15' }, sms: true, staffPref: 'ad' },
       { id: 'c3', name: 'Ece Çelik', phone: '0544 *** 09 31', since: '2025-06-10', tags: ['Doğum günü bugün'], skin: 'Kuru', fitz: 'II', allergies: [], flags: [], consents: { kvkk: '2027-06-10', health: '2027-06-10' }, sms: true, staffPref: 'mk' },
       { id: 'c4', name: 'Gizem Öztürk', phone: '0535 *** 77 02', since: '2025-09-01', tags: [], skin: 'Karma', fitz: 'III', allergies: [], flags: [], consents: { kvkk: '2027-09-01', health: '2027-09-01', peel: '2027-09-01' }, sms: true, staffPref: 'sa' },
