@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lazer epilasyon · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="catalog:service">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="catalog.html#c-services">Hizmetler</a><i data-lucide="chevron-right"></i>Lazer epilasyon</div>
+  <div class="page-header">
+    <div class="title"><h1>Lazer epilasyon</h1><p>Kategori: Lazer · %20 KDV · aktif</p></div>
+    <div class="actions"><button class="btn">Kopyala</button><button class="btn primary" data-toast="Hizmet kaydedildi">Kaydet</button></div>
+  </div>
+
+  <div class="tabs" data-tabs="svc">
+    <button class="on" data-tab="v-general">Genel</button>
+    <button data-tab="v-areas">Bölgeler ve fiyatlar</button>
+    <button data-tab="v-content"><i data-lucide="sparkles"></i>İçerik (YZ)</button>
+    <button data-tab="v-rules">Personel ve kurallar</button>
+    <button data-tab="v-cons">Sarf malzemeleri</button>
+    <button data-tab="v-params">Parametre şablonu</button>
+  </div>
+
+  <div class="tab-panel on" id="v-general" data-group="svc"><div class="card"><div class="card-body form-grid">
+    <div class="field"><label>Ad (TR) <span class="req">*</span></label><input class="input" value="Lazer epilasyon"></div>
+    <div class="field"><label>Ad (EN)</label><input class="input" value="Laser epilation"></div>
+    <div class="field"><label>Kategori</label><select class="select"><option>Lazer</option></select></div>
+    <div class="field"><label>KDV oranı</label><select class="select"><option>%20</option><option>%10</option><option>%1</option></select></div>
+    <div class="field"><label>Sonrasında ara süre (dk)</label><input class="input" value="10"></div>
+    <div class="field"><label>Tipik kür</label><input class="input" value="6–8 seans, 4–6 haftada bir"></div>
+    <div class="field"><label>Gerekli kaynak</label><select class="select"><option>Herhangi bir lazer cihazı</option><option>Yalnızca Diode 808</option></select></div>
+    <div class="field"><label>Takvim rengi</label><input class="input" value="#4f46e5"></div>
+  </div></div></div>
+
+  <div class="tab-panel" id="v-areas" data-group="svc"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Bölge (TR / EN)</th><th class="num">Süre</th><th class="num">Seans fiyatı</th><th class="num">Standart atım</th><th>Paketler</th></tr></thead>
+    <tbody><tr><td>Yüz / Face</td><td class="num">20 dk</td><td class="num">₺1.200</td><td class="num">220</td><td>6 seans ₺7.200</td></tr>
+    <tr><td>Koltuk altı / Underarm</td><td class="num">15 dk</td><td class="num">₺800</td><td class="num">600</td><td>6 seans ₺4.800</td></tr>
+    <tr><td>Tüm bacak / Full leg</td><td class="num">60 dk</td><td class="num">₺3.000</td><td class="num">3.500</td><td>8 seans ₺24.000</td></tr>
+    <tr><td>Bikini</td><td class="num">20 dk</td><td class="num">₺1.000</td><td class="num">700</td><td>6 seans ₺6.000</td></tr>
+    <tr><td>Tüm vücut / Full body</td><td class="num">90 dk</td><td class="num">₺4.500</td><td class="num">7.000</td><td>8 seans ₺32.000</td></tr></tbody></table>
+    <div class="card-body"><button class="btn sm"><i data-lucide="plus"></i>Bölge ekle</button></div></div></div></div>
+
+  <div class="tab-panel" id="v-content" data-group="svc"><div class="grid g-main">
+    <div class="card"><div class="card-head"><h3>Yapay zekâ asistanının kullandığı içerik</h3><div class="seg"><button class="on">TR</button><button>EN</button></div></div><div class="card-body stack">
+      <div class="field"><label>Açıklama</label><textarea class="input">Diode lazer ile kıl köklerinin kalıcı olarak zayıflatılması. Koyu ve kalın kıllarda en iyi sonuç.</textarea></div>
+      <div class="field"><label>Faydaları</label><textarea class="input">Uzun süreli kıl azalması · batık kıl oluşumunu azaltır · ağda/jilet tahrişini ortadan kaldırır</textarea></div>
+      <div class="form-grid">
+        <div class="field"><label>Hedeflenen sorunlar</label><input class="input" value="istenmeyen tüyler, batık kıl"></div>
+        <div class="field"><label>Uygun Fitzpatrick tipi</label><input class="input" value="I–V"></div>
+      </div>
+      <div class="field"><label>Kontrendikasyonlar</label><textarea class="input">Gebelik · son 6 ayda izotretinoin kullanımı · ışığa duyarlılık yapan ilaçlar · aktif cilt enfeksiyonu · yakın zamanda bronzlaşma</textarea></div>
+      <div class="field"><label>Uygulama sonrası bakım</label><textarea class="input">48 saat sıcak duş, sauna, spor yok · SPF 50 · yatıştırıcı jel</textarea></div>
+      <div class="field"><label>İlgili ürünler</label><input class="input" value="SPF 50 Güneş Kremi, Yatıştırıcı Aloe Jel"></div>
+    </div></div>
+    <div class="card ai-card"><div class="card-head"><h3><i data-lucide="wand-sparkles"></i>YZ ile taslak oluştur</h3></div><div class="card-body stack">
+      <span class="small muted">Kısa notlarınızı veya broşür metnini yapıştırın; yapay zekâ boş alanları TR ve EN olarak doldurur, siz kontrol edersiniz.</span>
+      <textarea class="input" placeholder="örn. 808 nm diode, koyu kıllarda etkili, 6-8 seans…"></textarea>
+      <button class="btn ai" data-toast="Taslak oluşturuldu · vurgulanan alanları kontrol edin"><i data-lucide="sparkles"></i>Taslak oluştur</button>
+      <button class="btn" data-toast="İngilizce sürüm Türkçeden oluşturuldu">TR → EN çevir</button>
+    </div></div>
+  </div></div>
+
+  <div class="tab-panel" id="v-rules" data-group="svc"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Gereksinimler</h3></div><div class="card-body stack">
+      <label class="switch"><input type="checkbox"><span class="track"></span>Hekim gerektirir</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Sertifikalı lazer uzmanı gerektirir</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>İmzalı onam gerektirir: <b>Lazer uygulaması onamı v4</b> · 12 ay geçerli</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Sağlık anketi gerektirir: <b>Lazer öncesi anket</b> · 6 ay geçerli</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Seanslar arası en kısa süre: <b>4 hafta</b></label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Fotoğraf çekimi için fotoğraf onamı gerekir</label>
+    </div></div>
+    <div class="card"><div class="card-head"><h3>Yetkili personel</h3></div><ul class="list">
+      <li><span class="avatar">AD</span><div class="grow">Ayşe Demir<div class="small muted">Sertifikalı lazer uzmanı · sertifika 03/2028'e kadar geçerli</div></div><span class="tag green">Yetkili</span></li>
+      <li><span class="avatar">SA</span><div class="grow">Dr. Selin Aydın<div class="small muted">Hekim</div></div><span class="tag green">Yetkili</span></li>
+      <li><span class="avatar">MK</span><div class="grow">Merve Kaya<div class="small muted">Lazer sertifikası yok</div></div><span class="tag">Yetkili değil</span></li>
+    </ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="v-cons" data-group="svc"><div class="card"><div class="card-head"><h3>Seans başına sarf malzemesi</h3><span class="small muted">Uygulama tamamlandığında stoktan düşülür</span></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Ürün</th><th>Birim</th><th class="num">Miktar</th><th class="num">Maliyet</th></tr></thead>
+    <tbody><tr><td>Lazer soğutma jeli 5 L</td><td>100 atım başına</td><td class="num">5 ml</td><td class="num">₺1,40</td></tr><tr><td>Nitril eldiven (çift)</td><td>Seans başına</td><td class="num">1</td><td class="num">₺3,00</td></tr><tr><td>Yatıştırıcı Aloe Jel (kabin)</td><td>Seans başına</td><td class="num">5 ml</td><td class="num">₺4,50</td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="v-params" data-group="svc"><div class="card"><div class="card-head"><h3>Her seansta kaydedilen alanlar</h3><button class="btn sm"><i data-lucide="plus"></i>Alan ekle</button></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Alan</th><th>Tür</th><th>Birim</th><th>Zorunlu</th><th>Ön doldurma</th></tr></thead>
+    <tbody><tr><td>Cihaz / başlık</td><td>Cihaz</td><td>–</td><td>Evet</td><td>Son kullanılan</td></tr><tr><td>Dalga boyu</td><td>Seçim</td><td>nm</td><td>Evet</td><td>Cihaz özelliği</td></tr><tr><td>Enerji yoğunluğu</td><td>Sayı</td><td>J/cm²</td><td>Evet</td><td>Son seans</td></tr><tr><td>Atım süresi</td><td>Sayı</td><td>ms</td><td>Hayır</td><td>Son seans</td></tr><tr><td>Spot çapı</td><td>Sayı</td><td>mm</td><td>Evet</td><td>Son seans</td></tr><tr><td>Atım sayısı</td><td>Sayı</td><td>atım</td><td>Evet</td><td>–</td></tr><tr><td>Cilt reaksiyonu</td><td>Seçim</td><td>–</td><td>Evet</td><td>Yok</td></tr></tbody></table></div></div></div>
+</main></div></div>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

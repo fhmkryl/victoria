@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Treatment record · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="calendar:treatment">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="calendar.html">Calendar</a><i data-lucide="chevron-right"></i>Nazlı Aksoy · 13:00<i data-lucide="chevron-right"></i>Treatment record</div>
+  <div class="page-header">
+    <div class="title"><h1>Treatment record</h1><p>Laser epilation · Underarm · session 2 of 6 · Ayşe Demir · 12.11.2026 13:00</p></div>
+    <div class="actions"><a class="btn" href="customer-detail.html"><i data-lucide="user-round"></i>Customer</a><a class="btn ai" href="consultation.html"><i data-lucide="sparkles"></i>Consult</a><button class="btn" data-toast="Draft saved">Save draft</button><a class="btn primary" href="kasa.html"><i data-lucide="check"></i>Complete &amp; checkout</a></div>
+  </div>
+
+  <div class="grid g-main">
+    <div class="stack">
+      <div class="row wrap"><span class="tag green"><i data-lucide="check"></i>Consent valid</span><span class="tag green"><i data-lucide="check"></i>Questionnaire valid</span><span class="tag">Fitzpatrick III</span><span class="tag">Last session 01.10.2026 (6 weeks ago)</span><span class="tag indigo">Requires certified operator ✓</span></div>
+
+      <div class="card"><div class="card-head"><h3><i data-lucide="sliders-horizontal"></i>Parameters</h3><span class="small muted">Template: Laser epilation · Diode</span></div><div class="card-body">
+        <div class="form-grid">
+          <div class="field"><label>Device</label><select class="select"><option>Diode 808 · SN DL-80812</option></select></div>
+          <div class="field"><label>Handpiece</label><select class="select"><option>HP-2 · 1.82M / 2M shots</option></select></div>
+          <div class="field"><label>Wavelength</label><select class="select"><option>808 nm</option></select></div>
+          <div class="field"><label>Fluence (J/cm²)</label><input class="input" value="18"><span class="hint">Last: 18 · device range 5–60</span></div>
+          <div class="field"><label>Pulse duration (ms)</label><input class="input" value="30"></div>
+          <div class="field"><label>Spot size (mm)</label><input class="input" value="12"></div>
+          <div class="field"><label>Shot count <span class="req">*</span></label><input class="input" value="640"><span class="hint">Entered manually from the device screen</span></div>
+          <div class="field"><label>Cooling</label><select class="select"><option>Contact cooling · level 3</option></select></div>
+          <div class="field"><label>Skin reaction</label><select class="select"><option>None</option><option>Mild redness</option><option>Swelling</option><option>Blister</option></select></div>
+        </div></div></div>
+
+      <div class="card"><div class="card-head"><h3><i data-lucide="flask-conical"></i>Products used</h3><span class="small muted">Pre-filled from the service; adjust actual amounts</span></div><div class="card-body flush"><table class="table">
+        <thead><tr><th>Product</th><th>Lot (FEFO)</th><th>Expiry</th><th class="num">Standard</th><th class="num">Actual</th></tr></thead>
+        <tbody>
+          <tr><td>Laser cooling gel 5 L</td><td><select class="select" style="width:auto"><option>CG-551</option></select></td><td>06/2027</td><td class="num">30 ml</td><td class="num"><input class="input" style="width:80px;text-align:right" value="35"></td></tr>
+          <tr><td>Nitrile gloves (pair)</td><td>–</td><td>–</td><td class="num">1</td><td class="num"><input class="input" style="width:80px;text-align:right" value="1"></td></tr>
+          <tr><td>Soothing Aloe Gel (cabin)</td><td><select class="select" style="width:auto"><option>AG-310</option></select></td><td>02/2027</td><td class="num">5 ml</td><td class="num"><input class="input" style="width:80px;text-align:right" value="5"></td></tr>
+        </tbody></table><div class="card-body"><button class="btn sm"><i data-lucide="plus"></i>Add product</button></div></div></div>
+
+      <div class="card"><div class="card-head"><h3><i data-lucide="notebook-pen"></i>Notes</h3><button class="btn sm" title="Dictate (Later)"><i data-lucide="mic"></i>Dictate</button></div><div class="card-body">
+        <textarea class="input" style="min-height:90px">Hair density visibly lower than session 1. Customer tolerated well. Next session in 6 weeks.</textarea></div></div>
+    </div>
+
+    <div class="stack">
+      <div class="card"><div class="card-head"><h3><i data-lucide="camera"></i>Photos</h3><span class="tag green">Consent ✓</span></div><div class="card-body grid g2">
+        <div class="photo">photo<span>before</span></div><div class="upload" style="display:grid;place-items:center"><i data-lucide="camera"></i>Take after photo</div></div></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="history"></i>Previous session</h3></div><div class="card-body small">
+        <dl class="desc" style="grid-template-columns:100px 1fr"><dt>Date</dt><dd>01.10.2026</dd><dt>Fluence</dt><dd>18 J/cm²</dd><dt>Pulse</dt><dd>30 ms</dd><dt>Spot</dt><dd>12 mm</dd><dt>Shots</dt><dd>620</dd><dt>Reaction</dt><dd>None</dd></dl>
+        <button class="btn sm mt" data-toast="Parameters copied from previous session">Copy parameters</button></div></div>
+      <div class="card"><div class="card-head"><h3>Next session</h3></div><div class="card-body stack">
+        <div class="field"><label>Recommended date</label><input class="input" value="24.12.2026"></div>
+        <label class="chk"><input type="checkbox" checked> Already booked (series) · 24.12.2026 13:00</label>
+        <label class="chk"><input type="checkbox" checked> Send aftercare SMS now</label></div></div>
+      <div class="alert info"><i data-lucide="gift"></i><div>Completing will use <b>1 session</b> of package "Underarm 6 sessions" (4 left after this).</div></div>
+    </div>
+  </div>
+</main></div></div>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

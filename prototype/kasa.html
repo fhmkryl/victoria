@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash desk · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="kasa">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Cash desk</h1><p>Sell, collect payments and close the day</p></div>
+  </div>
+  <div class="tabs main-tabs" data-tabs="kasa"><button class="on" data-tab="k-sale"><i data-lucide="shopping-cart"></i>New sale</button><button data-tab="k-sales"><i data-lucide="receipt"></i>Sales</button><button data-tab="k-receivables"><i data-lucide="hand-coins"></i>Receivables <span class="tag red">2</span></button><button data-tab="k-expenses"><i data-lucide="file-minus"></i>Expenses</button><button data-tab="k-close"><i data-lucide="lock"></i>Day close</button></div>
+  <div class="tab-panel on" id="k-sale" data-group="kasa">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Checkout</h1><p>From appointment: Nazlı Aksoy · 13:00 · Laser underarm (package session)</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="user-round"></i>Change customer</button><button class="btn">Product-only sale</button></div>
+  </div>
+
+  <div class="pos">
+    <div class="stack">
+      <div class="card"><div class="card-head"><h3>Add items</h3>
+        <div class="seg"><button class="on">Products</button><button>Services</button><button data-open="drawer-package">Packages</button><button>Gift cards</button></div></div>
+        <div class="card-body">
+          <input class="input mb" placeholder="Search product by name or barcode…">
+          <div class="alert ai mb"><i data-lucide="sparkles"></i><div><b>Suggested in consultation:</b> Soothing Aloe Gel, SPF 50 Sunscreen. <a href="consultation.html">Open consultation</a></div></div>
+          <div class="tiles">
+            <div class="tile" data-toast="Added: SPF 50 Sunscreen"><div class="row between"><b>SPF 50 Sunscreen</b><span class="tag purple">AI</span></div><div class="muted small">50 ml · 12 in stock</div><div class="price">₺1,150</div></div>
+            <div class="tile" data-toast="Added: Soothing Aloe Gel"><div class="row between"><b>Soothing Aloe Gel</b><span class="tag purple">AI</span></div><div class="muted small">200 ml · 9 in stock</div><div class="price">₺890</div></div>
+            <div class="tile" data-toast="Added"><b>Niacinamide 10% Serum</b><div class="muted small">30 ml · 7 in stock</div><div class="price">₺980</div></div>
+            <div class="tile" data-toast="Added"><b>Hyaluronic Serum</b><div class="muted small">30 ml · 14 in stock</div><div class="price">₺1,250</div></div>
+            <div class="tile" data-toast="Added"><b>Gentle Cleanser</b><div class="muted small">150 ml · 20 in stock</div><div class="price">₺640</div></div>
+            <div class="tile" style="opacity:.5"><b>Vitamin C Serum</b><div class="muted small">50 ml · out of stock</div><div class="price">₺1,490</div></div>
+            <div class="tile" data-toast="Added"><b>Body Lotion Repair</b><div class="muted small">250 ml · 6 in stock</div><div class="price">₺720</div></div>
+            <div class="tile" data-toast="Added"><b>Eye Contour Cream</b><div class="muted small">15 ml · 4 in stock</div><div class="price">₺1,080</div></div>
+          </div>
+        </div></div>
+    </div>
+
+    <div class="card" style="position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto">
+      <div class="card-head"><h3><span class="avatar">NA</span>Nazlı Aksoy</h3><a class="small" href="customer-detail.html">Profile</a></div>
+      <div class="card-body flush"><table class="table">
+        <thead><tr><th>Item</th><th>Employee</th><th class="num">Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Laser · Underarm<div class="small muted">Package session 2/6</div></td><td class="small">Ayşe Demir</td><td class="num">₺0</td></tr>
+          <tr><td>Soothing Aloe Gel <span class="tag purple">AI</span><div class="small muted">1 × ₺890</div></td><td class="small"><select class="select" style="height:26px;font-size:12px"><option>Ayşe Demir</option><option>Zeynep Arslan</option></select></td><td class="num">₺890</td></tr>
+          <tr><td>SPF 50 Sunscreen <span class="tag purple">AI</span><div class="small muted">1 × ₺1,150 · −10%</div></td><td class="small"><select class="select" style="height:26px;font-size:12px"><option>Ayşe Demir</option></select></td><td class="num">₺1,035</td></tr>
+        </tbody></table></div>
+      <div class="card-body stack">
+        <div class="row"><button class="btn sm"><i data-lucide="percent"></i>Discount</button><button class="btn sm"><i data-lucide="ticket"></i>Gift card</button><button class="btn sm"><i data-lucide="star"></i>Points</button></div>
+        <div class="totals">
+          <span class="muted">Subtotal</span><span class="right">₺2,040</span>
+          <span class="muted">Discount (loyal customer)</span><span class="right">−₺115</span>
+          <span class="muted">incl. KDV 20%</span><span class="right">₺320.83</span>
+          <span class="grand">Total</span><span class="grand right">₺1,925</span>
+        </div>
+        <div class="pay-methods" data-hide-when=".pay-now">
+          <button class="on"><i data-lucide="credit-card"></i>Card</button><button><i data-lucide="banknote"></i>Cash</button><button><i data-lucide="landmark"></i>Transfer</button><button data-show="pay-plan"><i data-lucide="calendar-clock"></i>Pay later</button>
+        </div>
+        <div class="row pay-now"><div class="field" style="flex:1"><label>Card installments (bank)</label><select class="select"><option>Single payment</option><option>3 installments</option></select></div><div class="field" style="flex:1"><label>Amount</label><input class="input" value="1.925,00"></div></div>
+
+        <div class="plan-box" id="pay-plan" style="display:none">
+          <div class="row between"><b><i data-lucide="calendar-clock"></i> Payment plan (in-house)</b><span class="tag green">Limit OK</span></div>
+          <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+            <div class="field"><label>Pay now</label><input class="input" value="425,00"></div>
+            <div class="field"><label>Pay now with</label><select class="select"><option>Cash</option><option>Card</option><option>Transfer</option></select></div>
+            <div class="field"><label>Remaining in</label><select class="select"><option>3 installments</option><option>1 payment</option><option>2 installments</option><option>4 installments</option><option>6 installments</option></select></div>
+            <div class="field"><label>First due date</label><input class="input" value="12.12.2026"></div>
+          </div>
+          <table class="table" style="background:#fff">
+            <thead><tr><th>#</th><th>Due date</th><th class="num">Amount</th></tr></thead>
+            <tbody><tr><td>1</td><td>12.12.2026</td><td class="num">₺500</td></tr><tr><td>2</td><td>12.01.2027</td><td class="num">₺500</td></tr><tr><td>3</td><td>12.02.2027</td><td class="num">₺500</td></tr></tbody>
+          </table>
+          <label class="chk"><input type="checkbox" checked> SMS reminder 2 days before each due date</label>
+          <div class="small muted">Open balance after this sale: <b>₺1,500</b> · customer limit ₺10,000 · no overdue payments</div>
+          <div class="upload" style="padding:8px">Upload signed payment agreement (optional)</div>
+          <div class="alert info small"><i data-lucide="receipt"></i><div>The official receipt is issued for the full amount today; later payments are collections against the open balance.</div></div>
+          <button class="btn primary lg block" data-open="modal-receipt"><i data-lucide="check"></i>Save sale · collect ₺425 now</button>
+        </div>
+
+        <button class="btn primary lg block pay-now" data-open="modal-receipt"><i data-lucide="check"></i>Take payment ₺1,925</button>
+        <span class="small muted pay-now">Split payment and partial payment (open balance) are supported.</span>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="k-sales" data-group="kasa">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Sales</h1><p>All sales, refunds and receipt status</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="download"></i>Export Excel</button><a class="btn primary" href="kasa.html"><i data-lucide="plus"></i>New sale</a></div>
+  </div>
+
+  <div class="tabs" data-tabs="sales">
+    <button class="on" data-tab="s-all">All sales</button>
+    <button data-tab="s-missing">Missing receipt <span class="tag orange">3</span></button>
+    <button data-tab="s-refunds">Refunds</button>
+  </div>
+
+  <div class="tab-panel on" id="s-all" data-group="sales">
+    <div class="filter-bar">
+      <input class="input" placeholder="Sale no, customer…"><input class="input" value="01.11.2026 – 12.11.2026">
+      <select class="select"><option>All employees</option><option>Ayşe Demir</option><option>Merve Kaya</option></select>
+      <select class="select"><option>All payment methods</option><option>Card</option><option>Cash</option><option>Transfer</option></select>
+    </div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>No</th><th>Date</th><th>Customer</th><th>Items</th><th>Employee(s)</th><th>Payment</th><th class="num">Discount</th><th class="num">Total</th><th>Receipt</th><th></th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-open="drawer-sale"><td>S-2026-1188</td><td>12.11 13:32</td><td>Nazlı Aksoy</td><td>Package session, Aloe Gel, SPF 50</td><td>Ayşe Demir</td><td>Card</td><td class="num">₺115</td><td class="num">₺1,925</td><td><span class="tag orange">Missing</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+        <tr><td>S-2026-1187</td><td>12.11 11:05</td><td>Ece Çelik</td><td>HydraFacial, HA Serum</td><td>Merve Kaya</td><td>Card</td><td class="num">–</td><td class="num">₺3,050</td><td><span class="tag green">ÖKC · Z-0012/0455</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+        <tr><td>S-2026-1186</td><td>12.11 10:02</td><td>Deniz Yılmaz</td><td>Package session, installment 3/4</td><td>Ayşe Demir</td><td>Cash</td><td class="num">–</td><td class="num">₺3,000</td><td><span class="tag green">e-Arşiv · VBC2026000412</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+        <tr><td>S-2026-1185</td><td>11.11 18:20</td><td>–</td><td>Gentle Cleanser ×2</td><td>Zeynep Arslan</td><td>Card</td><td class="num">–</td><td class="num">₺1,280</td><td><span class="tag orange">Missing</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+        <tr><td>S-2026-1184</td><td>11.11 16:45</td><td>Hande Polat</td><td>Laser Full body 8 sessions (1/3)</td><td>Zeynep Arslan</td><td>Card · 3 taksit</td><td class="num">₺2,000</td><td class="num">₺8,000</td><td><span class="tag green">e-Arşiv · VBC2026000411</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+        <tr><td>S-2026-1183</td><td>11.11 15:10</td><td>Melis Ural</td><td>Body wrap</td><td>Elif Şahin</td><td>Cash</td><td class="num">–</td><td class="num">₺1,600</td><td><span class="tag orange">Missing</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+        <tr><td>S-2026-1182</td><td>11.11 12:00</td><td>Gizem Öztürk</td><td>Chemical peel (package 2/4)</td><td>Dr. Selin Aydın</td><td>–</td><td class="num">–</td><td class="num">₺0</td><td><span class="tag">Not needed</span></td><td><button class="btn sm" data-open="drawer-sale">Open</button></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="6">7 sales</td><td class="num">₺2,115</td><td class="num">₺18,855</td><td colspan="2"></td></tr></tfoot>
+    </table></div></div>
+  </div>
+
+  <div class="tab-panel" id="s-missing" data-group="sales">
+    <div class="alert warning mb"><i data-lucide="receipt"></i>These sales have no official receipt attached. The day close shows the same count.</div>
+    <div class="card"><div class="card-body flush"><table class="table">
+      <thead><tr><th>No</th><th>Date</th><th>Customer</th><th class="num">Total</th><th>Taken by</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>S-2026-1188</td><td>12.11 13:32</td><td>Nazlı Aksoy</td><td class="num">₺1,925</td><td>Zeynep Arslan</td><td><button class="btn sm primary" data-open="drawer-sale"><i data-lucide="upload"></i>Attach</button></td></tr>
+        <tr><td>S-2026-1185</td><td>11.11 18:20</td><td>–</td><td class="num">₺1,280</td><td>Zeynep Arslan</td><td><button class="btn sm primary" data-open="drawer-sale"><i data-lucide="upload"></i>Attach</button></td></tr>
+        <tr><td>S-2026-1183</td><td>11.11 15:10</td><td>Melis Ural</td><td class="num">₺1,600</td><td>Elif Şahin</td><td><button class="btn sm primary" data-open="drawer-sale"><i data-lucide="upload"></i>Attach</button></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="s-refunds" data-group="sales">
+    <div class="card"><div class="card-body flush"><table class="table">
+      <thead><tr><th>No</th><th>Original sale</th><th>Date</th><th>Customer</th><th>Reason</th><th>Stock</th><th class="num">Amount</th><th>Approved by</th></tr></thead>
+      <tbody><tr><td>R-2026-0021</td><td>S-2026-1101</td><td>05.11.2026</td><td>Cansu Yıldız</td><td>Product unopened, changed mind</td><td><span class="tag green">Returned to stock</span></td><td class="num">₺980</td><td>Owner</td></tr></tbody></table></div></div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="k-receivables" data-group="kasa">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Receivables</h1><p>Products, services and packages sold now and paid later: who pays when, what is overdue, what was collected.</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="download"></i>Export Excel</button><button class="btn primary" data-open="drawer-collect"><i data-lucide="hand-coins"></i>Collect payment</button></div>
+  </div>
+
+  <div class="grid g4 mb">
+    <div class="stat warning"><div class="label">Total outstanding</div><div class="value">₺48,300</div><div class="note">23 customers · 31 open installments</div></div>
+    <div class="stat primary"><div class="label">Due in next 7 days</div><div class="value">₺21,500</div><div class="note">8 installments · SMS reminders scheduled</div></div>
+    <div class="stat error"><div class="label">Overdue</div><div class="value">₺6,000</div><div class="note">2 customers · oldest 11 days</div></div>
+    <div class="stat success"><div class="label">Collected this month</div><div class="value">₺27,250</div><div class="note">19 payments</div></div>
+  </div>
+
+  <div class="tabs" data-tabs="rcv">
+    <button class="on" data-tab="v-due">Due &amp; overdue</button>
+    <button data-tab="v-calendar">Payment calendar</button>
+    <button data-tab="v-customers">By customer</button>
+    <button data-tab="v-history">Collections</button>
+  </div>
+
+  <div class="tab-panel on" id="v-due" data-group="rcv">
+    <div class="filter-bar">
+      <div class="seg"><button>Overdue</button><button class="on">Next 7 days</button><button>Next 30 days</button><button>All open</button></div>
+      <select class="select"><option>All sources</option><option>Product sales</option><option>Service sales</option><option>Packages</option></select>
+      <input class="input" placeholder="Customer…">
+    </div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Due date</th><th>Customer</th><th>Phone</th><th>For</th><th>Installment</th><th class="num">Amount</th><th class="num">Customer balance</th><th>Status</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="down">01.11.2026</td><td><a href="customer-detail.html">Cem Aktaş</a></td><td>0536 *** 18 07</td><td>Package · Laser full leg 8</td><td>2 / 4</td><td class="num">₺3,000</td><td class="num">₺9,000</td><td><span class="tag red">11 days late</span></td><td class="row"><button class="btn sm" data-toast="Reminder SMS sent">SMS</button><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+        <tr><td class="down">05.11.2026</td><td><a href="customer-detail.html">Aylin Sarı</a></td><td>0507 *** 44 21</td><td>Products · S-2026-1022</td><td>1 / 2</td><td class="num">₺3,000</td><td class="num">₺6,000</td><td><span class="tag red">7 days late</span></td><td class="row"><button class="btn sm" data-toast="Reminder SMS sent">SMS</button><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+        <tr><td>15.11.2026</td><td><a href="customer-detail.html">Burcu Koç</a></td><td>0532 *** 41 18</td><td>Products · S-2026-0861 home-care set</td><td>2 / 4</td><td class="num">₺500</td><td class="num">₺1,500</td><td><span class="tag orange">In 3 days · SMS 13.11</span></td><td class="row"><button class="btn sm" data-toast="Reminder SMS sent">SMS</button><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+        <tr><td>15.11.2026</td><td><a href="customer-detail.html">Deniz Yılmaz</a></td><td>0505 *** 22 70</td><td>Package · Laser full leg 8</td><td>4 / 4</td><td class="num">₺3,000</td><td class="num">₺6,000</td><td><span class="tag orange">In 3 days</span></td><td class="row"><button class="btn sm" data-toast="Reminder SMS sent">SMS</button><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+        <tr><td>15.11.2026</td><td><a href="customer-detail.html">Deniz Yılmaz</a></td><td>0505 *** 22 70</td><td>Products · S-2026-1150</td><td>1 / 1</td><td class="num">₺3,000</td><td class="num">₺6,000</td><td><span class="tag orange">In 3 days</span></td><td class="row"><button class="btn sm" data-toast="Reminder SMS sent">SMS</button><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+        <tr><td>18.11.2026</td><td><a href="customer-detail.html">Hande Polat</a></td><td>0541 *** 66 13</td><td>Package · Laser full body 8</td><td>2 / 3</td><td class="num">₺8,000</td><td class="num">₺16,000</td><td><span class="tag">Scheduled</span></td><td class="row"><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+        <tr><td>19.11.2026</td><td><a href="customer-detail.html">Gizem Öztürk</a></td><td>0535 *** 77 02</td><td>Service · Chemical peel 4</td><td>2 / 2</td><td class="num">₺2,800</td><td class="num">₺2,800</td><td><span class="tag">Scheduled</span></td><td class="row"><button class="btn sm primary" data-open="drawer-collect">Collect</button></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="5">7 installments</td><td class="num">₺23,300</td><td colspan="3"></td></tr></tfoot>
+    </table></div></div>
+  </div>
+
+  <div class="tab-panel" id="v-calendar" data-group="rcv">
+    <div class="card"><div class="card-head"><h3>Expected collections by week</h3><span class="small muted">From payment plans</span></div><div class="card-body">
+      <div class="hbar"><span>Overdue</span><div class="progress red"><span style="width:28%"></span></div><span class="right small">₺6,000</span></div>
+      <div class="hbar"><span>10–16 Nov</span><div class="progress"><span style="width:44%"></span></div><span class="right small">₺9,500</span></div>
+      <div class="hbar"><span>17–23 Nov</span><div class="progress"><span style="width:50%"></span></div><span class="right small">₺10,800</span></div>
+      <div class="hbar"><span>24–30 Nov</span><div class="progress"><span style="width:12%"></span></div><span class="right small">₺2,500</span></div>
+      <div class="hbar"><span>December</span><div class="progress"><span style="width:62%"></span></div><span class="right small">₺13,300</span></div>
+      <div class="hbar"><span>January+</span><div class="progress"><span style="width:28%"></span></div><span class="right small">₺6,200</span></div>
+    </div></div>
+  </div>
+
+  <div class="tab-panel" id="v-customers" data-group="rcv">
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Customer</th><th class="num">Open plans</th><th class="num">Outstanding</th><th class="num">Overdue</th><th>Next due</th><th>Credit limit</th><th>Payment behaviour</th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-href="customer-detail.html"><td>Hande Polat</td><td class="num">1</td><td class="num">₺16,000</td><td class="num">₺0</td><td>18.11.2026 · ₺8,000</td><td>₺20,000</td><td><span class="tag blue">New</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Cem Aktaş</td><td class="num">1</td><td class="num">₺9,000</td><td class="num down">₺3,000</td><td>01.11.2026 · ₺3,000</td><td>₺10,000</td><td><span class="tag red">Late 2×</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Deniz Yılmaz</td><td class="num">2</td><td class="num">₺6,000</td><td class="num">₺0</td><td>15.11.2026 · ₺6,000</td><td>₺15,000</td><td><span class="tag green">On time</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Aylin Sarı</td><td class="num">1</td><td class="num">₺6,000</td><td class="num down">₺3,000</td><td>05.11.2026 · ₺3,000</td><td>₺10,000</td><td><span class="tag orange">Late 1×</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Gizem Öztürk</td><td class="num">1</td><td class="num">₺2,800</td><td class="num">₺0</td><td>19.11.2026 · ₺2,800</td><td>₺10,000</td><td><span class="tag green">On time</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Burcu Koç</td><td class="num">1</td><td class="num">₺1,500</td><td class="num">₺0</td><td>15.11.2026 · ₺500</td><td>₺10,000</td><td><span class="tag green">On time</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="v-history" data-group="rcv">
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Date</th><th>Customer</th><th>Applied to</th><th>Method</th><th>Taken by</th><th class="num">Amount</th><th>Receipt</th></tr></thead>
+      <tbody>
+        <tr><td>12.11.2026 10:02</td><td>Deniz Yılmaz</td><td>Package Laser full leg · 3/4</td><td>Cash</td><td>Zeynep Arslan</td><td class="num">₺3,000</td><td><span class="tag green">e-Arşiv · VBC2026000412</span></td></tr>
+        <tr><td>10.11.2026 16:40</td><td>Melis Ural</td><td>S-2026-1040 · 2/2 (plan closed)</td><td>Card</td><td>Zeynep Arslan</td><td class="num">₺1,200</td><td><span class="tag">Uploaded</span></td></tr>
+        <tr><td>15.10.2026 12:15</td><td>Burcu Koç</td><td>S-2026-0861 · 1/4</td><td>Cash</td><td>Zeynep Arslan</td><td class="num">₺500</td><td><span class="tag">Uploaded</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="k-expenses" data-group="kasa">
+    <div class="page-header sub"><div class="title"><p>A simple list of what the center spends, to see approximate profit. This is not bookkeeping; the accountant still keeps the books.</p></div>
+      <div class="actions"><button class="btn"><i data-lucide="download"></i>Export</button><button class="btn primary" data-open="drawer-expense"><i data-lucide="plus"></i>Add expense</button></div></div>
+    <div class="grid g3 mb">
+      <div class="stat neutral"><div class="label">Expenses this month</div><div class="value">₺61,200</div><div class="note">5 entries</div></div>
+      <div class="stat warning"><div class="label">Planned this month</div><div class="value">₺140,000</div><div class="note">Salaries · 30.11</div></div>
+      <div class="stat success"><div class="label">Approx. profit so far</div><div class="value">₺153,600</div><div class="note">revenue ₺214,800 − expenses ₺61,200</div></div>
+    </div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Paid with</th><th class="num">Amount</th><th>Invoice</th></tr></thead>
+      <tbody>
+        <tr><td>30.11.2026</td><td><span class="tag">Salaries</span></td><td>Monthly salaries (planned, repeats monthly)</td><td>Transfer</td><td class="num">₺140,000</td><td><span class="tag orange">Planned</span></td></tr>
+        <tr><td>12.11.2026</td><td><span class="tag">Other</span></td><td>Coffee &amp; supplies</td><td>Cash (in day close)</td><td class="num">₺350</td><td><span class="tag green">Photo</span></td></tr>
+        <tr><td>10.11.2026</td><td><span class="tag">Marketing</span></td><td>Instagram ads</td><td>Card</td><td class="num">₺2,550</td><td><span class="tag green">PDF</span></td></tr>
+        <tr><td>05.11.2026</td><td><span class="tag">Utilities</span></td><td>Electricity October</td><td>Transfer</td><td class="num">₺4,900</td><td><span class="tag green">PDF</span></td></tr>
+        <tr><td>03.11.2026</td><td><span class="tag">Supplier</span></td><td>Derma Dağıtım · invoice 2026-4471</td><td>Transfer</td><td class="num">₺18,400</td><td><span class="tag green">e-Fatura</span></td></tr>
+        <tr><td>01.11.2026</td><td><span class="tag">Rent</span></td><td>Rent November (repeats monthly)</td><td>Transfer</td><td class="num">₺35,000</td><td><span class="tag green">PDF</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+  <div class="tab-panel" id="k-close" data-group="kasa">
+
+    <div class="page-header sub"><div class="title"><p>Session opened 08:45 by Zeynep Arslan · opening float ₺1,000</p></div>
+      <div class="actions"><button class="btn" data-open="drawer-move"><i data-lucide="arrow-left-right"></i>Cash in / out</button></div></div>
+    <div class="alert warning mb"><i data-lucide="receipt"></i><div>3 sales have no receipt photo. You can close anyway; they stay on the list in the Sales tab.</div></div>
+    <div class="grid g-main">
+      <div class="card"><div class="card-head"><h3><i data-lucide="lock"></i>Count cash and close the day</h3></div><div class="card-body stack">
+        <dl class="desc">
+          <dt>Opening float</dt><dd>₺1,000</dd><dt>Cash sales &amp; collections</dt><dd>+ ₺4,550</dd><dt>Cash out</dt><dd>− ₺350 (coffee &amp; supplies)</dd>
+          <dt><b>Expected cash</b></dt><dd><b>₺5,200</b></dd>
+          <dt>Card total</dt><dd>₺12,250 · compare with the POS terminal's end-of-day slip</dd><dt>Transfers</dt><dd>₺1,650</dd>
+        </dl>
+        <div class="form-grid">
+          <div class="field"><label>Counted cash <span class="req">*</span></label><input class="input" value="5.180,00"></div>
+          <div class="field"><label>Difference</label><input class="input" value="−20,00" style="color:#b91c1c"></div>
+        </div>
+        <div class="field"><label>Explanation (needed if there is a difference)</label><input class="input" value="Change given incorrectly"></div>
+        <div class="upload"><i data-lucide="camera"></i> Upload ÖKC Z-report / POS slip (optional)</div>
+        <button class="btn primary lg" style="align-self:flex-start" data-toast="Day closed · summary sent to the owner"><i data-lucide="lock"></i>Close day</button>
+      </div></div>
+      <div class="card"><div class="card-head"><h3>Previous days</h3></div><div class="card-body flush"><table class="table">
+        <thead><tr><th>Date</th><th class="num">Expected</th><th class="num">Counted</th><th class="num">Diff.</th></tr></thead>
+        <tbody><tr><td>11.11.2026</td><td class="num">₺6,420</td><td class="num">₺6,400</td><td class="num down">−₺20</td></tr>
+        <tr><td>10.11.2026</td><td class="num">₺3,980</td><td class="num">₺3,980</td><td class="num">₺0</td></tr>
+        <tr><td>09.11.2026</td><td class="num">₺2,150</td><td class="num">₺2,150</td><td class="num">₺0</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</main></div></div>
+
+<div class="modal" id="modal-receipt">
+  <div class="drawer-head"><h3><i data-lucide="check-circle" style="color:#059669"></i>Payment received · S-2026-1188</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="alert info"><i data-lucide="receipt"></i><div>Issue the official receipt on the <b>ÖKC</b> or the <b>e-Arşiv</b> portal, then record it here.</div></div>
+    <div class="form-grid">
+      <div class="field"><label>Receipt type</label><select class="select"><option>ÖKC fiş</option><option>e-Arşiv fatura</option></select></div>
+      <div class="field"><label>Receipt / invoice no</label><input class="input" placeholder="e.g. Z-0012 / 0456"></div>
+    </div>
+    <div class="upload"><i data-lucide="camera"></i><br>Take photo of receipt or upload PDF</div>
+    <div class="alert ai small"><i data-lucide="scan-line"></i><div>Phase 2: AI reads the photo, fills the number and total, and warns if the total is not ₺1,925.</div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-toast="Sale saved · listed under 'Missing receipt'">Later</button><button class="btn primary" data-toast="Receipt attached · sale complete">Save receipt</button></div>
+</div>
+<aside class="drawer" id="drawer-sale">
+  <div class="drawer-head"><h3>Sale S-2026-1188</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <dl class="desc"><dt>Date</dt><dd>12.11.2026 13:32</dd><dt>Customer</dt><dd><a href="customer-detail.html">Nazlı Aksoy</a></dd><dt>Taken by</dt><dd>Zeynep Arslan</dd><dt>Appointment</dt><dd>13:00 Laser underarm</dd></dl>
+    <table class="table"><thead><tr><th>Item</th><th>Employee</th><th class="num">KDV</th><th class="num">Amount</th></tr></thead><tbody>
+      <tr><td>Laser underarm (package 2/6)</td><td>Ayşe Demir</td><td class="num">–</td><td class="num">₺0</td></tr>
+      <tr><td>Soothing Aloe Gel <span class="tag purple">AI</span></td><td>Ayşe Demir</td><td class="num">20%</td><td class="num">₺890</td></tr>
+      <tr><td>SPF 50 Sunscreen <span class="tag purple">AI</span></td><td>Ayşe Demir</td><td class="num">20%</td><td class="num">₺1,035</td></tr></tbody>
+      <tfoot><tr><td colspan="3">Total · Card</td><td class="num">₺1,925</td></tr></tfoot></table>
+    <div class="card"><div class="card-head"><h3><i data-lucide="receipt"></i>Official receipt</h3><span class="tag orange">Missing</span></div><div class="card-body stack">
+      <div class="form-grid"><div class="field"><label>Type</label><select class="select"><option>ÖKC fiş</option><option>e-Arşiv fatura</option></select></div><div class="field"><label>Number</label><input class="input"></div></div>
+      <div class="upload"><i data-lucide="camera"></i><br>Take photo or upload PDF</div></div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn danger" data-open="drawer-refund">Refund</button><button class="btn" data-close>Close</button><button class="btn primary" data-toast="Receipt attached">Save receipt</button></div>
+</aside>
+<aside class="drawer" id="drawer-collect">
+  <div class="drawer-head"><h3><i data-lucide="hand-coins"></i>Collect payment</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>Customer</label><input class="input" value="Cem Aktaş · 0536 *** 18 07"></div>
+    <div class="alert error small"><i data-lucide="alert-triangle"></i><div>₺3,000 overdue since 01.11.2026 (11 days).</div></div>
+    <table class="table"><thead><tr><th></th><th>Due</th><th>For</th><th class="num">Amount</th></tr></thead><tbody>
+      <tr><td><input type="checkbox" checked></td><td class="down">01.11.2026</td><td>Laser full leg · 2/4</td><td class="num">₺3,000</td></tr>
+      <tr><td><input type="checkbox"></td><td>01.12.2026</td><td>Laser full leg · 3/4</td><td class="num">₺3,000</td></tr>
+      <tr><td><input type="checkbox"></td><td>01.01.2027</td><td>Laser full leg · 4/4</td><td class="num">₺3,000</td></tr></tbody></table>
+    <div class="field"><label>Amount</label><input class="input" value="3.000,00"><span class="hint">Partial payments are allowed; the rest stays on the same installment.</span></div>
+    <div class="pay-methods"><button class="on"><i data-lucide="banknote"></i>Cash</button><button><i data-lucide="credit-card"></i>Card</button><button><i data-lucide="landmark"></i>Transfer</button></div>
+    <div class="field"><label>Date</label><input class="input" value="12.11.2026"></div>
+    <div class="upload"><i data-lucide="camera"></i><br>Upload payment receipt (optional)</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="₺3,000 collected · installment 2/4 paid">Collect ₺3,000</button></div>
+</aside>
+<aside class="drawer" id="drawer-move">
+  <div class="drawer-head"><h3>Cash in / out</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack"><div class="seg"><button class="on">Cash out</button><button>Cash in</button></div>
+    <div class="field"><label>Amount</label><input class="input"></div><div class="field"><label>Reason</label><input class="input"></div></div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Saved">Save</button></div>
+</aside>
+<aside class="drawer wide" id="drawer-package">
+  <div class="drawer-head"><h3><i data-lucide="gift"></i>Sell a package · Nazlı Aksoy</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field span-2"><label>Package</label><select class="select"><option>Laser Face 6 sessions · ₺7,200 · 12 months</option><option>Laser Underarm 6 sessions · ₺4,800</option><option>Laser Full leg 8 sessions · ₺24,000</option><option>Chemical peel 4 sessions · ₺7,600</option></select></div>
+      <div class="field"><label>Price</label><input class="input" value="7.200,00"><span class="hint">Discount above 10% needs manager approval</span></div>
+      <div class="field"><label>Sold by</label><select class="select"><option>Ayşe Demir</option><option>Zeynep Arslan</option></select></div>
+    </div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="calendar-clock"></i>Payment</h3><div class="seg"><button>Pay in full</button><button class="on">Installments</button></div></div><div class="card-body flush"><table class="table">
+      <thead><tr><th>#</th><th>Due</th><th class="num">Amount</th></tr></thead>
+      <tbody><tr><td>Now</td><td>12.11.2026</td><td class="num">₺2,400</td></tr><tr><td>1</td><td>12.12.2026</td><td class="num">₺2,400</td></tr><tr><td>2</td><td>12.01.2027</td><td class="num">₺2,400</td></tr></tbody></table></div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="calendar-days"></i>Book the sessions</h3><label class="chk"><input type="checkbox" checked> Book all now</label></div><div class="card-body">
+      <div class="form-grid" style="grid-template-columns:1fr 1fr"><div class="field"><label>First session</label><input class="input" value="24.12.2026 13:00"></div><div class="field"><label>Every</label><select class="select"><option>6 weeks</option><option>4 weeks</option><option>8 weeks</option></select></div></div>
+      <div class="row wrap mt" style="gap:6px"><span class="tag indigo">24.12</span><span class="tag indigo">04.02</span><span class="tag indigo">18.03</span><span class="tag indigo">29.04</span><span class="tag orange">10.06 · Ayşe on leave → 11.06</span><span class="tag indigo">22.07</span></div>
+    </div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Package added to sale · 6 sessions booked · 2 installments planned">Add to sale</button></div>
+</aside>
+<aside class="drawer" id="drawer-expense">
+  <div class="drawer-head"><h3><i data-lucide="file-minus"></i>Add expense</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field"><label>Date</label><input class="input" value="12.11.2026"></div>
+      <div class="field"><label>Amount</label><input class="input"></div>
+    </div>
+    <div class="field"><label>Category</label><div class="seg" style="flex-wrap:wrap"><button class="on">Supplier</button><button>Rent</button><button>Salaries</button><button>Utilities</button><button>Marketing</button><button>Maintenance</button><button>Other</button></div></div>
+    <div class="field"><label>Description</label><input class="input"></div>
+    <div class="field"><label>Paid with</label><div class="pay-methods"><button class="on"><i data-lucide="landmark"></i>Transfer</button><button><i data-lucide="credit-card"></i>Card</button><button><i data-lucide="banknote"></i>Cash</button></div><span class="hint">Cash expenses are taken out of the cash desk and show in the day close.</span></div>
+    <label class="chk"><input type="checkbox"> Repeats every month</label>
+    <div class="upload"><i data-lucide="camera"></i><br>Photo or PDF of the invoice</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Expense saved">Save</button></div>
+</aside>
+<aside class="drawer" id="drawer-refund">
+  <div class="drawer-head"><h3><i data-lucide="undo-2"></i>Refund · S-2026-1188</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <table class="table"><thead><tr><th></th><th>Item</th><th class="num">Amount</th></tr></thead><tbody>
+      <tr><td><input type="checkbox"></td><td>Soothing Aloe Gel</td><td class="num">₺890</td></tr>
+      <tr><td><input type="checkbox" checked></td><td>SPF 50 Sunscreen</td><td class="num">₺1,035</td></tr></tbody></table>
+    <div class="field"><label>Reason</label><select class="select"><option>Product unopened, changed mind</option><option>Allergic reaction</option><option>Damaged product</option><option>Wrong item</option><option>Other</option></select></div>
+    <label class="chk"><input type="checkbox" checked> Put back into stock (unopened)</label>
+    <div class="field"><label>Refund to</label><div class="pay-methods"><button class="on"><i data-lucide="credit-card"></i>Card</button><button><i data-lucide="banknote"></i>Cash</button><button><i data-lucide="wallet"></i>Customer balance</button></div></div>
+    <div class="upload"><i data-lucide="camera"></i><br>Refund document (as your accountant requires)</div>
+    <div class="alert info small"><i data-lucide="info"></i><div>A sale can't be edited once its receipt is issued. To change it, refund it and sell again. Commission is reversed automatically if commission is on.</div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn danger" data-toast="₺1,035 refunded to card · stock +1">Refund ₺1,035</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

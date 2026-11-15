@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Burcu Koç · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="customers:detail">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="customers.html">Müşteriler</a><i data-lucide="chevron-right"></i>Burcu Koç</div>
+  <div class="page-header">
+    <div class="row" style="gap:14px">
+      <span class="avatar lg">BK</span>
+      <div class="title" style="border:none;padding:0"><h1>Burcu Koç</h1>
+        <p class="row wrap" style="gap:6px">#C-1042 · 0532 *** 41 18 · 34 yaş · 03/2025'ten beri müşteri · tercihi Ayşe Demir
+          <span class="tag orange"><i data-lucide="alert-triangle"></i>Alerji: lidokain</span><span class="tag">Fitzpatrick III</span><span class="tag">Karma cilt</span></p></div>
+    </div>
+    <div class="actions">
+      <button class="btn" data-open="drawer-edit"><i data-lucide="pencil"></i>Düzenle</button>
+      <a class="btn" href="calendar.html#new"><i data-lucide="calendar-plus"></i>Randevu ver</a>
+      <a class="btn" href="kasa.html"><i data-lucide="shopping-cart"></i>Satış yap</a>
+      <a class="btn ai" href="consultation.html"><i data-lucide="sparkles"></i>YZ ile danış</a>
+    </div>
+  </div>
+
+  <div class="alert error mb"><i data-lucide="file-warning"></i><div>Bugün 14:00 randevusu için <b>lazer uygulama onamı eksik</b>. <a href="#" data-open="drawer-consent">Onamı şimdi kaydet</a></div></div>
+
+  <div class="grid g4 mb">
+    <div class="stat primary"><div class="label">Harcama (12 ay)</div><div class="value">₺14.200</div><div class="note">11 ziyaret · ort. ₺1.290</div></div>
+    <div class="stat neutral"><div class="label">Aktif paket</div><div class="value">3 / 6 kaldı</div><div class="note">Lazer Yüz · son geçerlilik 04/2027</div></div>
+    <div class="stat warning"><div class="label">Açık bakiye</div><div class="value">₺1.500</div><div class="note">Sıradaki: 15.11.2026'da ₺500 · <a href="#" data-open="drawer-collect">Tahsil et</a></div></div>
+    <div class="stat neutral"><div class="label">Sadakat</div><div class="value">420 puan</div><div class="note">≈ ₺210 indirim · Faz 2</div></div>
+  </div>
+
+  <div class="tabs" data-tabs="cust">
+    <button class="on" data-tab="t-overview"><i data-lucide="layout-dashboard"></i>Genel bakış</button>
+    <button data-tab="t-timeline"><i data-lucide="history"></i>Zaman çizelgesi</button>
+    <button data-tab="t-health"><i data-lucide="heart-pulse"></i>Sağlık ve onamlar</button>
+    <button data-tab="t-treat"><i data-lucide="clipboard-list"></i>Uygulamalar</button>
+    <button data-tab="t-photos"><i data-lucide="image"></i>Fotoğraflar</button>
+    <button data-tab="t-pack"><i data-lucide="gift"></i>Paketler</button>
+    <button data-tab="t-sales"><i data-lucide="receipt"></i>Satışlar</button>
+    <button data-tab="t-account"><i data-lucide="wallet"></i>Hesap ve ödemeler <span class="tag orange">₺1.500</span></button>
+  </div>
+
+  <!-- Genel bakış -->
+  <div class="tab-panel on" id="t-overview" data-group="cust">
+    <div class="grid g-main">
+      <div class="stack">
+        <div class="card ai-card"><div class="card-head"><h3><i data-lucide="sparkles"></i>Müşteri özeti</h3><span class="tag purple">YZ · Faz 2</span></div>
+          <div class="card-body" style="font-size:14px"><b>Yüz lazeri</b> için 5–6 haftada bir geliyor; kürün yarısında ve sonuçlar iyi (notlara göre kıl yoğunluğu ~%60 azaldı). Her seanstan sonra <b>SPF 50</b> ve <b>yatıştırıcı jel</b> alıyor; son SPF alımı 10 hafta önce. Lidokaine hassas: uyuşturucu krem kullanılmamalı. Öğleden sonra geç saatleri ve Ayşe Demir'i tercih ediyor.</div></div>
+        <div class="card"><div class="card-head"><h3>Yaklaşan</h3></div>
+          <ul class="list">
+            <li><i data-lucide="calendar-days"></i><div class="grow"><b>Bugün 14:00</b> · Lazer · Yüz · Ayşe Demir · Diode 808</div><span class="tag">Onaylandı</span></li>
+            <li><i data-lucide="calendar-days"></i><div class="grow"><b>24.12.2026 14:00</b> · Lazer · Yüz (seri)</div><span class="tag">Rezerve</span></li>
+          </ul></div>
+        <div class="card"><div class="card-head"><h3>Notlar</h3><button class="btn sm"><i data-lucide="plus"></i>Not ekle</button></div>
+          <ul class="list"><li><div class="grow">Arama yerine SMS tercih ediyor. Yüz fotoğrafı çekmeden önce izin isteyin.<div class="small muted">Zeynep Arslan · 02.06.2025</div></div></li></ul></div>
+      </div>
+      <div class="card"><div class="card-head"><h3>Profil</h3></div><div class="card-body">
+        <dl class="desc">
+          <dt>Telefon</dt><dd>0532 *** 41 18</dd><dt>E-posta</dt><dd>burcu.k@example.com</dd><dt>Doğum tarihi</dt><dd>14.03.1992</dd>
+          <dt>Dil</dt><dd>Türkçe</dd><dt>Kaynak</dt><dd>Instagram</dd><dt>Tercih edilen personel</dt><dd>Ayşe Demir</dd>
+          <dt>Etiketler</dt><dd><span class="tag">Hassas cilt</span></dd><dt>Ticari SMS</dt><dd><span class="tag green">İYS: izinli</span></dd>
+        </dl></div></div>
+    </div>
+  </div>
+
+  <!-- Zaman çizelgesi -->
+  <div class="tab-panel" id="t-timeline" data-group="cust"><div class="card"><div class="card-body">
+    <ul class="timeline">
+      <li><div class="when">01.10.2026 · 14:00</div><b>Lazer · Yüz (3/6)</b> · Ayşe Demir · Diode 808 · 16 J/cm² · 210 atım · hafif kızarıklık <a href="treatment.html">kayıt</a></li>
+      <li class="ai"><div class="when">01.10.2026</div>Yapay zekâ <b>Yatıştırıcı Aloe Jel</b> ve <b>SPF 50</b> önerdi: kabul edildi (1 satıldı, 1 reddedildi: "evde yeterince var")</li>
+      <li class="sale"><div class="when">01.10.2026</div>Satış S-2026-0911 · ₺890 · Yatıştırıcı Aloe Jel · kart · fiş ✓</li>
+      <li><div class="when">20.08.2026</div><b>Lazer · Yüz (2/6)</b> · Ayşe Demir</li>
+      <li class="sale"><div class="when">20.08.2026</div>Satış S-2026-0744 · ₺1.150 · SPF 50 Güneş Kremi · nakit · fiş ✓</li>
+      <li class="note"><div class="when">20.08.2026</div>Sağlık anketi yenilendi: izotretinoin 08/2026'da bırakıldı</li>
+      <li><div class="when">05.07.2026</div><b>Lazer · Yüz (1/6)</b> · paket satıldı ₺7.200 (2 taksit)</li>
+    </ul></div></div></div>
+
+  <!-- Sağlık ve onamlar -->
+  <div class="tab-panel" id="t-health" data-group="cust">
+    <div class="alert info mb"><i data-lucide="lock"></i>Sağlık verileri yalnızca yetkili rollerce görülebilir. Her görüntüleme kayıt altına alınır (KVKK).</div>
+    <div class="grid g2">
+      <div class="card"><div class="card-head"><h3><i data-lucide="heart-pulse"></i>Cilt ve sağlık profili</h3><button class="btn sm"><i data-lucide="pencil"></i>Düzenle</button></div><div class="card-body">
+        <dl class="desc">
+          <dt>Cilt tipi</dt><dd>Karma, hassas</dd><dt>Fitzpatrick</dt><dd>III</dd>
+          <dt>Şikâyetler</dt><dd>İstenmeyen yüz tüyleri, hafif lekelenme</dd>
+          <dt>Alerjiler</dt><dd><span class="tag red">Lidokain</span></dd>
+          <dt>İlaçlar</dt><dd>İzotretinoin, 08/2026'da bırakıldı</dd>
+          <dt>Gebelik</dt><dd>Hayır</dd><dt>Hastalıklar</dt><dd>Bildirilmedi</dd>
+        </dl></div></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="file-check"></i>Onamlar</h3><button class="btn sm primary" data-open="drawer-consent"><i data-lucide="plus"></i>Onam kaydet</button></div>
+        <div class="card-body flush"><table class="table">
+          <thead><tr><th>Onam</th><th>Sürüm</th><th>Tarih</th><th>Durum</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>KVKK aydınlatma metni</td><td>v3</td><td>05.03.2025</td><td><span class="tag green">Verildi</span></td><td><a href="#">PDF</a></td></tr>
+            <tr><td>Sağlık verileri (açık rıza)</td><td>v2</td><td>05.03.2025</td><td><span class="tag green">Verildi</span></td><td><a href="#">PDF</a></td></tr>
+            <tr><td>Fotoğraflar</td><td>v1</td><td>05.03.2025</td><td><span class="tag green">Verildi</span></td><td><a href="#">PDF</a></td></tr>
+            <tr><td>Yapay zekâ önerileri</td><td>v1</td><td>20.08.2026</td><td><span class="tag green">Verildi</span></td><td><a href="#">PDF</a></td></tr>
+            <tr><td>Lazer uygulaması</td><td>v4</td><td>05.07.2025</td><td><span class="tag red">Süresi doldu</span></td><td><a href="#" data-open="drawer-consent">Yenile</a></td></tr>
+            <tr><td>Ticari SMS</td><td>İYS</td><td>05.03.2025</td><td><span class="tag green">İzinli</span></td><td></td></tr>
+          </tbody></table></div></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="list-checks"></i>Sağlık anketleri</h3><button class="btn sm">Yeni anket</button></div>
+        <ul class="list"><li><div class="grow">Lazer öncesi anket<div class="small muted">20.08.2026 · Dr. Selin Aydın tarafından incelendi</div></div><span class="tag green">20.02.2027'ye kadar geçerli</span></li>
+        <li><div class="grow">Genel sağlık anketi<div class="small muted">05.03.2025</div></div><span class="tag">Yenisiyle değiştirildi</span></li></ul></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="shield"></i>KVKK talepleri</h3></div><div class="card-body row wrap">
+        <button class="btn" data-toast="Dışa aktarım hazırlandı (JSON + PDF'ler)"><i data-lucide="download"></i>Müşteri verilerini dışa aktar</button>
+        <button class="btn danger" data-toast="İşletme sahibi onayı gerekir · mali kayıtlar saklanır"><i data-lucide="user-x"></i>Anonimleştir</button></div></div>
+    </div>
+  </div>
+
+  <!-- Uygulamalar -->
+  <div class="tab-panel" id="t-treat" data-group="cust"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Tarih</th><th>Hizmet · bölge</th><th>Personel</th><th>Cihaz</th><th>Parametreler</th><th>Ürünler / lot</th><th>Reaksiyon</th><th></th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="treatment.html"><td>01.10.2026</td><td>Lazer · Yüz 3/6</td><td>Ayşe Demir</td><td>Diode 808</td><td class="small">808 nm · 16 J/cm² · 12 mm · 210 atım</td><td class="small">Soğutma jeli CG-551 · 20 ml</td><td><span class="tag orange">Hafif kızarıklık</span></td><td><a href="treatment.html">Aç</a></td></tr>
+      <tr class="clickable" data-href="treatment.html"><td>20.08.2026</td><td>Lazer · Yüz 2/6</td><td>Ayşe Demir</td><td>Diode 808</td><td class="small">808 nm · 15 J/cm² · 12 mm · 205 atım</td><td class="small">Soğutma jeli CG-551 · 20 ml</td><td><span class="tag green">Yok</span></td><td><a href="treatment.html">Aç</a></td></tr>
+      <tr class="clickable" data-href="treatment.html"><td>05.07.2026</td><td>Lazer · Yüz 1/6</td><td>Ayşe Demir</td><td>Diode 808</td><td class="small">808 nm · 14 J/cm² · 12 mm · 220 atım</td><td class="small">Soğutma jeli CG-498 · 25 ml</td><td><span class="tag green">Yok</span></td><td><a href="treatment.html">Aç</a></td></tr>
+      <tr><td>12.04.2026</td><td>HydraFacial</td><td>Merve Kaya</td><td>–</td><td class="small">–</td><td class="small">Hyaluronik Serum HS-120 · 2 ml</td><td><span class="tag green">Yok</span></td><td></td></tr>
+    </tbody></table></div></div></div>
+
+  <!-- Fotoğraflar -->
+  <div class="tab-panel" id="t-photos" data-group="cust"><div class="card"><div class="card-head"><h3>Öncesi / sonrası · Yüz</h3><div class="row"><select class="select" style="width:auto"><option>Karşılaştır: 05.07.2026 ↔ 01.10.2026</option></select><button class="btn sm"><i data-lucide="camera"></i>Fotoğraf çek</button></div></div>
+    <div class="card-body grid g4"><div class="photo">fotoğraf<span>05.07.2026 · öncesi</span></div><div class="photo">fotoğraf<span>20.08.2026</span></div><div class="photo">fotoğraf<span>01.10.2026</span></div><div class="upload" style="display:grid;place-items:center"><i data-lucide="upload"></i>Yükle</div></div></div></div>
+
+  <!-- Paketler -->
+  <div class="tab-panel" id="t-pack" data-group="cust"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Paket</th><th>Satış tarihi</th><th>Seanslar</th><th>Son geçerlilik</th><th class="num">Fiyat</th><th class="num">Ödenen</th><th>Durum</th></tr></thead>
+    <tbody><tr><td>Lazer Yüz 6 seans</td><td>05.07.2026</td><td><div class="progress" style="width:120px"><span style="width:50%"></span></div><span class="small">3 kullanıldı · 3 kaldı</span></td><td>04.07.2027</td><td class="num">₺7.200</td><td class="num">₺7.200</td><td><span class="tag green">Aktif</span></td></tr>
+    <tr><td>HydraFacial 3 seans</td><td>10.01.2026</td><td><span class="small">3 kullanıldı · 0 kaldı</span></td><td>10.07.2026</td><td class="num">₺4.500</td><td class="num">₺4.500</td><td><span class="tag">Tamamlandı</span></td></tr></tbody></table></div></div></div>
+
+  <!-- Satışlar -->
+  <div class="tab-panel" id="t-sales" data-group="cust"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>No</th><th>Tarih</th><th>Kalemler</th><th>Personel</th><th class="num">Toplam</th><th>Ödeme</th><th>Fiş</th></tr></thead>
+    <tbody><tr class="clickable" data-href="kasa.html#k-sales"><td>S-2026-0911</td><td>01.10.2026</td><td>Yatıştırıcı Aloe Jel</td><td>Ayşe Demir</td><td class="num">₺890</td><td>Kart</td><td><span class="tag green">Yüklendi</span></td></tr>
+    <tr class="clickable" data-href="kasa.html#k-sales"><td>S-2026-0744</td><td>20.08.2026</td><td>SPF 50 Güneş Kremi</td><td>Ayşe Demir</td><td class="num">₺1.150</td><td>Nakit</td><td><span class="tag green">Yüklendi</span></td></tr>
+    <tr class="clickable" data-href="kasa.html#k-sales"><td>S-2026-0512</td><td>05.07.2026</td><td>Lazer Yüz 6 seans (1/2)</td><td>Zeynep Arslan</td><td class="num">₺3.600</td><td>Kart</td><td><span class="tag green">Yüklendi</span></td></tr></tbody></table></div></div></div>
+
+  <!-- Hesap ve ödemeler -->
+  <div class="tab-panel" id="t-account" data-group="cust">
+    <div class="grid g4 mb">
+      <div class="stat warning"><div class="label">Açık bakiye</div><div class="value">₺1.500</div><div class="note">1 aktif ödeme planı</div></div>
+      <div class="stat primary"><div class="label">Sıradaki ödeme</div><div class="value">₺500</div><div class="note">15.11.2026 · 3 gün sonra · SMS 13.11'de</div></div>
+      <div class="stat success"><div class="label">Gecikmiş</div><div class="value">₺0</div><div class="note">Ödemeleri hep zamanında</div></div>
+      <div class="stat neutral"><div class="label">Borç limiti</div><div class="value">₺10.000</div><div class="note">₺8.500 kullanılabilir</div></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="card-head"><h3><i data-lucide="calendar-clock"></i>Ödeme planı P-2026-031</h3><div class="row"><button class="btn sm" data-toast="Hatırlatma SMS'i gönderildi">SMS hatırlat</button><button class="btn sm primary" data-open="drawer-collect"><i data-lucide="hand-coins"></i>Tahsil et</button></div></div>
+        <div class="card-body small muted" style="padding-bottom:0">Satış S-2026-0861 · 15.09.2026 · Ev bakım seti (%10 Niasinamid Serum, SPF 50 Güneş Kremi, Nazik Temizleyici) · ₺2.770 · satışta ₺770 ödendi</div>
+        <div class="card-body flush"><table class="table">
+          <thead><tr><th>#</th><th>Vade</th><th class="num">Tutar</th><th class="num">Ödenen</th><th>Durum</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>15.10.2026</td><td class="num">₺500</td><td class="num">₺500</td><td><span class="tag green">Ödendi 15.10 · nakit</span></td></tr>
+            <tr><td>2</td><td><b>15.11.2026</b></td><td class="num">₺500</td><td class="num">₺0</td><td><span class="tag orange">3 gün sonra</span></td></tr>
+            <tr><td>3</td><td>15.12.2026</td><td class="num">₺500</td><td class="num">₺0</td><td><span class="tag">Planlandı</span></td></tr>
+            <tr><td>4</td><td>15.01.2027</td><td class="num">₺500</td><td class="num">₺0</td><td><span class="tag">Planlandı</span></td></tr>
+          </tbody>
+          <tfoot><tr><td colspan="2">Toplam</td><td class="num">₺2.000</td><td class="num">₺500</td><td>₺1.500 kaldı</td></tr></tfoot></table></div></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="history"></i>Ödeme geçmişi</h3><button class="btn sm"><i data-lucide="download"></i>Hesap ekstresi (PDF)</button></div>
+        <div class="card-body flush"><table class="table">
+          <thead><tr><th>Tarih</th><th>Açıklama</th><th class="num">Borç</th><th class="num">Ödeme</th><th class="num">Bakiye</th></tr></thead>
+          <tbody>
+            <tr><td>15.10.2026</td><td>Taksit 1/4 · nakit · <a href="#">makbuz</a></td><td class="num"></td><td class="num up">₺500</td><td class="num">₺1.500</td></tr>
+            <tr><td>01.10.2026</td><td>Satış S-2026-0911 · Aloe Jel · kart</td><td class="num">₺890</td><td class="num up">₺890</td><td class="num">₺2.000</td></tr>
+            <tr><td>15.09.2026</td><td>Peşinat S-2026-0861 · kart</td><td class="num"></td><td class="num up">₺770</td><td class="num">₺2.000</td></tr>
+            <tr><td>15.09.2026</td><td>Satış S-2026-0861 · ev bakım seti</td><td class="num">₺2.770</td><td class="num"></td><td class="num">₺2.770</td></tr>
+            <tr><td>20.08.2026</td><td>Satış S-2026-0744 · SPF 50 · nakit</td><td class="num">₺1.150</td><td class="num up">₺1.150</td><td class="num">₺0</td></tr>
+          </tbody></table></div></div>
+    </div>
+  </div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-collect">
+  <div class="drawer-head"><h3><i data-lucide="hand-coins"></i>Tahsilat · Burcu Koç</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <dl class="desc"><dt>Açık bakiye</dt><dd><b>₺1.500</b></dd><dt>Sıradaki vade</dt><dd>₺500 · 15.11.2026 (taksit 2/4)</dd></dl>
+    <div class="field"><label>Tutar</label><input class="input" value="500,00"><span class="hint">Birden fazla taksit aynı anda ödenebilir; tutar önce en eski vadeye uygulanır.</span></div>
+    <div class="pay-methods"><button class="on"><i data-lucide="banknote"></i>Nakit</button><button><i data-lucide="credit-card"></i>Kart</button><button><i data-lucide="landmark"></i>Havale/EFT</button></div>
+    <div class="field"><label>Tarih</label><input class="input" value="12.11.2026"></div>
+    <div class="field"><label>Not</label><input class="input"></div>
+    <div class="upload"><i data-lucide="camera"></i><br>Ödeme makbuzunu yükle (isteğe bağlı)</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="₺500 tahsil edildi · taksit 2/4 ödendi · bakiye ₺1.000">₺500 tahsil et</button></div>
+</aside>
+
+<aside class="drawer" id="drawer-consent">
+  <div class="drawer-head"><h3><i data-lucide="file-check"></i>Onam kaydet</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>Onam formu</label><select class="select"><option>Lazer uygulama onamı v4</option><option>Kimyasal peeling onamı v2</option><option>Fotoğraf onamı v1</option></select></div>
+    <div class="alert info"><i data-lucide="printer"></i><div>Formu yazdırın, müşteriye imzalatın, ardından fotoğrafını yükleyin. <a href="#">Formu yazdır (TR)</a> · <a href="#">EN</a></div></div>
+    <div class="upload"><i data-lucide="camera"></i><br>Fotoğraf çekin veya imzalı PDF yükleyin</div>
+    <div class="field"><label>İmza tarihi</label><input class="input" value="12.11.2026"></div>
+    <div class="field"><label>Geçerlilik bitişi</label><input class="input" value="12.11.2027"><span class="hint">Hizmetin onam ayarlarından alınır (12 ay).</span></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Onam kaydedildi · uyarı kaldırıldı">Kaydet</button></div>
+</aside>
+<aside class="drawer" id="drawer-edit">
+  <div class="drawer-head"><h3>Müşteriyi düzenle</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field"><label>Ad</label><input class="input" value="Burcu"></div><div class="field"><label>Soyad</label><input class="input" value="Koç"></div>
+    <div class="field"><label>Telefon</label><input class="input" value="0532 *** 41 18"></div><div class="field"><label>E-posta</label><input class="input" value="burcu.k@example.com"></div>
+    <div class="field"><label>Tercih edilen personel</label><select class="select"><option>Ayşe Demir</option></select></div><div class="field"><label>Etiketler</label><input class="input" value="Hassas cilt"></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Kaydedildi">Kaydet</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog & stock · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="catalog">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Catalog &amp; stock</h1><p>Services, products, packages and stock</p></div>
+  </div>
+  <div class="tabs main-tabs" data-tabs="cat"><button class="on" data-tab="c-services"><i data-lucide="sparkles"></i>Services</button><button data-tab="c-products"><i data-lucide="package"></i>Products</button><button data-tab="c-packages"><i data-lucide="gift"></i>Packages</button><button data-tab="c-stock"><i data-lucide="boxes"></i>Stock movements</button></div>
+  <div class="tab-panel on" id="c-services" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Services</h1><p>32 services in 5 categories. Content fields feed the AI consultation assistant.</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="folder-plus"></i>Category</button><a class="btn primary" href="service-detail.html"><i data-lucide="plus"></i>New service</a></div>
+  </div>
+  <div class="filter-bar">
+    <input class="input" placeholder="Search services…">
+    <div class="seg"><button class="on">All</button><button>Laser</button><button>Skin care</button><button>Medical aesthetics</button><button>Spa</button><button>Brows &amp; lashes</button></div>
+    <label class="chk"><input type="checkbox"> Content incomplete</label>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Service</th><th>Category</th><th>Duration</th><th class="num">Price</th><th>Requirements</th><th>Resource</th><th>Consumables</th><th>AI content</th><th>Active</th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Laser epilation</b><div class="small muted">12 areas</div></td><td>Laser</td><td>15–90 min</td><td class="num">₺600–4,500</td><td><span class="tag indigo">Certified operator</span> <span class="tag">Consent</span></td><td>Laser device</td><td>3</td><td><span class="tag green">Complete</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>HydraFacial</b></td><td>Skin care</td><td>60 min</td><td class="num">₺1,800</td><td>–</td><td>Room 2</td><td>4</td><td><span class="tag green">Complete</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Chemical peel</b></td><td>Medical aesthetics</td><td>45 min</td><td class="num">₺2,200</td><td><span class="tag red">Physician</span> <span class="tag">Consent</span></td><td>Room 1</td><td>3</td><td><span class="tag green">Complete</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Botox</b></td><td>Medical aesthetics</td><td>30 min</td><td class="num">₺6,500</td><td><span class="tag red">Physician</span> <span class="tag">Consent</span> <span class="tag">Lot tracking</span></td><td>Room 1</td><td>2</td><td><span class="tag orange">Missing contraindications</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Brightening facial (Vitamin C)</b></td><td>Skin care</td><td>50 min</td><td class="num">₺1,400</td><td>–</td><td>Room 2</td><td>3</td><td><span class="tag green">Complete</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Acne care facial</b></td><td>Skin care</td><td>60 min</td><td class="num">₺1,500</td><td>–</td><td>Room 2</td><td>4</td><td><span class="tag orange">No description</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Relax massage</b></td><td>Spa</td><td>60 / 90 min</td><td class="num">₺1,300–1,800</td><td>–</td><td>Spa room</td><td>1</td><td><span class="tag green">Complete</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Brow shaping</b></td><td>Brows &amp; lashes</td><td>20 min</td><td class="num">₺400</td><td>–</td><td>–</td><td>0</td><td><span class="tag green">Complete</span></td><td><label class="switch"><input type="checkbox"><span class="track"></span></label></td></tr>
+    </tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="c-products" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Products</h1><p>86 products · stock value ₺148,600 at cost</p></div>
+    <div class="actions"><a class="btn" href="catalog.html#drawer-receipt"><i data-lucide="truck"></i>Goods receipt</a><a class="btn primary" href="product-detail.html"><i data-lucide="plus"></i>New product</a></div>
+  </div>
+  <div class="grid g4 mb">
+    <div class="stat neutral"><div class="label">Stock value</div><div class="value">₺148,600</div><div class="note">Retail ₺96k · consumables ₺52k</div></div>
+    <div class="stat warning"><div class="label">Low stock</div><div class="value">4</div></div>
+    <div class="stat error"><div class="label">Expiring ≤ 60 days</div><div class="value">3 lots</div></div>
+    <div class="stat primary"><div class="label">Missing AI content</div><div class="value">9</div><div class="note">Not used in recommendations</div></div>
+  </div>
+  <div class="filter-bar">
+    <input class="input" placeholder="Name, brand, barcode…">
+    <div class="seg"><button class="on">All</button><button>Retail</button><button>Consumable</button></div>
+    <select class="select"><option>All categories</option><option>Sun care</option><option>Serums</option><option>Cleansers</option><option>Cabin supplies</option></select>
+    <select class="select"><option>Any status</option><option>Low stock</option><option>Out of stock</option><option>Expiring</option></select>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Product</th><th>Type</th><th>Category</th><th class="num">Stock</th><th class="num">Min</th><th>Nearest expiry</th><th class="num">Cost</th><th class="num">Price</th><th>AI content</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Laser cooling gel 5 L</b><div class="small muted">Dermaline · 8690000000011</div></td><td><span class="tag">Consumable</span></td><td>Cabin supplies</td><td class="num">1.8 L</td><td class="num">3 L</td><td>06/2027</td><td class="num">₺1,400</td><td class="num">–</td><td>–</td><td><span class="tag orange">Low</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>SPF 50 Sunscreen 50 ml</b><div class="small muted">Dermaline</div></td><td><span class="tag blue">Retail</span></td><td>Sun care</td><td class="num">12</td><td class="num">5</td><td>09/2027</td><td class="num">₺520</td><td class="num">₺1,150</td><td><span class="tag green">Complete</span></td><td><span class="tag green">OK</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Soothing Aloe Gel 200 ml</b><div class="small muted">Dermaline</div></td><td><span class="tag blue">Retail</span> <span class="tag">Consumable</span></td><td>After-care</td><td class="num">9 + 0.6 L</td><td class="num">4</td><td>02/2027</td><td class="num">₺380</td><td class="num">₺890</td><td><span class="tag green">Complete</span></td><td><span class="tag green">OK</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Vitamin C Serum 50 ml</b><div class="small muted">Lumière Lab</div></td><td><span class="tag blue">Retail</span></td><td>Serums</td><td class="num">0</td><td class="num">3</td><td class="down">03.12.2026 (6 pcs in cabin)</td><td class="num">₺640</td><td class="num">₺1,490</td><td><span class="tag green">Complete</span></td><td><span class="tag red">Out</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Niacinamide 10% Serum 30 ml</b><div class="small muted">Lumière Lab</div></td><td><span class="tag blue">Retail</span></td><td>Serums</td><td class="num">7</td><td class="num">3</td><td>04/2028</td><td class="num">₺410</td><td class="num">₺980</td><td><span class="tag green">Complete</span></td><td><span class="tag green">OK</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Retinol Night Cream 50 ml</b><div class="small muted">Lumière Lab</div></td><td><span class="tag blue">Retail</span></td><td>Night care</td><td class="num">5</td><td class="num">3</td><td>11/2027</td><td class="num">₺590</td><td class="num">₺1,350</td><td><span class="tag orange">No contraindications</span></td><td><span class="tag green">OK</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Botulinum toxin 100U</b><div class="small muted">Medical · lot tracked</div></td><td><span class="tag">Consumable</span></td><td>Medical</td><td class="num">4 vials</td><td class="num">2</td><td>08/2027</td><td class="num">₺4,200</td><td class="num">–</td><td>–</td><td><span class="tag green">OK</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Nitrile gloves (box 100)</b></td><td><span class="tag">Consumable</span></td><td>Cabin supplies</td><td class="num">140 pairs</td><td class="num">100</td><td>–</td><td class="num">₺300</td><td class="num">–</td><td>–</td><td><span class="tag green">OK</span></td></tr>
+    </tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="c-packages" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Packages</h1><p>Session packages, installments and opening balances</p></div>
+    <div class="actions"><button class="btn" data-open="drawer-opening"><i data-lucide="import"></i>Enter existing package</button><button class="btn primary" data-open="drawer-template"><i data-lucide="plus"></i>New package template</button></div>
+  </div>
+  <div class="grid g4 mb">
+    <div class="stat primary"><div class="label">Active packages</div><div class="value">142</div></div>
+    <div class="stat neutral"><div class="label">Sessions not yet used</div><div class="value">488</div><div class="note">≈ ₺512,000 deferred revenue</div></div>
+    <div class="stat warning"><div class="label">Installments due (7 days)</div><div class="value">₺21,000</div><div class="note">7 installments</div></div>
+    <div class="stat error"><div class="label">Overdue</div><div class="value">₺6,000</div><div class="note">2 customers</div></div>
+  </div>
+
+  <div class="tabs" data-tabs="pk">
+    <button class="on" data-tab="p-customer">Customer packages</button>
+    <button data-tab="p-inst">Installments</button>
+    <button data-tab="p-tpl">Templates</button>
+    <button data-tab="p-gift">Gift cards <span class="tag orange">Phase 2</span></button>
+  </div>
+
+  <div class="tab-panel on" id="p-customer" data-group="pk">
+    <div class="filter-bar"><input class="input" placeholder="Customer…"><select class="select"><option>Active</option><option>Expiring in 30 days</option><option>Completed</option><option>Frozen</option></select></div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Customer</th><th>Package</th><th>Sessions</th><th>Expiry</th><th class="num">Price</th><th class="num">Outstanding</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-href="customer-detail.html"><td>Deniz Yılmaz</td><td>Laser Full leg 8</td><td><div class="progress" style="width:120px"><span style="width:62%"></span></div><span class="small">5 used · 3 left</span></td><td>02.2027</td><td class="num">₺24,000</td><td class="num down">₺6,000</td><td><span class="tag green">Active</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Burcu Koç</td><td>Laser Face 6</td><td><div class="progress" style="width:120px"><span style="width:50%"></span></div><span class="small">3 used · 3 left</span></td><td>07.2027</td><td class="num">₺7,200</td><td class="num">₺0</td><td><span class="tag green">Active</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Hande Polat</td><td>Laser Full body 8</td><td><div class="progress" style="width:120px"><span style="width:0"></span></div><span class="small">0 used · 8 left</span></td><td>11.2027</td><td class="num">₺24,000</td><td class="num down">₺16,000</td><td><span class="tag green">Active</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Cansu Yıldız</td><td>Laser Bikini 6</td><td><div class="progress orange" style="width:120px"><span style="width:66%"></span></div><span class="small">4 used · 2 left</span></td><td><span class="down">20.12.2026</span></td><td class="num">₺6,000</td><td class="num">₺0</td><td><span class="tag orange">Expiring</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Gizem Öztürk</td><td>Chemical peel 4</td><td><div class="progress" style="width:120px"><span style="width:50%"></span></div><span class="small">2 used · 2 left</span></td><td>05.2027</td><td class="num">₺7,600</td><td class="num down">₺2,800</td><td><span class="tag green">Active</span></td></tr>
+        <tr><td>Aylin Sarı</td><td>Laser Underarm 6</td><td><span class="small">3 used · 3 left</span></td><td>–</td><td class="num">₺4,800</td><td class="num">₺0</td><td><span class="tag blue">Frozen · pregnancy</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="p-inst" data-group="pk"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Due</th><th>Customer</th><th>Package</th><th>Installment</th><th class="num">Amount</th><th>Status</th><th></th></tr></thead>
+    <tbody><tr><td class="down">01.11.2026</td><td>Cem Aktaş</td><td>Laser Full leg 8</td><td>2 / 4</td><td class="num">₺3,000</td><td><span class="tag red">Overdue</span></td><td><a class="btn sm" href="settings.html#x-sms">SMS</a> <a class="btn sm primary" href="kasa.html">Collect</a></td></tr>
+    <tr><td>15.11.2026</td><td>Deniz Yılmaz</td><td>Laser Full leg 8</td><td>4 / 4</td><td class="num">₺3,000</td><td><span class="tag orange">Due soon</span></td><td><a class="btn sm primary" href="kasa.html">Collect</a></td></tr>
+    <tr><td>18.11.2026</td><td>Hande Polat</td><td>Laser Full body 8</td><td>2 / 3</td><td class="num">₺8,000</td><td><span class="tag">Scheduled</span></td><td><a class="btn sm primary" href="kasa.html">Collect</a></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="p-tpl" data-group="pk"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Template</th><th>Service · area</th><th class="num">Sessions</th><th>Validity</th><th class="num">Price</th><th class="num">Per session</th><th>Installments</th><th>Active</th></tr></thead>
+    <tbody><tr><td>Laser Face 6</td><td>Laser · Face</td><td class="num">6</td><td>12 months</td><td class="num">₺7,200</td><td class="num">₺1,200</td><td>Up to 2</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Laser Full leg 8</td><td>Laser · Full leg</td><td class="num">8</td><td>18 months</td><td class="num">₺24,000</td><td class="num">₺3,000</td><td>Up to 4</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Chemical peel 4</td><td>Chemical peel</td><td class="num">4</td><td>6 months</td><td class="num">₺7,600</td><td class="num">₺1,900</td><td>Up to 2</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="p-gift" data-group="pk"><div class="alert info"><i data-lucide="gift"></i>Gift cards and vouchers come in Phase 2: sell a monetary or service voucher with a code, redeem fully or partially at checkout.</div></div>
+
+  </div>
+  <div class="tab-panel" id="c-stock" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Stock movements</h1><p>Every stock change is a movement. Stock = sum of movements.</p></div>
+    <div class="actions"><button class="btn" data-toast="Stock count: Phase 2"><i data-lucide="clipboard-check"></i>Stock count</button><button class="btn primary" data-open="drawer-receipt"><i data-lucide="truck"></i>Goods receipt</button></div>
+  </div>
+
+  <div class="card ai-card mb"><div class="card-head"><h3><i data-lucide="sparkles"></i>Reorder suggestions</h3><span class="tag purple">AI · Phase 2</span></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Product</th><th class="num">In stock</th><th class="num">Forecast use (14 days)</th><th>Why</th><th class="num">Suggested order</th><th></th></tr></thead>
+    <tbody><tr><td>Laser cooling gel 5 L</td><td class="num">1.8 L</td><td class="num">2.6 L</td><td class="small">41 laser sessions booked in the next 14 days; supplier lead time 3 days</td><td class="num">2 × 5 L</td><td><button class="btn sm" data-open="drawer-receipt">Draft order</button></td></tr>
+    <tr><td>Vitamin C Serum 50 ml</td><td class="num">0</td><td class="num">4</td><td class="small">Out of stock; recommended 6 times this month but not available</td><td class="num">6</td><td><button class="btn sm" data-open="drawer-receipt">Draft order</button></td></tr></tbody></table></div></div>
+
+  <div class="filter-bar">
+    <input class="input" placeholder="Product…"><input class="input" value="01.11.2026 – 12.11.2026">
+    <select class="select"><option>All types</option><option>Purchase receipt</option><option>Sale</option><option>Treatment consumption</option><option>Return</option><option>Adjustment</option><option>Waste</option><option>Count correction</option></select>
+    <select class="select"><option>All users</option></select>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Date</th><th>Product</th><th>Type</th><th>Lot</th><th>Reference</th><th>Employee</th><th class="num">Qty</th><th class="num">Value</th></tr></thead>
+    <tbody>
+      <tr><td>12.11 13:40</td><td>Laser cooling gel 5 L</td><td><span class="tag indigo">Treatment</span></td><td>CG-551</td><td><a href="treatment.html">Nazlı Aksoy · Underarm</a></td><td>Ayşe Demir</td><td class="num down">−35 ml</td><td class="num">₺9.80</td></tr>
+      <tr><td>12.11 13:32</td><td>SPF 50 Sunscreen</td><td><span class="tag blue">Sale</span></td><td>SP-7720</td><td><a href="kasa.html#k-sales">S-2026-1188</a></td><td>Ayşe Demir</td><td class="num down">−1</td><td class="num">₺505</td></tr>
+      <tr><td>12.11 13:32</td><td>Soothing Aloe Gel</td><td><span class="tag blue">Sale</span></td><td>AG-310</td><td><a href="kasa.html#k-sales">S-2026-1188</a></td><td>Ayşe Demir</td><td class="num down">−1</td><td class="num">₺380</td></tr>
+      <tr><td>12.11 11:00</td><td>HA Serum (cabin)</td><td><span class="tag indigo">Treatment</span></td><td>HS-120</td><td>Ece Çelik · HydraFacial</td><td>Merve Kaya</td><td class="num down">−2 ml</td><td class="num">₺26</td></tr>
+      <tr><td>12.11 09:45</td><td>Laser cooling gel 5 L</td><td><span class="tag indigo">Treatment</span></td><td>CG-551</td><td>Deniz Yılmaz · Full leg</td><td>Ayşe Demir</td><td class="num down">−180 ml</td><td class="num">₺50.40</td></tr>
+      <tr><td>11.11 12:00</td><td>Peeling solution TCA 15%</td><td><span class="tag indigo">Treatment</span></td><td>TC-019</td><td>Gizem Öztürk · Peel</td><td>Dr. Selin Aydın</td><td class="num down">−4 ml</td><td class="num">₺48</td></tr>
+      <tr><td>10.11 16:30</td><td>Nitrile gloves</td><td><span class="tag red">Waste</span></td><td>–</td><td>Torn box</td><td>Elif Şahin</td><td class="num down">−20</td><td class="num">₺60</td></tr>
+      <tr><td>28.10 10:20</td><td>SPF 50 Sunscreen</td><td><span class="tag green">Receipt</span></td><td>SP-8014</td><td>GR-2026-044 · Derma Dağıtım</td><td>Zeynep Arslan</td><td class="num up">+12</td><td class="num">₺6,240</td></tr>
+    </tbody></table></div></div>
+
+  </div>
+</main></div></div>
+
+
+
+<aside class="drawer" id="drawer-opening">
+  <div class="drawer-head"><h3><i data-lucide="import"></i>Enter existing package (go-live)</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="alert info"><i data-lucide="info"></i>For packages sold before Victoria. No sale or revenue is created; only the balance.</div>
+    <div class="field"><label>Customer</label><input class="input" placeholder="Search…"></div>
+    <div class="form-grid">
+      <div class="field"><label>Package template</label><select class="select"><option>Laser Full leg 8</option></select></div>
+      <div class="field"><label>Sessions already used</label><input class="input" value="3"></div>
+      <div class="field"><label>Original sale date</label><input class="input" placeholder="dd.mm.yyyy"></div>
+      <div class="field"><label>Expiry</label><input class="input" placeholder="dd.mm.yyyy"></div>
+      <div class="field"><label>Amount still owed</label><input class="input" value="0"></div>
+      <div class="field"><label>Remaining installments</label><input class="input" value="0"></div>
+    </div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Opening package saved">Save</button></div>
+</aside>
+<aside class="drawer" id="drawer-template">
+  <div class="drawer-head"><h3>New package template</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field span-2"><label>Name</label><input class="input"></div>
+    <div class="field"><label>Service</label><select class="select"><option>Laser epilation</option></select></div><div class="field"><label>Area</label><select class="select"><option>Underarm</option></select></div>
+    <div class="field"><label>Sessions</label><input class="input"></div><div class="field"><label>Validity (months)</label><input class="input"></div>
+    <div class="field"><label>Price</label><input class="input"></div><div class="field"><label>Max installments</label><input class="input"></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Template saved">Save</button></div>
+</aside>
+<aside class="drawer wide" id="drawer-receipt">
+  <div class="drawer-head"><h3><i data-lucide="truck"></i>Goods receipt</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field"><label>Supplier</label><select class="select"><option>Derma Dağıtım A.Ş.</option></select></div>
+      <div class="field"><label>Invoice no</label><input class="input"></div>
+      <div class="field"><label>Date</label><input class="input" value="12.11.2026"></div>
+      <div class="field"><label>Invoice photo / PDF</label><div class="upload" style="padding:6px">Upload</div></div>
+    </div>
+    <table class="table"><thead><tr><th>Product</th><th>Lot</th><th>Expiry</th><th class="num">Qty</th><th class="num">Unit cost</th></tr></thead><tbody>
+      <tr><td>Laser cooling gel 5 L</td><td><input class="input" value="CG-602"></td><td><input class="input" value="11/2027"></td><td><input class="input" style="text-align:right" value="2"></td><td><input class="input" style="text-align:right" value="1.400,00"></td></tr>
+      <tr><td>Vitamin C Serum 50 ml</td><td><input class="input"></td><td><input class="input"></td><td><input class="input" style="text-align:right" value="6"></td><td><input class="input" style="text-align:right" value="640,00"></td></tr></tbody></table>
+    <button class="btn sm" style="align-self:flex-start"><i data-lucide="plus"></i>Add line</button>
+    <div class="alert info small"><i data-lucide="file-code"></i>Phase 2: import the supplier's e-Fatura (UBL-TR XML) to fill lines automatically.</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Goods received · stock updated">Receive</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

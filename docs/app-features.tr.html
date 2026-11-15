@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victoria Özellik Belirtimi</title>
+<style>
+:root{
+  --bg:#faf8f6; --surface:#ffffff; --surface-2:#f3efeb; --text:#1f1a17; --muted:#6b625c;
+  --border:#e4ddd6; --accent:#a2466b; --accent-soft:#f6e6ed;
+  --p1:#1f7a4d; --p1-bg:#e3f4ea; --p2:#8a5a00; --p2-bg:#fbf0d9; --p3:#4b5563; --p3-bg:#eceef1;
+  --ai:#5b3fc4; --ai-bg:#ece8fb; --code-bg:#f3efeb;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151214; --surface:#1e1a1d; --surface-2:#272226; --text:#efe9ec; --muted:#a69da2;
+    --border:#3a3337; --accent:#e58bb0; --accent-soft:#3a2430;
+    --p1:#7fd3a6; --p1-bg:#1c3328; --p2:#f0c46a; --p2-bg:#3a2f17; --p3:#c3c9d2; --p3-bg:#2b2f35;
+    --ai:#b6a4ff; --ai-bg:#2c2648; --code-bg:#272226;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151214; --surface:#1e1a1d; --surface-2:#272226; --text:#efe9ec; --muted:#a69da2;
+  --border:#3a3337; --accent:#e58bb0; --accent-soft:#3a2430;
+  --p1:#7fd3a6; --p1-bg:#1c3328; --p2:#f0c46a; --p2-bg:#3a2f17; --p3:#c3c9d2; --p3-bg:#2b2f35;
+  --ai:#b6a4ff; --ai-bg:#2c2648; --code-bg:#272226;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+a{color:var(--accent)}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1280px;margin:0 auto}
+nav.toc{position:sticky;top:0;height:100vh;overflow:auto;padding:28px 18px;border-right:1px solid var(--border)}
+nav.toc h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px;border:none;padding:0}
+nav.toc ol{list-style:none;padding:0;margin:0;counter-reset:t}
+nav.toc li{counter-increment:t}
+nav.toc a{display:block;padding:5px 8px;border-radius:6px;color:var(--text);text-decoration:none;font-size:14px}
+nav.toc a::before{content:counter(t) ". ";color:var(--muted)}
+nav.toc a:hover{background:var(--surface-2)}
+main{padding:32px 40px 80px;min-width:0}
+header.hero{border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:8px}
+header.hero h1{margin:0 0 6px;font-size:30px;line-height:1.2}
+header.hero p{margin:4px 0;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--muted)}
+section{padding-top:28px}
+h2{font-size:22px;margin:0 0 10px;border-left:4px solid var(--accent);padding-left:10px}
+h3{font-size:17px;margin:22px 0 8px}
+p{margin:8px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.grid .card{margin:0}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p,.card ul{font-size:14px;color:var(--muted);margin:4px 0}
+.card ul{padding-left:18px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface);margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--border)}
+th{background:var(--surface-2);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;min-width:170px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:5px;white-space:nowrap}
+.p1{color:var(--p1);background:var(--p1-bg)} .p2{color:var(--p2);background:var(--p2-bg)} .p3{color:var(--p3);background:var(--p3-bg)}
+.ai{color:var(--ai);background:var(--ai-bg)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.callout.ai-c{border-color:var(--ai);background:var(--ai-bg)}
+code{background:var(--code-bg);padding:1px 5px;border-radius:4px;font-size:13px}
+pre{background:var(--code-bg);padding:14px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.5}
+.filters{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters button{font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.filters span{font-size:13px;color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}
+.flow .step{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px}
+.flow .arrow{color:var(--muted)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:24px;position:relative;margin:6px 0}
+ul.check li::before{content:"?";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:700;text-align:center;line-height:18px}
+.theme-toggle{float:right;font:inherit;font-size:13px;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  nav.toc{position:static;height:auto;border-right:none;border-bottom:1px solid var(--border)}
+  main{padding:20px 16px 60px}
+}
+@media print{
+  nav.toc,.filters,.theme-toggle{display:none}
+  .layout{grid-template-columns:1fr}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="İçindekiler">
+  <h2>İçindekiler</h2>
+  <ol>
+    <li><a href="#overview">Genel bakış ve kapsam</a></li>
+    <li><a href="#decisions">Kararlar</a></li>
+    <li><a href="#roles">Kullanıcılar ve roller</a></li>
+    <li><a href="#architecture">Mimari</a></li>
+    <li><a href="#flow">Temel iş akışı</a></li>
+    <li><a href="#m-dashboard">Gösterge paneli</a></li>
+    <li><a href="#m-appointments">Randevular ve takvim</a></li>
+    <li><a href="#m-services">Hizmet kataloğu</a></li>
+    <li><a href="#m-customers">Müşteriler ve uygulama kayıtları</a></li>
+    <li><a href="#m-consult">Yapay zekâ danışmanlık asistanı</a></li>
+    <li><a href="#m-employees">Personel ve prim</a></li>
+    <li><a href="#m-sales">Satış / kasa</a></li>
+    <li><a href="#m-packages">Paketler ve hediye kartları</a></li>
+    <li><a href="#m-receivables">Sonra ödeme ve alacaklar</a></li>
+    <li><a href="#m-inventory">Stok ve cihazlar</a></li>
+    <li><a href="#m-reports">Raporlar ve analiz</a></li>
+    <li><a href="#m-ai">Diğer yapay zekâ özellikleri</a></li>
+    <li><a href="#m-notify">Bildirimler ve SMS</a></li>
+    <li><a href="#m-settings">Ayarlar ve yönetim</a></li>
+    <li><a href="#data">Veri modeli</a></li>
+    <li><a href="#api">API taslağı</a></li>
+    <li><a href="#nfr">Fonksiyonel olmayan gereksinimler</a></li>
+    <li><a href="#roadmap">Yol haritası</a></li>
+    <li><a href="#questions">Kalan sorular</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="hero">
+  <button class="theme-toggle" id="themeToggle" type="button">Tema değiştir</button>
+  <h1>Güzellik Merkezi Yönetim Uygulaması: Özellik Belirtimi</h1>
+  <p>Türkiye'deki bir güzellik ve estetik merkezi için arka ofis uygulaması. Personel, müşteriler, uygulamalar, satış ve stok yönetimini kapsar; bir yapay zekâ danışmanlık asistanı içerir. Teknoloji: ASP.NET Core, React ve Microsoft SQL Server.</p>
+  <p>Taslak v0.3, 12 Kasım 2026. Çalışma adı: <strong>Victoria</strong>. <a href="app-features.html">English version</a></p>
+  <div class="meta">
+    <span class="chip">ASP.NET Core (.NET 9/10) Web API</span>
+    <span class="chip">React + TypeScript (Vite)</span>
+    <span class="chip">MSSQL + EF Core</span>
+    <span class="chip">Sağlayıcıdan bağımsız YZ</span>
+    <span class="chip">Türkçe + İngilizce arayüz</span>
+    <span class="chip">TRY · KDV · KVKK</span>
+  </div>
+</header>
+
+<div class="filters" role="group" aria-label="Özellikleri önceliğe göre filtrele">
+  <span>Özellikleri göster:</span>
+  <button type="button" data-filter="all" aria-pressed="true">Tümü</button>
+  <button type="button" data-filter="p1" aria-pressed="false">Yalnızca MVP</button>
+  <button type="button" data-filter="p2" aria-pressed="false">Faz 2</button>
+  <button type="button" data-filter="p3" aria-pressed="false">Sonra</button>
+  <button type="button" data-filter="ai" aria-pressed="false">Yalnızca YZ</button>
+</div>
+
+<!-- Overview -->
+<section id="overview">
+  <h2>Genel bakış ve kapsam</h2>
+  <p>Victoria, Türkiye'deki tek bir güzellik ve estetik merkezi için geliştirilen, şirket içi kullanıma yönelik bir <strong>arka ofis</strong> web uygulamasıdır. Merkez cilt bakımı ve spa uygulamaları, lazer epilasyon ve medikal estetik uygulamalar sunar, ayrıca güzellik ürünleri satar. Uygulamayı yalnızca işletme sahibi, müdürler ve personel kullanır; müşterilerin erişimi yoktur. Tam kapsamlı bir İK, ERP, muhasebe veya CRM ürününün <strong>yerini alması amaçlanmaz</strong>. Günlük işleyişteki beş soruya yanıt verir:</p>
+  <div class="grid">
+    <div class="card"><h4>Kim ne yaptı?</h4><p>Hangi personel hangi uygulamayı yaptı, hangi ürünü sattı ve (isteğe bağlı olarak) ne kadar prim kazandı.</p></div>
+    <div class="card"><h4>Müşteri ne aldı?</h4><p>Tüm uygulama geçmişi: hizmetler, seans başına lazer parametreleri, satın alınan ürünler, onamlar, öncesi/sonrası fotoğrafları, paketlerde kalan seanslar.</p></div>
+    <div class="card"><h4>Ne önermeliyiz?</h4><p>Ziyaret sırasında personel, müşteri profilini ürün ve hizmet açıklamalarıyla birleştiren yapay zekâ asistanına danışır.</p></div>
+    <div class="card"><h4>Elimizde ne var?</h4><p>Perakende ürün ve sarf malzemesi stoku (lot ve SKT ile), uygulamaların bunları nasıl tükettiği ve ne zaman sipariş verilmesi gerektiği.</p></div>
+    <div class="card"><h4>Nasıl gidiyoruz?</h4><p>Hizmet, ürün, personel ve döneme göre satış ve ciro; ayrıca yapay zekâ özetleri.</p></div>
+  </div>
+  <div class="callout">
+    <strong>Bağlantı modülleri.</strong> İstenen üç modülün (personel, müşteriler, stok) anlamlı veri üretebilmesi için bunları birbirine bağlayan modüller gerekir:
+    <strong>Randevular</strong> (müşteri + personel + cihaz + saat), <strong>Hizmet kataloğu</strong> (ne satılıyor, neyi tüketiyor, nasıl tanımlanıyor) ve <strong>Satış/kasa</strong> (para ve stok hareketlerinin kaydedildiği yer). Hepsi MVP kapsamındadır.
+  </div>
+  <h3>Kapsam dışı</h3>
+  <ul>
+    <li>Müşteriye yönelik her şey: online randevu, müşteri portalı, müşteriler için mobil uygulama.</li>
+    <li>Tam muhasebe, bordro ve İK. Bunun yerine veriler mali müşavire aktarılır.</li>
+    <li>E-ticaret mağazası.</li>
+    <li>Uygulama içinde kartlı ödeme işleme. Uygulama yalnızca ödeme yöntemini kaydeder; POS cihazı ayrı kalır.</li>
+  </ul>
+  <p><span class="tag p1">MVP</span> ilk sürüm &nbsp; <span class="tag p2">Faz 2</span> kısa süre sonra &nbsp; <span class="tag p3">Sonra</span> olsa iyi olur &nbsp; <span class="tag ai">YZ</span> yapay zekâ destekli</p>
+</section>
+
+<!-- Decisions -->
+<section id="decisions">
+  <h2>Kararlar</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Konu</th><th>Karar</th><th>Belirtime etkisi</th></tr></thead>
+    <tbody>
+      <tr><td>Ülke</td><td>Türkiye</td><td>TRY para birimi, KDV oranları, KVKK kapsamında veri koruma, ticari SMS için İYS ve e-Arşiv Fatura ve/veya yeni nesil ÖKC (yazar kasa) üzerinden resmi fiş/fatura.</td></tr>
+      <tr><td>Merkez türü</td><td>Güzellik ürünleri perakende satışı, cilt bakımı / spa, lazer epilasyon, medikal estetik</td><td>Parametreli uygulama kayıtları, onam formları, sağlık anketi, öncesi/sonrası fotoğrafları, lot/SKT takibi ve lazer cihazı takibi MVP'ye alınır.</td></tr>
+      <tr><td>Prim</td><td>Esnek ve kapatılabilir</td><td>Genel açma/kapama anahtarı, seçilebilir hesaplama tabanı ve personel, kategori veya kalem bazında kurallar. Kapalıyken de uygulama tüm faaliyetleri ve satışları personel bazında izler.</td></tr>
+      <tr><td>Şube ve barındırma</td><td>Tek şube, bulut</td><td>Azure App Service + Azure SQL (veya benzeri). İkinci bir şube ileride yeniden yazmaya gerek kalmadan eklenebilsin diye veri modelinde <code>BranchId</code> korunur.</td></tr>
+      <tr><td>Yapay zekâ sağlayıcısı</td><td>Sağlayıcıdan bağımsız</td><td>Yapılandırmayla seçilen adaptörlere (ör. Anthropic, OpenAI / Azure OpenAI, Google) sahip bir <code>IAiProvider</code> soyutlaması.</td></tr>
+      <tr><td>Ana yapay zekâ kullanım senaryosu</td><td>Ziyaret sırasında personelin hizmet ve ürün önermesine yardımcı olmak</td><td>Yeni MVP modülü: <a href="#m-consult">Yapay zekâ danışmanlık asistanı</a>. Ürün ve hizmetlerin zengin açıklamalara (faydalar, cilt tipleri, sorunlar, içerikler, kontrendikasyonlar) ihtiyacı vardır.</td></tr>
+      <tr><td>Mesajlaşma</td><td>Şimdilik SMS, diğer kanallar sonra</td><td>Türk bir sağlayıcı için SMS adaptörüne sahip <code>INotificationChannel</code> soyutlaması; WhatsApp ve e-posta sonradan eklenebilir.</td></tr>
+      <tr><td>Diller</td><td>Türkçe (varsayılan) + İngilizce</td><td>Arayüz, SMS şablonları ve fişler her iki dilde; ürün ve hizmet açıklamaları her iki dilde saklanabilir (çeviri taslağını yapay zekâ hazırlayabilir).</td></tr>
+      <tr><td>Kullanıcılar</td><td>Yalnızca arka ofis (yönetici + personel)</td><td>Müşteri rolü ve online randevu yok. Müşterilere yalnızca SMS ile ulaşılır.</td></tr>
+      <tr><td>Resmi fiş/fatura</td><td>Merkez resmi fiş/fatura keser; başlangıçta her fişin fotoğrafı yüklenir</td><td>MVP: fiş/fatura numarası kaydedilir ve ÖKC fişinin veya e-Arşiv faturasının fotoğrafı ya da PDF'i satışa eklenir. Doğrudan e-Arşiv entegrasyonu Sonra'ya kalır; eklenebilmesi için <code>IInvoiceProvider</code> tasarımda korunur.</td></tr>
+      <tr><td>Yalnızca hekimin yapabileceği işlemler</td><td>Yönetim panelinden yönetici tarafından ayarlanır</td><td>Her hizmette yöneticinin belirlediği "hekim gerektirir" ve "sertifikalı operatör gerektirir" işaretleri bulunur. Randevu ve uygulama kayıtları bunlara uyulmasını zorunlu kılar. Hiçbir kural koda gömülmez.</td></tr>
+      <tr><td>Pazar</td><td>Yalnızca Türkiye</td><td>Tasarımda dikkate alınacak tek veri koruma mevzuatı KVKK'dır (GDPR'a özgü özellik yok). Varsayılan dil Türkçedir; İngilizce, tercih eden personel için kalır.</td></tr>
+      <tr><td>SMS sağlayıcısı</td><td>Sonra karar verilecek</td><td>Sahte/yalnızca log yazan bir adaptörle <code>INotificationChannel</code> üzerine geliştirilir; seçilen Türk sağlayıcı canlıya geçmeden önce bağlanır. İYS Faz 2'de kalır.</td></tr>
+      <tr><td>Lazer cihazları</td><td>Cihazları, teknik özellikleri ve atım sayılarını personel elle girer</td><td>Model, seri no, dalga boy(lar)ı, enerji yoğunluğu ve spot çapı aralıkları ile başlıkları içeren cihaz formu. Atım sayısı her uygulama kaydına elle girilir. Cihaz entegrasyonu yok.</td></tr>
+      <tr><td>Varsayılan prim ayarları</td><td>Şimdilik atlandı</td><td>Prim <strong>varsayılan olarak kapalıdır</strong>. Kural motoru geliştirilir, ancak oranları işletme sahibi primi açtığında girer.</td></tr>
+      <tr><td>Mevcut veriler</td><td>Elle girilir</td><td>Excel'den içe aktarma yok. Bunun yerine MVP, açılış bakiyeleri için basit formlar içerir: kalan seanslarıyla mevcut paketler, ödenmemiş taksitler ve lot bazında açılış stoku.</td></tr>
+      <tr><td>Sonra ödeme</td><td>Ürünler (ve hizmetler, paketler) şimdi satılıp sonra, taksitle de ödenebilir</td><td>Yeni MVP modülü <a href="#m-receivables">Sonra ödeme ve alacaklar</a>: her satış için satış ekranında ödeme planı, vadeleri ve ödeme geçmişini gösteren müşteri hesabı, alacak listesi ve vadeden önce SMS hatırlatması.</td></tr>
+      <tr><td>Menü</td><td>Küçük bir merkez için sade tutulur: 7 menü öğesi</td><td><b>Günlük:</b> Bugün (Raporlar sekmesiyle) · Takvim · Müşteriler · Kasa (sekmeler: Yeni satış, Satışlar, Alacaklar, Gün sonu). <b>Yönetim:</b> Katalog ve stok (sekmeler: Hizmetler, Ürünler, Paketler, Stok hareketleri) · Ekip (Personel; Prim sekmesi yalnızca prim açıkken) · Ayarlar (kullanıcılar ve roller, cihazlar ve odalar, SMS dahil). Uygulamalar, danışma, paketler ve ödemeler için merkez müşteri profilidir; "Hızlı danışma" her ekranın üst çubuğundadır.</td></tr>
+      <tr><td>Marka</td><td>"Victoria · Güzellik &amp; Bakım" logosu (şampanya üzerine altın)</td><td>Kenar çubuğunda, sekme simgesinde, fişlerde, onam çıktılarında ve SMS gönderici adında kullanılır. Ayarlardaki ticari unvan: Victoria Güzellik &amp; Bakım.</td></tr>
+      <tr><td>Ölçek ve donanım</td><td>Çok küçük bir merkez</td><td>Birkaç kullanıcı ve bir-iki tablet/bilgisayar için tasarlanır. Fiş yazıcısı yok (resmi fiş ÖKC/e-Arşiv'den gelir), barkod okuma Sonra'ya kalır ve arayüzde toplu işlemler yerine sadelik öne çıkar.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Roles -->
+<section id="roles">
+  <h2>Kullanıcılar ve roller</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Rol</th><th>Tipik kullanıcı</th><th>Başlıca yetkiler</th></tr></thead>
+    <tbody>
+      <tr><td>İşletme sahibi / Yönetici</td><td>İşletme sahibi</td><td>Ayarlar, fiyatlar, prim yapılandırması, tüm raporlar, kayıt silme ve kullanıcı yönetimi dahil her şey.</td></tr>
+      <tr><td>Müdür</td><td>Merkez müdürü</td><td>Çalışma planları, personel, stok, satın alma, limit üzerindeki iadeler ve indirimler; yalnızca işletme sahibine özel mali raporlar dışındaki tüm raporlar.</td></tr>
+      <tr><td>Resepsiyon</td><td>Ön büro</td><td>Takvim, müşteri oluşturma/düzenleme, ödeme alma/kasa, stok görüntüleme, limit dahilinde küçük indirimler. Alerji uyarıları dışında sağlık bilgilerine erişimi yoktur.</td></tr>
+      <tr><td>Uzman</td><td>Estetisyen, lazer operatörü, terapist</td><td>Kendi takvimi, kendi müşterilerinin uygulama kayıtları ve fotoğrafları, sarf malzemesi girişi, yapay zekâ danışmanlık asistanı, kendi satışları (ve açıksa kendi primi).</td></tr>
+      <tr><td>Hekim / sağlık personeli</td><td>Medikal işlemlerden sorumlu doktor</td><td>Uzmanla aynı; ek olarak uygulama planlarını ve medikal anketleri onaylama ve hekim gerektiren işlemlere onay verme. Hangi hizmetlerin hekim gerektirdiğini yönetici hizmet bazında belirler.</td></tr>
+      <tr><td>Mali müşavir (salt okunur)</td><td>Mali müşavir</td><td>Satış, ödeme ve fatura raporları ile dışa aktarımlar. Müşteri sağlık verilerine erişimi yoktur.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Erişim, koda gömülü rol kontrolleri yerine <strong>yetki tabanlı</strong> olarak uygulanmalıdır. Roller yetki paketleridir (ör. <code>sales.refund</code>, <code>customers.health.view</code>, <code>commission.view.own</code>); böylece işletme sahibi bunları kod değişikliği olmadan düzenleyebilir.</p>
+</section>
+
+<!-- Architecture -->
+<section id="architecture">
+  <h2>Mimari</h2>
+  <div class="grid">
+    <div class="card"><h4>Ön yüz: React (mutabakat uygulamasıyla aynı teknoloji yığını)</h4><ul>
+      <li>React 19 + TypeScript 5.9, Vite 7, ESLint 9</li>
+      <li>Arayüz: Ant Design 5 (+ @ant-design/icons) ile Tailwind CSS 4; ikonlar: lucide-react; yazı tipi: Geist</li>
+      <li>Aynı tema değerleri: slate kenar çubuğu <code>#0f172a</code>, indigo ana renk <code>#4f46e5</code>, ortak <code>PageHeader</code>, <code>StatCard</code>, <code>StatusPill</code> kalıpları</li>
+      <li>Sunucu durumu: TanStack Query 5; HTTP: axios; doğrulama: zod 4; tarihler: dayjs</li>
+      <li>Yönlendirme: react-router-dom 7; i18n: i18next + react-i18next + tarayıcı dili algılayıcı, <code>tr</code> (varsayılan) ve <code>en</code> ile</li>
+      <li>Grafikler: Recharts; canlı güncellemeler: @microsoft/signalr; kimlik doğrulama: kimlik sağlayıcı kullanılırsa oidc-client-ts</li>
+      <li>Takvim: FullCalendar resource time-grid (yeni bağımlılık; mutabakat uygulamasında yok)</li>
+      <li>Aynı özellik bazlı klasör yapısı: <code>app / pages / features / shared / lib</code></li>
+      <li>Tıklanabilir HTML prototipi <code>prototype/</code> içinde</li>
+    </ul></div>
+    <div class="card"><h4>Arka uç: ASP.NET Core</h4><ul>
+      <li>Modüler monolit Web API: tek proje, her modül için bir klasör</li>
+      <li>EF Core + migration'lar; FluentValidation</li>
+      <li>ASP.NET Core Identity + JWT (access + refresh token)</li>
+      <li>Arka plan işleri için Hangfire veya Quartz (SMS hatırlatmaları, yapay zekâ özetleri, stok ve SKT kontrolleri)</li>
+      <li>Canlı takvim güncellemeleri için SignalR</li>
+      <li>Log ve izleme için Serilog + OpenTelemetry</li>
+    </ul></div>
+    <div class="card"><h4>Veritabanı: MSSQL</h4><ul>
+      <li>Azure SQL (tek veritabanı); ileride açılacak şubeler için <code>BranchId</code> korunur</li>
+      <li>Her tabloda soft delete + denetim sütunları</li>
+      <li>Stok, düzenlenebilir tek bir sayı değil, bir defterdir (<code>StockMovement</code>)</li>
+      <li>Raporlama ve yapay zekâ araçları için salt okunur SQL view'lar</li>
+      <li>Fotoğraflar ve onam PDF'leri için Azure Blob Storage; veritabanında yalnızca meta veri tutulur</li>
+      <li>İleride isteğe bağlı: anlamsal ürün araması için SQL Server vector tipi veya Azure AI Search</li>
+    </ul></div>
+    <div class="card"><h4>Takılabilir entegrasyonlar</h4><ul>
+      <li><code>IAiProvider</code>: sohbet, araç çağırma (tool calling), yapılandırılmış çıktı, embedding</li>
+      <li><code>INotificationChannel</code>: şimdilik SMS; WhatsApp ve e-posta sonra</li>
+      <li><code>IInvoiceProvider</code> (Sonra): GİB yetkili özel entegratör üzerinden e-Arşiv / e-Fatura. MVP'de "manuel" bir uygulama kullanılır: fiş numarası + yüklenen fotoğraf</li>
+      <li>Her adaptör yapılandırmayla seçilir ve testler için sahte (fake) bir karşılığı vardır</li>
+    </ul></div>
+  </div>
+<pre>
+React SPA (tablet/desktop) ──HTTPS/JSON──►  ASP.NET Core API  ──EF Core──►  Azure SQL
+   ▲  SignalR (calendar)                       │   ├─ Modules: Customers, Treatments, Employees, Appointments,
+   └───────────────────────────────────────────┤   │           Services, Sales, Packages, Inventory, Reports
+                                               │   ├─ AI module ──► IAiProvider ──► Anthropic | OpenAI | Azure OpenAI | ...
+                                               │   ├─ Jobs (Hangfire): SMS reminders, digests, stock/expiry alerts
+                                               │   ├─ Notifications ──► INotificationChannel ──► SMS provider (+ İYS)
+                                               │   └─ Invoicing ──► IInvoiceProvider ──► Manual (photo upload) | e-Arşiv integrator (later)
+                                               └── Azure Blob Storage (photos, consent PDFs)
+</pre>
+</section>
+
+<!-- Flow -->
+<section id="flow">
+  <h2>Temel iş akışı</h2>
+  <p>Bu akış tüm modülleri birbirine bağlar. Her rapor ve yapay zekâ özelliği, bu akışın doğru kaydedilmesine dayanır.</p>
+  <div class="flow">
+    <span class="step">Müşteri arar / gelir</span><span class="arrow">→</span>
+    <span class="step">Randevu<br><small>hizmet + personel + cihaz + saat</small></span><span class="arrow">→</span>
+    <span class="step">SMS hatırlatma</span><span class="arrow">→</span>
+    <span class="step">Giriş<br><small>anket, onam kontrolü</small></span><span class="arrow">→</span>
+    <span class="step">Danışmanlık<br><small>yapay zekâ önerileri</small></span><span class="arrow">→</span>
+    <span class="step">Uygulama<br><small>parametreler, fotoğraflar, sarf malzemeleri</small></span><span class="arrow">→</span>
+    <span class="step">Ödeme ekranı<br><small>+ önerilen ürünler</small></span><span class="arrow">→</span>
+    <span class="step">Ödeme<br><small>+ fiş fotoğrafı</small></span><span class="arrow">→</span>
+    <span class="step">Stoktan düşülür<br><small>faaliyet / prim kaydedilir</small></span><span class="arrow">→</span>
+    <span class="step">Sonraki seans planlanır</span>
+  </div>
+  <p>Her <strong>satış satırı</strong>, o kalemi uygulayan veya satan personeli ve kalem asistandan geldiyse ilgili yapay zekâ önerisini saklar. Personel raporları, prim ve öneri dönüşümü bu alanları kullanır.</p>
+</section>
+
+<!-- Dashboard -->
+<section id="m-dashboard">
+  <h2>Gösterge paneli</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Günüm (uzman görünümü)</td><td>Uzmanın uygulama odasındaki tablette giriş yaptıktan sonra gördüğü ekran: uyarılar ve önceki seansın ayarlarıyla sıradaki randevu, kendi bugünkü listesi ve uygulama kaydını başlatmak, danışmak veya müşteriyi açmak için büyük düğmeler. Kısa menü (Günüm, Takvim, Müşteriler, Kasa); ciro raporları yok.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Başlangıç kontrol listesi</td><td>Kurulum bitene kadar işletme sahibinin Bugün sayfasında duran kart: işletme bilgileri, çalışma saatleri, hizmetler, personel ve PIN'ler, cihazlar, ürünler ve açılış stoğu, mevcut paketler ve bakiyeler, SMS sağlayıcısı, onam metinleri.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Bugüne genel bakış</td><td>Personel ve cihaz bazında bugünün randevuları, girişler, gelmeyenler, şu ana kadarki ciro, boş saatler.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>KPI kartları</td><td>Ciro (bugün/hafta/ay, önceki döneme göre), ortalama sepet, uygulama sayısı, satılan ürünler, yeni müşteriler.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Uyarılar</td><td>Azalan stok, SKT'si yaklaşan ürünler, yaklaşan randevular için eksik onamlar, ödenmemiş bakiyeler, süresi dolmak üzere olan paketler, bakımı gelen cihazlar.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Role özel görünümler</td><td>Uzmanlar kendi günlerini (ve açıksa primlerini) görür; müdürler tüm merkezi görür.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Yapay zekâ günlük özeti</td><td>Her sabah kısa bir metin özeti, ör. "Dünkü ciro ortalamanın %12 altında; 3 müşteri gelmedi; X serumu yaklaşık 5 gün içinde bitecek."</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Appointments -->
+<section id="m-appointments">
+  <h2>Randevular ve takvim</h2>
+  <p>Randevuları yalnızca personel girer (telefon, ön büroya gelen müşteri, Instagram DM). Online randevu yoktur.</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Kaynak takvimi</td><td>Her personel ve her lazer cihazı ya da oda için bir sütun içeren gün/hafta görünümü. Taşımak veya süreyi değiştirmek için sürükle-bırak.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Randevu oluşturma</td><td>Müşteri (telefonla arama veya hızlı oluşturma), bir veya daha fazla hizmet, personel, cihaz/oda, başlangıç saati. Süre hizmetten (lazerde uygulama bölgesinden de) gelir, üzerine ara süre eklenir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Çakışma kontrolleri</td><td>Bir personelin, cihazın veya odanın aynı anda iki randevuya verilmesini engeller. Çalışma saatlerini, molaları ve izinleri dikkate alır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Hazırlık uyarıları</td><td>Randevu oluştururken veya giriş yaparken alerjiler, kontrendikasyonlar, eksik ya da süresi dolmuş onam, eksik anket veya önceki lazer seansından bu yana geçen sürenin çok kısa olması konusunda uyarır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Durum döngüsü</td><td>Planlandı → Onaylandı → Giriş yapıldı → Devam ediyor → Tamamlandı → Ödendi; ayrıca İptal ve Gelmedi (gerekçeyle).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Erteleme, iptal, gelmedi</td><td>Erteleme aynı personel ve cihaz için boş saatleri gösterir; tek seansı veya serinin kalanını taşıyabilir. İptalde kimin ve neden iptal ettiği kaydedilir, geç iptaller (24 saatten az) işaretlenir, seans pakete geri eklenir ve boşalan saat bekleme listesine önerilir. Gelmedi durumunda paket seansı ayarlardaki politikaya göre korunur veya kullanılmış sayılır; "sizi özledik" SMS'i gönderilebilir. SMS'ler isteğe bağlıdır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Seans serisi</td><td>Bir kürün sonraki seanslarını planlama (ör. 6–8 seans boyunca 4–6 haftada bir lazer), müşterinin paketine bağlı olarak.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Randevusuz gelenler</td><td>Randevusu olmayan müşteriler için yine de kayıt oluşturan hızlı giriş.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Bekleme listesi</td><td>Boş saat bekleyen müşteriler; bir iptal yer açtığında personel bilgilendirilir ve SMS gönderebilir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Kapora</td><td>Gelmeme oranını azaltmak için pahalı uygulamalarda isteğe bağlı kapora.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Akıllı saat önerisi</td><td>Yetkinlikler, tercih edilen personel, seans aralığı ve takvimdeki boşluklara göre personel, cihaz ve saat önerir.</td><td><span class="tag ai">YZ</span> <span class="tag p3">Sonra</span></td></tr>
+      <tr data-p="ai"><td>Gelmeme riski</td><td>Gelmeme olasılığı yüksek randevuları işaretler ve ek bir SMS hatırlatması planlar.</td><td><span class="tag ai">YZ</span> <span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Services -->
+<section id="m-services">
+  <h2>Hizmet kataloğu</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Hizmetler ve kategoriler</td><td>Lazer epilasyon, cilt bakımı, medikal estetik, spa/masaj vb. Her hizmetin adı (TR/EN), süresi, ara süresi, fiyatı, KDV oranı ve aktiflik durumu vardır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Uygulama bölgeleri</td><td>Lazer için: kendi fiyatı ve süresi olan bölgeler (tüm bacak, koltuk altı, yüz vb.). Tek randevuda birden fazla bölge.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Hizmet içeriği (yapay zekâ için)</td><td>Açıklama, faydalar, hitap ettiği sorunlar (akne, leke, istenmeyen tüy…), uygun cilt tipleri (lazer için Fitzpatrick aralığı dahil), kontrendikasyonlar, tipik seans sayısı ve aralığı, uygulama sonrası bakım talimatları, ilgili ürünler. TR ve EN olarak.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Kimler uygulayabilir</td><td>Hizmet bazında yetkin personel. Yönetici, yönetim panelinden her hizmet için "hekim gerektirir" ve "sertifikalı operatör gerektirir" işaretlerini belirler; takvim yalnızca uygun personeli sunar.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Gerekli kaynaklar</td><td>Hizmet belirli bir cihaz (lazer tipi) veya oda gerektirir; bu kaynak takvimde bloke edilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Sarf malzemeleri (sarf reçetesi)</td><td>Hizmet başına kullanılan standart ürünler ve miktarlar (jel, serum, maske, kartuş). Uygulama tamamlanınca stoktan düşülür; uzman gerçek miktarı düzeltebilir ve lotu seçebilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Onam ve anket şablonları</td><td>Hizmet bazında: hangi onam formu ve sağlık anketinin gerektiği ve ne kadar süre geçerli kaldıkları.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Uygulama parametre şablonu</td><td>Seans başına kaydedilecek alanlar; ör. lazer için: cihaz, dalga boyu, enerji yoğunluğu (J/cm²), atım süresi, spot çapı, atım sayısı, cilt reaksiyonu.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Hizmet maliyeti ve marjı</td><td>Sarf malzemesi maliyeti, atım başına cihaz maliyeti ve prim toplanarak hizmet başına gerçek marj elde edilir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Yapay zekâ ile içerik taslağı</td><td>Kısa notlardan açıklama, fayda ve uygulama sonrası bakım metinleri (TR + EN) üretir; personel kaydetmeden önce gözden geçirir.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Customers -->
+<section id="m-customers">
+  <h2>Müşteriler ve uygulama kayıtları</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Müşteri profili</td><td>Ad, telefon (benzersiz, arama için kullanılır), e-posta, doğum tarihi, cinsiyet, tercih edilen dil, kaynak (Instagram, tavsiye, randevusuz gelen), tercih edilen personel, etiketler (VIP, hassas cilt). TCKN isteğe bağlıdır ve yalnızca fatura için gerekiyorsa alınır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Hızlı arama</td><td>Telefon, ad veya müşteri numarasıyla genel arama.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Cilt ve sağlık profili</td><td>Cilt tipi, Fitzpatrick tipi, sorunlar, alerjiler, ilaçlar (ör. ışığa duyarlılık yapanlar), gebelik, ilgili rahatsızlıklar. Alerjiler ve kontrendikasyonlar uyarı olarak gösterilir. Yalnızca yetkiyle görüntülenir; her görüntüleme kayıt altına alınır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Sağlık anketi</td><td>İlk ziyarette doldurulur; belirli aralıklarla veya bir değişiklik olduğunda yenilenir. Yanıtlar sağlık profilini günceller.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Onamlar (KVKK + uygulama)</td><td>Ayrı kayıtlar: KVKK aydınlatma metninin gösterilmesi, sağlık verileri için açık rıza, fotoğraf onamı, uygulamaya özel onam, yapay zekâ ile işleme onamı ve ticari SMS izni (İYS ile senkronize). Her birinde tarih, sürüm ve taranmış veya yazdırılıp imzalanmış PDF bulunur.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Uygulama kayıtları</td><td>Yapılan her hizmet için bir kayıt: personel, cihaz, bölge, şablondan gelen parametreler, kullanılan ürünler ve lotlar, cilt reaksiyonu, notlar, önerilen sonraki tarih.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Öncesi/sonrası fotoğrafları</td><td>Tabletle çekilir, bir uygulama kaydına bağlanır, yan yana karşılaştırılır. Yalnızca fotoğraf onamı varsa.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Ziyaret zaman çizelgesi</td><td>Tüm randevular, uygulamalar, satın alınan ürünler, ödemeler, notlar, fotoğraflar ve yapay zekâ önerileri tek bir zaman çizelgesinde.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Bakiye</td><td>Açık bakiye veya alacak, bölge bazında kalan paket seansları, hediye kartı bakiyesi.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>KVKK hakları</td><td>Müşterinin verilerini dışa aktarma ve talep üzerine anonimleştirme (yasanın saklanmasını zorunlu kıldığı mali kayıtlar korunarak).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Sadakat puanları</td><td>Harcanan tutar başına puan kazanılır; indirim olarak kullanılır. Kurallar yapılandırılabilir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Segmentler</td><td>Kayıtlı filtreler: "60 gündür gelmeyenler", "lazer kürünü bitirmeyenler", "Y ürününü alanlar", "bu ay doğum günü olanlar".</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Mükerrer kayıt tespiti ve birleştirme</td><td>Aynı telefonu veya benzer adı tespit eder ve geçmişleri birleştirir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p3"><td>Tablette imza</td><td>Müşteri onam formlarını ön büro tabletinde (personel yönetiminde) imzalar; PDF olarak saklanır.</td><td><span class="tag p3">Sonra</span></td></tr>
+      <tr data-p="ai"><td>Müşteri özeti</td><td>Profilde yapay zekâ tarafından yazılan bir paragraf: alışılmış uygulamalar, mevcut kürün ilerleyişi, tercihler, harcama eğilimi, dikkat edilmesi gerekenler.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Kayıp riski ve geri kazanım</td><td>Alışılmış ziyaret aralığını aşmış veya kürünü bitirmemiş müşterileri işaretler ve personelin onayına sunulmak üzere bir SMS taslağı hazırlar.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Consultation assistant -->
+<section id="m-consult">
+  <h2>Yapay zekâ danışmanlık asistanı</h2>
+  <div class="callout ai-c">
+    <strong>Amaç:</strong> müşteri merkezdeyken, derin ürün bilgisi olmasa bile her personel müşteriyi açıp saniyeler içinde gerekçeli hizmet ve ürün önerileri alabilmelidir. Öneriler merkezin kendi kataloğuna ve müşterinin kaydına dayanır.
+  </div>
+  <h3>Nasıl çalışır</h3>
+  <div class="flow">
+    <span class="step">Müşteri gelir<br><small>"Hızlı danışma" veya profildeki "Danış"</small></span><span class="arrow">→</span><span class="step">Personel ihtiyaçları işaretler<br><small>şikâyet, bölge, bütçe, kendi sözleri</small></span><span class="arrow">→</span>
+    <span class="step">İsteğe bağlı giriş<br><small>sorun, bütçe; yazılı veya sesli</small></span><span class="arrow">→</span>
+    <span class="step">Arka uç bağlamı oluşturur<br><small>profil, geçmiş, mevcut stok</small></span><span class="arrow">→</span>
+    <span class="step">Kural filtresi<br><small>kontrendike / stokta olmayanları çıkarır</small></span><span class="arrow">→</span>
+    <span class="step">LLM sıralar ve açıklar<br><small>yapılandırılmış JSON çıktısı</small></span><span class="arrow">→</span>
+    <span class="step">Personel gözden geçirir<br><small>sepete ekler / randevu açar</small></span>
+  </div>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Öneri paneli</td><td>3–5 önerilen hizmet ve ürün; her biri için: bu müşteriye neden uygun olduğu, temel faydaları, nasıl kullanılacağı, fiyat, stok ve varsa uyarılar. Tek tıkla ürün satışa eklenir veya hizmet için randevu ekranı açılır.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>İhtiyaç girişi</td><td>Müşteri geldiğinde personel yaklaşık 30 saniyede ne istediğini işaretler: şikâyetler (leke, akne, istenmeyen tüy, kuruluk, kırışıklık, kızarıklık, rahatlama…), bölge, ilgi alanı (ev bakım ürünleri, uygulamalar, paketler), bütçe ("sonra ödeme olabilir" dahil), zamanlama ve müşterinin kendi sözleri (yazılı veya sesle). Şikâyet listesi ayarlardan yönetilir ve ürün/hizmetlerin "hedeflediği sorunlar" alanıyla eşleşir.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Randevusuz müşteri modu</td><td>Müşteri kaydı olmadan da çalışır: kısa güvenlik soruları (hamilelik, alerji, ışığa duyarlılık yapan ilaç, yakın zamanda bronzlaşma, aktif cilt sorunu) güvenlik filtresini besler. Müşteri oluşturulmadıkça cevaplar saklanmaz; oluşturulursa danışma yeni profile kaydedilebilir.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Randevusuz müşteriyi kaydet</td><td>Kısa bir form (ad, telefon, onamlar) randevusuz kişiyi müşteriye dönüştürür, danışmayı yeni profilde saklar ve satışa veya randevuya devam eder.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Hızlı danışma girişi</td><td>Her ekranın üst çubuğunda "Hızlı danışma" düğmesi; ayrıca müşteri profili, randevu ve uygulama kaydında "Danış".</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Serbest metin soru</td><td>Personel ayrıca şöyle sorabilir: "Cildi yağlı ve lazer sonrası lekeler için bir şey istiyor. 1.500 TL altında ne önerebiliriz?"</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Güvenlik filtresi (deterministik)</td><td>Adaylar LLM'e gönderilmeden önce kod; müşterinin alerjileri, kontrendikasyonları, gebeliği, Fitzpatrick aralığı veya yakın tarihli uygulamalarıyla çelişen ürünleri ve stokta olmayanları çıkarır. LLM, filtrelenmiş listenin dışında hiçbir şey öneremez.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Ürün ve hizmet bilgisi</td><td>Ürün ve hizmetlerin içerik alanlarını kullanır: açıklama, faydalar, içerikler, sorunlar, cilt tipleri, kontrendikasyonlar, kullanım, birlikte kullanım (ör. "lazer sonrası SPF 50 + yatıştırıcı jel").</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Uygulama sonrası bakım ve rutin sayfası</td><td>Satın alınan ürünlerle, müşterinin dilinde kişisel bir evde bakım rutini üretir; yazdırılabilir veya SMS olarak gönderilebilir.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Öneri takibi</td><td>Her öneri bir durumla kaydedilir: gösterildi, kabul edildi, satıldı veya randevu açıldı, reddedildi (gerekçeyle). Personel bazında dönüşüm raporları ve prompt'ların iyileştirilmesi için kullanılır.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Ne söyleyebilirsiniz</td><td>Seçilen öneriler için: müşterinin söylediğine dayanan bir açılış cümlesi, her ürün veya hizmet için sade bir cümle, olası itirazlara yanıtlar ("Hassas cilt için güvenli mi?", fiyat) ve sorulmaya değer iki-üç soru. Müşterinin dilinde yazılır.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Benzer müşteri sinyalleri</td><td>Sıralamaya girdi olarak merkezin kendi satış verilerinden "benzer profildeki müşteriler şunları da aldı…" bilgisini ekler.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Yenileme hatırlatmaları</td><td>Bir ürünün tipik kullanım süresini bilir (ör. 50 ml serum yaklaşık 2 ay yeter) ve bir sonraki ziyarette yenisini önerir.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p3"><td>Anlamsal katalog araması</td><td>Katalog birkaç yüz kalemi aştığında, filtrelenmiş listenin tamamını göndermek yerine adayları bulmak için embedding'ler (SQL Server vector tipi veya Azure AI Search) kullanılır.</td><td><span class="tag ai">YZ</span> <span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Yapay zekâ sağlayıcısına gönderilen veriler</h3>
+  <ul>
+    <li><strong>Müşteri:</strong> takma adlandırılmış kimlik, yaş aralığı, cilt tipi, sorunlar, yakın tarihli uygulamalar, yakın tarihli satın almalar. Ad, telefon veya TCKN gönderilmez.</li>
+    <li><strong>Sağlık verileri</strong> (alerjiler, kontrendikasyonlar) kendi sunucumuzdaki deterministik filtrede kullanılır ve müşteri yapay zekâ ile işleme için açık rıza vermedikçe <em>gönderilmez</em>.</li>
+    <li><strong>Katalog:</strong> içerik alanları, fiyat ve stokla birlikte filtrelenmiş adaylar.</li>
+    <li>Verilerin yurt dışındaki bir sağlayıcıya gönderilmesi KVKK kapsamında yurt dışına aktarımdır. Uygun sözleşmesi ve bölgesi olan bir sağlayıcı seçilmeli ve bir avukata danışılmalıdır (bkz. kalan sorular).</li>
+  </ul>
+  <p>Arayüzde her zaman şu ibare gösterilir: "Yapay zekâ önerisidir: önermeden önce kontrol edin. Tıbbi tavsiye değildir." Medikal estetik uygulamalar yalnızca "hekimle görüşün" şeklinde önerilir.</p>
+</section>
+
+<!-- Employees -->
+<section id="m-employees">
+  <h2>Personel ve prim</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Personel profili</td><td>Ad, iletişim bilgileri, unvan, işe giriş tarihi, aktiflik durumu, takvim rengi, bağlı kullanıcı hesabı (isteğe bağlı).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Yetkinlikler</td><td>Personelin yapabileceği hizmetler; sertifikalı lazer operatörü veya hekim gibi işaretler.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Çalışma saatleri ve vardiyalar</td><td>Haftalık şablon ve istisnalar (izin günü, yarım gün). Takvimdeki müsaitliği belirler.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Faaliyet kaydı ("ne yaptı")</td><td>Personel ve dönem bazında: yapılan uygulamalar, satılan ürünler, hizmet verilen müşteriler, elde edilen ciro, kullanılan sarf malzemeleri, kabul edilen yapay zekâ önerileri. Prim açık olsun ya da olmasın her zaman kullanılabilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Prim açık/kapalı</td><td>Ayarlarda genel anahtar, <strong>varsayılan olarak kapalı</strong>. Kapalıyken tüm prim ekranları ve sütunları gizlenir ve hiçbir hesaplama yapılmaz. İşletme sahibi primi açarken oranları girer.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Yapılandırılabilir prim kuralları</td><td>
+        <ul style="margin:4px 0;padding-left:18px">
+          <li><strong>Taban</strong> (genel, geçersiz kılınabilir): liste fiyatı, indirim sonrası net tutar veya indirim sonrası net tutardan sarf malzemesi maliyeti düşülmüş hali.</li>
+          <li><strong>Tür:</strong> kalem başına yüzde veya sabit tutar.</li>
+          <li><strong>Kapsam:</strong> varsayılan, ardından personel, kategori, hizmet veya ürün bazında. En özel kural geçerli olur.</li>
+          <li><strong>Paketler:</strong> paket satışında veya yapılan her seansta kazanılır.</li>
+          <li><strong>Kademeler</strong> (isteğe bağlı): ör. aylık 50.000 TL'ye kadar %10, üzerinde %15.</li>
+          <li>Tek satırda iki personel arasında <strong>paylaşım</strong> (ör. doktor + asistan).</li>
+          <li>Kuralların başlangıç/bitiş tarihleri vardır; böylece değişiklikler geçmiş dönemleri etkilemez.</li>
+        </ul></td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Prim dökümü</td><td>Personel bazında dönem dökümü (taban, prim, geri alınan iadeler, manuel düzeltmeler); bordro için Excel'e aktarılabilir. Tam bordro hesaplaması yapılmaz.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>İzin ve devamsızlık</td><td>Yıllık izin ve hastalık izni kaydı; takvimi bloke eder.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Sertifikalar</td><td>Sertifika yükleme (ör. lazer operatörü) ve geçerlilik bitiş hatırlatmaları; süresi dolmuş sertifika ilgili hizmete randevu verilmesini engeller.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Giriş / çıkış</td><td>Ön büro tabletinden PIN ile basit puantaj.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Hedefler ve performans</td><td>Aylık hedefler; doluluk, tekrar randevu oranı, ek ürün satış oranı, öneri dönüşümü, ortalama sepet.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Performans içgörüleri</td><td>Bir personelin ayının doğal dilde açıklaması, ör. "Ek ürün satış oranı ekip ortalamasının yarısı; kabul edilen yapay zekâ önerilerinin %40'ı satışa dönüşüyor."</td><td><span class="tag ai">YZ</span> <span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Sales -->
+<section id="m-sales">
+  <h2>Satış / kasa (ödeme)</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Randevudan ödemeye geçiş</td><td>Tamamlanan randevu; hizmetler, personel ve fiyatla önceden doldurulmuş bir satış açar. Danışmanlıkta önerilen ürünler eklenmeye hazır şekilde görünür.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Doğrudan satış</td><td>Randevu olmadan yalnızca ürün satışı (müşteri isteğe bağlı).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Satır bazında personel</td><td>Her satırın bir personeli (uygulayan veya satan) vardır; iki personel arasında paylaştırılabilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>İndirimler</td><td>Satır veya satışın tamamı için, % veya tutar olarak, gerekçeyle. Rol bazında limitler; limitin üzeri müdür onayı gerektirir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Ödemeler</td><td>Nakit, kart (taksitli dahil; referans olarak kaydedilir), havale/EFT, hediye kartı, paket seansı, sadakat puanı; bölünmüş ödemeler; kısmi ödeme açık bakiye bırakır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>KDV işlemleri</td><td>Fiyatlar KDV dahil girilir; kalem bazında KDV oranı (ör. %20, %10, %1); fiş ve raporlarda KDV dökümü.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Resmi fiş/fatura (manuel)</td><td>Resmi fiş ÖKC'den veya e-Arşiv portalından kesildikten sonra personel numarasını girer ve fotoğrafını (tablet kamerası) ya da PDF'ini yükler. Fişi eklenmemiş satışlar takip için listelenir ve gün sonunda bunların sayısı gösterilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p3"><td>e-Arşiv entegrasyonu</td><td>Manuel yüklemenin yerine, bir özel entegratör üzerinden doğrudan uygulamadan e-Arşiv Fatura kesme.</td><td><span class="tag p3">Sonra</span></td></tr>
+      <tr data-p="ai"><td>Fiş okuma</td><td>Yapay zekâ yüklenen fiş fotoğrafını okuyup fiş numarası, tarih ve toplamı doldurur; toplam satışla uyuşmazsa uyarır.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p1"><td>İadeler ve iptaller</td><td>Gerekçe ve yüklenen iade belgesiyle tam veya kısmi iade; ürün yeniden satılabilir durumdaysa stoğa geri alınır; prim geri alınır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Gün sonu</td><td>Tek adım: uygulama beklenen nakdi gösterir (açılış nakdi + nakit satış ve tahsilatlar − kasadan çıkışlar), personel sayılan tutarı girer, fark varsa açıklar ve kapatır. Kasaya giriş/çıkış küçük bir formdur. Kasa sayfasının bir sekmesidir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Giderler</td><td>Kasada basit gider listesi: tarih, kategori (tedarikçi, kira, maaşlar, faturalar, pazarlama, bakım, diğer), tutar, ödeme şekli, fatura fotoğrafı, "her ay tekrarlanır". Nakit giderler gün sonundaki beklenen nakitten düşülür. Raporlar gideri ve yaklaşık kârı gösterir. Muhasebe değildir; defterleri mali müşavir tutar.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Bahşişler</td><td>Personel bazında bahşiş kaydı (ciroya dahil edilmez).</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p3"><td>Barkod okuma</td><td>Ürün eklemek için tablet kamerası veya USB okuyucu. Küçük bir katalog için adla ürün araması yeterlidir.</td><td><span class="tag p3">Sonra</span></td></tr>
+      <tr data-p="p2"><td>Kampanyalar ve kuponlar</td><td>Süreli promosyonlar ve kupon kodları.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p3"><td>Muhasebe aktarımı</td><td>Mali müşavirin yazılımı için günlük satış yevmiyesi aktarımı (Excel/CSV veya belirli bir format).</td><td><span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Packages -->
+<section id="m-packages">
+  <h2>Paketler ve hediye kartları</h2>
+  <p>Lazer epilasyon neredeyse her zaman paket olarak satılır (ör. "tüm bacak 8 seans"); bu nedenle paketler MVP'nin temel parçasıdır.</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Seans paketleri</td><td>Bir hizmet ve bölgenin (veya bir karışımın) N seansını, son kullanma tarihiyle birlikte sabit fiyata satma. Tamamlanan her uygulama bir seans düşer.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Kasada paket satışı</td><td>Tek bir panel: paketi seçin, fiyatı ayarlayın, peşin veya taksitli ödeyin (sonra ödemeyle aynı ödeme planları) ve tüm seansları sabit aralıkla tek seferde planlayın; personel izni gibi çakışmalar işaretlenip kaydırılır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Paket bakiyesi</td><td>Bölge bazında kullanılan ve kalan seanslar, son kullanma tarihi ve önerilen sonraki tarih; profilde ve randevu oluştururken gösterilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Taksit planı</td><td>Paketin merkez bünyesinde birkaç parça halinde ödenmesi; diğer sonra ödemeli satışlarla aynı ödeme planları kullanılır (bkz. <a href="#m-receivables">Sonra ödeme ve alacaklar</a>).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Açılış bakiyeleri</td><td>Canlıya geçiş için: müşterilerin daha önce satın aldığı paketleri (kalan seanslar, son kullanma tarihi, kalan borç) satış oluşturmadan girme.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Dondurma / devir / iptal</td><td>Paketi duraklatma (ör. gebelik), başka bir müşteriye devretme veya kısmi iade kuralıyla iptal etme.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Hediye kartları / çekler</td><td>Kodlu parasal veya hizmet çeki satışı; tamamen veya kısmen kullanılabilir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Receivables -->
+<section id="m-receivables">
+  <h2>Sonra ödeme ve alacaklar</h2>
+  <p>Müşteriler bazen ürünü (ya da hizmeti, paketi) şimdi alıp sonra, tek seferde veya taksitle öder. Uygulama <strong>kimin ne kadar borcu olduğunu, her ödemenin vadesini, nelerin geciktiğini ve tüm ödeme geçmişini</strong> göstermelidir. Bu, merkezin kendi ödeme planıdır (banka kartına taksit değildir; o yalnızca bir kart ödemesidir).</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Satış ekranında sonra öde</td><td>Her satışın bir kısmı şimdi, kalanı sonra ödenebilir: peşinat (isteğe bağlı), taksit sayısı (1–12), ilk vade ve aralık (varsayılan aylık veya özel tarihler). Kaydetmeden önce ödeme takvimi gösterilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Ödeme planı</td><td>Sonra ödemeli her satış, taksitleriyle bir ödeme planı oluşturur (vade, tutar, ödenen tutar, durum: planlandı, vadesi yaklaşıyor, ödendi, kısmen ödendi, gecikmiş). Taksitli paketler de aynı yapıyı kullanır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Müşteri hesabı</td><td>Müşteride "Hesap ve ödemeler" sekmesi: açık bakiye, sıradaki ödeme, gecikmiş tutar, borç limiti, tüm açık planlar ve takvimleri, ayrıca PDF ekstre olarak alınabilen yürüyen hesap dökümü (borç, ödeme, iade, bakiye).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Tahsilat</td><td>Ödeme müşteri profilinden, alacak listesinden veya bir sonraki ziyarette satış ekranından kaydedilir. Önce en eski vadeye uygulanır; kısmi ödeme ve aynı anda birden fazla taksit ödemesi yapılabilir. Yöntem (nakit, kart, havale), tarih, tahsil eden kişi, isteğe bağlı makbuz fotoğrafı.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Alacak listesi</td><td>Tüm müşterilerin açık taksitleri; gecikmiş / 7 gün / 30 gün ve kaynağa (ürün, hizmet, paket) göre filtrelenir. Toplamlar: alacak, vadesi yaklaşan, gecikmiş, bu ay tahsil edilen. Müşteri bazında ödeme alışkanlığı (zamanında, gecikme sayısı).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Hatırlatmalar</td><td>Her vadeden ayarlanabilir gün kadar önce ve gecikmeye düştüğü günün ertesinde otomatik SMS; elle "hatırlat" düğmesi. Gecikmiş ödemeler bildirimlerde ve gösterge panelinde görünür.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Borç limiti ve uyarılar</td><td>Müşteri başına isteğe bağlı borç limiti (varsayılanı ayarlardan). Yeni plan limiti aşacaksa veya müşterinin gecikmiş ödemesi varsa satış ekranı uyarır; müdür onayıyla geçilebilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Satış ekranında hatırlatma</td><td>Vadesi gelmiş veya gecikmiş taksiti olan müşteri giriş yaptığında ya da satış ekranına geldiğinde açık tutar gösterilir ve ödemeye eklenebilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Resmi fiş kuralı</td><td>Resmi fiş/fatura (ÖKC / e-Arşiv) satış günü tutarın tamamı için kesilir; sonraki ödemeler bakiyeden tahsilattır. Mali müşavirle teyit edin.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Ödeme takvimi</td><td>Nakit planlaması için haftalık ve aylık beklenen tahsilat.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>İmzalı taahhüt</td><td>Ödeme takvimiyle birlikte taahhütnameyi yazdırıp müşteriye imzalatma; imzalı kopyayı yükleme.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Yeniden planlama</td><td>Vadeleri erteleme veya taksiti bölme; neden denetim kaydında tutulur.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Yaşlandırma raporu</td><td>Mali müşavir için yaşa göre alacaklar (0–30, 31–60, 61–90, 90+ gün).</td><td><span class="tag p2">Faz 2</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><strong>Prim ve sonra ödeme:</strong> prim açıksa, sahip ayarlarda "primi tahsilatta öde" seçeneğini seçmedikçe prim her zamanki gibi satış üzerinden (tahsilat üzerinden değil) hesaplanır.</div>
+</section>
+
+<!-- Inventory -->
+<section id="m-inventory">
+  <h2>Stok ve cihazlar</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Ürün kataloğu</td><td>Ad (TR/EN), marka, kategori, barkod, birim, alış maliyeti, satış fiyatı, KDV oranı. Tür: <strong>Perakende</strong>, <strong>Sarf malzemesi</strong> veya her ikisi.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Ürün içeriği (yapay zekâ için)</td><td>Açıklama, temel içerikler, faydalar, hitap ettiği sorunlar, uygun cilt tipleri, kontrendikasyonlar/uyarılar, kullanım şekli, boyut ve tipik kullanım süresi, iyi eşleştiği ürünler. Ürün fotoğrafı.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Birimler ve dönüşüm</td><td>1000 ml şişe olarak alınır, ml olarak kullanılır, adet olarak satılır. Stok temel birimde tutulur.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Stok özeti</td><td>Mevcut miktar, maliyet üzerinden stok değeri, minimum seviye, durum (yeterli / az / tükendi / SKT yaklaşıyor).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Stok hareketleri (stok defteri)</td><td>Her değişiklik bir harekettir: Mal kabul, Satış, Uygulamada tüketim, İade, Düzeltme, Fire/hasar, Sayım düzeltmesi. Kullanıcı, tarih, lot ve referansla birlikte. Stok = hareketlerin toplamı.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Lot ve SKT takibi</td><td>Yalnızca gerektiği ürünlerde (ürün bazında anahtar; medikal ve enjekte edilen ürünlerde varsayılan olarak açık). Mal kabulde lot numarası ve SKT; FEFO (son kullanma tarihi ilk dolan ilk çıkar) önerisi; SKT uyarıları; her uygulamada lot kaydedilir, böylece bir ürün lotunun hangi müşterilere uygulandığı izlenebilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Otomatik düşüm</td><td>Satışlar perakende stoğundan düşer; tamamlanan uygulamalar, hizmetin sarf reçetesine göre sarf malzemelerini düşer.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Mal kabul</td><td>Teslimatları kaydetme (tedarikçi, miktar, maliyet, lot, SKT, fatura numarası). Canlıya geçişte lot bazında açılış stokunu girmek için de bir kez kullanılır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Düşük stok uyarıları</td><td>Minimum seviyenin altına düşünce uyarı; sipariş listesi.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Lazer cihazları</td><td>Personel her cihazı ve teknik özelliklerini girer: model, seri no, lazer tipi ve dalga boy(lar)ı, enerji yoğunluğu ve spot çapı aralıkları, nominal atım ömrüyle birlikte başlıklar. Randevulara ve uygulama kayıtlarına bağlanır. Atımlar her uygulama kaydına elle girilir; uygulama bunları cihaz ve başlık bazında toplar ve ömrünün sonuna yaklaşıldığında uyarır.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Cihaz bakımı</td><td>Servis/kalibrasyon planı, bakım kaydı, hatırlatmalar; cihaz bakım süresince takvimde kullanılamaz.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Tedarikçiler ve satın alma siparişleri</td><td>Teslim süreleriyle tedarikçi listesi; sipariş → PDF gönder → kısmen veya tamamen teslim al → kapat.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>e-Fatura içe aktarma</td><td>Entegratörden gelen tedarikçi e-Faturası (UBL-TR XML) bir mal kabul taslağına dönüşür; personel satırları ürünlerle eşleştirir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Stok sayımı</td><td>Tablette tam veya kısmi sayım; farklar onaydan sonra sayım düzeltmesine dönüşür.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Tüketim farkı</td><td>Ürün ve personel bazında beklenen tüketim (sarf reçetesinden) ile gerçekleşen tüketim (sayımlardan) karşılaştırması.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Sipariş önerileri</td><td>Satış geçmişi ve planlanmış uygulamaların sarf malzemelerinden, tedarikçi teslim süresi de dikkate alınarak yapılan tahmin. Tahmin kodla hesaplanır; yapay zekâ bunu açıklar ve bir satın alma siparişi taslağı hazırlar.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Yapay zekâ ile ürün içeriği</td><td>Üreticinin metnini yapıştırın veya kutunun fotoğrafını yükleyin; yapay zekâ içerik alanlarının TR ve EN taslağını gözden geçirilmek üzere hazırlar.</td><td><span class="tag ai">YZ</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="ai"><td>Anormallik tespiti</td><td>Bir personelin uygulama başına çok daha fazla kullandığı sarf malzemesini, sık yapılan düzeltmeleri veya satış olmadan azalan stoğu işaretler.</td><td><span class="tag ai">YZ</span> <span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Reports -->
+<section id="m-reports">
+  <h2>Raporlar ve analiz</h2>
+  <p><b>İlk sürüm:</b> Bugün sayfasında temel rakamları (ciro, hizmet-ürün dağılımı, tahsilatlar, personel faaliyeti, en çok satanlar, YZ önerisi kabul oranı) gösteren tek bir Raporlar sekmesi ve her listenin Excel'e aktarılması. Aşağıdaki ayrıntılı raporlar aynı veriden üretilir; o sekmede olmayanlar Faz 2'ye kalır.</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Rapor</th><th>İçerik</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Satış özeti</td><td>Gün/hafta/ay bazında ciro; hizmet, ürün ve paket karşılaştırması; ödeme yöntemleri, KDV dökümü, indirimler, iadeler.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Personel faaliyeti</td><td>Yapılan uygulamalar, satılan ürünler, ciro ve açıksa prim.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>En çok satan hizmet ve ürünler</td><td>Miktar, ciro ve marja göre.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Stok</td><td>Stok değeri, ürün bazında hareketler, hizmet bazında tüketim, SKT'si yaklaşan lotlar.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Günlük kasa raporu</td><td>Gün sonu özeti.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Yapay zekâ öneri dönüşümü</td><td>Personel ve ürün bazında gösterilen, kabul edilen ve satılan öneriler ile kabul edilen önerilerden gelen ciro.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Paket yükümlülüğü</td><td>Satılmış ama henüz yapılmamış seanslar (ertelenmiş gelir); ödenmemiş taksitler.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Müşteri raporları</td><td>Yeni ve tekrar gelen müşteriler, elde tutma, kür tamamlama oranı, yaşam boyu değer, kaynak.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Randevu ve cihaz raporları</td><td>Personel ve lazer cihazlarının doluluğu, gelmeme ve iptal oranları, en yoğun saatler.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Verinize sorun (sohbet)</td><td>"Geçen ay en çok perakende satışı hangi personel yaptı?" gibi sorular, bir tablo/grafik ve arkasındaki rakamlarla yanıtlanır.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Other AI -->
+<section id="m-ai">
+  <h2>Diğer yapay zekâ özellikleri ve yapay zekâ mimarisi</h2>
+  <div class="callout ai-c">
+    <strong>İlke:</strong> yapay zekâ <em>yardımcı olur ve açıklar</em>; verileri kendi başına değiştirmez. SMS gönderen, stoğu değiştiren veya sipariş oluşturan her şey <strong>kullanıcının onayladığı bir taslaktır</strong>. Rakamlar her zaman veritabanından veya deterministik koddan gelir, asla modelin belleğinden gelmez.
+  </div>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Nasıl çalışır</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="ai"><td>Verinize sorun</td><td>Sohbet paneli. LLM, kullanıcının yetkilerini uygulayan tipli arka uç fonksiyonlarına (<code>GetSales</code>, <code>GetStock</code>, <code>GetEmployeeActivity</code>, <code>GetCustomerHistory</code>) karşı <strong>araç çağırma (tool calling)</strong> kullanır. Canlı tablolara serbest SQL çalıştırılmaz.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Günlük / haftalık özet</td><td>Bir arka plan işi KPI'ları hesaplar; LLM öne çıkanlar ve yapılacaklarla kısa bir özet yazar.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>SMS metni taslağı</td><td>Karakter sınırı içinde TR veya EN hatırlatma, geri kazanım ve kampanya SMS'i taslakları hazırlar.</td><td><span class="tag ai">YZ</span> <span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="ai"><td>Sesli uygulama notları</td><td>Uzman seanstan sonra not dikte eder; konuşma metne çevrilir, ardından yapay zekâ uygulama kaydı alanlarını gözden geçirilmek üzere doldurur.</td><td><span class="tag ai">YZ</span> <span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Sağlayıcıdan bağımsız tasarım</h3>
+<pre>
+public interface IAiProvider
+{
+    Task&lt;AiResponse&gt; CompleteAsync(AiRequest request, CancellationToken ct);      // chat + tools
+    Task&lt;T&gt; CompleteStructuredAsync&lt;T&gt;(AiRequest request, CancellationToken ct);  // JSON schema output
+    IAsyncEnumerable&lt;AiChunk&gt; StreamAsync(AiRequest request, CancellationToken ct);
+    Task&lt;float[][]&gt; EmbedAsync(IReadOnlyList&lt;string&gt; texts, CancellationToken ct); // optional
+}
+// Adapters: AnthropicProvider, OpenAiProvider, AzureOpenAiProvider, GeminiProvider, FakeProvider (tests)
+// appsettings: "Ai": { "Provider": "Anthropic", "Model": "...", "MonthlyBudgetTry": 2000, "Features": { ... } }
+</pre>
+  <ul>
+    <li>Prompt'lar koda gömülmez, sürümlü şablonlar (TR ve EN) olarak saklanır; böylece yeniden dağıtım yapmadan ayarlanabilir.</li>
+    <li>Her özellik farklı bir sağlayıcı/model kullanabilir (ör. SMS taslakları için daha ucuz bir model).</li>
+    <li>Her çağrı <code>AiInteraction</code> içinde kaydedilir: özellik, sağlayıcı, model, prompt sürümü, token, maliyet, kullanıcı, gecikme süresi.</li>
+    <li>Sağlayıcı veya prompt sürümü değiştirilirken küçük bir değerlendirme seti (beklenen güvenli önerileriyle örnek müşteriler) çalıştırılır.</li>
+    <li>Uygulama yapay zekâ olmadan da tam olarak çalışır; her yapay zekâ özelliğinin kendi açma/kapama anahtarı vardır.</li>
+  </ul>
+</section>
+
+<!-- Notifications -->
+<section id="m-notify">
+  <h2>Bildirimler ve SMS</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Uygulama içi bildirimler</td><td>Düşük stok, SKT'si yaklaşan lotlar, bekleyen onaylar, eksik onamlar, gün sonu kasa farkı.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Kanal soyutlaması</td><td>Türk bir SMS sağlayıcısı için SMS adaptörüne sahip <code>INotificationChannel</code>. İleride WhatsApp veya e-posta eklemek, modülleri değiştirmek değil yalnızca bir adaptör eklemek demektir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Randevu hatırlatmaları (SMS)</td><td>Ör. 24 saat önce gönderilir; ayrıca uygulamadan sonra uygulama sonrası bakım SMS'i. Bilgilendirme amaçlı mesajlardır; müşteri portalına bağlantı içermez.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Mesaj şablonları</td><td>Yer tutuculu (<code>{Ad}</code>, <code>{Tarih}</code>, <code>{Hizmet}</code>) düzenlenebilir TR/EN şablonlar; karakter ve SMS parça sayacı.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Mesaj kaydı</td><td>Durumu (gönderildi, iletildi, başarısız) ve maliyetiyle her SMS.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>İYS entegrasyonu</td><td>Ticari SMS (kampanyalar, doğum günü teklifleri) yalnızca İYS'de (İleti Yönetim Sistemi) izni olan numaralara gönderilir; izin değişiklikleri senkronize edilir.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p2"><td>Doğum günü ve sonraki seans mesajları</td><td>Teklif içeren doğum günü kutlaması; kür aralığına göre "sonraki lazer seansınızın zamanı geldi" mesajı.</td><td><span class="tag p2">Faz 2</span></td></tr>
+      <tr data-p="p3"><td>Toplu kampanyalar</td><td>İzin iptali yönetimi ve iletim istatistikleriyle bir segmente gönderim.</td><td><span class="tag p3">Sonra</span></td></tr>
+      <tr data-p="p3"><td>WhatsApp / e-posta kanalları</td><td>Ek adaptörler; müşterinin tercih ettiği kanal profilde tutulur.</td><td><span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Settings -->
+<section id="m-settings">
+  <h2>Ayarlar ve yönetim</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Özellik</th><th>Açıklama</th><th>Öncelik</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>İşletme profili</td><td>Ticari unvan, logo, adres, vergi dairesi ve vergi no, MERSİS no, saat dilimi (Europe/Istanbul), fiş alt bilgisi.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Çalışma saatleri ve tatiller</td><td>Haftalık çalışma saatleri, resmi ve dini bayramlar.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Vergi oranları</td><td>KDV oranları veri olarak tutulur (değişebilirler); fiyatlar KDV dahil girilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Özellik anahtarları</td><td>Prim açık/kapalı ve tabanı, her yapay zekâ özelliği için açık/kapalı, yapay zekâ sağlayıcısı ve bütçesi, SMS sağlayıcısı.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Kullanıcılar, roller ve yetkiler</td><td>Kullanıcı davet etme, rol atama, şifre sıfırlama, işletme sahibi ve yönetici için 2FA.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>PIN ile giriş</td><td>Ortak tabletler: adınıza dokunup 4 haneli PIN girin. İşletme sahibi ve müdürler günde bir kez şifre + iki adımlı doğrulama da kullanır. 5 dakika kullanılmazsa otomatik kilit; kullanıcı değiştirmek için baş harflere dokunun. Her işlem giriş yapan kullanıcı adına kaydedilir.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Diller</td><td>Türkçe (varsayılan) ve İngilizce arayüz; her kullanıcı kendi dilini seçer.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Denetim kaydı</td><td>Kim neyi ne zaman değiştirdi: fiyatlar, indirimler, iadeler, stok düzeltmeleri, silmeler, prim kuralları ve sağlık verilerinin her görüntülenmesi.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p3"><td>Çoklu şube</td><td>İkinci şube açıldığında şube değiştirici ve konsolide görünüm. Veri modeli bunu zaten destekler.</td><td><span class="tag p3">Sonra</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Data model -->
+<section id="data">
+  <h2>Veri modeli (ana varlıklar)</h2>
+  <p>Tüm tablolarda <code>Id</code>, <code>CreatedAt/By</code>, <code>UpdatedAt/By</code>, <code>IsDeleted</code> ve gerektiği yerde <code>BranchId</code> bulunur. Para <code>decimal(18,2)</code>, miktarlar <code>decimal(18,3)</code>, zaman damgaları UTC <code>datetime2</code> olarak tutulur. Çevrilebilir metinler bir <code>…Translation</code> tablosu (EntityId, Culture, Field, Value) veya JSON sütunları kullanır.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Alan</th><th>Varlıklar</th><th>Notlar</th></tr></thead>
+    <tbody>
+      <tr><td>Organizasyon</td><td>Branch, User, Role, Permission, Setting, FeatureFlag</td><td>User ↔ Employee ilişkisi isteğe bağlı 1:1'dir.</td></tr>
+      <tr><td>Personel</td><td>Employee, EmployeeQualification, Certificate, WorkSchedule, ScheduleException, Leave, Attendance</td><td></td></tr>
+      <tr><td>Prim</td><td>CommissionSettings, CommissionRule, CommissionTier, CommissionEntry, CommissionAdjustment</td><td>CommissionEntry her satış satırı veya paket seansı için yazılır; prim kapalıyken hiçbir şey yazılmaz.</td></tr>
+      <tr><td>Müşteriler</td><td>Customer, HealthProfile, Questionnaire, QuestionnaireAnswer, Consent, CustomerPhoto, CustomerNote, CustomerTag, LoyaltyTransaction</td><td>HealthProfile ayrı saklanır; erişimler kayıt altına alınır.</td></tr>
+      <tr><td>Uygulamalar</td><td>TreatmentRecord, TreatmentParameterValue, TreatmentConsumable (ürün + lot + miktar)</td><td>AppointmentItem ve Device'a bağlıdır.</td></tr>
+      <tr><td>Katalog</td><td>ServiceCategory, Service, TreatmentArea, ServiceContent, ServiceConsumable, ParameterTemplate, ConsentTemplate, Resource (oda)</td><td>ServiceContent, yapay zekâ ile ilgili metinleri ve etiketleri tutar.</td></tr>
+      <tr><td>Randevular</td><td>Appointment, AppointmentItem (hizmet + bölge + personel + cihaz + saat), AppointmentStatusHistory</td><td></td></tr>
+      <tr><td>Satışlar</td><td>Sale, SaleLine, Payment, Refund, CashSession, CashMovement, Tip, InvoiceDocument</td><td>SaleLine fiyat, KDV, personel ve isteğe bağlı RecommendationId'nin anlık görüntüsünü saklar. InvoiceDocument fiş türünü (ÖKC / e-Arşiv), numarayı, tarihi, toplamı ve bir Attachment'ı (fotoğraf/PDF) tutar; ileride e-Arşiv UUID'si ve durumu da eklenir.</td></tr>
+      <tr><td>Giderler</td><td>Expense, ExpenseCategory</td><td>Expense; tarih, kategori, tutar, ödeme şekli, ek ve isteğe bağlı aylık tekrar içerir. Nakit giderler bir CashMovement oluşturur.</td></tr>
+      <tr><td>Paketler</td><td>PackageTemplate, CustomerPackage, PackageUsage, GiftCard, GiftCardTransaction</td><td>PackageUsage, TreatmentRecord'a bağlanır. Paket taksitleri PaymentPlan kullanır.</td></tr>
+      <tr><td>Alacaklar</td><td>PaymentPlan, PaymentPlanInstallment, Collection, CollectionAllocation, CustomerLedgerEntry, CustomerCreditLimit</td><td>PaymentPlan bir Sale'e (ürün, hizmet veya paket) aittir. Bir Collection, CollectionAllocation ile taksitlere dağıtılır (önce en eski). CustomerLedgerEntry yalnızca eklenir (borç, ödeme, iade, düzeltme) ve yürüyen bakiyeyi verir.</td></tr>
+      <tr><td>Stok</td><td>Product, ProductContent, ProductCategory, Unit, StockBatch (lot + SKT), StockMovement, Supplier, PurchaseOrder, GoodsReceipt, StockCount</td><td>StockMovement: ProductId, BatchId, Qty (+/-), Type, ReferenceType/Id, UnitCost.</td></tr>
+      <tr><td>Cihazlar</td><td>Device, Handpiece, DeviceShotLog, MaintenanceRecord</td><td></td></tr>
+      <tr><td>Yapay zekâ</td><td>AiInteraction, PromptTemplate, Recommendation, RecommendationItem</td><td>RecommendationItem durumu: Shown / Accepted / Sold / Booked / Rejected (+ gerekçe).</td></tr>
+      <tr><td>Mesajlaşma ve sistem</td><td>MessageTemplate, MessageLog, Notification, AuditLog, Attachment</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><strong>Anlık görüntü kuralı:</strong> satış satırları, prim kayıtları ve uygulama kayıtları değerleri o andaki halleriyle saklar (fiyat, KDV, prim oranı, ürün lotu). Katalogda veya kurallarda sonradan yapılan değişiklikler geçmiş verileri asla değiştirmez.</div>
+</section>
+
+<!-- API -->
+<section id="api">
+  <h2>API taslağı</h2>
+  <p>REST, JSON, sürümlü (<code>/api/v1</code>), OpenAPI/Swagger ile üretilir. <code>Accept-Language</code> başlığı, mesajlar ve çevrilmiş içerik için TR/EN seçimini yapar.</p>
+<pre>
+/api/v1/auth              login, refresh, logout, me
+/api/v1/customers         CRUD, search, /{id}/timeline, /{id}/health, /{id}/consents, /{id}/questionnaires,
+                          /{id}/photos, /{id}/packages, /{id}/export, /{id}/anonymise
+/api/v1/treatments        CRUD (by appointment item), /{id}/photos
+/api/v1/employees         CRUD, /{id}/schedule, /{id}/activity?from&amp;to, /{id}/commission?period
+/api/v1/commission        settings, rules, statements, adjustments
+/api/v1/services          CRUD, /{id}/content, /{id}/areas, /{id}/consumables, categories
+/api/v1/appointments      CRUD, ?from&amp;to&amp;employeeId&amp;deviceId, /{id}/status, /availability, /{id}/readiness
+/api/v1/sales             create, get, /{id}/payments, /{id}/refund, /{id}/receipt (number + upload), /missing-receipts, /from-appointment/{id}
+/api/v1/cash              sessions/open, sessions/{id}/close, movements
+/api/v1/packages          templates, customer-packages, /{id}/use
+/api/v1/receivables       ?status=overdue|due&amp;days=7, /summary, /calendar, /customers
+/api/v1/payment-plans     create (with sale), /{id}, /{id}/reschedule
+/api/v1/collections       create (customerId, amount, method, allocations?), list
+/api/v1/customers/{id}/account   balance, plans, ledger, statement.pdf
+/api/v1/products          CRUD, /{id}/content, /{id}/batches, /{id}/movements, low-stock, expiring
+/api/v1/stock             movements, adjustments, counts, receipts
+/api/v1/devices           CRUD, /{id}/shots, /{id}/maintenance
+/api/v1/consult           POST /customers/{id}  (recommendations), POST /ask, PATCH /items/{id} (accept/reject),
+                          POST /customers/{id}/routine
+/api/v1/ai                chat (streaming), digest, content-draft, usage
+/api/v1/messages          send, templates, log
+/api/v1/reports           sales, employees, inventory, customers, appointments, recommendations (+ ?format=xlsx)
+/api/v1/admin             users, roles, settings, feature-flags, audit-log, opening-balances
+</pre>
+</section>
+
+<!-- NFR -->
+<section id="nfr">
+  <h2>Fonksiyonel olmayan gereksinimler</h2>
+  <div class="grid">
+    <div class="card"><h4>Güvenlik</h4><ul>
+      <li>Yalnızca HTTPS; kısa ömürlü access token'lar ve refresh token rotasyonu ile JWT</li>
+      <li>Her endpoint'te politika tabanlı yetkilendirme</li>
+      <li>İşletme sahibi ve yönetici için 2FA</li>
+      <li>Girişte istek sınırlama (rate limiting); hesap kilitleme</li>
+      <li>Gizli bilgiler Azure Key Vault'ta tutulur, asla repoda değil</li>
+    </ul></div>
+    <div class="card"><h4>KVKK uyumu</h4><ul>
+      <li>Sağlık verileri ve fotoğraflar özel nitelikli kişisel veridir: açık rıza, kısıtlı erişim, erişim kaydı</li>
+      <li>VERBİS kaydı ve KVKK aydınlatma metni işletme sahibinin sorumluluğundadır; uygulama her müşterinin hangi sürümü gördüğünü saklar</li>
+      <li>Bulut bölgesi ve yapay zekâ sağlayıcısı için yurt dışına aktarım kontrolü</li>
+      <li>Saklama ve silme politikası; talep üzerine anonimleştirme</li>
+      <li>Depolamada ve yedeklerde şifreleme</li>
+    </ul></div>
+    <div class="card"><h4>Güvenilirlik</h4><ul>
+      <li>Belirli bir ana geri dönüş (point-in-time restore) destekli otomatik günlük yedekler, test edilmiş geri yükleme</li>
+      <li>Randevular, stok ve paketlerde eşzamanlılık kontrolü (rowversion)</li>
+      <li>İdempotent ödeme ve fatura oluşturma (mükerrer satış veya mükerrer fatura yok)</li>
+      <li>SMS ve yapay zekâ çağrıları için yeniden deneme kuyruğu</li>
+    </ul></div>
+    <div class="card"><h4>Kullanılabilirlik</h4><ul>
+      <li>Uygulama odalarında ve ön büroda öncelikle tablet kullanımı</li>
+      <li>Standart bir ziyaret için ödeme 30 saniyenin altında</li>
+      <li>Yapay zekâ önerileri 5 saniyenin altında (akışla)</li>
+      <li>Türkçe biçimler: dd.MM.yyyy, 1.234,56 ₺</li>
+    </ul></div>
+    <div class="card"><h4>Performans</h4><ul>
+      <li>Takvim gün görünümü &lt; 1 sn'de yüklenir</li>
+      <li>Telefon, randevu tarihi, ürün ve lot SKT'si üzerinde indeksler</li>
+      <li>Ağır raporlar view'lar veya önceden toplanmış tablolar üzerinde çalışır</li>
+    </ul></div>
+    <div class="card"><h4>Kalite ve DevOps</h4><ul>
+      <li>Prim kuralları, stok, paketler ve yapay zekâ güvenlik filtresi için birim testleri</li>
+      <li>Testcontainers (SQL Server) ile entegrasyon testleri</li>
+      <li>Dev, staging ve prod ortamlarına CI/CD (GitHub Actions veya Azure DevOps)</li>
+      <li>Yerel geliştirme için Docker</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap">
+  <h2>Yol haritası</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Faz</th><th>Hedef</th><th>İçerik</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag p1">Faz 0</span> Temel</td><td>Uçtan uca çalışan iskelet</td><td>Solution yapısı, kimlik doğrulama ve yetkiler, ayarlar ve özellik anahtarları, TR/EN yerelleştirme, denetim kaydı, Azure'a CI/CD, temel React yerleşimi, sahte karşılıklarıyla <code>IAiProvider</code> / <code>INotificationChannel</code> / <code>IInvoiceProvider</code> arayüzleri.</td></tr>
+      <tr><td><span class="tag p1">Faz 1a</span> MVP çekirdeği</td><td>Merkezde gerçek bir günü yürütmek</td><td>Sağlık profili, onamlar ve anketle müşteriler; personel ve çalışma planları; bölgeler, sarf malzemeleri ve parametre şablonlarıyla hizmet kataloğu; lazer cihazları (elle girilen teknik özellikler ve atım sayıları); takvim; uygulama kayıtları ve fotoğraflar; KDV, ödemeler ve fiş fotoğrafı yüklemeyle ödeme ekranı; ödeme planlarıyla sonra ödeme, müşteri hesabı, alacak listesi ve vade SMS'leri; gün sonu; taksitli paketler; açılış bakiyeleri (açık müşteri bakiyeleri dahil); ürünler, lotlar ve stok defteri; SMS hatırlatmaları (sağlayıcı canlıya geçmeden önce bağlanır); temel raporlar; gösterge paneli.</td></tr>
+      <tr><td><span class="tag p1">Faz 1b</span> MVP yapay zekâ</td><td>Güvenle öneri sunmak</td><td>Yapay zekâ ile taslak hazırlamalı ürün ve hizmet içeriği; güvenlik filtresi ve öneri takibiyle yapay zekâ danışmanlık asistanı; uygulama sonrası bakım rutin sayfası; yapılandırılabilir prim (varsayılan olarak kapalı).</td></tr>
+      <tr><td><span class="tag p2">Faz 2</span> Büyüme</td><td>Otomasyon ve daha derin içgörü</td><td>İYS, doğum günü ve sonraki seans SMS'leri; tedarikçiler, satın alma siparişleri, e-Fatura içe aktarma, stok sayımları; cihaz bakımı; sertifikalar; sadakat, segmentler, hediye kartları. Yapay zekâ: fiş okuma, verinize sorun, günlük özet, sipariş önerileri, müşteri özeti ve kayıp riski, konuşma noktaları.</td></tr>
+      <tr><td><span class="tag p3">Faz 3</span> Genişleme</td><td>Cilalama</td><td>e-Arşiv entegrasyonu, barkod okuma, kampanyalar, WhatsApp/e-posta kanalları, tablette imza, muhasebe aktarımı, çoklu şube. Yapay zekâ: anlamsal katalog araması, anormallik tespiti, sesli notlar, akıllı planlama, gelmeme tahmini.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Remaining questions -->
+<section id="questions">
+  <h2>Kalan sorular</h2>
+  <p>Önceki soruların tümü yanıtlandı (bkz. <a href="#decisions">Kararlar</a>). Aşağıdakiler ertelenmiştir ve MVP'yi engellemez:</p>
+  <ul class="check">
+    <li><strong>Yapay zekâ sağlayıcısı ve veri aktarımı:</strong> uygulama yalnızca Türkiye'ye hizmet verir, ancak seçilen yapay zekâ sağlayıcısı verileri Türkiye dışında işliyorsa bu yine de KVKK kapsamında yurt dışına aktarımdır. Gerçek müşteri verileri üzerinde yapay zekâyı etkinleştirmeden önce sağlayıcı/bölge seçilmeli, aktarımın hukuki dayanağı ve yapay zekâ onam metni kontrol ettirilmelidir. Bu arada danışmanlık asistanı sağlık verileri olmadan çalışabilir.</li>
+    <li><strong>SMS sağlayıcısı:</strong> canlıya geçmeden önce sağlayıcı ve gönderici adı (başlık) seçilmeli; herhangi bir ticari SMS göndermeden önce İYS'ye kayıt yapılmalıdır.</li>
+    <li><strong>Prim oranları:</strong> işletme sahibi primi açmaya karar verdiğinde girilecek.</li>
+    <li><strong>e-Arşiv entegratörü:</strong> manuel fiş yükleme fazla iş yükü getirmeye başladığında bir entegratör seçilecek.</li>
+  </ul>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.filters button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter');
+      buttons.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      document.querySelectorAll('table[data-features] tbody tr').forEach(function(tr){
+        var show = f === 'all' || !!tr.querySelector('td:last-child .tag.' + f);
+        tr.style.display = show ? '' : 'none';
+      });
+    });
+  });
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('victoria-theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('victoria-theme', next); } catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

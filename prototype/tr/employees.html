@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ekip · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="team">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Ekip</h1><p>Personel, yaptıkları işler ve (isteğe bağlı) prim</p></div>
+  </div>
+  <div class="tabs main-tabs" data-tabs="team"><button class="on" data-tab="t-employees"><i data-lucide="users"></i>Personel</button><button data-tab="t-commission"><i data-lucide="percent"></i>Prim <span class="tag">kapalı</span></button></div>
+  <div class="tab-panel on" id="t-employees" data-group="team">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Personel</h1><p>5 aktif personel · Kasım 2026</p></div>
+    <div class="actions"><input class="input" style="width:auto" value="Kasım 2026"><button class="btn primary" data-open="drawer-emp"><i data-lucide="user-plus"></i>Yeni personel</button></div>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Personel</th><th>Unvan</th><th>Yetkinlikler</th><th class="num">Uygulamalar</th><th class="num">Hizmet cirosu</th><th class="num">Satılan ürünler</th><th class="num">Kabul edilen YZ önerileri</th><th>Doluluk</th><th>Giriş</th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">AD</span><b>Ayşe Demir</b></div></td><td>Lazer uzmanı</td><td><span class="tag indigo">Sertifikalı lazer</span></td><td class="num">96</td><td class="num">₺84.200</td><td class="num">21 · ₺12.900</td><td class="num">14 / 31 (%45)</td><td><div class="progress" style="width:90px"><span style="width:86%"></span></div><span class="small">%86</span></td><td><span class="tag green">Uzman</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">MK</span><b>Merve Kaya</b></div></td><td>Estetisyen</td><td><span class="tag">Cilt bakımları</span> <span class="tag">Kaş</span></td><td class="num">58</td><td class="num">₺61.400</td><td class="num">38 · ₺24.350</td><td class="num">22 / 40 (%55)</td><td><div class="progress" style="width:90px"><span style="width:72%"></span></div><span class="small">%72</span></td><td><span class="tag green">Uzman</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">SA</span><b>Dr. Selin Aydın</b></div></td><td>Hekim (yarı zamanlı)</td><td><span class="tag red">Hekim</span> <span class="tag indigo">Sertifikalı lazer</span></td><td class="num">22</td><td class="num">₺78.900</td><td class="num">4 · ₺3.800</td><td class="num">3 / 6</td><td><div class="progress" style="width:90px"><span style="width:58%"></span></div><span class="small">%58</span></td><td><span class="tag green">Hekim</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">EŞ</span><b>Elif Şahin</b></div></td><td>Spa terapisti</td><td><span class="tag">Masaj</span> <span class="tag">Vücut</span></td><td class="num">31</td><td class="num">₺42.100</td><td class="num">9 · ₺5.120</td><td class="num">2 / 9</td><td><div class="progress orange" style="width:90px"><span style="width:44%"></span></div><span class="small">%44</span></td><td><span class="tag green">Uzman</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar" style="background:#fef3c7;color:#92400e">ZA</span><b>Zeynep Arslan</b></div></td><td>Resepsiyon</td><td>–</td><td class="num">–</td><td class="num">–</td><td class="num">12 · ₺7.400</td><td class="num">–</td><td>–</td><td><span class="tag green">Resepsiyon</span></td></tr>
+    </tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="t-commission" data-group="team">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Prim</h1><p>İsteğe bağlıdır. Kapalıyken hiçbir hesaplama yapılmaz ve prim sütunları her yerde gizlenir.</p></div>
+    <div class="actions"><label class="switch" style="font-weight:600"><input type="checkbox" id="commToggle"><span class="track"></span>Prim açık</label></div>
+  </div>
+  <div class="alert warning mb" id="commOff"><i data-lucide="power"></i><div>Prim <b>kapalı</b>. Kuralları aşağıda şimdiden hazırlayabilirsiniz; primi açtığınız tarihten itibaren geçerli olur. Önizleme, prim dökümünün nasıl görüneceğini gösterir.</div></div>
+
+  <div class="grid g2 mb">
+    <div class="card"><div class="card-head"><h3>Hesaplama ayarları</h3></div><div class="card-body stack">
+      <div class="field"><label>Hesaplama tabanı</label><select class="select"><option>İndirim sonrası net</option><option>Liste fiyatı</option><option>İndirim sonrası net eksi sarf maliyeti</option></select></div>
+      <div class="field"><label>Paketler</label><select class="select"><option>Yapılan seans başına</option><option>Paket satışında</option></select></div>
+      <div class="field"><label>İadeler</label><select class="select"><option>Primi iade ayında düş</option></select></div>
+      <label class="switch"><input type="checkbox"><span class="track"></span>Aylık kademeleri kullan</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Bir satırın iki personel arasında bölünmesine izin ver</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Personel kendi primini görebilir</label>
+    </div></div>
+    <div class="card"><div class="card-head"><h3>Kademeler (isteğe bağlı)</h3><button class="btn sm"><i data-lucide="plus"></i>Kademe ekle</button></div><div class="card-body flush"><table class="table">
+      <thead><tr><th>Aylık ciro (başlangıç)</th><th>bitiş</th><th class="num">Hizmet %</th><th class="num">Ürün %</th></tr></thead>
+      <tbody><tr><td>₺0</td><td>₺50.000</td><td class="num">–</td><td class="num">–</td></tr><tr><td>₺50.000</td><td>–</td><td class="num">–</td><td class="num">–</td></tr></tbody></table>
+      <div class="card-body small muted">Oranlar henüz tanımlanmadı; işletme sahibi primi açarken girer.</div></div></div>
+  </div>
+
+  <div class="card mb"><div class="card-head"><h3>Kurallar</h3><button class="btn sm primary" data-toast="Kural formu: kapsam, tür, değer, tarihler"><i data-lucide="plus"></i>Kural ekle</button></div><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Kapsam</th><th>Uygulandığı</th><th>Personel</th><th>Tür</th><th class="num">Değer</th><th>Geçerlilik</th><th></th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag">Varsayılan</span></td><td>Tüm hizmetler</td><td>Tümü</td><td>Yüzde</td><td class="num muted">tanımlanmadı</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+      <tr><td><span class="tag">Varsayılan</span></td><td>Tüm ürünler</td><td>Tümü</td><td>Yüzde</td><td class="num muted">tanımlanmadı</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+      <tr><td><span class="tag indigo">Kategori</span></td><td>Medikal estetik</td><td>Dr. Selin Aydın</td><td>Yüzde</td><td class="num muted">tanımlanmadı</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+      <tr><td><span class="tag blue">Kalem</span></td><td>Lazer · Tüm vücut</td><td>Tümü</td><td>Seans başına sabit</td><td class="num muted">tanımlanmadı</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+    </tbody></table><div class="card-body small muted">En özel kural geçerlidir: kalem → kategori → varsayılan; personele özel kural "Tümü"nün önüne geçer.</div></div></div>
+
+  <div class="card"><div class="card-head"><h3>Prim dökümü önizlemesi · Ayşe Demir · Kasım 2026</h3><button class="btn sm"><i data-lucide="download"></i>Dışa aktar</button></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Grup</th><th class="num">Taban</th><th class="num">Oran</th><th class="num">Prim</th></tr></thead>
+    <tbody><tr><td>Hizmetler (96 seans)</td><td class="num">₺84.200</td><td class="num muted">–</td><td class="num muted">–</td></tr><tr><td>Ürünler (21 adet)</td><td class="num">₺12.900</td><td class="num muted">–</td><td class="num muted">–</td></tr><tr><td>İade düşümleri</td><td class="num">₺0</td><td></td><td class="num">₺0</td></tr><tr><td>Manuel düzeltmeler</td><td></td><td></td><td class="num">₺0</td></tr></tbody>
+    <tfoot><tr><td>Toplam</td><td class="num">₺97.100</td><td></td><td class="num muted">–</td></tr></tfoot></table></div></div>
+
+  </div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-emp">
+  <div class="drawer-head"><h3>Yeni personel</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field"><label>Ad</label><input class="input"></div><div class="field"><label>Soyad</label><input class="input"></div>
+    <div class="field"><label>Unvan</label><input class="input"></div><div class="field"><label>Telefon</label><input class="input"></div>
+    <div class="field"><label>İşe başlama tarihi</label><input class="input"></div><div class="field"><label>Takvim rengi</label><input class="input" value="#db2777"></div>
+    <div class="field span-2"><label>Özellikler</label><div class="row wrap"><label class="chk"><input type="checkbox"> Hekim</label><label class="chk"><input type="checkbox"> Sertifikalı lazer uzmanı</label></div></div>
+    <div class="field span-2"><label class="switch"><input type="checkbox" checked><span class="track"></span>Kullanıcı hesabı oluştur (rol: Uzman)</label></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><a class="btn primary" href="employee-detail.html">Kaydet</a></div>
+</aside>
+
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+<script>
+  document.getElementById('commToggle').addEventListener('change', function (e) {
+    document.getElementById('commOff').style.display = e.target.checked ? 'none' : '';
+    toast(e.target.checked ? 'Prim bugünden itibaren <b>açıldı</b>' : 'Prim <b>kapatıldı</b>');
+  });
+</script>
+</body>
+</html>

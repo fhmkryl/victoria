@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Müşteriler · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="customers">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Müşteriler</h1><p>1.284 müşteri · bu ay 96 ziyaret</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="download"></i>Dışa aktar</button><button class="btn primary" data-open="drawer-new-customer"><i data-lucide="user-plus"></i>Yeni müşteri</button></div>
+  </div>
+
+  <div class="filter-bar">
+    <input class="input" style="min-width:280px" placeholder="Ad, telefon, müşteri no ara…">
+    <select class="select"><option>Tüm etiketler</option><option>VIP</option><option>Hassas cilt</option></select>
+    <select class="select"><option>Son ziyaret: tümü</option><option>60+ gündür gelmeyen</option><option>Lazer kürü tamamlanmamış</option></select>
+    <select class="select"><option>Paket: tümü</option><option>Aktif paketi olan</option><option>Paketi 30 gün içinde bitecek</option></select>
+    <label class="chk"><input type="checkbox"> Yalnızca açık bakiyesi olanlar</label>
+  </div>
+
+  <div class="card"><div class="card-body flush table-wrap">
+    <table class="table">
+      <thead><tr><th>Müşteri</th><th>Telefon</th><th>Etiketler</th><th>Son ziyaret</th><th>Sonraki randevu</th><th>Aktif paket</th><th class="num">Harcama (12 ay)</th><th class="num">Bakiye</th><th>Onamlar</th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">BK</span><div><b>Burcu Koç</b><div class="small muted">#C-1042</div></div></div></td><td>0532 *** 41 18</td><td><span class="tag orange">Alerji</span></td><td>01.10.2026</td><td>Bugün 14:00</td><td>Lazer Yüz 3/6 kaldı</td><td class="num">₺14.200</td><td class="num down">₺1.500</td><td><span class="tag red">Lazer eksik</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">DY</span><div><b>Deniz Yılmaz</b><div class="small muted">#C-0981</div></div></div></td><td>0505 *** 22 70</td><td><span class="tag indigo">VIP</span></td><td>Bugün</td><td>24.12.2026</td><td>Tüm bacak 3/8 kaldı</td><td class="num">₺38.900</td><td class="num down">₺6.000</td><td><span class="tag green">Tamam</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">EÇ</span><div><b>Ece Çelik</b><div class="small muted">#C-1107</div></div></div></td><td>0544 *** 09 31</td><td><span class="tag">Hassas cilt</span></td><td>Bugün</td><td>–</td><td>–</td><td class="num">₺9.450</td><td class="num">₺0</td><td><span class="tag green">Tamam</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">GÖ</span><div><b>Gizem Öztürk</b><div class="small muted">#C-0874</div></div></div></td><td>0535 *** 77 02</td><td></td><td>Bugün</td><td>10.12.2026</td><td>Peeling 2/4 kaldı</td><td class="num">₺12.600</td><td class="num down">₺2.800</td><td><span class="tag green">Tamam</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">NA</span><div><b>Nazlı Aksoy</b><div class="small muted">#C-1211</div></div></div></td><td>0533 *** 12 90</td><td></td><td>Bugün</td><td>24.12.2026</td><td>Koltuk altı 4/6 kaldı</td><td class="num">₺4.800</td><td class="num">₺0</td><td><span class="tag green">Tamam</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">HP</span><div><b>Hande Polat</b><div class="small muted">#C-1290</div></div></div></td><td>0541 *** 66 13</td><td><span class="tag blue">Yeni</span></td><td>–</td><td>Bugün 16:00</td><td>Tüm vücut 8/8 kaldı</td><td class="num">₺24.000</td><td class="num down">₺16.000</td><td><span class="tag orange">Anket bekleniyor</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">CY</span><div><b>Cansu Yıldız</b><div class="small muted">#C-0612</div></div></div></td><td>0530 *** 58 44</td><td><span class="tag red">Kayıp riski</span></td><td>02.08.2026</td><td>–</td><td>Bikini 2/6 kaldı</td><td class="num">₺7.300</td><td class="num">₺0</td><td><span class="tag green">Tamam</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">SE</span><div><b>Selin Er</b><div class="small muted">#C-1003</div></div></div></td><td>0542 *** 30 05</td><td></td><td>18.10.2026</td><td>Bugün 15:00</td><td>–</td><td class="num">₺3.900</td><td class="num">₺0</td><td><span class="tag green">Tamam</span></td></tr>
+      </tbody>
+    </table>
+    <div class="pagination">1–8 / 1.284 <button class="on">1</button><button>2</button><button>3</button><button>…</button><button>161</button></div>
+  </div></div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-new-customer">
+  <div class="drawer-head"><h3><i data-lucide="user-plus"></i>Yeni müşteri</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field"><label>Ad <span class="req">*</span></label><input class="input"></div>
+      <div class="field"><label>Soyad <span class="req">*</span></label><input class="input"></div>
+      <div class="field"><label>Cep telefonu <span class="req">*</span></label><input class="input" placeholder="05xx xxx xx xx"><span class="hint">Benzersiz olmalı; arama ve SMS için kullanılır.</span></div>
+      <div class="field"><label>E-posta</label><input class="input"></div>
+      <div class="field"><label>Doğum tarihi</label><input class="input" placeholder="gg.aa.yyyy"></div>
+      <div class="field"><label>Cinsiyet</label><select class="select"><option>–</option><option>Kadın</option><option>Erkek</option></select></div>
+      <div class="field"><label>Tercih edilen dil</label><select class="select"><option>Türkçe</option><option>English</option></select></div>
+      <div class="field"><label>Kaynak</label><select class="select"><option>Instagram</option><option>Tavsiye</option><option>Randevusuz müşteri</option><option>Google</option></select></div>
+    </div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="shield-check"></i>KVKK ve onamlar</h3></div><div class="card-body stack">
+      <label class="chk"><input type="checkbox" checked> KVKK aydınlatma metni (v3) verildi</label>
+      <label class="chk"><input type="checkbox"> Açık rıza: sağlık verilerinin işlenmesi</label>
+      <label class="chk"><input type="checkbox"> Onam: öncesi/sonrası fotoğraflar</label>
+      <label class="chk"><input type="checkbox"> Onam: yapay zekâ destekli öneriler</label>
+      <label class="chk"><input type="checkbox"> Ticari SMS (İYS)</label>
+      <div class="upload"><i data-lucide="upload"></i> İmzalı formu yükle (fotoğraf veya PDF)</div>
+    </div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><a class="btn primary" href="customer-detail.html">Kaydet ve aç</a></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

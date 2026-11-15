@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customers · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="customers">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Customers</h1><p>1,284 customers · 96 visited this month</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="download"></i>Export</button><button class="btn primary" data-open="drawer-new-customer"><i data-lucide="user-plus"></i>New customer</button></div>
+  </div>
+
+  <div class="filter-bar">
+    <input class="input" style="min-width:280px" placeholder="Search name, phone, customer no…">
+    <select class="select"><option>All tags</option><option>VIP</option><option>Sensitive skin</option></select>
+    <select class="select"><option>Any last visit</option><option>No visit in 60+ days</option><option>Unfinished laser course</option></select>
+    <select class="select"><option>Any package</option><option>Has active package</option><option>Package expiring in 30 days</option></select>
+    <label class="chk"><input type="checkbox"> Open balance only</label>
+  </div>
+
+  <div class="card"><div class="card-body flush table-wrap">
+    <table class="table">
+      <thead><tr><th>Customer</th><th>Phone</th><th>Tags</th><th>Last visit</th><th>Next appointment</th><th>Active package</th><th class="num">Spent (12 mo)</th><th class="num">Balance</th><th>Consents</th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">BK</span><div><b>Burcu Koç</b><div class="small muted">#C-1042</div></div></div></td><td>0532 *** 41 18</td><td><span class="tag orange">Allergy</span></td><td>01.10.2026</td><td>Today 14:00</td><td>Laser Face 3/6 left</td><td class="num">₺14,200</td><td class="num down">₺1,500</td><td><span class="tag red">Laser missing</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">DY</span><div><b>Deniz Yılmaz</b><div class="small muted">#C-0981</div></div></div></td><td>0505 *** 22 70</td><td><span class="tag indigo">VIP</span></td><td>Today</td><td>24.12.2026</td><td>Full leg 3/8 left</td><td class="num">₺38,900</td><td class="num down">₺6,000</td><td><span class="tag green">Complete</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">EÇ</span><div><b>Ece Çelik</b><div class="small muted">#C-1107</div></div></div></td><td>0544 *** 09 31</td><td><span class="tag">Sensitive skin</span></td><td>Today</td><td>–</td><td>–</td><td class="num">₺9,450</td><td class="num">₺0</td><td><span class="tag green">Complete</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">GÖ</span><div><b>Gizem Öztürk</b><div class="small muted">#C-0874</div></div></div></td><td>0535 *** 77 02</td><td></td><td>Today</td><td>10.12.2026</td><td>Peel 2/4 left</td><td class="num">₺12,600</td><td class="num down">₺2,800</td><td><span class="tag green">Complete</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">NA</span><div><b>Nazlı Aksoy</b><div class="small muted">#C-1211</div></div></div></td><td>0533 *** 12 90</td><td></td><td>Today</td><td>24.12.2026</td><td>Underarm 4/6 left</td><td class="num">₺4,800</td><td class="num">₺0</td><td><span class="tag green">Complete</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">HP</span><div><b>Hande Polat</b><div class="small muted">#C-1290</div></div></div></td><td>0541 *** 66 13</td><td><span class="tag blue">New</span></td><td>–</td><td>Today 16:00</td><td>Full body 8/8 left</td><td class="num">₺24,000</td><td class="num down">₺16,000</td><td><span class="tag orange">Questionnaire due</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">CY</span><div><b>Cansu Yıldız</b><div class="small muted">#C-0612</div></div></div></td><td>0530 *** 58 44</td><td><span class="tag red">Churn risk</span></td><td>02.08.2026</td><td>–</td><td>Bikini 2/6 left</td><td class="num">₺7,300</td><td class="num">₺0</td><td><span class="tag green">Complete</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td><div class="row"><span class="avatar">SE</span><div><b>Selin Er</b><div class="small muted">#C-1003</div></div></div></td><td>0542 *** 30 05</td><td></td><td>18.10.2026</td><td>Today 15:00</td><td>–</td><td class="num">₺3,900</td><td class="num">₺0</td><td><span class="tag green">Complete</span></td></tr>
+      </tbody>
+    </table>
+    <div class="pagination">1–8 of 1,284 <button class="on">1</button><button>2</button><button>3</button><button>…</button><button>161</button></div>
+  </div></div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-new-customer">
+  <div class="drawer-head"><h3><i data-lucide="user-plus"></i>New customer</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field"><label>First name <span class="req">*</span></label><input class="input"></div>
+      <div class="field"><label>Last name <span class="req">*</span></label><input class="input"></div>
+      <div class="field"><label>Mobile phone <span class="req">*</span></label><input class="input" placeholder="05xx xxx xx xx"><span class="hint">Unique; used for search and SMS.</span></div>
+      <div class="field"><label>E-mail</label><input class="input"></div>
+      <div class="field"><label>Birth date</label><input class="input" placeholder="dd.mm.yyyy"></div>
+      <div class="field"><label>Gender</label><select class="select"><option>–</option><option>Female</option><option>Male</option></select></div>
+      <div class="field"><label>Preferred language</label><select class="select"><option>Türkçe</option><option>English</option></select></div>
+      <div class="field"><label>Source</label><select class="select"><option>Instagram</option><option>Referral</option><option>Walk-in</option><option>Google</option></select></div>
+    </div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="shield-check"></i>KVKK &amp; consents</h3></div><div class="card-body stack">
+      <label class="chk"><input type="checkbox" checked> KVKK notice (aydınlatma metni v3) given</label>
+      <label class="chk"><input type="checkbox"> Explicit consent: processing of health data</label>
+      <label class="chk"><input type="checkbox"> Consent: before/after photos</label>
+      <label class="chk"><input type="checkbox"> Consent: AI-assisted recommendations</label>
+      <label class="chk"><input type="checkbox"> Commercial SMS (İYS)</label>
+      <div class="upload"><i data-lucide="upload"></i> Upload signed form (photo or PDF)</div>
+    </div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><a class="btn primary" href="customer-detail.html">Save &amp; open</a></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

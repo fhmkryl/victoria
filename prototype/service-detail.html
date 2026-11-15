@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Laser epilation · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="catalog:service">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="catalog.html#c-services">Services</a><i data-lucide="chevron-right"></i>Laser epilation</div>
+  <div class="page-header">
+    <div class="title"><h1>Laser epilation</h1><p>Category: Laser · KDV 20% · active</p></div>
+    <div class="actions"><button class="btn">Duplicate</button><button class="btn primary" data-toast="Service saved">Save</button></div>
+  </div>
+
+  <div class="tabs" data-tabs="svc">
+    <button class="on" data-tab="v-general">General</button>
+    <button data-tab="v-areas">Areas &amp; prices</button>
+    <button data-tab="v-content"><i data-lucide="sparkles"></i>Content (AI)</button>
+    <button data-tab="v-rules">Staff &amp; rules</button>
+    <button data-tab="v-cons">Consumables</button>
+    <button data-tab="v-params">Parameter template</button>
+  </div>
+
+  <div class="tab-panel on" id="v-general" data-group="svc"><div class="card"><div class="card-body form-grid">
+    <div class="field"><label>Name (TR) <span class="req">*</span></label><input class="input" value="Lazer epilasyon"></div>
+    <div class="field"><label>Name (EN)</label><input class="input" value="Laser epilation"></div>
+    <div class="field"><label>Category</label><select class="select"><option>Laser</option></select></div>
+    <div class="field"><label>KDV rate</label><select class="select"><option>20%</option><option>10%</option><option>1%</option></select></div>
+    <div class="field"><label>Buffer after (min)</label><input class="input" value="10"></div>
+    <div class="field"><label>Typical course</label><input class="input" value="6–8 sessions, every 4–6 weeks"></div>
+    <div class="field"><label>Required resource</label><select class="select"><option>Any laser device</option><option>Diode 808 only</option></select></div>
+    <div class="field"><label>Calendar colour</label><input class="input" value="#4f46e5"></div>
+  </div></div></div>
+
+  <div class="tab-panel" id="v-areas" data-group="svc"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Area (TR / EN)</th><th class="num">Duration</th><th class="num">Price / session</th><th class="num">Standard shots</th><th>Packages</th></tr></thead>
+    <tbody><tr><td>Yüz / Face</td><td class="num">20 min</td><td class="num">₺1,200</td><td class="num">220</td><td>6 sessions ₺7,200</td></tr>
+    <tr><td>Koltuk altı / Underarm</td><td class="num">15 min</td><td class="num">₺800</td><td class="num">600</td><td>6 sessions ₺4,800</td></tr>
+    <tr><td>Tüm bacak / Full leg</td><td class="num">60 min</td><td class="num">₺3,000</td><td class="num">3,500</td><td>8 sessions ₺24,000</td></tr>
+    <tr><td>Bikini</td><td class="num">20 min</td><td class="num">₺1,000</td><td class="num">700</td><td>6 sessions ₺6,000</td></tr>
+    <tr><td>Tüm vücut / Full body</td><td class="num">90 min</td><td class="num">₺4,500</td><td class="num">7,000</td><td>8 sessions ₺32,000</td></tr></tbody></table>
+    <div class="card-body"><button class="btn sm"><i data-lucide="plus"></i>Add area</button></div></div></div></div>
+
+  <div class="tab-panel" id="v-content" data-group="svc"><div class="grid g-main">
+    <div class="card"><div class="card-head"><h3>Content used by the AI assistant</h3><div class="seg"><button class="on">TR</button><button>EN</button></div></div><div class="card-body stack">
+      <div class="field"><label>Description</label><textarea class="input">Diode lazer ile kıl köklerinin kalıcı olarak zayıflatılması. Koyu ve kalın kıllarda en iyi sonuç.</textarea></div>
+      <div class="field"><label>Benefits</label><textarea class="input">Uzun süreli kıl azalması · batık kıl oluşumunu azaltır · ağda/jilet tahrişini ortadan kaldırır</textarea></div>
+      <div class="form-grid">
+        <div class="field"><label>Concerns addressed</label><input class="input" value="unwanted hair, ingrown hair"></div>
+        <div class="field"><label>Suitable Fitzpatrick</label><input class="input" value="I–V"></div>
+      </div>
+      <div class="field"><label>Contraindications</label><textarea class="input">Pregnancy · isotretinoin within 6 months · photosensitising medication · active skin infection · recent tanning</textarea></div>
+      <div class="field"><label>Aftercare</label><textarea class="input">48 saat sıcak duş, sauna, spor yok · SPF 50 · yatıştırıcı jel</textarea></div>
+      <div class="field"><label>Related products</label><input class="input" value="SPF 50 Sunscreen, Soothing Aloe Gel"></div>
+    </div></div>
+    <div class="card ai-card"><div class="card-head"><h3><i data-lucide="wand-sparkles"></i>Draft with AI</h3></div><div class="card-body stack">
+      <span class="small muted">Paste short notes or a brochure text; AI fills empty fields in TR and EN for you to review.</span>
+      <textarea class="input" placeholder="e.g. 808nm diode, good for dark hair, 6-8 sessions…"></textarea>
+      <button class="btn ai" data-toast="Draft generated · review highlighted fields"><i data-lucide="sparkles"></i>Generate draft</button>
+      <button class="btn" data-toast="English version drafted from Turkish">Translate TR → EN</button>
+    </div></div>
+  </div></div>
+
+  <div class="tab-panel" id="v-rules" data-group="svc"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Requirements</h3></div><div class="card-body stack">
+      <label class="switch"><input type="checkbox"><span class="track"></span>Requires physician</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Requires certified laser operator</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Requires signed consent: <b>Laser treatment consent v4</b> · valid 12 months</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Requires health questionnaire: <b>Laser pre-treatment</b> · valid 6 months</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Minimum interval between sessions: <b>4 weeks</b></label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Photo consent needed for photos</label>
+    </div></div>
+    <div class="card"><div class="card-head"><h3>Qualified employees</h3></div><ul class="list">
+      <li><span class="avatar">AD</span><div class="grow">Ayşe Demir<div class="small muted">Certified operator · cert. valid to 03/2028</div></div><span class="tag green">Qualified</span></li>
+      <li><span class="avatar">SA</span><div class="grow">Dr. Selin Aydın<div class="small muted">Physician</div></div><span class="tag green">Qualified</span></li>
+      <li><span class="avatar">MK</span><div class="grow">Merve Kaya<div class="small muted">No laser certificate</div></div><span class="tag">Not qualified</span></li>
+    </ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="v-cons" data-group="svc"><div class="card"><div class="card-head"><h3>Standard consumables per session</h3><span class="small muted">Deducted from stock when the treatment is completed</span></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Product</th><th>Per</th><th class="num">Quantity</th><th class="num">Cost</th></tr></thead>
+    <tbody><tr><td>Laser cooling gel 5 L</td><td>Per 100 shots</td><td class="num">5 ml</td><td class="num">₺1.40</td></tr><tr><td>Nitrile gloves (pair)</td><td>Per session</td><td class="num">1</td><td class="num">₺3.00</td></tr><tr><td>Soothing Aloe Gel (cabin)</td><td>Per session</td><td class="num">5 ml</td><td class="num">₺4.50</td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="v-params" data-group="svc"><div class="card"><div class="card-head"><h3>Fields recorded per session</h3><button class="btn sm"><i data-lucide="plus"></i>Add field</button></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Field</th><th>Type</th><th>Unit</th><th>Required</th><th>Pre-fill</th></tr></thead>
+    <tbody><tr><td>Device / handpiece</td><td>Device</td><td>–</td><td>Yes</td><td>Last used</td></tr><tr><td>Wavelength</td><td>Select</td><td>nm</td><td>Yes</td><td>Device spec</td></tr><tr><td>Fluence</td><td>Number</td><td>J/cm²</td><td>Yes</td><td>Last session</td></tr><tr><td>Pulse duration</td><td>Number</td><td>ms</td><td>No</td><td>Last session</td></tr><tr><td>Spot size</td><td>Number</td><td>mm</td><td>Yes</td><td>Last session</td></tr><tr><td>Shot count</td><td>Number</td><td>shots</td><td>Yes</td><td>–</td></tr><tr><td>Skin reaction</td><td>Select</td><td>–</td><td>Yes</td><td>None</td></tr></tbody></table></div></div></div>
+</main></div></div>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

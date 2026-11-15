@@ -1,0 +1,800 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Victoria Feature Specification</title>
+<style>
+:root{
+  --bg:#faf8f6; --surface:#ffffff; --surface-2:#f3efeb; --text:#1f1a17; --muted:#6b625c;
+  --border:#e4ddd6; --accent:#a2466b; --accent-soft:#f6e6ed;
+  --p1:#1f7a4d; --p1-bg:#e3f4ea; --p2:#8a5a00; --p2-bg:#fbf0d9; --p3:#4b5563; --p3-bg:#eceef1;
+  --ai:#5b3fc4; --ai-bg:#ece8fb; --code-bg:#f3efeb;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#151214; --surface:#1e1a1d; --surface-2:#272226; --text:#efe9ec; --muted:#a69da2;
+    --border:#3a3337; --accent:#e58bb0; --accent-soft:#3a2430;
+    --p1:#7fd3a6; --p1-bg:#1c3328; --p2:#f0c46a; --p2-bg:#3a2f17; --p3:#c3c9d2; --p3-bg:#2b2f35;
+    --ai:#b6a4ff; --ai-bg:#2c2648; --code-bg:#272226;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#151214; --surface:#1e1a1d; --surface-2:#272226; --text:#efe9ec; --muted:#a69da2;
+  --border:#3a3337; --accent:#e58bb0; --accent-soft:#3a2430;
+  --p1:#7fd3a6; --p1-bg:#1c3328; --p2:#f0c46a; --p2-bg:#3a2f17; --p3:#c3c9d2; --p3-bg:#2b2f35;
+  --ai:#b6a4ff; --ai-bg:#2c2648; --code-bg:#272226;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+a{color:var(--accent)}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);max-width:1280px;margin:0 auto}
+nav.toc{position:sticky;top:0;height:100vh;overflow:auto;padding:28px 18px;border-right:1px solid var(--border)}
+nav.toc h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px;border:none;padding:0}
+nav.toc ol{list-style:none;padding:0;margin:0;counter-reset:t}
+nav.toc li{counter-increment:t}
+nav.toc a{display:block;padding:5px 8px;border-radius:6px;color:var(--text);text-decoration:none;font-size:14px}
+nav.toc a::before{content:counter(t) ". ";color:var(--muted)}
+nav.toc a:hover{background:var(--surface-2)}
+main{padding:32px 40px 80px;min-width:0}
+header.hero{border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:8px}
+header.hero h1{margin:0 0 6px;font-size:30px;line-height:1.2}
+header.hero p{margin:4px 0;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{display:inline-block;font-size:12px;padding:2px 9px;border-radius:999px;background:var(--surface-2);border:1px solid var(--border);color:var(--muted)}
+section{padding-top:28px}
+h2{font-size:22px;margin:0 0 10px;border-left:4px solid var(--accent);padding-left:10px}
+h3{font-size:17px;margin:22px 0 8px}
+p{margin:8px 0}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.grid .card{margin:0}
+.card h4{margin:0 0 6px;font-size:15px}
+.card p,.card ul{font-size:14px;color:var(--muted);margin:4px 0}
+.card ul{padding-left:18px}
+.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px;background:var(--surface);margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--border)}
+th{background:var(--surface-2);font-weight:600;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td:first-child{font-weight:600;min-width:170px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 7px;border-radius:5px;white-space:nowrap}
+.p1{color:var(--p1);background:var(--p1-bg)} .p2{color:var(--p2);background:var(--p2-bg)} .p3{color:var(--p3);background:var(--p3-bg)}
+.ai{color:var(--ai);background:var(--ai-bg)}
+.callout{border-left:4px solid var(--accent);background:var(--accent-soft);padding:12px 16px;border-radius:0 8px 8px 0;margin:14px 0}
+.callout.ai-c{border-color:var(--ai);background:var(--ai-bg)}
+code{background:var(--code-bg);padding:1px 5px;border-radius:4px;font-size:13px}
+pre{background:var(--code-bg);padding:14px;border-radius:8px;overflow-x:auto;font-size:13px;line-height:1.5}
+.filters{position:sticky;top:0;z-index:5;background:var(--bg);padding:10px 0;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filters button{font:inherit;font-size:13px;padding:5px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.filters span{font-size:13px;color:var(--muted)}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:10px 0}
+.flow .step{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:13px}
+.flow .arrow{color:var(--muted)}
+ul.check{list-style:none;padding-left:0}
+ul.check li{padding-left:24px;position:relative;margin:6px 0}
+ul.check li::before{content:"?";position:absolute;left:0;top:2px;width:18px;height:18px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-size:12px;font-weight:700;text-align:center;line-height:18px}
+.theme-toggle{float:right;font:inherit;font-size:13px;padding:5px 10px;border-radius:8px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer}
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  nav.toc{position:static;height:auto;border-right:none;border-bottom:1px solid var(--border)}
+  main{padding:20px 16px 60px}
+}
+@media print{
+  nav.toc,.filters,.theme-toggle{display:none}
+  .layout{grid-template-columns:1fr}
+  body{background:#fff;color:#000}
+}
+</style>
+</head>
+<body>
+<div class="layout">
+<nav class="toc" aria-label="Contents">
+  <h2>Contents</h2>
+  <ol>
+    <li><a href="#overview">Overview &amp; scope</a></li>
+    <li><a href="#decisions">Decisions</a></li>
+    <li><a href="#roles">Users &amp; roles</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#flow">Core business flow</a></li>
+    <li><a href="#m-dashboard">Dashboard</a></li>
+    <li><a href="#m-appointments">Appointments &amp; calendar</a></li>
+    <li><a href="#m-services">Service catalog</a></li>
+    <li><a href="#m-customers">Customers &amp; treatment records</a></li>
+    <li><a href="#m-consult">AI consultation assistant</a></li>
+    <li><a href="#m-employees">Employees &amp; commission</a></li>
+    <li><a href="#m-sales">Sales / POS</a></li>
+    <li><a href="#m-packages">Packages &amp; gift cards</a></li>
+    <li><a href="#m-receivables">Pay later &amp; receivables</a></li>
+    <li><a href="#m-inventory">Inventory &amp; devices</a></li>
+    <li><a href="#m-reports">Reports &amp; analytics</a></li>
+    <li><a href="#m-ai">Other AI features</a></li>
+    <li><a href="#m-notify">Notifications &amp; SMS</a></li>
+    <li><a href="#m-settings">Settings &amp; administration</a></li>
+    <li><a href="#data">Data model</a></li>
+    <li><a href="#api">API outline</a></li>
+    <li><a href="#nfr">Non-functional requirements</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#questions">Remaining questions</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="hero">
+  <button class="theme-toggle" id="themeToggle" type="button">Toggle theme</button>
+  <h1>Beauty Center Management App: Feature Specification</h1>
+  <p>Back-office app for a beauty and aesthetics center in Turkey. Covers employees, customers, treatments, sales and inventory, with an AI consultation assistant. Stack: ASP.NET Core, React and Microsoft SQL Server.</p>
+  <p>Draft v0.3, 12 Nov 2026. Working name: <strong>Victoria</strong>. <a href="app-features.tr.html">Türkçe sürüm</a></p>
+  <div class="meta">
+    <span class="chip">ASP.NET Core (.NET 9/10) Web API</span>
+    <span class="chip">React + TypeScript (Vite)</span>
+    <span class="chip">MSSQL + EF Core</span>
+    <span class="chip">Provider-agnostic AI</span>
+    <span class="chip">Turkish + English UI</span>
+    <span class="chip">TRY · KDV · KVKK</span>
+  </div>
+</header>
+
+<div class="filters" role="group" aria-label="Filter features by priority">
+  <span>Show features:</span>
+  <button type="button" data-filter="all" aria-pressed="true">All</button>
+  <button type="button" data-filter="p1" aria-pressed="false">MVP only</button>
+  <button type="button" data-filter="p2" aria-pressed="false">Phase 2</button>
+  <button type="button" data-filter="p3" aria-pressed="false">Later</button>
+  <button type="button" data-filter="ai" aria-pressed="false">AI only</button>
+</div>
+
+<!-- Overview -->
+<section id="overview">
+  <h2>Overview &amp; scope</h2>
+  <p>Victoria is an internal <strong>back-office</strong> web app for one beauty and aesthetics center in Turkey. The center offers skin care and spa treatments, laser epilation, medical aesthetic treatments, and sells beauty products. Only the owner, managers and employees use the app; customers have no access. It is <strong>not meant to replace</strong> a full HR, ERP, accounting or CRM product. It answers five day-to-day questions:</p>
+  <div class="grid">
+    <div class="card"><h4>Who did what?</h4><p>Which employee performed which treatment, sold which product, and (optionally) what commission they earned.</p></div>
+    <div class="card"><h4>What did the customer get?</h4><p>Full treatment history: services, laser parameters per session, products bought, consents, before/after photos, package sessions left.</p></div>
+    <div class="card"><h4>What should we recommend?</h4><p>During a visit the employee asks the AI assistant, which combines the customer's profile with product and service descriptions.</p></div>
+    <div class="card"><h4>What do we have?</h4><p>Stock of retail products and consumables (with lot and expiry), how treatments use them, and when to reorder.</p></div>
+    <div class="card"><h4>How are we doing?</h4><p>Sales and revenue per service, product, employee and period, plus AI summaries.</p></div>
+  </div>
+  <div class="callout">
+    <strong>Connecting modules.</strong> The three requested modules (employees, customers, inventory) need connecting modules before they produce useful data:
+    <strong>Appointments</strong> (customer + employee + device + time), <strong>Service catalog</strong> (what is sold, what it consumes, how it is described), and <strong>Sales/POS</strong> (where money and stock movements are recorded). All are MVP.
+  </div>
+  <h3>Out of scope</h3>
+  <ul>
+    <li>Anything customer-facing: online booking, customer portal, mobile app for customers.</li>
+    <li>Full accounting, payroll and HR. Data is exported to the accountant (mali müşavir) instead.</li>
+    <li>E-commerce web shop.</li>
+    <li>Built-in card processing. The app records the payment method; the POS terminal stays separate.</li>
+  </ul>
+  <p><span class="tag p1">MVP</span> first release &nbsp; <span class="tag p2">Phase 2</span> soon after &nbsp; <span class="tag p3">Later</span> nice to have &nbsp; <span class="tag ai">AI</span> AI-powered</p>
+</section>
+
+<!-- Decisions -->
+<section id="decisions">
+  <h2>Decisions</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Topic</th><th>Decision</th><th>Impact on the spec</th></tr></thead>
+    <tbody>
+      <tr><td>Country</td><td>Turkey</td><td>TRY currency, KDV (VAT) rates, KVKK data protection, İYS for commercial SMS, and official receipts through e-Arşiv Fatura and/or a yeni nesil ÖKC (cash register).</td></tr>
+      <tr><td>Type of center</td><td>Beauty products retail, skin care / spa, laser epilation, medical aesthetics</td><td>Treatment records with parameters, consent forms, health questionnaire, before/after photos, lot/expiry tracking and laser device tracking all move to MVP.</td></tr>
+      <tr><td>Commission</td><td>Flexible and can be switched off</td><td>Global on/off switch, a selectable calculation basis, and rules per employee, category or item. When off, the app still tracks all activity and sales per employee.</td></tr>
+      <tr><td>Locations &amp; hosting</td><td>One location, cloud</td><td>Azure App Service + Azure SQL (or similar). <code>BranchId</code> stays in the data model so a second branch can be added later without a rewrite.</td></tr>
+      <tr><td>AI provider</td><td>Provider-agnostic</td><td>An <code>IAiProvider</code> abstraction with adapters (e.g. Anthropic, OpenAI / Azure OpenAI, Google), chosen by configuration.</td></tr>
+      <tr><td>Key AI use case</td><td>Help employees recommend services and products during a visit</td><td>New MVP module: <a href="#m-consult">AI consultation assistant</a>. Products and services need rich descriptions (benefits, skin types, concerns, ingredients, contraindications).</td></tr>
+      <tr><td>Messaging</td><td>SMS now, other channels later</td><td><code>INotificationChannel</code> abstraction with an SMS adapter for a Turkish provider; WhatsApp and e-mail can be added later.</td></tr>
+      <tr><td>Languages</td><td>Turkish (default) + English</td><td>UI, SMS templates and receipts in both; product and service descriptions can be stored in both (AI can draft the translation).</td></tr>
+      <tr><td>Users</td><td>Back office only (admin + employees)</td><td>No customer role, no online booking. Customers are reached only by SMS.</td></tr>
+      <tr><td>Official receipts</td><td>The center issues official receipts; start by uploading a photo of each receipt</td><td>MVP: record the receipt/invoice number and attach a photo or PDF of the ÖKC slip or e-Arşiv invoice to the sale. Direct e-Arşiv integration moves to Later; <code>IInvoiceProvider</code> stays in the design so it can be added.</td></tr>
+      <tr><td>Physician-only procedures</td><td>Configured by the admin in the management panel</td><td>Each service has "requires physician" and "requires certified operator" flags that the admin sets. Booking and treatment records enforce them. No rules are hard-coded.</td></tr>
+      <tr><td>Market</td><td>Turkey only</td><td>KVKK is the only data protection law to design for (no GDPR-specific features). Turkish is the default language; English stays for staff who prefer it.</td></tr>
+      <tr><td>SMS provider</td><td>Decide later</td><td>Build against <code>INotificationChannel</code> with a fake/log-only adapter; plug in the chosen Turkish provider before go-live. İYS stays Phase 2.</td></tr>
+      <tr><td>Laser devices</td><td>Staff enter devices, specs and shot counts manually</td><td>Device form with model, serial, wavelength(s), fluence and spot-size ranges, handpieces. Shot count is typed into each treatment record. No device integration.</td></tr>
+      <tr><td>Commission defaults</td><td>Skipped for now</td><td>Commission is <strong>off by default</strong>. The rule engine is built, but rates are entered by the owner when they turn it on.</td></tr>
+      <tr><td>Existing data</td><td>Entered manually</td><td>No Excel import. Instead, the MVP includes simple forms for opening balances: existing packages with remaining sessions, outstanding installments, and opening stock per lot.</td></tr>
+      <tr><td>Pay later</td><td>Products (and services, packages) can be sold now and paid later, also in installments</td><td>New MVP module <a href="#m-receivables">Pay later &amp; receivables</a>: payment plans at checkout for any sale, a customer account with due dates and payment history, a receivables list, and SMS reminders before due dates.</td></tr>
+      <tr><td>Navigation</td><td>Keep it simple for a small center: 7 menu items</td><td><b>Daily:</b> Today (with a Reports tab) · Calendar · Customers · Cash desk (tabs: New sale, Sales, Receivables, Day close). <b>Manage:</b> Catalog &amp; stock (tabs: Services, Products, Packages, Stock movements) · Team (Employees, Commission tab only while commission is on) · Settings (incl. users &amp; roles, devices &amp; rooms, SMS). The customer profile is the hub for treatments, consultation, packages and payments; "Quick consult" is in the header on every screen.</td></tr>
+      <tr><td>Brand</td><td>Logo "Victoria · Güzellik &amp; Bakım" (gold on champagne)</td><td>Used in the sidebar, favicon, receipts, consent printouts and the SMS sender name. Trade name in settings: Victoria Güzellik &amp; Bakım.</td></tr>
+      <tr><td>Size &amp; hardware</td><td>Very small center</td><td>Designed for a few users and one or two tablets/PCs. No receipt printer (official receipt comes from the ÖKC/e-Arşiv), barcode scanning moves to Later, and the UI favours simplicity over bulk operations.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Roles -->
+<section id="roles">
+  <h2>Users &amp; roles</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Role</th><th>Typical user</th><th>Main permissions</th></tr></thead>
+    <tbody>
+      <tr><td>Owner / Admin</td><td>Business owner</td><td>Everything, including settings, prices, commission configuration, all reports, deleting records and user management.</td></tr>
+      <tr><td>Manager</td><td>Center manager</td><td>Schedules, employees, inventory, purchasing, refunds and discounts above the limit, all reports except owner-only financials.</td></tr>
+      <tr><td>Receptionist</td><td>Front desk</td><td>Calendar, customer create/edit, checkout/POS, viewing stock, small discounts within a limit. No access to health details beyond allergy warnings.</td></tr>
+      <tr><td>Specialist</td><td>Aesthetician, laser operator, therapist</td><td>Own calendar, treatment records and photos for own customers, logging consumables, AI consultation assistant, own sales (and own commission when enabled).</td></tr>
+      <tr><td>Physician / medical staff</td><td>Doctor responsible for medical procedures</td><td>Same as specialist, plus approving treatment plans and medical questionnaires, and signing off procedures that require a physician. Which services need a physician is set by the admin per service.</td></tr>
+      <tr><td>Accountant (read-only)</td><td>Mali müşavir</td><td>Sales, payment and invoice reports and exports. No customer health data.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Implement as <strong>permission-based</strong> access rather than hard-coded role checks. Roles are bundles of permissions (e.g. <code>sales.refund</code>, <code>customers.health.view</code>, <code>commission.view.own</code>), so the owner can adjust them without code changes.</p>
+</section>
+
+<!-- Architecture -->
+<section id="architecture">
+  <h2>Architecture</h2>
+  <div class="grid">
+    <div class="card"><h4>Frontend: React (same stack as the reconciliation app)</h4><ul>
+      <li>React 19 + TypeScript 5.9, Vite 7, ESLint 9</li>
+      <li>UI: Ant Design 5 (+ @ant-design/icons) with Tailwind CSS 4; icons: lucide-react; font: Geist</li>
+      <li>Same theme tokens: slate sider <code>#0f172a</code>, indigo primary <code>#4f46e5</code>, shared <code>PageHeader</code>, <code>StatCard</code>, <code>StatusPill</code> patterns</li>
+      <li>Server state: TanStack Query 5; HTTP: axios; validation: zod 4; dates: dayjs</li>
+      <li>Routing: react-router-dom 7; i18n: i18next + react-i18next + browser language detector, with <code>tr</code> (default) and <code>en</code></li>
+      <li>Charts: Recharts; live updates: @microsoft/signalr; auth: oidc-client-ts if an identity provider is used</li>
+      <li>Calendar: FullCalendar resource time-grid (new dependency; not in reconciliation)</li>
+      <li>Same feature-sliced folders: <code>app / pages / features / shared / lib</code></li>
+      <li>Clickable HTML prototype in <code>prototype/</code></li>
+    </ul></div>
+    <div class="card"><h4>Backend: ASP.NET Core</h4><ul>
+      <li>Web API with a modular monolith: one project, one folder per module</li>
+      <li>EF Core + migrations; FluentValidation</li>
+      <li>ASP.NET Core Identity + JWT (access + refresh tokens)</li>
+      <li>Hangfire or Quartz for background jobs (SMS reminders, AI digests, stock and expiry checks)</li>
+      <li>SignalR for live calendar updates</li>
+      <li>Serilog + OpenTelemetry for logs and traces</li>
+    </ul></div>
+    <div class="card"><h4>Database: MSSQL</h4><ul>
+      <li>Azure SQL (one database); <code>BranchId</code> kept for future branches</li>
+      <li>Soft delete + audit columns on every table</li>
+      <li>Stock is a ledger (<code>StockMovement</code>), not a single editable number</li>
+      <li>Read-only SQL views for reporting and AI tools</li>
+      <li>Azure Blob Storage for photos and consent PDFs; DB holds only metadata</li>
+      <li>Optional later: SQL Server vector type or Azure AI Search for semantic product search</li>
+    </ul></div>
+    <div class="card"><h4>Pluggable integrations</h4><ul>
+      <li><code>IAiProvider</code>: chat, tool calling, structured output, embeddings</li>
+      <li><code>INotificationChannel</code>: SMS now; WhatsApp and e-mail later</li>
+      <li><code>IInvoiceProvider</code> (Later): e-Arşiv / e-Fatura through a GİB-authorised integrator (özel entegratör). MVP uses a "manual" implementation: receipt number + uploaded photo</li>
+      <li>Each adapter is selected by configuration and covered by a fake for tests</li>
+    </ul></div>
+  </div>
+<pre>
+React SPA (tablet/desktop) ──HTTPS/JSON──►  ASP.NET Core API  ──EF Core──►  Azure SQL
+   ▲  SignalR (calendar)                       │   ├─ Modules: Customers, Treatments, Employees, Appointments,
+   └───────────────────────────────────────────┤   │           Services, Sales, Packages, Inventory, Reports
+                                               │   ├─ AI module ──► IAiProvider ──► Anthropic | OpenAI | Azure OpenAI | ...
+                                               │   ├─ Jobs (Hangfire): SMS reminders, digests, stock/expiry alerts
+                                               │   ├─ Notifications ──► INotificationChannel ──► SMS provider (+ İYS)
+                                               │   └─ Invoicing ──► IInvoiceProvider ──► Manual (photo upload) | e-Arşiv integrator (later)
+                                               └── Azure Blob Storage (photos, consent PDFs)
+</pre>
+</section>
+
+<!-- Flow -->
+<section id="flow">
+  <h2>Core business flow</h2>
+  <p>This flow ties all modules together. Every report and AI feature depends on it being recorded correctly.</p>
+  <div class="flow">
+    <span class="step">Customer calls / walks in</span><span class="arrow">→</span>
+    <span class="step">Appointment<br><small>service + employee + device + time</small></span><span class="arrow">→</span>
+    <span class="step">SMS reminder</span><span class="arrow">→</span>
+    <span class="step">Check-in<br><small>questionnaire, consent check</small></span><span class="arrow">→</span>
+    <span class="step">Consultation<br><small>AI recommendations</small></span><span class="arrow">→</span>
+    <span class="step">Treatment<br><small>parameters, photos, consumables</small></span><span class="arrow">→</span>
+    <span class="step">Checkout<br><small>+ recommended products</small></span><span class="arrow">→</span>
+    <span class="step">Payment<br><small>+ receipt photo</small></span><span class="arrow">→</span>
+    <span class="step">Stock deducted<br><small>activity / commission recorded</small></span><span class="arrow">→</span>
+    <span class="step">Next session booked</span>
+  </div>
+  <p>Each <strong>sale line</strong> stores the employee who performed or sold it, and, when it came from the assistant, the AI recommendation it came from. Employee reports, commission and recommendation conversion all use these fields.</p>
+</section>
+
+<!-- Dashboard -->
+<section id="m-dashboard">
+  <h2>Dashboard</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>My day (specialist view)</td><td>What a specialist sees after signing in on a treatment-room tablet: the next appointment with warnings and last session's settings, their own list for today, and big buttons to start a treatment record, consult or open the customer. Short menu (My day, Calendar, Customers, Cash desk); no money reports.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Go-live checklist</td><td>Card on the owner's Today page until setup is done: business details, hours, services, employees and PINs, devices, products and opening stock, existing packages and balances, SMS provider, consent texts.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Today at a glance</td><td>Today's appointments per employee and device, check-ins, no-shows, revenue so far, free slots.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>KPI cards</td><td>Revenue (today/week/month vs previous period), average ticket, treatments count, products sold, new customers.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Alerts</td><td>Low stock, products expiring soon, missing consents for upcoming appointments, unpaid balances, packages about to expire, device maintenance due.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Role-specific views</td><td>Specialists see their own day (and commission if enabled); managers see the whole center.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>AI daily digest</td><td>Short text summary every morning, e.g. "Yesterday revenue was 12% below average; 3 no-shows; serum X will run out in about 5 days."</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Appointments -->
+<section id="m-appointments">
+  <h2>Appointments &amp; calendar</h2>
+  <p>Appointments are entered by staff only (phone, walk-in, Instagram DM). There is no online booking.</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Resource calendar</td><td>Day/week view with one column per employee, and per laser device or room. Drag &amp; drop to move or resize.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Create appointment</td><td>Customer (search by phone or quick-create), one or more services, employee, device/room, start time. Duration comes from the service (and treatment area for laser), plus buffer time.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Conflict checks</td><td>Prevents double-booking an employee, device or room. Respects working hours, breaks and leave.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Readiness warnings</td><td>When booking or checking in, warns about allergies, contraindications, missing or expired consent, missing questionnaire, or too short an interval since the previous laser session.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Status lifecycle</td><td>Booked → Confirmed → Checked-in → In progress → Completed → Paid, plus Cancelled and No-show (with a reason).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Reschedule, cancel, no-show</td><td>Reschedule shows free times for the same employee and device, and can move one session or the rest of a series. Cancel records who cancelled and why, flags late cancellations (less than 24 h), returns the package session and offers the slot to the waitlist. No-show keeps or uses the package session per the settings policy and can send a "we missed you" SMS. All optional SMS.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Session series</td><td>Book the next sessions of a course (e.g. laser every 4–6 weeks for 6–8 sessions), linked to the customer's package.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Walk-ins</td><td>Quick entry for unbooked customers that still creates a record.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Waitlist</td><td>Customers waiting for a slot; staff are notified when a cancellation frees one and can send an SMS.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Deposits</td><td>Optional deposit for expensive treatments to reduce no-shows.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Smart slot suggestion</td><td>Suggests employee, device and time based on qualifications, preferred staff, session interval and calendar gaps.</td><td><span class="tag ai">AI</span> <span class="tag p3">Later</span></td></tr>
+      <tr data-p="ai"><td>No-show risk</td><td>Flags appointments with high no-show probability and schedules an extra SMS reminder.</td><td><span class="tag ai">AI</span> <span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Services -->
+<section id="m-services">
+  <h2>Service catalog</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Services &amp; categories</td><td>Laser epilation, skin care, medical aesthetics, spa/massage, etc. Each service has name (TR/EN), duration, buffer, price, KDV rate and active flag.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Treatment areas</td><td>For laser: areas (full leg, underarm, face, etc.) with their own price and duration. Multiple areas in one appointment.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Service content (for AI)</td><td>Description, benefits, concerns addressed (acne, pigmentation, unwanted hair…), suitable skin types (incl. Fitzpatrick range for laser), contraindications, typical number of sessions and interval, aftercare instructions, related products. In TR and EN.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Who can perform it</td><td>Qualified employees per service. The admin sets "requires physician" and "requires certified operator" flags per service in the management panel; the calendar only offers matching employees.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Required resources</td><td>Service needs a specific device (laser type) or room, which is blocked in the calendar.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Consumables (bill of materials)</td><td>Standard products and quantities used per service (gel, serum, mask, cartridges). Deducted from stock on completion; the specialist can adjust the actual amount and pick the lot.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Consent &amp; questionnaire templates</td><td>Per service: which consent form and health questionnaire are required, and how long they stay valid.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Treatment parameter template</td><td>Fields to record per session, e.g. for laser: device, wavelength, fluence (J/cm²), pulse duration, spot size, shot count, skin reaction.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Service cost &amp; margin</td><td>Consumable cost plus device cost per shot plus commission gives the real margin per service.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>AI content drafting</td><td>Generates description, benefits and aftercare text (TR + EN) from short notes; staff review before saving.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Customers -->
+<section id="m-customers">
+  <h2>Customers &amp; treatment records</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Customer profile</td><td>Name, phone (unique, used for search), e-mail, birth date, gender, preferred language, source (Instagram, referral, walk-in), preferred employee, tags (VIP, sensitive skin). Optional TCKN only if needed for invoicing.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Fast search</td><td>Global search by phone, name or customer number.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Skin &amp; health profile</td><td>Skin type, Fitzpatrick type, concerns, allergies, medications (e.g. photosensitising), pregnancy, relevant conditions. Allergies and contraindications appear as warnings. Visible only with permission; every view is logged.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Health questionnaire</td><td>Filled at the first visit and renewed periodically or when something changes. Answers update the health profile.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Consents (KVKK + treatment)</td><td>Separate records for: KVKK notice (aydınlatma metni) shown, explicit consent for health data, photo consent, treatment-specific consent, AI processing consent, and commercial SMS consent (synced with İYS). Each has date, version and a scanned or printed signed PDF.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Treatment records</td><td>One record per performed service: employee, device, area, parameters from the template, products and lots used, skin reaction, notes, next recommended date.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Before/after photos</td><td>Taken on the tablet, linked to a treatment record, side-by-side comparison. Only with photo consent.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Visit timeline</td><td>All appointments, treatments, products bought, payments, notes, photos and AI recommendations in one timeline.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Balance</td><td>Open balance or credit, package sessions remaining per area, gift card balance.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>KVKK rights</td><td>Export a customer's data, and anonymise on request (keeping financial records the law requires).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Loyalty points</td><td>Earn points per amount spent; redeem as discount. Configurable rules.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Segments</td><td>Saved filters: "no visit in 60 days", "laser course not finished", "bought product Y", "birthday this month".</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Duplicate detection &amp; merge</td><td>Detects same phone or similar name and merges histories.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p3"><td>Tablet signature</td><td>Customer signs consent forms on the front-desk tablet (staff-operated); stored as PDF.</td><td><span class="tag p3">Later</span></td></tr>
+      <tr data-p="ai"><td>Customer summary</td><td>AI paragraph on the profile: usual treatments, progress of the current course, preferences, spending trend, things to watch out for.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Churn risk &amp; win-back</td><td>Flags customers overdue against their usual interval or with an unfinished course, and drafts an SMS for staff to approve.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Consultation assistant -->
+<section id="m-consult">
+  <h2>AI consultation assistant</h2>
+  <div class="callout ai-c">
+    <strong>Goal:</strong> while a customer is at the center, any employee can open the customer and get well-reasoned service and product recommendations in seconds, even without deep product knowledge. Recommendations are grounded in the center's own catalog and the customer's record.
+  </div>
+  <h3>How it works</h3>
+  <div class="flow">
+    <span class="step">Customer arrives<br><small>"Quick consult" or "Consult" on the profile</small></span><span class="arrow">→</span><span class="step">Employee taps needs<br><small>concerns, area, budget, own words</small></span><span class="arrow">→</span>
+    <span class="step">Optional input<br><small>concern, budget, typed or spoken</small></span><span class="arrow">→</span>
+    <span class="step">Backend builds context<br><small>profile, history, active stock</small></span><span class="arrow">→</span>
+    <span class="step">Rules filter<br><small>remove contraindicated / out of stock</small></span><span class="arrow">→</span>
+    <span class="step">LLM ranks &amp; explains<br><small>structured JSON output</small></span><span class="arrow">→</span>
+    <span class="step">Employee reviews<br><small>adds to cart / books</small></span>
+  </div>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Recommendations panel</td><td>3–5 suggested services and products, each with: why it fits this customer, key benefits, how to use, price, stock, and any caution. One click adds a product to the sale or opens booking for a service.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Needs intake</td><td>When the customer arrives, the employee taps what they want in about 30 seconds: concerns (dark spots, acne, unwanted hair, dryness, wrinkles, redness, relaxation…), area, interest (home-care products, treatments, packages), budget (incl. "pay later possible"), timing, plus the customer's own words typed or dictated. The concern list is managed in settings and mapped to the "concerns addressed" field of products and services.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Walk-in mode</td><td>Works without a customer profile: a short list of safety questions (pregnancy, allergies, photosensitising medication, recent tanning, active skin issues) feeds the safety filter. Answers are not stored unless a customer is created; the consultation can then be saved to the new profile.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Save walk-in as customer</td><td>One short form (name, phone, consents) turns the walk-in into a customer, keeps the consultation on the new profile, and continues to checkout or booking.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Quick consult entry</td><td>"Quick consult" button in the header of every screen, plus "Consult" on the customer profile, appointment and treatment record.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Free-text question</td><td>The employee can also ask, e.g. "She has oily skin and wants something for dark spots after laser. What can we offer under 1,500 TL?"</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Safety filter (deterministic)</td><td>Before the LLM sees candidates, code removes items that conflict with the customer's allergies, contraindications, pregnancy, Fitzpatrick range or recent treatments, and items out of stock. The LLM cannot recommend anything outside the filtered list.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Product &amp; service knowledge</td><td>Uses the content fields of products and services: description, benefits, ingredients, concerns, skin types, contraindications, usage, pairing (e.g. "after laser use SPF 50 + soothing gel").</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Aftercare &amp; routine sheet</td><td>Generates a personal home-care routine with the products bought, in the customer's language, to print or send as an SMS.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Recommendation tracking</td><td>Every recommendation is saved with status: shown, accepted, sold or booked, rejected (with reason). Used for conversion reports per employee and for improving prompts.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>What to say</td><td>For the selected suggestions: an opening sentence based on what the customer said, one plain-language line per product or service, answers to likely objections ("Is it safe for sensitive skin?", price), and two or three questions worth asking. Written in the customer's language.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Similar-customer signals</td><td>Adds "customers with a similar profile also bought…" from the center's own sales data as an input to ranking.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Replenishment reminders</td><td>Knows the typical duration of a product (e.g. 50 ml serum lasts about 2 months) and suggests a refill at the next visit.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p3"><td>Semantic catalog search</td><td>When the catalog grows past a few hundred items, use embeddings (SQL Server vector type or Azure AI Search) to retrieve candidates instead of sending the full filtered list.</td><td><span class="tag ai">AI</span> <span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Data sent to the AI provider</h3>
+  <ul>
+    <li><strong>Customer:</strong> pseudonymised ID, age range, skin type, concerns, recent treatments, recent purchases. No name, phone or TCKN.</li>
+    <li><strong>Health data</strong> (allergies, contraindications) is used by the deterministic filter on our server and is <em>not</em> sent unless the customer gave explicit consent for AI processing.</li>
+    <li><strong>Catalog:</strong> filtered candidates with their content fields, price and stock.</li>
+    <li>Sending data to a provider abroad is a cross-border transfer under KVKK. Choose a provider with a suitable contract and region, and check with a lawyer (see remaining questions).</li>
+  </ul>
+  <p>The UI always shows: "AI suggestion: check before recommending. Not medical advice." Medical aesthetic treatments are suggested only as "discuss with the physician".</p>
+</section>
+
+<!-- Employees -->
+<section id="m-employees">
+  <h2>Employees &amp; commission</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Employee profile</td><td>Name, contact, title, hire date, active flag, calendar colour, linked user account (optional).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Qualifications</td><td>Services the employee may perform; flags such as certified laser operator or physician.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Working hours &amp; shifts</td><td>Weekly template plus exceptions (day off, half day). Drives calendar availability.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Activity log ("what did they do")</td><td>Per employee and period: treatments performed, products sold, customers served, revenue generated, consumables used, AI recommendations accepted. Always available, whether or not commission is on.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Commission on/off</td><td>Global switch in settings, <strong>off by default</strong>. When off, all commission screens and columns are hidden and nothing is calculated. The owner enters rates when turning it on.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Configurable commission rules</td><td>
+        <ul style="margin:4px 0;padding-left:18px">
+          <li><strong>Basis</strong> (global, overridable): list price, net after discount, or net after discount minus consumable cost.</li>
+          <li><strong>Type:</strong> percentage or fixed amount per item.</li>
+          <li><strong>Scope:</strong> default, then per employee, category, service or product. The most specific rule wins.</li>
+          <li><strong>Packages:</strong> earned at package sale, or per session performed.</li>
+          <li><strong>Tiers</strong> (optional): e.g. 10% up to 50,000 TL a month, 15% above.</li>
+          <li><strong>Split</strong> between two employees on one line (e.g. doctor + assistant).</li>
+          <li>Rules have start/end dates, so changes do not affect past periods.</li>
+        </ul></td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Commission statement</td><td>Period statement per employee (base, commission, refunds reversed, manual adjustments), exportable to Excel for payroll. No full payroll calculation.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Leave &amp; absence</td><td>Record holiday and sick leave; blocks the calendar.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Certificates</td><td>Upload certificates (e.g. laser operator) with expiry reminders; expired certificate blocks booking that service.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Clock in / out</td><td>Simple attendance from the front-desk tablet with a PIN.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Targets &amp; performance</td><td>Monthly targets; utilisation, rebooking rate, retail attach rate, recommendation conversion, average ticket.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Performance insights</td><td>Natural-language explanation of an employee's month, e.g. "Retail attach rate is half the team average; accepted AI suggestions convert at 40%."</td><td><span class="tag ai">AI</span> <span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Sales -->
+<section id="m-sales">
+  <h2>Sales / POS (checkout)</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Checkout from appointment</td><td>Completed appointment opens a pre-filled sale with services, employee and price. Recommended products from the consultation appear ready to add.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Direct sale</td><td>Product-only sale without an appointment (customer optional).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Employee per line</td><td>Each line has an employee (performer or seller); can be split between two employees.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Discounts</td><td>Per line or whole sale, % or amount, with a reason. Limits per role; above the limit needs manager approval.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Payments</td><td>Cash, card (incl. installments, taksit, recorded as reference), bank transfer/EFT, gift card, package session, loyalty points; split payments; partial payment leaves an open balance.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>KDV handling</td><td>Prices entered KDV-inclusive; per item KDV rate (e.g. 20%, 10%, 1%); KDV breakdown on receipt and reports.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Official receipt (manual)</td><td>After issuing the official receipt on the ÖKC or e-Arşiv portal, staff enter its number and upload a photo (tablet camera) or PDF. Sales without a receipt attached are listed for follow-up, and the day close shows the count.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p3"><td>e-Arşiv integration</td><td>Issue e-Arşiv Fatura directly from the app through an özel entegratör, replacing the manual upload.</td><td><span class="tag p3">Later</span></td></tr>
+      <tr data-p="ai"><td>Receipt reading</td><td>AI reads the uploaded receipt photo and fills in the receipt number, date and total, then warns if the total does not match the sale.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p1"><td>Refunds &amp; voids</td><td>Full or partial refund with reason and an uploaded refund document; returns stock if resellable; reverses commission.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Day close</td><td>One step: the app shows expected cash (opening float + cash sales and collections − cash out), staff enter the counted amount, explain any difference and close. Cash in/out is a small form. Tab of the Cash desk.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Expenses</td><td>Simple expense list in the Cash desk: date, category (supplier, rent, salaries, utilities, marketing, maintenance, other), amount, how it was paid, invoice photo, "repeats monthly". Cash expenses reduce the expected cash at day close. Reports show expenses and approximate profit. Not bookkeeping; the accountant keeps the books.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Tips</td><td>Record tips per employee (excluded from revenue).</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p3"><td>Barcode scanning</td><td>Tablet camera or USB scanner to add products. Product search by name is enough for a small catalog.</td><td><span class="tag p3">Later</span></td></tr>
+      <tr data-p="p2"><td>Campaigns &amp; coupons</td><td>Time-limited promotions and coupon codes.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p3"><td>Accounting export</td><td>Daily sales journal export for the accountant's software (Excel/CSV, or a specific format).</td><td><span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Packages -->
+<section id="m-packages">
+  <h2>Packages &amp; gift cards</h2>
+  <p>Laser epilation is almost always sold as packages (e.g. "8 sessions full leg"), so packages are core to the MVP.</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Session packages</td><td>Sell N sessions of a service and area (or a mix) for a fixed price, with an expiry date. Each completed treatment uses one session.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Sell a package at checkout</td><td>One drawer: choose the package, adjust the price, pay in full or in installments (same payment plans as pay later), and book all sessions at once with a fixed interval; clashes such as staff leave are flagged and moved.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Package balance</td><td>Sessions used and remaining per area, expiry, and next recommended date, shown on the profile and at booking.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Installment plan</td><td>Package paid in several parts in-house, using the same payment plans as any other pay-later sale (see <a href="#m-receivables">Pay later &amp; receivables</a>).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Opening balances</td><td>For go-live: enter packages customers already bought (sessions remaining, expiry, amount still owed) without creating a sale.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Freeze / transfer / cancel</td><td>Pause a package (e.g. pregnancy), transfer it to another customer, or cancel with a partial refund rule.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Gift cards / vouchers</td><td>Sell a monetary or service voucher with a code; redeem fully or partially.</td><td><span class="tag p2">Phase 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Receivables -->
+<section id="m-receivables">
+  <h2>Pay later &amp; receivables</h2>
+  <p>Customers sometimes take products (or services and packages) now and pay later, in one payment or in installments. The app must show <strong>who owes what, when each payment is due, what is overdue, and the full payment history</strong>. This is an in-house plan (not bank card installments, which are just a card payment).</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Pay later at checkout</td><td>Any sale can be paid partly now and the rest later: down payment (optional), number of installments (1–12), first due date and interval (monthly by default, or custom dates). The schedule is previewed before saving.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Payment plan</td><td>Each pay-later sale creates a payment plan with installments (due date, amount, paid amount, status: scheduled, due soon, paid, partly paid, overdue). Packages with installments use the same mechanism.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Customer account</td><td>"Account &amp; payments" tab on the customer: open balance, next payment, overdue amount, credit limit, all open plans with their schedules, and a running ledger (charges, payments, refunds, balance) exportable as a PDF statement.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Collect payment</td><td>Record a payment from the customer profile, the receivables list or at the next visit's checkout. Applied to the oldest due installment first; partial payments and paying several installments at once are allowed. Method (cash, card, transfer), date, who collected it, optional receipt photo.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Receivables list</td><td>All open installments across customers, filtered by overdue / next 7 days / next 30 days and by source (product, service, package). Totals: outstanding, due soon, overdue, collected this month. Per-customer view with payment behaviour (on time, late count).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Reminders</td><td>Automatic SMS a configurable number of days before each due date and on the day after it becomes overdue; manual "send reminder" button. Overdue payments appear in notifications and on the dashboard.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Credit limit &amp; warnings</td><td>Optional credit limit per customer (default set in settings). Checkout warns when a new plan would exceed the limit or the customer already has overdue payments; a manager can override.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Checkout reminder</td><td>When a customer with a due or overdue installment checks in or comes to checkout, the open amount is shown and can be added to the payment.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Official receipt rule</td><td>The official receipt (ÖKC / e-Arşiv) is issued for the full sale amount on the day of sale; later payments are collections against the balance. Confirm this with the accountant.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Payment calendar</td><td>Expected collections per week and month for cash planning.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Signed agreement</td><td>Print a payment agreement with the schedule for the customer to sign; upload the signed copy.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Reschedule</td><td>Move due dates or split an installment, with the reason kept in the audit log.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Aging report</td><td>Receivables by age (0–30, 31–60, 61–90, 90+ days) for the accountant.</td><td><span class="tag p2">Phase 2</span></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><strong>Commission and pay later:</strong> when commission is turned on, it is calculated on the sale as usual (not on collection), unless the owner chooses "pay commission when collected" in settings.</div>
+</section>
+
+<!-- Inventory -->
+<section id="m-inventory">
+  <h2>Inventory &amp; devices</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Product catalog</td><td>Name (TR/EN), brand, category, barcode, unit, purchase cost, sale price, KDV rate. Type: <strong>Retail</strong>, <strong>Consumable</strong>, or both.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Product content (for AI)</td><td>Description, key ingredients, benefits, concerns addressed, suitable skin types, contraindications/warnings, how to use, size and typical duration, pairs well with. Product photo.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Units &amp; conversion</td><td>Bought as a 1000 ml bottle, used in ml, sold as a piece. Stock kept in the base unit.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Stock overview</td><td>Current quantity, stock value at cost, minimum level, status (OK / low / out / expiring).</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Stock movements (ledger)</td><td>Every change is a movement: Purchase receipt, Sale, Treatment consumption, Return, Adjustment, Waste/damage, Count correction. With user, date, lot and reference. Stock = sum of movements.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Lot &amp; expiry tracking</td><td>Only for products where it matters (switch per product, on by default for medical and injectable products). Lot number and expiry on receipt; FEFO (first-expired, first-out) suggestion; expiry alerts; lot recorded on each treatment, so you can trace which customers received a product lot.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Automatic deduction</td><td>Sales deduct retail stock; completed treatments deduct consumables per the service's bill of materials.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Goods receipt</td><td>Record deliveries (supplier, quantity, cost, lot, expiry, invoice number). Also used once at go-live to enter opening stock per lot.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Low-stock alerts</td><td>Alert below the minimum level; reorder list.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Laser devices</td><td>Staff enter each device and its specs: model, serial, laser type and wavelength(s), fluence and spot-size ranges, handpieces with rated shot life. Linked to appointments and treatment records. Shots are typed into each treatment record; the app totals them per device and handpiece and warns near end of life.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Device maintenance</td><td>Service/calibration schedule, maintenance log, reminders; device unavailable in the calendar during maintenance.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Suppliers &amp; purchase orders</td><td>Supplier list with lead time; PO → send PDF → receive partially or fully → close.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>e-Fatura import</td><td>Incoming supplier e-Fatura (UBL-TR XML) from the integrator becomes a goods receipt draft; staff match lines to products.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Stock count</td><td>Full or partial count on a tablet; differences become count corrections after approval.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Consumption variance</td><td>Expected consumption (from bill of materials) vs actual (from counts), per product and employee.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Reorder suggestions</td><td>Forecast from sales history plus booked treatments' consumables, with supplier lead time. The forecast is computed in code; AI explains it and drafts a purchase order.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>AI product content</td><td>Paste the manufacturer's text or upload a photo of the box; AI drafts the content fields in TR and EN for review.</td><td><span class="tag ai">AI</span> <span class="tag p1">MVP</span></td></tr>
+      <tr data-p="ai"><td>Anomaly detection</td><td>Flags a consumable used much more per treatment by one employee, frequent adjustments, or stock disappearing without sales.</td><td><span class="tag ai">AI</span> <span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Reports -->
+<section id="m-reports">
+  <h2>Reports &amp; analytics</h2>
+  <p><b>First release:</b> one Reports tab on the Today page with the key numbers (revenue, services vs products, collections, employee activity, best sellers, AI suggestion acceptance) and an Excel export of every list. The detailed reports below are built on the same data; anything not covered by that tab moves to Phase 2.</p>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Report</th><th>Content</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Sales summary</td><td>Revenue by day/week/month, services vs products vs packages, payment methods, KDV breakdown, discounts, refunds.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Employee activity</td><td>Treatments performed, products sold, revenue, and commission when enabled.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Top services &amp; products</td><td>By quantity, revenue and margin.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Inventory</td><td>Stock value, movements per product, consumption per service, expiring lots.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Daily cash report</td><td>Day-close summary.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>AI recommendation conversion</td><td>Recommendations shown vs accepted vs sold, by employee and by product, and revenue from accepted suggestions.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>Package liability</td><td>Sessions sold but not yet performed (deferred revenue); outstanding installments.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Customer reports</td><td>New vs returning, retention, course completion rate, lifetime value, source.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Appointment &amp; device reports</td><td>Utilisation of employees and laser devices, no-show and cancellation rates, busiest hours.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Ask your data (chat)</td><td>Questions like "Which employee sold the most retail last month?" answered with a table/chart and the numbers behind it.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Other AI -->
+<section id="m-ai">
+  <h2>Other AI features &amp; AI architecture</h2>
+  <div class="callout ai-c">
+    <strong>Principle:</strong> AI <em>assists and explains</em>; it does not change data on its own. Anything that sends an SMS, changes stock or creates an order is a <strong>draft the user confirms</strong>. Numbers come from the database or deterministic code, never from the model's memory.
+  </div>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>How it works</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="ai"><td>Ask your data</td><td>Chat panel. The LLM uses <strong>tool calling</strong> against typed backend functions (<code>GetSales</code>, <code>GetStock</code>, <code>GetEmployeeActivity</code>, <code>GetCustomerHistory</code>) that enforce the user's permissions. No free-form SQL against production tables.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Daily / weekly digest</td><td>A job computes KPIs; the LLM writes a short summary with highlights and actions.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>SMS text drafting</td><td>Drafts reminder, win-back and campaign SMS in TR or EN within the character limit.</td><td><span class="tag ai">AI</span> <span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="ai"><td>Voice treatment notes</td><td>The specialist dictates after a session; speech-to-text, then AI fills the treatment record fields for review.</td><td><span class="tag ai">AI</span> <span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+  <h3>Provider-agnostic design</h3>
+<pre>
+public interface IAiProvider
+{
+    Task&lt;AiResponse&gt; CompleteAsync(AiRequest request, CancellationToken ct);      // chat + tools
+    Task&lt;T&gt; CompleteStructuredAsync&lt;T&gt;(AiRequest request, CancellationToken ct);  // JSON schema output
+    IAsyncEnumerable&lt;AiChunk&gt; StreamAsync(AiRequest request, CancellationToken ct);
+    Task&lt;float[][]&gt; EmbedAsync(IReadOnlyList&lt;string&gt; texts, CancellationToken ct); // optional
+}
+// Adapters: AnthropicProvider, OpenAiProvider, AzureOpenAiProvider, GeminiProvider, FakeProvider (tests)
+// appsettings: "Ai": { "Provider": "Anthropic", "Model": "...", "MonthlyBudgetTry": 2000, "Features": { ... } }
+</pre>
+  <ul>
+    <li>Prompts are stored as versioned templates (TR and EN), not hard-coded, so they can be tuned without redeploying.</li>
+    <li>Each feature can use a different provider/model (e.g. a cheaper model for SMS drafts).</li>
+    <li>Every call is logged in <code>AiInteraction</code>: feature, provider, model, prompt version, tokens, cost, user, latency.</li>
+    <li>A small evaluation set (sample customers with expected safe recommendations) is run when switching provider or prompt version.</li>
+    <li>The app works fully without AI; each AI feature has its own on/off switch.</li>
+  </ul>
+</section>
+
+<!-- Notifications -->
+<section id="m-notify">
+  <h2>Notifications &amp; SMS</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>In-app notifications</td><td>Low stock, expiring lots, approvals needed, missing consents, day-close discrepancy.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Channel abstraction</td><td><code>INotificationChannel</code> with an SMS adapter for a Turkish SMS provider. Adding WhatsApp or e-mail later means adding an adapter, not changing modules.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Appointment reminders (SMS)</td><td>Sent e.g. 24 h before, plus aftercare SMS after a treatment. Transactional messages; no link to a customer portal.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Message templates</td><td>Editable TR/EN templates with placeholders (<code>{Ad}</code>, <code>{Tarih}</code>, <code>{Hizmet}</code>); character and SMS-part counter.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Message log</td><td>Every SMS with status (sent, delivered, failed) and cost.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p2"><td>İYS integration</td><td>Commercial SMS (campaigns, birthday offers) only to numbers with consent in İYS (İleti Yönetim Sistemi); consent changes synced.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p2"><td>Birthday &amp; next-session messages</td><td>Birthday greeting with an offer; "time for your next laser session" based on the course interval.</td><td><span class="tag p2">Phase 2</span></td></tr>
+      <tr data-p="p3"><td>Bulk campaigns</td><td>Send to a segment with opt-out handling and delivery stats.</td><td><span class="tag p3">Later</span></td></tr>
+      <tr data-p="p3"><td>WhatsApp / e-mail channels</td><td>Additional adapters; customer's preferred channel on the profile.</td><td><span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Settings -->
+<section id="m-settings">
+  <h2>Settings &amp; administration</h2>
+  <div class="table-wrap"><table data-features>
+    <thead><tr><th>Feature</th><th>Description</th><th>Priority</th></tr></thead>
+    <tbody>
+      <tr data-p="p1"><td>Business profile</td><td>Trade name, logo, address, vergi dairesi and vergi no, MERSİS no, time zone (Europe/Istanbul), receipt footer.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Opening hours &amp; holidays</td><td>Weekly hours, official and religious holidays.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Tax rates</td><td>KDV rates as data (they change); price entry KDV-inclusive.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Feature switches</td><td>Commission on/off and basis, each AI feature on/off, AI provider and budget, SMS provider.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Users, roles &amp; permissions</td><td>Invite users, assign roles, reset passwords, 2FA for owner and admin.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Sign-in with PIN</td><td>Shared tablets: tap your name and enter a 4-digit PIN. Owner and managers also use password + 2FA once a day. Auto-lock after 5 minutes without use; tap your initials to switch user. Each action is recorded under the signed-in user.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Languages</td><td>Turkish (default) and English UI; each user picks their language.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p1"><td>Audit log</td><td>Who changed what and when: prices, discounts, refunds, stock adjustments, deletions, commission rules, and every view of health data.</td><td><span class="tag p1">MVP</span></td></tr>
+      <tr data-p="p3"><td>Multi-branch</td><td>Branch switcher and consolidated view, when a second location opens. The data model already supports it.</td><td><span class="tag p3">Later</span></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Data model -->
+<section id="data">
+  <h2>Data model (main entities)</h2>
+  <p>All tables include <code>Id</code>, <code>CreatedAt/By</code>, <code>UpdatedAt/By</code>, <code>IsDeleted</code> and <code>BranchId</code> where relevant. Money is <code>decimal(18,2)</code>, quantities <code>decimal(18,3)</code>, timestamps UTC <code>datetime2</code>. Translatable text uses a <code>…Translation</code> table (EntityId, Culture, Field, Value) or JSON columns.</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Area</th><th>Entities</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Organisation</td><td>Branch, User, Role, Permission, Setting, FeatureFlag</td><td>User ↔ Employee is optional 1:1.</td></tr>
+      <tr><td>Employees</td><td>Employee, EmployeeQualification, Certificate, WorkSchedule, ScheduleException, Leave, Attendance</td><td></td></tr>
+      <tr><td>Commission</td><td>CommissionSettings, CommissionRule, CommissionTier, CommissionEntry, CommissionAdjustment</td><td>CommissionEntry is written per sale line or package session; nothing is written when commission is off.</td></tr>
+      <tr><td>Customers</td><td>Customer, HealthProfile, Questionnaire, QuestionnaireAnswer, Consent, CustomerPhoto, CustomerNote, CustomerTag, LoyaltyTransaction</td><td>HealthProfile is stored separately; access is logged.</td></tr>
+      <tr><td>Treatments</td><td>TreatmentRecord, TreatmentParameterValue, TreatmentConsumable (product + lot + qty)</td><td>Linked to AppointmentItem and Device.</td></tr>
+      <tr><td>Catalog</td><td>ServiceCategory, Service, TreatmentArea, ServiceContent, ServiceConsumable, ParameterTemplate, ConsentTemplate, Resource (room)</td><td>ServiceContent holds AI-relevant text and tags.</td></tr>
+      <tr><td>Appointments</td><td>Appointment, AppointmentItem (service + area + employee + device + time), AppointmentStatusHistory</td><td></td></tr>
+      <tr><td>Sales</td><td>Sale, SaleLine, Payment, Refund, CashSession, CashMovement, Tip, InvoiceDocument</td><td>SaleLine keeps a snapshot of price, KDV, employee and optional RecommendationId. InvoiceDocument holds the receipt type (ÖKC / e-Arşiv), number, date, total and an Attachment (photo/PDF); later also the e-Arşiv UUID and status.</td></tr>
+      <tr><td>Expenses</td><td>Expense, ExpenseCategory</td><td>Expense has date, category, amount, payment method, attachment and an optional monthly repeat. Cash expenses create a CashMovement.</td></tr>
+      <tr><td>Packages</td><td>PackageTemplate, CustomerPackage, PackageUsage, GiftCard, GiftCardTransaction</td><td>PackageUsage links to TreatmentRecord. Package installments use PaymentPlan.</td></tr>
+      <tr><td>Receivables</td><td>PaymentPlan, PaymentPlanInstallment, Collection, CollectionAllocation, CustomerLedgerEntry, CustomerCreditLimit</td><td>PaymentPlan belongs to a Sale (product, service or package). A Collection is split across installments by CollectionAllocation (oldest first). CustomerLedgerEntry is append-only (charge, payment, refund, adjustment) and gives the running balance.</td></tr>
+      <tr><td>Inventory</td><td>Product, ProductContent, ProductCategory, Unit, StockBatch (lot + expiry), StockMovement, Supplier, PurchaseOrder, GoodsReceipt, StockCount</td><td>StockMovement: ProductId, BatchId, Qty (+/-), Type, ReferenceType/Id, UnitCost.</td></tr>
+      <tr><td>Devices</td><td>Device, Handpiece, DeviceShotLog, MaintenanceRecord</td><td></td></tr>
+      <tr><td>AI</td><td>AiInteraction, PromptTemplate, Recommendation, RecommendationItem</td><td>RecommendationItem status: Shown / Accepted / Sold / Booked / Rejected (+ reason).</td></tr>
+      <tr><td>Messaging &amp; system</td><td>MessageTemplate, MessageLog, Notification, AuditLog, Attachment</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="callout"><strong>Snapshot rule:</strong> sale lines, commission entries and treatment records store the values as they were at that moment (price, KDV, commission rate, product lot). Later changes to catalog or rules never change historical data.</div>
+</section>
+
+<!-- API -->
+<section id="api">
+  <h2>API outline</h2>
+  <p>REST, JSON, versioned (<code>/api/v1</code>), OpenAPI/Swagger generated. <code>Accept-Language</code> header selects TR/EN for messages and translated content.</p>
+<pre>
+/api/v1/auth              login, refresh, logout, me
+/api/v1/customers         CRUD, search, /{id}/timeline, /{id}/health, /{id}/consents, /{id}/questionnaires,
+                          /{id}/photos, /{id}/packages, /{id}/export, /{id}/anonymise
+/api/v1/treatments        CRUD (by appointment item), /{id}/photos
+/api/v1/employees         CRUD, /{id}/schedule, /{id}/activity?from&amp;to, /{id}/commission?period
+/api/v1/commission        settings, rules, statements, adjustments
+/api/v1/services          CRUD, /{id}/content, /{id}/areas, /{id}/consumables, categories
+/api/v1/appointments      CRUD, ?from&amp;to&amp;employeeId&amp;deviceId, /{id}/status, /availability, /{id}/readiness
+/api/v1/sales             create, get, /{id}/payments, /{id}/refund, /{id}/receipt (number + upload), /missing-receipts, /from-appointment/{id}
+/api/v1/cash              sessions/open, sessions/{id}/close, movements
+/api/v1/packages          templates, customer-packages, /{id}/use
+/api/v1/receivables       ?status=overdue|due&amp;days=7, /summary, /calendar, /customers
+/api/v1/payment-plans     create (with sale), /{id}, /{id}/reschedule
+/api/v1/collections       create (customerId, amount, method, allocations?), list
+/api/v1/customers/{id}/account   balance, plans, ledger, statement.pdf
+/api/v1/products          CRUD, /{id}/content, /{id}/batches, /{id}/movements, low-stock, expiring
+/api/v1/stock             movements, adjustments, counts, receipts
+/api/v1/devices           CRUD, /{id}/shots, /{id}/maintenance
+/api/v1/consult           POST /customers/{id}  (recommendations), POST /ask, PATCH /items/{id} (accept/reject),
+                          POST /customers/{id}/routine
+/api/v1/ai                chat (streaming), digest, content-draft, usage
+/api/v1/messages          send, templates, log
+/api/v1/reports           sales, employees, inventory, customers, appointments, recommendations (+ ?format=xlsx)
+/api/v1/admin             users, roles, settings, feature-flags, audit-log, opening-balances
+</pre>
+</section>
+
+<!-- NFR -->
+<section id="nfr">
+  <h2>Non-functional requirements</h2>
+  <div class="grid">
+    <div class="card"><h4>Security</h4><ul>
+      <li>HTTPS only; JWT with short-lived access tokens and refresh rotation</li>
+      <li>Policy-based authorization on every endpoint</li>
+      <li>2FA for owner and admin</li>
+      <li>Rate limiting on login; account lockout</li>
+      <li>Secrets in Azure Key Vault, never in the repo</li>
+    </ul></div>
+    <div class="card"><h4>KVKK compliance</h4><ul>
+      <li>Health data and photos are special-category data: explicit consent, restricted access, access logging</li>
+      <li>VERBİS registration and KVKK notice (aydınlatma metni) are the owner's responsibility; the app stores which version each customer saw</li>
+      <li>Cross-border transfer check for cloud region and AI provider</li>
+      <li>Retention and deletion policy; anonymise on request</li>
+      <li>Encryption at rest and in backups</li>
+    </ul></div>
+    <div class="card"><h4>Reliability</h4><ul>
+      <li>Automated daily backups with point-in-time restore, tested restore</li>
+      <li>Concurrency control (rowversion) on appointments, stock and packages</li>
+      <li>Idempotent checkout and invoice creation (no double sale or double invoice)</li>
+      <li>Retry queue for SMS and AI calls</li>
+    </ul></div>
+    <div class="card"><h4>Usability</h4><ul>
+      <li>Tablet-first in treatment rooms and at the desk</li>
+      <li>Checkout in under 30 seconds for a standard visit</li>
+      <li>AI recommendations in under 5 seconds (streamed)</li>
+      <li>Turkish formats: dd.MM.yyyy, 1.234,56 ₺</li>
+    </ul></div>
+    <div class="card"><h4>Performance</h4><ul>
+      <li>Calendar day view loads in &lt; 1 s</li>
+      <li>Indexes on phone, appointment date, product, lot expiry</li>
+      <li>Heavy reports on views or pre-aggregated tables</li>
+    </ul></div>
+    <div class="card"><h4>Quality &amp; DevOps</h4><ul>
+      <li>Unit tests for commission rules, stock, packages and the AI safety filter</li>
+      <li>Integration tests with Testcontainers (SQL Server)</li>
+      <li>CI/CD (GitHub Actions or Azure DevOps) to dev, staging and prod</li>
+      <li>Docker for local development</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section id="roadmap">
+  <h2>Roadmap</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Phase</th><th>Goal</th><th>Contents</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag p1">Phase 0</span> Foundation</td><td>Skeleton running end-to-end</td><td>Solution structure, auth and permissions, settings and feature switches, TR/EN localisation, audit log, CI/CD to Azure, base React layout, <code>IAiProvider</code> / <code>INotificationChannel</code> / <code>IInvoiceProvider</code> interfaces with fakes.</td></tr>
+      <tr><td><span class="tag p1">Phase 1a</span> MVP core</td><td>Run a real day at the center</td><td>Customers with health profile, consents and questionnaire; employees and schedules; service catalog with areas, consumables, parameter templates; laser devices (manual specs and shot counts); calendar; treatment records and photos; checkout with KDV, payments and receipt photo upload; pay later with payment plans, customer account, receivables list and due-date SMS; day close; packages with installments; opening balances (incl. open customer balances); products, lots and stock ledger; SMS reminders (provider plugged in before go-live); core reports; dashboard.</td></tr>
+      <tr><td><span class="tag p1">Phase 1b</span> MVP AI</td><td>Recommend with confidence</td><td>Product and service content with AI drafting; AI consultation assistant with safety filter and recommendation tracking; aftercare routine sheet; configurable commission (off by default).</td></tr>
+      <tr><td><span class="tag p2">Phase 2</span> Grow</td><td>Automation and deeper insight</td><td>İYS, birthday and next-session SMS; suppliers, purchase orders, e-Fatura import, stock counts; device maintenance; certificates; loyalty, segments, gift cards. AI: receipt reading, ask your data, daily digest, reorder suggestions, customer summary and churn, talking points.</td></tr>
+      <tr><td><span class="tag p3">Phase 3</span> Extend</td><td>Polish</td><td>e-Arşiv integration, barcode scanning, campaigns, WhatsApp/e-mail channels, tablet signatures, accounting export, multi-branch. AI: semantic catalog search, anomaly detection, voice notes, smart scheduling, no-show prediction.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- Remaining questions -->
+<section id="questions">
+  <h2>Remaining questions</h2>
+  <p>All earlier questions are answered (see <a href="#decisions">Decisions</a>). These are deferred, not blocking the MVP:</p>
+  <ul class="check">
+    <li><strong>AI provider and data transfer:</strong> the app serves Turkey only, but if the chosen AI provider processes data outside Turkey, that is still a cross-border transfer under KVKK. Before enabling AI on real customer data, pick the provider/region and have the transfer basis and AI consent text checked. The consultation assistant can run without health data in the meantime.</li>
+    <li><strong>SMS provider:</strong> choose the provider and sender ID (başlık) before go-live; register in İYS before sending any commercial SMS.</li>
+    <li><strong>Commission rates:</strong> enter them when the owner decides to turn commission on.</li>
+    <li><strong>e-Arşiv integrator:</strong> choose one when the manual receipt upload becomes too much work.</li>
+  </ul>
+</section>
+</main>
+</div>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.filters button');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var f = btn.getAttribute('data-filter');
+      buttons.forEach(function(b){ b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      document.querySelectorAll('table[data-features] tbody tr').forEach(function(tr){
+        var show = f === 'all' || !!tr.querySelector('td:last-child .tag.' + f);
+        tr.style.display = show ? '' : 'none';
+      });
+    });
+  });
+  var root = document.documentElement;
+  try { var saved = localStorage.getItem('victoria-theme'); if (saved) root.setAttribute('data-theme', saved); } catch(e){}
+  document.getElementById('themeToggle').addEventListener('click', function(){
+    var cur = root.getAttribute('data-theme') ||
+      (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    var next = cur === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('victoria-theme', next); } catch(e){}
+  });
+})();
+</script>
+</body>
+</html>

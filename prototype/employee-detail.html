@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayşe Demir · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="team:detail">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="employees.html">Employees</a><i data-lucide="chevron-right"></i>Ayşe Demir</div>
+  <div class="page-header">
+    <div class="row" style="gap:14px"><span class="avatar lg">AD</span>
+      <div class="title" style="border:none;padding:0"><h1>Ayşe Demir</h1><p>Laser operator · since 02/2024 · login: Specialist · <span class="tag indigo">Certified laser operator</span></p></div></div>
+    <div class="actions"><input class="input" style="width:auto" value="November 2026"><button class="btn"><i data-lucide="download"></i>Export activity</button><button class="btn" data-toast="Edit form">Edit</button></div>
+  </div>
+  <div class="grid g4 mb">
+    <div class="stat primary"><div class="label">Treatments</div><div class="value">96</div><div class="note">61 customers</div></div>
+    <div class="stat success"><div class="label">Revenue generated</div><div class="value">₺97,100</div><div class="note">services ₺84,200 · products ₺12,900</div></div>
+    <div class="stat neutral"><div class="label">AI suggestions</div><div class="value">45%</div><div class="note">14 of 31 accepted · ₺8,400</div></div>
+    <div class="stat neutral"><div class="label">Utilisation</div><div class="value">86%</div><div class="note">booked 152h / available 176h</div></div>
+  </div>
+
+  <div class="tabs" data-tabs="emp">
+    <button class="on" data-tab="e-act">Activity</button>
+    <button data-tab="e-sched">Working hours</button>
+    <button data-tab="e-qual">Qualifications</button>
+    <button data-tab="e-comm">Commission</button>
+  </div>
+
+  <div class="tab-panel on" id="e-act" data-group="emp">
+    <div class="filter-bar"><div class="seg"><button class="on">All</button><button>Treatments</button><button>Products sold</button><button>Consumables used</button></div></div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Date</th><th>Type</th><th>Customer</th><th>Item</th><th class="num">Qty</th><th class="num">Amount</th><th>Source</th></tr></thead>
+      <tbody>
+        <tr><td>12.11 13:00</td><td><span class="tag indigo">Treatment</span></td><td>Nazlı Aksoy</td><td>Laser underarm (package 2/6)</td><td class="num">1</td><td class="num">₺800</td><td>Package</td></tr>
+        <tr><td>12.11 13:32</td><td><span class="tag blue">Product</span></td><td>Nazlı Aksoy</td><td>Soothing Aloe Gel</td><td class="num">1</td><td class="num">₺890</td><td><span class="tag purple">AI</span></td></tr>
+        <tr><td>12.11 13:32</td><td><span class="tag blue">Product</span></td><td>Nazlı Aksoy</td><td>SPF 50 Sunscreen</td><td class="num">1</td><td class="num">₺1,035</td><td><span class="tag purple">AI</span></td></tr>
+        <tr><td>12.11 13:00</td><td><span class="tag">Consumable</span></td><td>Nazlı Aksoy</td><td>Laser cooling gel</td><td class="num">35 ml</td><td class="num muted">₺9.80</td><td>Treatment</td></tr>
+        <tr><td>12.11 09:00</td><td><span class="tag indigo">Treatment</span></td><td>Deniz Yılmaz</td><td>Laser full leg (package 5/8)</td><td class="num">1</td><td class="num">₺3,000</td><td>Package</td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="e-sched" data-group="emp"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Weekly template</h3></div><div class="card-body flush"><table class="table">
+      <tbody><tr><td>Monday</td><td>09:00–18:00</td><td class="small muted">break 13:00–13:30</td></tr><tr><td>Tuesday</td><td>09:00–18:00</td><td></td></tr><tr><td>Wednesday</td><td>09:00–18:00</td><td></td></tr><tr><td>Thursday</td><td>09:00–18:00</td><td></td></tr><tr><td>Friday</td><td>09:00–18:00</td><td></td></tr><tr><td>Saturday</td><td>10:00–16:00</td><td></td></tr><tr><td>Sunday</td><td class="muted">Off</td><td></td></tr></tbody></table></div></div>
+    <div class="card"><div class="card-head"><h3>Exceptions &amp; leave</h3><button class="btn sm"><i data-lucide="plus"></i>Add</button></div><ul class="list">
+      <li><i data-lucide="plane"></i><div class="grow">Annual leave · 22.12–26.12.2026</div><span class="tag orange">Phase 2</span></li>
+      <li><i data-lucide="clock"></i><div class="grow">Half day · 20.11.2026 · 09:00–13:00</div></li></ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="e-qual" data-group="emp"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Services allowed</h3></div><div class="card-body stack">
+      <label class="chk"><input type="checkbox" checked> Laser epilation (all areas)</label><label class="chk"><input type="checkbox" checked> Brow shaping</label><label class="chk"><input type="checkbox"> HydraFacial</label><label class="chk"><input type="checkbox" disabled> Chemical peel <span class="small muted">(physician only)</span></label></div></div>
+    <div class="card"><div class="card-head"><h3>Certificates</h3><span class="tag orange">Phase 2</span></div><ul class="list"><li><i data-lucide="award"></i><div class="grow">Laser operator certificate<div class="small muted">valid until 03/2028</div></div><a href="#">PDF</a></li></ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="e-comm" data-group="emp">
+    <div class="alert info"><i data-lucide="percent"></i><div>Commission is <b>turned off</b> for the center. When the owner turns it on in <a href="employees.html#t-commission">Commission</a>, this tab shows the monthly statement.</div></div>
+  </div>
+</main></div></div>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

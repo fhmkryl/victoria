@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giriş · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<link rel="icon" href="../assets/logo.jpg">
+</head>
+<body>
+<div class="login">
+  <div class="login-box">
+    <div class="row between mb">
+      <div class="row"><img src="../assets/logo.jpg" alt="Victoria" style="width:56px;height:56px;border-radius:12px"><div><div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;letter-spacing:.14em;color:#9a7b45">VICTORIA</div><div class="small muted">Güzellik &amp; Bakım</div></div></div>
+      <div class="lang"><button class="on">TR</button><a class="lang-link" href="../login.html">EN</a></div>
+    </div>
+    <h2 style="font-size:18px;margin:8px 0 12px">Bu tableti kim kullanıyor?</h2>
+    <div class="user-tiles">
+      <div class="user-tile" data-go="index.html"><span class="avatar">FK</span><b>Fehmi K.</b><span class="small muted">İşletme sahibi</span></div>
+      <div class="user-tile" data-go="index.html"><span class="avatar" style="background:#fef3c7;color:#92400e">ZA</span><b>Zeynep Arslan</b><span class="small muted">Resepsiyon</span></div>
+      <div class="user-tile on" data-go="my-day.html"><span class="avatar">AD</span><b>Ayşe Demir</b><span class="small muted">Lazer uzmanı</span></div>
+      <div class="user-tile" data-go="my-day.html"><span class="avatar">MK</span><b>Merve Kaya</b><span class="small muted">Estetisyen</span></div>
+      <div class="user-tile" data-go="my-day.html"><span class="avatar">SA</span><b>Dr. Selin Aydın</b><span class="small muted">Hekim</span></div>
+      <div class="user-tile" data-go="my-day.html"><span class="avatar">EŞ</span><b>Elif Şahin</b><span class="small muted">Terapist</span></div>
+    </div>
+    <div style="text-align:center;margin-top:18px"><b id="who">Ayşe Demir</b>, 4 haneli PIN'inizi girin</div>
+    <div class="pin"><span></span><span></span><span></span><span></span></div>
+    <div class="pad">
+      <button>1</button><button>2</button><button>3</button><button>4</button><button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button style="visibility:hidden"></button><button>0</button><button data-del>⌫</button>
+    </div>
+    <p class="small muted" style="text-align:center;margin:16px 0 0">İşletme sahibi ve müdürler günde bir kez şifre + iki adımlı doğrulamayla giriş yapar; sonrasında PIN yeterlidir. Tablet 5 dakika kullanılmazsa kendini kilitler.</p>
+  </div>
+</div>
+<script>
+  var go = 'my-day.html', n = 0, dots = document.querySelectorAll('.pin span');
+  document.querySelectorAll('.user-tile').forEach(function (t) {
+    t.addEventListener('click', function () {
+      document.querySelectorAll('.user-tile').forEach(function (x) { x.classList.toggle('on', x === t); });
+      go = t.getAttribute('data-go'); document.getElementById('who').textContent = t.querySelector('b').textContent;
+      n = 0; dots.forEach(function (d) { d.classList.remove('f'); });
+    });
+  });
+  document.querySelectorAll('.pad button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.hasAttribute('data-del')) { if (n > 0) dots[--n].classList.remove('f'); return; }
+      if (n < 4) dots[n++].classList.add('f');
+      if (n === 4) setTimeout(function () { try { sessionStorage.setItem('victoria-role', go === 'my-day.html' ? 'specialist' : 'owner'); } catch (e) {} location.href = go; }, 250);
+    });
+  });
+</script>
+</body>
+</html>

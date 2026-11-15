@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kasa · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="kasa">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Kasa</h1><p>Satış yapın, tahsilat alın, günü kapatın</p></div>
+  </div>
+  <div class="tabs main-tabs" data-tabs="kasa"><button class="on" data-tab="k-sale"><i data-lucide="shopping-cart"></i>Yeni satış</button><button data-tab="k-sales"><i data-lucide="receipt"></i>Satışlar</button><button data-tab="k-receivables"><i data-lucide="hand-coins"></i>Alacaklar <span class="tag red">2</span></button><button data-tab="k-expenses"><i data-lucide="file-minus"></i>Giderler</button><button data-tab="k-close"><i data-lucide="lock"></i>Gün sonu</button></div>
+  <div class="tab-panel on" id="k-sale" data-group="kasa">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Satış ekranı</h1><p>Randevudan: Nazlı Aksoy · 13:00 · Lazer koltuk altı (paket seansı)</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="user-round"></i>Müşteriyi değiştir</button><button class="btn">Yalnızca ürün satışı</button></div>
+  </div>
+
+  <div class="pos">
+    <div class="stack">
+      <div class="card"><div class="card-head"><h3>Kalem ekle</h3>
+        <div class="seg"><button class="on">Ürünler</button><button>Hizmetler</button><button data-open="drawer-package">Paketler</button><button>Hediye kartları</button></div></div>
+        <div class="card-body">
+          <input class="input mb" placeholder="Ürün adı veya barkod ile ara…">
+          <div class="alert ai mb"><i data-lucide="sparkles"></i><div><b>Konsültasyonda önerildi:</b> Yatıştırıcı Aloe Jel, SPF 50 Güneş Kremi. <a href="consultation.html">Konsültasyonu aç</a></div></div>
+          <div class="tiles">
+            <div class="tile" data-toast="Eklendi: SPF 50 Güneş Kremi"><div class="row between"><b>SPF 50 Güneş Kremi</b><span class="tag purple">YZ</span></div><div class="muted small">50 ml · stokta 12</div><div class="price">₺1.150</div></div>
+            <div class="tile" data-toast="Eklendi: Yatıştırıcı Aloe Jel"><div class="row between"><b>Yatıştırıcı Aloe Jel</b><span class="tag purple">YZ</span></div><div class="muted small">200 ml · stokta 9</div><div class="price">₺890</div></div>
+            <div class="tile" data-toast="Eklendi"><b>%10 Niasinamid Serum</b><div class="muted small">30 ml · stokta 7</div><div class="price">₺980</div></div>
+            <div class="tile" data-toast="Eklendi"><b>Hyaluronik Serum</b><div class="muted small">30 ml · stokta 14</div><div class="price">₺1.250</div></div>
+            <div class="tile" data-toast="Eklendi"><b>Nazik Temizleyici</b><div class="muted small">150 ml · stokta 20</div><div class="price">₺640</div></div>
+            <div class="tile" style="opacity:.5"><b>C Vitamini Serum</b><div class="muted small">50 ml · stokta yok</div><div class="price">₺1.490</div></div>
+            <div class="tile" data-toast="Eklendi"><b>Onarıcı Vücut Losyonu</b><div class="muted small">250 ml · stokta 6</div><div class="price">₺720</div></div>
+            <div class="tile" data-toast="Eklendi"><b>Göz Çevresi Kremi</b><div class="muted small">15 ml · stokta 4</div><div class="price">₺1.080</div></div>
+          </div>
+        </div></div>
+    </div>
+
+    <div class="card" style="position:sticky;top:76px;max-height:calc(100vh - 92px);overflow:auto">
+      <div class="card-head"><h3><span class="avatar">NA</span>Nazlı Aksoy</h3><a class="small" href="customer-detail.html">Profil</a></div>
+      <div class="card-body flush"><table class="table">
+        <thead><tr><th>Kalem</th><th>Personel</th><th class="num">Tutar</th></tr></thead>
+        <tbody>
+          <tr><td>Lazer · Koltuk altı<div class="small muted">Paket seansı 2/6</div></td><td class="small">Ayşe Demir</td><td class="num">₺0</td></tr>
+          <tr><td>Yatıştırıcı Aloe Jel <span class="tag purple">YZ</span><div class="small muted">1 × ₺890</div></td><td class="small"><select class="select" style="height:26px;font-size:12px"><option>Ayşe Demir</option><option>Zeynep Arslan</option></select></td><td class="num">₺890</td></tr>
+          <tr><td>SPF 50 Güneş Kremi <span class="tag purple">YZ</span><div class="small muted">1 × ₺1.150 · −%10</div></td><td class="small"><select class="select" style="height:26px;font-size:12px"><option>Ayşe Demir</option></select></td><td class="num">₺1.035</td></tr>
+        </tbody></table></div>
+      <div class="card-body stack">
+        <div class="row"><button class="btn sm"><i data-lucide="percent"></i>İndirim</button><button class="btn sm"><i data-lucide="ticket"></i>Hediye kartı</button><button class="btn sm"><i data-lucide="star"></i>Puan</button></div>
+        <div class="totals">
+          <span class="muted">Ara toplam</span><span class="right">₺2.040</span>
+          <span class="muted">İndirim (sadık müşteri)</span><span class="right">−₺115</span>
+          <span class="muted">%20 KDV dahil</span><span class="right">₺320,83</span>
+          <span class="grand">Toplam</span><span class="grand right">₺1.925</span>
+        </div>
+        <div class="pay-methods" data-hide-when=".pay-now">
+          <button class="on"><i data-lucide="credit-card"></i>Kart</button><button><i data-lucide="banknote"></i>Nakit</button><button><i data-lucide="landmark"></i>Havale/EFT</button><button data-show="pay-plan"><i data-lucide="calendar-clock"></i>Sonra öde</button>
+        </div>
+        <div class="row pay-now"><div class="field" style="flex:1"><label>Kart taksiti (banka)</label><select class="select"><option>Tek çekim</option><option>3 taksit</option></select></div><div class="field" style="flex:1"><label>Tutar</label><input class="input" value="1.925,00"></div></div>
+
+        <div class="plan-box" id="pay-plan" style="display:none">
+          <div class="row between"><b><i data-lucide="calendar-clock"></i> Ödeme planı (işletme içi)</b><span class="tag green">Limit uygun</span></div>
+          <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+            <div class="field"><label>Şimdi ödenecek</label><input class="input" value="425,00"></div>
+            <div class="field"><label>Şimdi ödeme şekli</label><select class="select"><option>Nakit</option><option>Kart</option><option>Havale/EFT</option></select></div>
+            <div class="field"><label>Kalan tutar</label><select class="select"><option>3 taksit</option><option>Tek ödeme</option><option>2 taksit</option><option>4 taksit</option><option>6 taksit</option></select></div>
+            <div class="field"><label>İlk vade</label><input class="input" value="12.12.2026"></div>
+          </div>
+          <table class="table" style="background:#fff">
+            <thead><tr><th>#</th><th>Vade</th><th class="num">Tutar</th></tr></thead>
+            <tbody><tr><td>1</td><td>12.12.2026</td><td class="num">₺500</td></tr><tr><td>2</td><td>12.01.2027</td><td class="num">₺500</td></tr><tr><td>3</td><td>12.02.2027</td><td class="num">₺500</td></tr></tbody>
+          </table>
+          <label class="chk"><input type="checkbox" checked> Her vadeden 2 gün önce SMS hatırlatması</label>
+          <div class="small muted">Bu satıştan sonra açık bakiye: <b>₺1.500</b> · müşteri limiti ₺10.000 · gecikmiş ödeme yok</div>
+          <div class="upload" style="padding:8px">İmzalı ödeme taahhüdünü yükle (isteğe bağlı)</div>
+          <div class="alert info small"><i data-lucide="receipt"></i><div>Resmi fiş/fatura bugün tutarın tamamı için kesilir; sonraki ödemeler açık bakiyeden tahsilat olarak kaydedilir.</div></div>
+          <button class="btn primary lg block" data-open="modal-receipt"><i data-lucide="check"></i>Satışı kaydet · şimdi ₺425 tahsil et</button>
+        </div>
+
+        <button class="btn primary lg block pay-now" data-open="modal-receipt"><i data-lucide="check"></i>Ödemeyi al ₺1.925</button>
+        <span class="small muted pay-now">Bölünmüş ödeme ve kısmi ödeme (açık bakiye) desteklenir.</span>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="k-sales" data-group="kasa">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Satışlar</h1><p>Tüm satışlar, iadeler ve fiş durumu</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="download"></i>Excel'e aktar</button><a class="btn primary" href="kasa.html"><i data-lucide="plus"></i>Yeni satış</a></div>
+  </div>
+
+  <div class="tabs" data-tabs="sales">
+    <button class="on" data-tab="s-all">Tüm satışlar</button>
+    <button data-tab="s-missing">Fişi eksik <span class="tag orange">3</span></button>
+    <button data-tab="s-refunds">İadeler</button>
+  </div>
+
+  <div class="tab-panel on" id="s-all" data-group="sales">
+    <div class="filter-bar">
+      <input class="input" placeholder="Satış no, müşteri…"><input class="input" value="01.11.2026 – 12.11.2026">
+      <select class="select"><option>Tüm personel</option><option>Ayşe Demir</option><option>Merve Kaya</option></select>
+      <select class="select"><option>Tüm ödeme yöntemleri</option><option>Kart</option><option>Nakit</option><option>Havale/EFT</option></select>
+    </div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>No</th><th>Tarih</th><th>Müşteri</th><th>Kalemler</th><th>Personel</th><th>Ödeme</th><th class="num">İndirim</th><th class="num">Toplam</th><th>Fiş</th><th></th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-open="drawer-sale"><td>S-2026-1188</td><td>12.11 13:32</td><td>Nazlı Aksoy</td><td>Paket seansı, Aloe Jel, SPF 50</td><td>Ayşe Demir</td><td>Kart</td><td class="num">₺115</td><td class="num">₺1.925</td><td><span class="tag orange">Eksik</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+        <tr><td>S-2026-1187</td><td>12.11 11:05</td><td>Ece Çelik</td><td>HydraFacial, Hyaluronik Serum</td><td>Merve Kaya</td><td>Kart</td><td class="num">–</td><td class="num">₺3.050</td><td><span class="tag green">ÖKC · Z-0012/0455</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+        <tr><td>S-2026-1186</td><td>12.11 10:02</td><td>Deniz Yılmaz</td><td>Paket seansı, taksit 3/4</td><td>Ayşe Demir</td><td>Nakit</td><td class="num">–</td><td class="num">₺3.000</td><td><span class="tag green">e-Arşiv · VBC2026000412</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+        <tr><td>S-2026-1185</td><td>11.11 18:20</td><td>–</td><td>Nazik Temizleyici ×2</td><td>Zeynep Arslan</td><td>Kart</td><td class="num">–</td><td class="num">₺1.280</td><td><span class="tag orange">Eksik</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+        <tr><td>S-2026-1184</td><td>11.11 16:45</td><td>Hande Polat</td><td>Lazer Tüm vücut 8 seans (1/3)</td><td>Zeynep Arslan</td><td>Kart · 3 taksit</td><td class="num">₺2.000</td><td class="num">₺8.000</td><td><span class="tag green">e-Arşiv · VBC2026000411</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+        <tr><td>S-2026-1183</td><td>11.11 15:10</td><td>Melis Ural</td><td>Vücut sargısı</td><td>Elif Şahin</td><td>Nakit</td><td class="num">–</td><td class="num">₺1.600</td><td><span class="tag orange">Eksik</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+        <tr><td>S-2026-1182</td><td>11.11 12:00</td><td>Gizem Öztürk</td><td>Kimyasal peeling (paket 2/4)</td><td>Dr. Selin Aydın</td><td>–</td><td class="num">–</td><td class="num">₺0</td><td><span class="tag">Gerekmiyor</span></td><td><button class="btn sm" data-open="drawer-sale">Aç</button></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="6">7 satış</td><td class="num">₺2.115</td><td class="num">₺18.855</td><td colspan="2"></td></tr></tfoot>
+    </table></div></div>
+  </div>
+
+  <div class="tab-panel" id="s-missing" data-group="sales">
+    <div class="alert warning mb"><i data-lucide="receipt"></i>Bu satışlara resmi fiş eklenmemiş. Gün sonunda da aynı sayı gösterilir.</div>
+    <div class="card"><div class="card-body flush"><table class="table">
+      <thead><tr><th>No</th><th>Tarih</th><th>Müşteri</th><th class="num">Toplam</th><th>Satışı yapan</th><th></th></tr></thead>
+      <tbody>
+        <tr><td>S-2026-1188</td><td>12.11 13:32</td><td>Nazlı Aksoy</td><td class="num">₺1.925</td><td>Zeynep Arslan</td><td><button class="btn sm primary" data-open="drawer-sale"><i data-lucide="upload"></i>Fiş ekle</button></td></tr>
+        <tr><td>S-2026-1185</td><td>11.11 18:20</td><td>–</td><td class="num">₺1.280</td><td>Zeynep Arslan</td><td><button class="btn sm primary" data-open="drawer-sale"><i data-lucide="upload"></i>Fiş ekle</button></td></tr>
+        <tr><td>S-2026-1183</td><td>11.11 15:10</td><td>Melis Ural</td><td class="num">₺1.600</td><td>Elif Şahin</td><td><button class="btn sm primary" data-open="drawer-sale"><i data-lucide="upload"></i>Fiş ekle</button></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="s-refunds" data-group="sales">
+    <div class="card"><div class="card-body flush"><table class="table">
+      <thead><tr><th>No</th><th>Asıl satış</th><th>Tarih</th><th>Müşteri</th><th>Neden</th><th>Stok</th><th class="num">Tutar</th><th>Onaylayan</th></tr></thead>
+      <tbody><tr><td>R-2026-0021</td><td>S-2026-1101</td><td>05.11.2026</td><td>Cansu Yıldız</td><td>Ürün açılmamış, müşteri vazgeçti</td><td><span class="tag green">Stoğa iade edildi</span></td><td class="num">₺980</td><td>İşletme sahibi</td></tr></tbody></table></div></div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="k-receivables" data-group="kasa">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Alacaklar</h1><p>Şimdi satılıp sonra ödenen ürün, hizmet ve paketler: kim ne zaman ödeyecek, ne gecikti, ne tahsil edildi.</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="download"></i>Excel'e aktar</button><button class="btn primary" data-open="drawer-collect"><i data-lucide="hand-coins"></i>Tahsilat yap</button></div>
+  </div>
+
+  <div class="grid g4 mb">
+    <div class="stat warning"><div class="label">Toplam alacak</div><div class="value">₺48.300</div><div class="note">23 müşteri · 31 açık taksit</div></div>
+    <div class="stat primary"><div class="label">7 gün içinde vadesi gelen</div><div class="value">₺21.500</div><div class="note">8 taksit · SMS hatırlatmaları planlandı</div></div>
+    <div class="stat error"><div class="label">Gecikmiş</div><div class="value">₺6.000</div><div class="note">2 müşteri · en eskisi 11 gün</div></div>
+    <div class="stat success"><div class="label">Bu ay tahsil edilen</div><div class="value">₺27.250</div><div class="note">19 ödeme</div></div>
+  </div>
+
+  <div class="tabs" data-tabs="rcv">
+    <button class="on" data-tab="v-due">Vadesi gelen ve gecikmiş</button>
+    <button data-tab="v-calendar">Ödeme takvimi</button>
+    <button data-tab="v-customers">Müşteriye göre</button>
+    <button data-tab="v-history">Tahsilatlar</button>
+  </div>
+
+  <div class="tab-panel on" id="v-due" data-group="rcv">
+    <div class="filter-bar">
+      <div class="seg"><button>Gecikmiş</button><button class="on">7 gün</button><button>30 gün</button><button>Tüm açıklar</button></div>
+      <select class="select"><option>Tüm kaynaklar</option><option>Ürün satışları</option><option>Hizmet satışları</option><option>Paketler</option></select>
+      <input class="input" placeholder="Müşteri…">
+    </div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Vade</th><th>Müşteri</th><th>Telefon</th><th>Kaynak</th><th>Taksit</th><th class="num">Tutar</th><th class="num">Müşteri bakiyesi</th><th>Durum</th><th></th></tr></thead>
+      <tbody>
+        <tr><td class="down">01.11.2026</td><td><a href="customer-detail.html">Cem Aktaş</a></td><td>0536 *** 18 07</td><td>Paket · Lazer tüm bacak 8</td><td>2 / 4</td><td class="num">₺3.000</td><td class="num">₺9.000</td><td><span class="tag red">11 gün gecikti</span></td><td class="row"><button class="btn sm" data-toast="Hatırlatma SMS'i gönderildi">SMS</button><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+        <tr><td class="down">05.11.2026</td><td><a href="customer-detail.html">Aylin Sarı</a></td><td>0507 *** 44 21</td><td>Ürün · S-2026-1022</td><td>1 / 2</td><td class="num">₺3.000</td><td class="num">₺6.000</td><td><span class="tag red">7 gün gecikti</span></td><td class="row"><button class="btn sm" data-toast="Hatırlatma SMS'i gönderildi">SMS</button><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+        <tr><td>15.11.2026</td><td><a href="customer-detail.html">Burcu Koç</a></td><td>0532 *** 41 18</td><td>Ürün · S-2026-0861 ev bakım seti</td><td>2 / 4</td><td class="num">₺500</td><td class="num">₺1.500</td><td><span class="tag orange">3 gün sonra · SMS 13.11</span></td><td class="row"><button class="btn sm" data-toast="Hatırlatma SMS'i gönderildi">SMS</button><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+        <tr><td>15.11.2026</td><td><a href="customer-detail.html">Deniz Yılmaz</a></td><td>0505 *** 22 70</td><td>Paket · Lazer tüm bacak 8</td><td>4 / 4</td><td class="num">₺3.000</td><td class="num">₺6.000</td><td><span class="tag orange">3 gün sonra</span></td><td class="row"><button class="btn sm" data-toast="Hatırlatma SMS'i gönderildi">SMS</button><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+        <tr><td>15.11.2026</td><td><a href="customer-detail.html">Deniz Yılmaz</a></td><td>0505 *** 22 70</td><td>Ürün · S-2026-1150</td><td>1 / 1</td><td class="num">₺3.000</td><td class="num">₺6.000</td><td><span class="tag orange">3 gün sonra</span></td><td class="row"><button class="btn sm" data-toast="Hatırlatma SMS'i gönderildi">SMS</button><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+        <tr><td>18.11.2026</td><td><a href="customer-detail.html">Hande Polat</a></td><td>0541 *** 66 13</td><td>Paket · Lazer tüm vücut 8</td><td>2 / 3</td><td class="num">₺8.000</td><td class="num">₺16.000</td><td><span class="tag">Planlandı</span></td><td class="row"><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+        <tr><td>19.11.2026</td><td><a href="customer-detail.html">Gizem Öztürk</a></td><td>0535 *** 77 02</td><td>Hizmet · Kimyasal peeling 4</td><td>2 / 2</td><td class="num">₺2.800</td><td class="num">₺2.800</td><td><span class="tag">Planlandı</span></td><td class="row"><button class="btn sm primary" data-open="drawer-collect">Tahsil et</button></td></tr>
+      </tbody>
+      <tfoot><tr><td colspan="5">7 taksit</td><td class="num">₺23.300</td><td colspan="3"></td></tr></tfoot>
+    </table></div></div>
+  </div>
+
+  <div class="tab-panel" id="v-calendar" data-group="rcv">
+    <div class="card"><div class="card-head"><h3>Haftalara göre beklenen tahsilat</h3><span class="small muted">Ödeme planlarından</span></div><div class="card-body">
+      <div class="hbar"><span>Gecikmiş</span><div class="progress red"><span style="width:28%"></span></div><span class="right small">₺6.000</span></div>
+      <div class="hbar"><span>10–16 Kasım</span><div class="progress"><span style="width:44%"></span></div><span class="right small">₺9.500</span></div>
+      <div class="hbar"><span>17–23 Kasım</span><div class="progress"><span style="width:50%"></span></div><span class="right small">₺10.800</span></div>
+      <div class="hbar"><span>24–30 Kasım</span><div class="progress"><span style="width:12%"></span></div><span class="right small">₺2.500</span></div>
+      <div class="hbar"><span>Aralık</span><div class="progress"><span style="width:62%"></span></div><span class="right small">₺13.300</span></div>
+      <div class="hbar"><span>Ocak ve sonrası</span><div class="progress"><span style="width:28%"></span></div><span class="right small">₺6.200</span></div>
+    </div></div>
+  </div>
+
+  <div class="tab-panel" id="v-customers" data-group="rcv">
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Müşteri</th><th class="num">Açık plan</th><th class="num">Alacak</th><th class="num">Gecikmiş</th><th>Sıradaki vade</th><th>Borç limiti</th><th>Ödeme alışkanlığı</th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-href="customer-detail.html"><td>Hande Polat</td><td class="num">1</td><td class="num">₺16.000</td><td class="num">₺0</td><td>18.11.2026 · ₺8.000</td><td>₺20.000</td><td><span class="tag blue">Yeni</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Cem Aktaş</td><td class="num">1</td><td class="num">₺9.000</td><td class="num down">₺3.000</td><td>01.11.2026 · ₺3.000</td><td>₺10.000</td><td><span class="tag red">2 kez gecikti</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Deniz Yılmaz</td><td class="num">2</td><td class="num">₺6.000</td><td class="num">₺0</td><td>15.11.2026 · ₺6.000</td><td>₺15.000</td><td><span class="tag green">Zamanında</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Aylin Sarı</td><td class="num">1</td><td class="num">₺6.000</td><td class="num down">₺3.000</td><td>05.11.2026 · ₺3.000</td><td>₺10.000</td><td><span class="tag orange">1 kez gecikti</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Gizem Öztürk</td><td class="num">1</td><td class="num">₺2.800</td><td class="num">₺0</td><td>19.11.2026 · ₺2.800</td><td>₺10.000</td><td><span class="tag green">Zamanında</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Burcu Koç</td><td class="num">1</td><td class="num">₺1.500</td><td class="num">₺0</td><td>15.11.2026 · ₺500</td><td>₺10.000</td><td><span class="tag green">Zamanında</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="v-history" data-group="rcv">
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Tarih</th><th>Müşteri</th><th>Uygulandığı yer</th><th>Yöntem</th><th>Tahsil eden</th><th class="num">Tutar</th><th>Fiş</th></tr></thead>
+      <tbody>
+        <tr><td>12.11.2026 10:02</td><td>Deniz Yılmaz</td><td>Paket Lazer tüm bacak · 3/4</td><td>Nakit</td><td>Zeynep Arslan</td><td class="num">₺3.000</td><td><span class="tag green">e-Arşiv · VBC2026000412</span></td></tr>
+        <tr><td>10.11.2026 16:40</td><td>Melis Ural</td><td>S-2026-1040 · 2/2 (plan kapandı)</td><td>Kart</td><td>Zeynep Arslan</td><td class="num">₺1.200</td><td><span class="tag">Yüklendi</span></td></tr>
+        <tr><td>15.10.2026 12:15</td><td>Burcu Koç</td><td>S-2026-0861 · 1/4</td><td>Nakit</td><td>Zeynep Arslan</td><td class="num">₺500</td><td><span class="tag">Yüklendi</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="k-expenses" data-group="kasa">
+    <div class="page-header sub"><div class="title"><p>Yaklaşık kârı görmek için merkezin harcamalarının basit bir listesi. Muhasebe değildir; defterleri mali müşavir tutmaya devam eder.</p></div>
+      <div class="actions"><button class="btn"><i data-lucide="download"></i>Dışa aktar</button><button class="btn primary" data-open="drawer-expense"><i data-lucide="plus"></i>Gider ekle</button></div></div>
+    <div class="grid g3 mb">
+      <div class="stat neutral"><div class="label">Bu ayın giderleri</div><div class="value">₺61.200</div><div class="note">5 kayıt</div></div>
+      <div class="stat warning"><div class="label">Bu ay planlanan</div><div class="value">₺140.000</div><div class="note">Maaşlar · 30.11</div></div>
+      <div class="stat success"><div class="label">Şu ana kadar yaklaşık kâr</div><div class="value">₺153.600</div><div class="note">ciro ₺214.800 − gider ₺61.200</div></div>
+    </div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Tarih</th><th>Kategori</th><th>Açıklama</th><th>Ödeme</th><th class="num">Tutar</th><th>Fatura</th></tr></thead>
+      <tbody>
+        <tr><td>30.11.2026</td><td><span class="tag">Maaşlar</span></td><td>Aylık maaşlar (planlı, her ay tekrarlanır)</td><td>Havale/EFT</td><td class="num">₺140.000</td><td><span class="tag orange">Planlandı</span></td></tr>
+        <tr><td>12.11.2026</td><td><span class="tag">Diğer</span></td><td>Kahve ve sarf</td><td>Nakit (gün sonunda)</td><td class="num">₺350</td><td><span class="tag green">Fotoğraf</span></td></tr>
+        <tr><td>10.11.2026</td><td><span class="tag">Pazarlama</span></td><td>Instagram reklamları</td><td>Kart</td><td class="num">₺2.550</td><td><span class="tag green">PDF</span></td></tr>
+        <tr><td>05.11.2026</td><td><span class="tag">Faturalar</span></td><td>Ekim elektrik</td><td>Havale/EFT</td><td class="num">₺4.900</td><td><span class="tag green">PDF</span></td></tr>
+        <tr><td>03.11.2026</td><td><span class="tag">Tedarikçi</span></td><td>Derma Dağıtım · fatura 2026-4471</td><td>Havale/EFT</td><td class="num">₺18.400</td><td><span class="tag green">e-Fatura</span></td></tr>
+        <tr><td>01.11.2026</td><td><span class="tag">Kira</span></td><td>Kasım kirası (her ay tekrarlanır)</td><td>Havale/EFT</td><td class="num">₺35.000</td><td><span class="tag green">PDF</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+  <div class="tab-panel" id="k-close" data-group="kasa">
+
+    <div class="page-header sub"><div class="title"><p>Kasa 08:45'te Zeynep Arslan tarafından açıldı · açılış nakdi ₺1.000</p></div>
+      <div class="actions"><button class="btn" data-open="drawer-move"><i data-lucide="arrow-left-right"></i>Kasaya giriş / çıkış</button></div></div>
+    <div class="alert warning mb"><i data-lucide="receipt"></i><div>3 satışın fiş fotoğrafı yok. Yine de kapatabilirsiniz; Satışlar sekmesindeki listede kalırlar.</div></div>
+    <div class="grid g-main">
+      <div class="card"><div class="card-head"><h3><i data-lucide="lock"></i>Nakdi say ve günü kapat</h3></div><div class="card-body stack">
+        <dl class="desc">
+          <dt>Açılış nakdi</dt><dd>₺1.000</dd><dt>Nakit satış ve tahsilat</dt><dd>+ ₺4.550</dd><dt>Kasadan çıkış</dt><dd>− ₺350 (kahve ve sarf)</dd>
+          <dt><b>Beklenen nakit</b></dt><dd><b>₺5.200</b></dd>
+          <dt>Kart toplamı</dt><dd>₺12.250 · POS cihazının gün sonu fişiyle karşılaştırın</dd><dt>Havale/EFT</dt><dd>₺1.650</dd>
+        </dl>
+        <div class="form-grid">
+          <div class="field"><label>Sayılan nakit <span class="req">*</span></label><input class="input" value="5.180,00"></div>
+          <div class="field"><label>Fark</label><input class="input" value="−20,00" style="color:#b91c1c"></div>
+        </div>
+        <div class="field"><label>Açıklama (fark varsa gerekli)</label><input class="input" value="Para üstü yanlış verildi"></div>
+        <div class="upload"><i data-lucide="camera"></i> ÖKC Z raporu / POS fişini yükle (isteğe bağlı)</div>
+        <button class="btn primary lg" style="align-self:flex-start" data-toast="Gün kapatıldı · özet işletme sahibine gönderildi"><i data-lucide="lock"></i>Günü kapat</button>
+      </div></div>
+      <div class="card"><div class="card-head"><h3>Önceki günler</h3></div><div class="card-body flush"><table class="table">
+        <thead><tr><th>Tarih</th><th class="num">Beklenen</th><th class="num">Sayılan</th><th class="num">Fark</th></tr></thead>
+        <tbody><tr><td>11.11.2026</td><td class="num">₺6.420</td><td class="num">₺6.400</td><td class="num down">−₺20</td></tr>
+        <tr><td>10.11.2026</td><td class="num">₺3.980</td><td class="num">₺3.980</td><td class="num">₺0</td></tr>
+        <tr><td>09.11.2026</td><td class="num">₺2.150</td><td class="num">₺2.150</td><td class="num">₺0</td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</main></div></div>
+
+<div class="modal" id="modal-receipt">
+  <div class="drawer-head"><h3><i data-lucide="check-circle" style="color:#059669"></i>Ödeme alındı · S-2026-1188</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="alert info"><i data-lucide="receipt"></i><div>Resmi fişi <b>ÖKC</b>'den veya <b>e-Arşiv</b> portalından kesin, ardından buraya kaydedin.</div></div>
+    <div class="form-grid">
+      <div class="field"><label>Fiş türü</label><select class="select"><option>ÖKC fiş</option><option>e-Arşiv fatura</option></select></div>
+      <div class="field"><label>Fiş / fatura no</label><input class="input" placeholder="örn. Z-0012 / 0456"></div>
+    </div>
+    <div class="upload"><i data-lucide="camera"></i><br>Fişin fotoğrafını çekin veya PDF yükleyin</div>
+    <div class="alert ai small"><i data-lucide="scan-line"></i><div>Faz 2: Yapay zekâ fotoğrafı okur, numarayı ve toplamı doldurur; toplam ₺1.925 değilse uyarır.</div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-toast="Satış kaydedildi · 'Fişi eksik' listesine eklendi">Sonra</button><button class="btn primary" data-toast="Fiş eklendi · satış tamamlandı">Fişi kaydet</button></div>
+</div>
+<aside class="drawer" id="drawer-sale">
+  <div class="drawer-head"><h3>Satış S-2026-1188</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <dl class="desc"><dt>Tarih</dt><dd>12.11.2026 13:32</dd><dt>Müşteri</dt><dd><a href="customer-detail.html">Nazlı Aksoy</a></dd><dt>Satışı yapan</dt><dd>Zeynep Arslan</dd><dt>Randevu</dt><dd>13:00 Lazer koltuk altı</dd></dl>
+    <table class="table"><thead><tr><th>Kalem</th><th>Personel</th><th class="num">KDV</th><th class="num">Tutar</th></tr></thead><tbody>
+      <tr><td>Lazer koltuk altı (paket 2/6)</td><td>Ayşe Demir</td><td class="num">–</td><td class="num">₺0</td></tr>
+      <tr><td>Yatıştırıcı Aloe Jel <span class="tag purple">YZ</span></td><td>Ayşe Demir</td><td class="num">%20</td><td class="num">₺890</td></tr>
+      <tr><td>SPF 50 Güneş Kremi <span class="tag purple">YZ</span></td><td>Ayşe Demir</td><td class="num">%20</td><td class="num">₺1.035</td></tr></tbody>
+      <tfoot><tr><td colspan="3">Toplam · Kart</td><td class="num">₺1.925</td></tr></tfoot></table>
+    <div class="card"><div class="card-head"><h3><i data-lucide="receipt"></i>Resmi fiş/fatura</h3><span class="tag orange">Eksik</span></div><div class="card-body stack">
+      <div class="form-grid"><div class="field"><label>Tür</label><select class="select"><option>ÖKC fiş</option><option>e-Arşiv fatura</option></select></div><div class="field"><label>Numara</label><input class="input"></div></div>
+      <div class="upload"><i data-lucide="camera"></i><br>Fotoğraf çekin veya PDF yükleyin</div></div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn danger" data-open="drawer-refund">İade</button><button class="btn" data-close>Kapat</button><button class="btn primary" data-toast="Fiş eklendi">Fişi kaydet</button></div>
+</aside>
+<aside class="drawer" id="drawer-collect">
+  <div class="drawer-head"><h3><i data-lucide="hand-coins"></i>Tahsilat yap</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>Müşteri</label><input class="input" value="Cem Aktaş · 0536 *** 18 07"></div>
+    <div class="alert error small"><i data-lucide="alert-triangle"></i><div>01.11.2026'dan beri ₺3.000 gecikmiş (11 gün).</div></div>
+    <table class="table"><thead><tr><th></th><th>Vade</th><th>Kaynak</th><th class="num">Tutar</th></tr></thead><tbody>
+      <tr><td><input type="checkbox" checked></td><td class="down">01.11.2026</td><td>Lazer tüm bacak · 2/4</td><td class="num">₺3.000</td></tr>
+      <tr><td><input type="checkbox"></td><td>01.12.2026</td><td>Lazer tüm bacak · 3/4</td><td class="num">₺3.000</td></tr>
+      <tr><td><input type="checkbox"></td><td>01.01.2027</td><td>Lazer tüm bacak · 4/4</td><td class="num">₺3.000</td></tr></tbody></table>
+    <div class="field"><label>Tutar</label><input class="input" value="3.000,00"><span class="hint">Kısmi ödeme yapılabilir; kalan tutar aynı taksitte kalır.</span></div>
+    <div class="pay-methods"><button class="on"><i data-lucide="banknote"></i>Nakit</button><button><i data-lucide="credit-card"></i>Kart</button><button><i data-lucide="landmark"></i>Havale/EFT</button></div>
+    <div class="field"><label>Tarih</label><input class="input" value="12.11.2026"></div>
+    <div class="upload"><i data-lucide="camera"></i><br>Ödeme makbuzunu yükle (isteğe bağlı)</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="₺3.000 tahsil edildi · taksit 2/4 ödendi">₺3.000 tahsil et</button></div>
+</aside>
+<aside class="drawer" id="drawer-move">
+  <div class="drawer-head"><h3>Kasaya giriş / çıkış</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack"><div class="seg"><button class="on">Kasadan çıkış</button><button>Kasaya giriş</button></div>
+    <div class="field"><label>Tutar</label><input class="input"></div><div class="field"><label>Neden</label><input class="input"></div></div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Kaydedildi">Kaydet</button></div>
+</aside>
+<aside class="drawer wide" id="drawer-package">
+  <div class="drawer-head"><h3><i data-lucide="gift"></i>Paket sat · Nazlı Aksoy</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field span-2"><label>Paket</label><select class="select"><option>Lazer Yüz 6 seans · ₺7.200 · 12 ay</option><option>Lazer Koltuk altı 6 seans · ₺4.800</option><option>Lazer Tüm bacak 8 seans · ₺24.000</option><option>Kimyasal peeling 4 seans · ₺7.600</option></select></div>
+      <div class="field"><label>Fiyat</label><input class="input" value="7.200,00"><span class="hint">%10'un üzerindeki indirim müdür onayı gerektirir</span></div>
+      <div class="field"><label>Satan</label><select class="select"><option>Ayşe Demir</option><option>Zeynep Arslan</option></select></div>
+    </div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="calendar-clock"></i>Ödeme</h3><div class="seg"><button>Peşin</button><button class="on">Taksitli</button></div></div><div class="card-body flush"><table class="table">
+      <thead><tr><th>#</th><th>Vade</th><th class="num">Tutar</th></tr></thead>
+      <tbody><tr><td>Şimdi</td><td>12.11.2026</td><td class="num">₺2.400</td></tr><tr><td>1</td><td>12.12.2026</td><td class="num">₺2.400</td></tr><tr><td>2</td><td>12.01.2027</td><td class="num">₺2.400</td></tr></tbody></table></div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="calendar-days"></i>Seansları planla</h3><label class="chk"><input type="checkbox" checked> Hepsini şimdi planla</label></div><div class="card-body">
+      <div class="form-grid" style="grid-template-columns:1fr 1fr"><div class="field"><label>İlk seans</label><input class="input" value="24.12.2026 13:00"></div><div class="field"><label>Aralık</label><select class="select"><option>6 hafta</option><option>4 hafta</option><option>8 hafta</option></select></div></div>
+      <div class="row wrap mt" style="gap:6px"><span class="tag indigo">24.12</span><span class="tag indigo">04.02</span><span class="tag indigo">18.03</span><span class="tag indigo">29.04</span><span class="tag orange">10.06 · Ayşe izinde → 11.06</span><span class="tag indigo">22.07</span></div>
+    </div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Paket satışa eklendi · 6 seans planlandı · 2 taksit oluşturuldu">Satışa ekle</button></div>
+</aside>
+<aside class="drawer" id="drawer-expense">
+  <div class="drawer-head"><h3><i data-lucide="file-minus"></i>Gider ekle</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field"><label>Tarih</label><input class="input" value="12.11.2026"></div>
+      <div class="field"><label>Tutar</label><input class="input"></div>
+    </div>
+    <div class="field"><label>Kategori</label><div class="seg" style="flex-wrap:wrap"><button class="on">Tedarikçi</button><button>Kira</button><button>Maaşlar</button><button>Faturalar</button><button>Pazarlama</button><button>Bakım</button><button>Diğer</button></div></div>
+    <div class="field"><label>Açıklama</label><input class="input"></div>
+    <div class="field"><label>Ödeme şekli</label><div class="pay-methods"><button class="on"><i data-lucide="landmark"></i>Havale/EFT</button><button><i data-lucide="credit-card"></i>Kart</button><button><i data-lucide="banknote"></i>Nakit</button></div><span class="hint">Nakit giderler kasadan düşülür ve gün sonunda görünür.</span></div>
+    <label class="chk"><input type="checkbox"> Her ay tekrarlanır</label>
+    <div class="upload"><i data-lucide="camera"></i><br>Faturanın fotoğrafı veya PDF'i</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Gider kaydedildi">Kaydet</button></div>
+</aside>
+<aside class="drawer" id="drawer-refund">
+  <div class="drawer-head"><h3><i data-lucide="undo-2"></i>İade · S-2026-1188</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <table class="table"><thead><tr><th></th><th>Kalem</th><th class="num">Tutar</th></tr></thead><tbody>
+      <tr><td><input type="checkbox"></td><td>Yatıştırıcı Aloe Jel</td><td class="num">₺890</td></tr>
+      <tr><td><input type="checkbox" checked></td><td>SPF 50 Güneş Kremi</td><td class="num">₺1.035</td></tr></tbody></table>
+    <div class="field"><label>Neden</label><select class="select"><option>Ürün açılmadı, vazgeçti</option><option>Alerjik reaksiyon</option><option>Hasarlı ürün</option><option>Yanlış ürün</option><option>Diğer</option></select></div>
+    <label class="chk"><input type="checkbox" checked> Stoğa geri al (açılmamış)</label>
+    <div class="field"><label>İade şekli</label><div class="pay-methods"><button class="on"><i data-lucide="credit-card"></i>Kart</button><button><i data-lucide="banknote"></i>Nakit</button><button><i data-lucide="wallet"></i>Müşteri bakiyesi</button></div></div>
+    <div class="upload"><i data-lucide="camera"></i><br>İade belgesi (mali müşavirinizin istediği şekilde)</div>
+    <div class="alert info small"><i data-lucide="info"></i><div>Fişi kesilmiş bir satış düzenlenemez. Değiştirmek için iade edip yeniden satış yapın. Prim açıksa otomatik olarak geri alınır.</div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn danger" data-toast="₺1.035 karta iade edildi · stok +1">₺1.035 iade et</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+
+</body>
+</html>

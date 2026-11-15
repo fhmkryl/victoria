@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ayarlar · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="settings">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+
+  <div class="page-header">
+    <div class="title"><h1>Ayarlar</h1><p>İşletme sahibi ve yöneticiler için yönetim paneli</p></div>
+    <div class="actions"><button class="btn primary" data-toast="Ayarlar kaydedildi">Kaydet</button></div>
+  </div>
+  <div class="tabs" data-tabs="set">
+    <button class="on" data-tab="x-biz">İşletme</button><button data-tab="x-hours">Çalışma saatleri ve tatiller</button><button data-tab="x-tax">Vergi ve fişler</button><button data-tab="x-features">Özellikler</button><button data-tab="x-ai"><i data-lucide="sparkles"></i>Yapay zekâ</button><button data-tab="x-consent">Onam formları</button><button data-tab="x-int">Entegrasyonlar</button><button data-tab="x-audit">Denetim kaydı</button>
+  <button data-tab="x-users"><i data-lucide="shield"></i>Kullanıcılar ve roller</button><button data-tab="x-devices"><i data-lucide="zap"></i>Cihazlar ve odalar</button><button data-tab="x-sms"><i data-lucide="message-square"></i>SMS</button></div>
+
+  <div class="tab-panel on" id="x-biz" data-group="set"><div class="card"><div class="card-body form-grid">
+    <div class="field"><label>Ticari unvan (kısa ad)</label><input class="input" value="Victoria Güzellik &amp; Bakım"></div><div class="field"><label>Resmi unvan</label><input class="input" value="Victoria Güzellik Hizmetleri Ltd. Şti."></div>
+    <div class="field"><label>Vergi dairesi</label><input class="input" value="Kadıköy"></div><div class="field"><label>Vergi no</label><input class="input" value="0000000000"></div>
+    <div class="field"><label>MERSİS no</label><input class="input"></div><div class="field"><label>Telefon</label><input class="input" value="0212 000 00 00"></div>
+    <div class="field span-2"><label>Adres</label><input class="input" value="Örnek Mah. Güzellik Sok. No:1, Kadıköy / İstanbul"></div>
+    <div class="field"><label>Varsayılan dil</label><select class="select"><option>Türkçe</option><option>English</option></select></div><div class="field"><label>Saat dilimi</label><select class="select"><option>Europe/Istanbul</option></select></div>
+    <div class="field"><label>Para birimi</label><select class="select"><option>TRY ₺</option></select></div><div class="field"><label>Logo</label><div class="upload" style="padding:6px">Yükle</div></div>
+  </div></div></div>
+
+  <div class="tab-panel" id="x-hours" data-group="set"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Çalışma saatleri</h3></div><div class="card-body flush"><table class="table"><tbody><tr><td>Pzt–Cum</td><td>09:00–19:00</td></tr><tr><td>Cumartesi</td><td>10:00–17:00</td></tr><tr><td>Pazar</td><td class="muted">Kapalı</td></tr></tbody></table></div></div>
+    <div class="card"><div class="card-head"><h3>Tatiller</h3><button class="btn sm"><i data-lucide="plus"></i>Ekle</button></div><ul class="list"><li><div class="grow">Yılbaşı · 01.01.2027</div></li><li><div class="grow">Ramazan Bayramı · 20–22.03.2027</div></li></ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-tax" data-group="set"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>KDV oranları</h3><button class="btn sm"><i data-lucide="plus"></i>Ekle</button></div><div class="card-body flush"><table class="table"><thead><tr><th>Ad</th><th class="num">Oran</th><th>Varsayılan olduğu</th></tr></thead><tbody><tr><td>Genel</td><td class="num">%20</td><td>Hizmetler, kozmetik</td></tr><tr><td>İndirimli</td><td class="num">%10</td><td>–</td></tr><tr><td>Düşük</td><td class="num">%1</td><td>–</td></tr></tbody></table><div class="card-body small muted">Fiyatlar KDV dahil girilir.</div></div></div>
+    <div class="card"><div class="card-head"><h3>Resmi fiş/fatura</h3></div><div class="card-body stack">
+      <div class="field"><label>Yöntem</label><select class="select"><option>Manuel: numara + fotoğraf yükleme (MVP)</option><option disabled>e-Arşiv entegrasyonu (Sonra)</option></select></div>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Ödemeden sonra fiş eklemeyi hatırlat</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Gün sonunda eksik fişleri göster</label>
+    </div></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-features" data-group="set"><div class="card"><ul class="list">
+    <li><label class="switch"><input type="checkbox"><span class="track"></span></label><div class="grow"><b>Prim</b><div class="small muted">Varsayılan olarak kapalıdır. <a href="employees.html#t-commission">Prim</a> sayfasından yapılandırın.</div></div></li>
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Paketler ve taksitler</b></div></li>
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Lot ve SKT takibi</b></div></li>
+    <li><label class="switch"><input type="checkbox" disabled><span class="track"></span></label><div class="grow"><b>Sadakat puanı</b> <span class="tag orange">Faz 2</span></div></li>
+    <li><label class="switch"><input type="checkbox" disabled><span class="track"></span></label><div class="grow"><b>Hediye kartları</b> <span class="tag orange">Faz 2</span></div></li>
+    <li><div class="grow"><b>İndirim limitleri</b><div class="small muted">Resepsiyon en fazla %10, uzman en fazla %5; üzeri müdür onayı gerektirir</div></div><button class="btn sm">Düzenle</button></li>
+  </ul></div></div>
+
+  <div class="tab-panel" id="x-ai" data-group="set"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Sağlayıcı</h3></div><div class="card-body stack">
+      <div class="field"><label>Sağlayıcı</label><select class="select"><option>Anthropic</option><option>OpenAI</option><option>Azure OpenAI</option><option>Google</option><option>Kapalı</option></select><span class="hint">Sağlayıcıdan bağımsız: kod değişikliği olmadan buradan değiştirebilirsiniz.</span></div>
+      <div class="field"><label>Model</label><input class="input" placeholder="model kimliği"></div>
+      <div class="field"><label>API anahtarı</label><input class="input" type="password" value="••••••••••••"><span class="hint">Azure Key Vault'ta saklanır.</span></div>
+      <div class="field"><label>Aylık bütçe</label><input class="input" value="₺2.000"></div>
+      <div class="alert warning small"><i data-lucide="globe"></i><div>Sağlayıcı verileri Türkiye dışında işliyorsa bu, KVKK kapsamında yurt dışına veri aktarımıdır. Gerçek müşteri verisi kullanmadan önce hukuki dayanağı teyit edin.</div></div>
+    </div></div>
+    <div class="card"><div class="card-head"><h3>YZ özellikleri</h3></div><ul class="list">
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Danışmanlık asistanı</div><span class="tag green">MVP</span></li>
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Sağlık verilerini gönder (yalnızca müşterinin YZ onamı varsa)</div></li>
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Ürün ve hizmet içeriği taslağı</div><span class="tag green">MVP</span></li>
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Uygulama sonrası bakım rutini</div><span class="tag green">MVP</span></li>
+      <li><label class="switch"><input type="checkbox" disabled><span class="track"></span></label><div class="grow">Verilerinize sorun · Günlük özet · Sipariş önerileri · Fiş okuma</div><span class="tag orange">Faz 2</span></li>
+    </ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-consent" data-group="set"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Form</th><th>Sürüm</th><th>Diller</th><th>Geçerlilik</th><th>Kullanıldığı yer</th><th></th></tr></thead>
+    <tbody><tr><td>KVKK aydınlatma metni</td><td>v3</td><td>TR, EN</td><td>–</td><td>Tüm müşteriler</td><td><button class="btn sm">Düzenle</button></td></tr>
+    <tr><td>Açık rıza: sağlık verileri</td><td>v2</td><td>TR, EN</td><td>–</td><td>Tüm müşteriler</td><td><button class="btn sm">Düzenle</button></td></tr>
+    <tr><td>YZ destekli öneriler</td><td>v1</td><td>TR, EN</td><td>–</td><td>Danışmanlık</td><td><button class="btn sm">Düzenle</button></td></tr>
+    <tr><td>Lazer uygulama onamı</td><td>v4</td><td>TR, EN</td><td>12 ay</td><td>Lazer epilasyon</td><td><button class="btn sm">Düzenle</button></td></tr>
+    <tr><td>Kimyasal peeling onamı</td><td>v2</td><td>TR</td><td>12 ay</td><td>Kimyasal peeling</td><td><button class="btn sm">Düzenle</button></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="x-int" data-group="set"><div class="grid g3">
+    <div class="card"><div class="card-head"><h3><i data-lucide="message-square"></i>SMS sağlayıcısı</h3><span class="tag">Tanımlanmadı</span></div><div class="card-body stack"><select class="select"><option>– sonra seçilecek –</option></select><input class="input" placeholder="Gönderici adı (başlık)"><span class="small muted">Tanımlanana kadar mesajlar yalnızca kaydedilir.</span></div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="shield-check"></i>İYS</h3><span class="tag orange">Faz 2</span></div><div class="card-body small muted">Ticari ileti onaylarını İleti Yönetim Sistemi ile eşitleyin.</div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="file-text"></i>e-Arşiv entegratörü</h3><span class="tag">Sonra</span></div><div class="card-body small muted">Fotoğraf yüklemek yerine faturaları doğrudan satış ekranından kesin.</div></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-audit" data-group="set"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Zaman</th><th>Kullanıcı</th><th>İşlem</th><th>Kayıt</th><th>Ayrıntılar</th></tr></thead>
+    <tbody><tr><td>12.11 14:02</td><td>Ayşe Demir</td><td><span class="tag purple">Sağlık verisi görüntülendi</span></td><td>Müşteri Burcu Koç</td><td class="small">Danışmanlık</td></tr>
+    <tr><td>12.11 13:32</td><td>Zeynep Arslan</td><td><span class="tag">İndirim</span></td><td>Satış S-2026-1188</td><td class="small">SPF 50'de −%10 · neden "sadık müşteri"</td></tr>
+    <tr><td>12.11 09:10</td><td>İşletme sahibi</td><td><span class="tag orange">Fiyat değişikliği</span></td><td>Hizmet HydraFacial</td><td class="small">₺1.650 → ₺1.800</td></tr>
+    <tr><td>11.11 16:30</td><td>Elif Şahin</td><td><span class="tag red">Stok firesi</span></td><td>Nitril eldiven</td><td class="small">−20 · yırtık kutu</td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="x-users" data-group="set">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Kullanıcılar ve roller</h1><p>Roller yetki gruplarıdır; işletme sahibi bunları kod değişikliği olmadan düzenleyebilir.</p></div>
+    <div class="actions"><button class="btn primary" data-toast="Davet formu"><i data-lucide="user-plus"></i>Kullanıcı davet et</button></div>
+  </div>
+  <div class="tabs" data-tabs="usr"><button class="on" data-tab="u-users">Kullanıcılar</button><button data-tab="u-roles">Roller ve yetkiler</button></div>
+
+  <div class="tab-panel" id="u-users" data-group="usr"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Kullanıcı</th><th>Personel</th><th>Rol</th><th>2FA</th><th>Son giriş</th><th>Durum</th></tr></thead>
+    <tbody><tr><td>owner@victoria.example</td><td>–</td><td><span class="tag indigo">İşletme sahibi</span></td><td><span class="tag green">Açık</span></td><td>Bugün 08:40</td><td><span class="tag green">Aktif</span></td></tr>
+    <tr><td>ayse@victoria.example</td><td>Ayşe Demir</td><td><span class="tag">Uzman</span></td><td>–</td><td>Bugün 08:55</td><td><span class="tag green">Aktif</span></td></tr>
+    <tr><td>merve@victoria.example</td><td>Merve Kaya</td><td><span class="tag">Uzman</span></td><td>–</td><td>Bugün 09:02</td><td><span class="tag green">Aktif</span></td></tr>
+    <tr><td>selin@victoria.example</td><td>Dr. Selin Aydın</td><td><span class="tag red">Hekim</span></td><td>–</td><td>11.11.2026</td><td><span class="tag green">Aktif</span></td></tr>
+    <tr><td>zeynep@victoria.example</td><td>Zeynep Arslan</td><td><span class="tag">Resepsiyon</span></td><td>–</td><td>Bugün 08:45</td><td><span class="tag green">Aktif</span></td></tr>
+    <tr><td>muhasebe@example.com</td><td>–</td><td><span class="tag">Mali müşavir (salt okunur)</span></td><td>–</td><td>01.11.2026</td><td><span class="tag green">Aktif</span></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="u-roles" data-group="usr"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Yetki</th><th>İşletme sahibi</th><th>Müdür</th><th>Resepsiyon</th><th>Uzman</th><th>Hekim</th><th>Mali müşavir</th></tr></thead>
+    <tbody>
+      <tr><td>calendar.manage</td><td>✓</td><td>✓</td><td>✓</td><td>kendi</td><td>kendi</td><td>–</td></tr>
+      <tr><td>customers.edit</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>customers.health.view</td><td>✓</td><td>✓</td><td>yalnızca uyarılar</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>treatments.record</td><td>✓</td><td>–</td><td>–</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>treatments.approvePlan</td><td>–</td><td>–</td><td>–</td><td>–</td><td>✓</td><td>–</td></tr>
+      <tr><td>ai.consult</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>sales.create</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>sales.refund</td><td>✓</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+      <tr><td>stock.adjust</td><td>✓</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+      <tr><td>commission.view</td><td>tümü</td><td>tümü</td><td>–</td><td>kendi</td><td>kendi</td><td>–</td></tr>
+      <tr><td>reports.financial</td><td>✓</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>✓</td></tr>
+      <tr><td>settings.manage</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+    </tbody></table></div></div></div>
+
+  </div>
+  <div class="tab-panel" id="x-devices" data-group="set">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Lazer cihazları ve odalar</h1><p>Teknik özellikler ve atım sayıları personel tarafından girilir. Cihazlar ve odalar takvimde rezerve edilebilir kaynaklardır.</p></div>
+    <div class="actions"><button class="btn" data-toast="Oda formu">Oda ekle</button><button class="btn primary" data-open="drawer-device"><i data-lucide="plus"></i>Cihaz ekle</button></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card"><div class="card-head"><h3><i data-lucide="zap"></i>Diode 808</h3><span class="tag green">Müsait</span></div><div class="card-body stack">
+      <dl class="desc"><dt>Model / seri no</dt><dd>Generic Diode 808 · DL-80812</dd><dt>Tür</dt><dd>Diyot lazer</dd><dt>Dalga boyu</dt><dd>808 nm</dd><dt>Enerji yoğunluğu aralığı</dt><dd>5–60 J/cm²</dd><dt>Spot çapları</dt><dd>12 × 12 mm, 9 × 9 mm</dd><dt>Satın alma</dt><dd>03/2024</dd></dl>
+      <div><div class="row between small"><span><b>Başlık HP-2</b> · 1.820.450 / 2.000.000 atım</span><span class="down">%91</span></div><div class="progress red"><span style="width:91%"></span></div></div>
+      <div><div class="row between small"><span>Cihaz toplam atım</span><span>4.812.300</span></div></div>
+      <div class="row between small"><span>Sonraki bakım: <b>15.01.2027</b> <span class="tag orange">Faz 2</span></span><span>Bu ay: 96 seans · 61.200 atım</span></div>
+    </div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="zap"></i>Alexandrite 755</h3><span class="tag green">Müsait</span></div><div class="card-body stack">
+      <dl class="desc"><dt>Model / seri no</dt><dd>Generic Alex 755 · AX-75501</dd><dt>Tür</dt><dd>Aleksandrit lazer</dd><dt>Dalga boyu</dt><dd>755 nm</dd><dt>Enerji yoğunluğu aralığı</dt><dd>4–40 J/cm²</dd><dt>Spot çapları</dt><dd>10, 12, 15, 18 mm</dd><dt>Satın alma</dt><dd>09/2025</dd></dl>
+      <div><div class="row between small"><span><b>Başlık A-1</b> · 412.000 / 1.500.000 atım</span><span>%27</span></div><div class="progress green"><span style="width:27%"></span></div></div>
+      <div class="row between small"><span>Sonraki bakım: <b>01.03.2027</b></span><span>Bu ay: 31 seans · 18.400 atım</span></div>
+    </div></div>
+  </div>
+
+  <div class="card mt"><div class="card-head"><h3>Odalar</h3></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Oda</th><th>Kullanım amacı</th><th>Bugün</th><th>Aktif</th></tr></thead>
+    <tbody><tr><td>Oda 1 (medikal)</td><td>Kimyasal peeling, Botoks, konsültasyonlar</td><td>2 randevu</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Oda 2 (cilt bakımı)</td><td>HydraFacial, cilt bakımları</td><td>3 randevu</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Lazer odası</td><td>Lazer cihazları</td><td>5 randevu</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Spa odası</td><td>Masaj, vücut uygulamaları</td><td>2 randevu</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr></tbody></table></div></div>
+
+  <div class="card mt"><div class="card-head"><h3>Atım kaydı · Diode 808</h3><span class="small muted">Uygulama kayıtlarından</span></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Tarih</th><th>Müşteri</th><th>Bölge</th><th>Uygulayan</th><th class="num">Atım</th><th class="num">Enerji yoğunluğu</th></tr></thead>
+    <tbody><tr><td>12.11 13:00</td><td>Nazlı Aksoy</td><td>Koltuk altı</td><td>Ayşe Demir</td><td class="num">640</td><td class="num">18 J/cm²</td></tr>
+    <tr><td>12.11 09:00</td><td>Deniz Yılmaz</td><td>Tüm bacak</td><td>Ayşe Demir</td><td class="num">3.620</td><td class="num">22 J/cm²</td></tr>
+    <tr><td>11.11 16:00</td><td>Cem Aktaş</td><td>Sırt</td><td>Ayşe Demir</td><td class="num">2.950</td><td class="num">24 J/cm²</td></tr></tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="x-sms" data-group="set">
+
+  <div class="page-header sub">
+    <div class="title"><h1>SMS</h1><p>Sağlayıcı: <b>seçilmedi</b> (mesajlar yalnızca kaydedilir) · İYS: Faz 2</p></div>
+    <div class="actions"><button class="btn primary" data-open="drawer-send"><i data-lucide="send"></i>SMS gönder</button></div>
+  </div>
+  <div class="alert warning mb"><i data-lucide="plug"></i><div>Henüz bir SMS sağlayıcısı yapılandırılmadı. Canlıya geçmeden önce <a href="settings.html">Ayarlar → Entegrasyonlar</a> bölümünden seçin.</div></div>
+
+  <div class="tabs" data-tabs="sms"><button class="on" data-tab="m-log">Mesaj kaydı</button><button data-tab="m-tpl">Şablonlar</button><button data-tab="m-auto">Otomasyonlar</button><button data-tab="m-drafts"><i data-lucide="sparkles"></i>Geri kazanım taslakları <span class="tag purple">6</span></button></div>
+
+  <div class="tab-panel" id="m-log" data-group="sms"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Zaman</th><th>Müşteri</th><th>Tür</th><th>Mesaj</th><th class="num">Parça</th><th>Durum</th></tr></thead>
+    <tbody><tr><td>12.11 13:45</td><td>Nazlı Aksoy</td><td><span class="tag">Uygulama sonrası bakım</span></td><td class="small">Lazer sonrası 48 saat sıcak duş ve güneşten kaçının…</td><td class="num">2</td><td><span class="tag">Kaydedildi (sağlayıcı yok)</span></td></tr>
+    <tr><td>12.11 10:00</td><td>Burcu Koç</td><td><span class="tag">Hatırlatma</span></td><td class="small">Sayın Burcu Koç, yarın 14:00 Lazer randevunuz…</td><td class="num">1</td><td><span class="tag">Kaydedildi (sağlayıcı yok)</span></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="m-tpl" data-group="sms"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Randevu hatırlatma</h3><div class="seg"><button class="on">TR</button><button>EN</button></div></div><div class="card-body stack">
+      <textarea class="input">Sayın {Ad}, {Tarih} {Saat} {Hizmet} randevunuzu hatırlatırız. Değişiklik için 0212 000 00 00. Victoria Güzellik &amp; Bakım</textarea>
+      <div class="row between small muted"><span>Değişkenler: {Ad} {Tarih} {Saat} {Hizmet} {Personel}</span><span>118 / 160 · 1 SMS</span></div></div></div>
+    <div class="card"><div class="card-head"><h3>Uygulama sonrası bakım (lazer)</h3><div class="seg"><button class="on">TR</button><button>EN</button></div></div><div class="card-body stack">
+      <textarea class="input">{Ad}, lazer sonrası 48 saat sıcak duş, sauna ve güneşten kaçının. SPF 50 kullanmayı unutmayın. Sonraki seans: {SonrakiTarih}</textarea>
+      <div class="row between small muted"><span>Bilgilendirme amaçlı · İYS gerekmez</span><span>142 / 160 · 1 SMS</span></div></div></div>
+  </div></div>
+
+  <div class="tab-panel" id="m-auto" data-group="sms"><div class="card"><ul class="list">
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Hatırlatma</b> her randevudan 24 saat önce</div><span class="tag green">MVP</span></li>
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Uygulama sonrası bakım</b> lazer veya peeling uygulamasından hemen sonra</div><span class="tag green">MVP</span></li>
+    <li><label class="switch"><input type="checkbox"><span class="track"></span></label><div class="grow"><b>Sonraki seans zamanı</b> kür aralığı geçtiği hâlde randevu alınmadığında</div><span class="tag orange">Faz 2</span></li>
+    <li><label class="switch"><input type="checkbox"><span class="track"></span></label><div class="grow"><b>Doğum günü</b> kutlaması ve kampanya (ticari ileti: İYS onayı gerekir)</div><span class="tag orange">Faz 2</span></li>
+  </ul></div></div>
+
+  <div class="tab-panel" id="m-drafts" data-group="sms">
+    <div class="alert ai mb"><i data-lucide="sparkles"></i>Sonraki seansı geciken müşteriler. Taslaklar yapay zekâ tarafından yazılır; siz onaylamadan hiçbir şey gönderilmez.</div>
+    <div class="card"><div class="card-body flush"><table class="table">
+      <thead><tr><th>Müşteri</th><th>Neden</th><th>Taslak</th><th></th></tr></thead>
+      <tbody><tr><td>Cansu Yıldız</td><td class="small">Bikini kürü 4/6, son ziyaret 02.08 (14 hafta), paket bitişi 20.12</td><td class="small">Merhaba Cansu Hanım, lazer paketinizde 2 seans kaldı ve 20 Aralık'ta sona eriyor. Size uygun bir gün ayarlayalım mı?</td><td><button class="btn sm primary" data-toast="Gönderim sırasına alındı">Onayla</button> <button class="btn sm">Düzenle</button></td></tr>
+      <tr><td>Cem Aktaş</td><td class="small">Tüm bacak 2/8, son ziyaret 16.09, gecikmiş taksit</td><td class="small">Merhaba Cem Bey, bir sonraki lazer seansınızın zamanı geldi. Randevu için bizi arayabilirsiniz.</td><td><button class="btn sm primary" data-toast="Gönderim sırasına alındı">Onayla</button> <button class="btn sm">Düzenle</button></td></tr></tbody></table></div></div>
+  </div>
+
+  </div>
+</main></div></div>
+
+
+
+<aside class="drawer" id="drawer-device">
+  <div class="drawer-head"><h3>Lazer cihazı ekle</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field span-2"><label>Ad <span class="req">*</span></label><input class="input" placeholder="ör. Diode 808"></div>
+    <div class="field"><label>Marka / model</label><input class="input"></div><div class="field"><label>Seri numarası</label><input class="input"></div>
+    <div class="field"><label>Lazer türü</label><select class="select"><option>Diyot</option><option>Aleksandrit</option><option>Nd:YAG</option><option>IPL</option></select></div>
+    <div class="field"><label>Dalga boyu (nm)</label><input class="input" placeholder="755, 808, 1064"></div>
+    <div class="field"><label>Enerji yoğunluğu min.–maks. (J/cm²)</label><input class="input"></div><div class="field"><label>Spot çapları</label><input class="input"></div>
+    <div class="field"><label>Başlık adı</label><input class="input"></div><div class="field"><label>Nominal atım ömrü</label><input class="input"></div>
+    <div class="field"><label>Mevcut atım sayacı</label><input class="input"><span class="hint">Kurulumda cihaz ekranından alınır</span></div>
+    <div class="field"><label>Oda</label><select class="select"><option>Lazer odası</option></select></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Cihaz kaydedildi">Kaydet</button></div>
+</aside>
+<aside class="drawer" id="drawer-send">
+  <div class="drawer-head"><h3><i data-lucide="send"></i>SMS gönder</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>Alıcı</label><input class="input" placeholder="Müşteri veya segment"></div>
+    <div class="field"><label>Şablon</label><select class="select"><option>– serbest metin –</option><option>Randevu hatırlatma</option></select></div>
+    <div class="field"><label>Mesaj</label><textarea class="input"></textarea><span class="hint">0 / 160 · 1 SMS</span></div>
+    <button class="btn ai" style="align-self:flex-start" data-toast="Taslak yazıldı"><i data-lucide="sparkles"></i>YZ ile taslak oluştur</button>
+    <label class="chk"><input type="checkbox"> Bu bir ticari iletidir (İYS onayı gerekir)</label>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Kaydedildi (sağlayıcı yapılandırılmadı)">Gönder</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+
+</body>
+</html>

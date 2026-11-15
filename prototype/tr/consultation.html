@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yapay zekâ danışmanlığı · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="customers:consult">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="customers.html">Müşteriler</a><i data-lucide="chevron-right"></i><a href="customer-detail.html">Burcu Koç</a><i data-lucide="chevron-right"></i>Yapay zekâ danışmanlığı</div>
+  <div class="page-header">
+    <div class="title"><h1 class="row"><i data-lucide="sparkles" style="color:#7c3aed;width:22px;height:22px"></i>Yapay zekâ danışmanlığı · Burcu Koç</h1><p>Müşterinin bugün ne istediğini girin; uygun ürün ve hizmetleri, ne söyleyeceğinizle birlikte alın. Tavsiye etmeden önce gözden geçirin.</p></div>
+    <div class="actions"><a class="btn" href="customer-detail.html">Profile dön</a><a class="btn primary" href="kasa.html"><i data-lucide="shopping-cart"></i>Satış ekranına git (2)</a></div>
+  </div>
+
+  <!-- İhtiyaç girişi -->
+  <div class="card ai-card mb">
+    <div class="card-head"><h3><i data-lucide="clipboard-pen"></i>Müşterinin bugün neye ihtiyacı var?</h3>
+      <div class="seg"><button class="on">Müşteri: Burcu Koç</button><button data-show="walkin-safety">Randevusuz / kaydı yok</button></div></div>
+    <div class="card-body needs-grid">
+      <div class="stack" style="gap:12px">
+        <div class="field"><label>Şikâyetler (uygun olanların hepsine dokunun)</label>
+          <div class="chips">
+            <button>İstenmeyen tüy</button><button class="on">Leke / pigmentasyon</button><button>Akne / yağlı cilt</button><button>Kuruluk</button><button>İnce çizgi / kırışıklık</button><button class="on">Kızarıklık / hassasiyet</button><button>Mat cilt</button><button>Gözenek</button><button>Göz altı</button><button>Rahatlama / stres</button><button>Vücut / selülit</button><button>Uygulama sonrası bakım</button>
+          </div></div>
+        <div class="field"><label>Bölge</label>
+          <div class="chips"><button class="on">Yüz</button><button>Boyun ve dekolte</button><button>Koltuk altı</button><button>Bacak</button><button>Bikini</button><button>Sırt</button><button>Tüm vücut</button></div></div>
+        <div class="field"><label>İlgilendiği</label>
+          <div class="chips"><button class="on">Ev bakım ürünleri</button><button class="on">Uygulamalar</button><button>Paketler</button></div></div>
+      </div>
+      <div class="stack" style="gap:12px">
+        <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+          <div class="field"><label>Bütçe</label><select class="select"><option>₺1.500'ün altı</option><option>Fark etmez</option><option>₺1.500–3.000</option><option>₺3.000+</option><option>Sonra ödeme olabilir</option></select></div>
+          <div class="field"><label>Ne zaman</label><select class="select"><option>Bugün</option><option>Bir ay içinde</option><option>Esnek</option></select></div>
+        </div>
+        <div class="field"><label>Kendi sözleriyle</label>
+          <div class="row" style="align-items:stretch"><textarea class="input" placeholder="Müşteri ne dedi?">Yazdan sonra yanaklarında lekeler fark etmiş; cildi kolay kızarıyor. Lazer seansları arasında kullanabileceği nazik bir şey istiyor.</textarea><button class="btn" title="Sesle yaz" style="height:auto"><i data-lucide="mic"></i></button></div></div>
+        <div id="walkin-safety" class="alert warning" style="display:none;flex-direction:column;gap:6px">
+          <b>Hızlı güvenlik soruları (henüz kayıt yok)</b>
+          <label class="chk"><input type="checkbox"> Hamile veya emziriyor</label>
+          <label class="chk"><input type="checkbox"> Bilinen alerji <input class="input" style="height:24px;margin-left:6px" placeholder="hangisi?"></label>
+          <label class="chk"><input type="checkbox"> Retinoid / izotretinoin / ışığa duyarlılık yapan ilaç kullanıyor</label>
+          <label class="chk"><input type="checkbox"> Yakın zamanda bronzlaşma veya güneş yanığı</label>
+          <label class="chk"><input type="checkbox"> Aktif cilt enfeksiyonu, egzama veya açık yara</label>
+          <span class="small">Cevaplar yalnızca güvenlik filtresinde kullanılır; müşteri kaydı oluşturulmadıkça saklanmaz.</span>
+          <button class="btn sm primary" style="align-self:flex-start" data-open="drawer-save-walkin"><i data-lucide="user-plus"></i>Yeni müşteri olarak kaydet</button>
+        </div>
+        <div class="row between wrap"><span class="small muted">İpucu: 30 saniyelik dokunuş yeterli; yapay zekâ geri soru sormaz.</span>
+          <button class="btn ai lg" data-toast="Öneriler güncellendi: leke, kızarıklık · yüz · ₺1.500'ün altı"><i data-lucide="sparkles"></i>Ürün ve hizmet öner</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g-side">
+    <!-- Bağlam -->
+    <div class="stack">
+      <div class="card"><div class="card-head"><h3><i data-lucide="user-round"></i>Yapay zekânın bildikleri</h3></div><div class="card-body">
+        <dl class="desc" style="grid-template-columns:110px 1fr">
+          <dt>Yaş aralığı</dt><dd>30–35</dd><dt>Cilt</dt><dd>Karma, hassas · Fitzpatrick III</dd>
+          <dt>Şikâyetler</dt><dd>Yüz tüyleri, hafif lekelenme</dd><dt>Mevcut kür</dt><dd>Yüz lazeri 3/6, sonraki 24.12</dd>
+          <dt>Son alımlar</dt><dd>Aloe jel (01.10), SPF 50 (20.08)</dd>
+        </dl>
+        <div class="alert info mt small"><i data-lucide="lock"></i><div>Takma adlı kimlikle gönderilir. Ad veya telefon paylaşılmaz. Yapay zekâ onamı 20.08.2026'da verildiği için sağlık bilgileri paylaşıldı.</div></div>
+      </div></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="shield-check"></i>Güvenlik filtresi</h3><span class="tag">Kural tabanlı, YZ değil</span></div>
+        <ul class="list small">
+          <li><i data-lucide="x-circle" style="color:#dc2626"></i><div class="grow">Uyuşturucu krem (lidokain): alerji</div></li>
+          <li><i data-lucide="x-circle" style="color:#dc2626"></i><div class="grow">Retinol Gece Kremi: hassas cilt + lazer kürü</div></li>
+          <li><i data-lucide="x-circle" style="color:#dc2626"></i><div class="grow">Kimyasal peeling: lazerden sonraki 2 hafta içinde</div></li>
+          <li><i data-lucide="package-x" style="color:#d97706"></i><div class="grow">C Vitamini Serum 50 ml: stokta yok</div></li>
+          <li><i data-lucide="check-circle" style="color:#059669"></i><div class="grow">34 ürün ve 12 hizmet yapay zekâya iletildi</div></li>
+        </ul></div>
+    </div>
+
+    <!-- Öneriler -->
+    <div class="stack">
+      <div class="card ai-card"><div class="card-head"><h3><i data-lucide="sparkles"></i>Öneriler</h3><span class="small muted">Kriter: leke, kızarıklık · yüz · ₺1.500'ün altı · 14:02 · 3,1 sn</span></div>
+        <div class="card-body grid g2">
+          <div class="reco">
+            <div class="row between"><b>%10 Niasinamid Serum 30 ml</b><span class="tag blue">Ürün</span></div>
+            <div class="why"><b>Neden:</b> hafif lekelenmeyi hedefler, ışığa duyarlılık yapmaz; bu nedenle lazer seansları arasında güvenlidir. Karma cilde uygundur.</div>
+            <div class="small muted">Sabah ve akşam temiz cilde uygulanır · yaklaşık 2 ay yeter · ₺980 · stokta 7</div>
+            <div class="caution"><i data-lucide="info"></i>Lazer günü ve sonraki 2 gün ara verin.</div>
+            <div class="row"><button class="btn sm primary" data-reco="accept"><i data-lucide="plus"></i>Satışa ekle</button><button class="btn sm" data-reco="reject">Şimdi değil</button></div>
+          </div>
+          <div class="reco">
+            <div class="row between"><b>SPF 50 Güneş Kremi 50 ml</b><span class="tag blue">Ürün</span></div>
+            <div class="why"><b>Neden:</b> lazer kürü süresince ve leke serumuyla birlikte şarttır; son alımı 10 hafta önceydi (genelde 8 hafta yeter).</div>
+            <div class="small muted">Her sabah, dışarıda tekrar uygulanır · ₺1.150 · stokta 12</div>
+            <div class="row"><button class="btn sm primary" data-reco="accept"><i data-lucide="plus"></i>Satışa ekle</button><button class="btn sm" data-reco="reject">Şimdi değil</button></div>
+          </div>
+          <div class="reco">
+            <div class="row between"><b>Aydınlatıcı cilt bakımı (C vitamini)</b><span class="tag purple">Hizmet</span></div>
+            <div class="why"><b>Neden:</b> lekelenmeye yöneliktir; bir sonraki lazer seansından 2 hafta sonraya (07.01.2027 civarı) planlanabilir.</div>
+            <div class="small muted">50 dk · ₺1.400 · Merve Kaya · 4'lü paket mevcut</div>
+            <div class="row"><a class="btn sm primary" href="calendar.html#new"><i data-lucide="calendar-plus"></i>Randevu ver</a><button class="btn sm" data-reco="reject">Şimdi değil</button></div>
+          </div>
+          <div class="reco">
+            <div class="row between"><b>Leke tedavisi</b><span class="tag orange">Hekimle görüşün</span></div>
+            <div class="why"><b>Neden:</b> lekeler evde bakımla düzelmezse medikal bir tedavi faydalı olabilir. Dr. Selin Aydın'ın değerlendirmesi gerekir.</div>
+            <div class="row"><a class="btn sm" href="calendar.html#new">Konsültasyon randevusu ver</a><button class="btn sm" data-reco="reject">Şimdi değil</button></div>
+          </div>
+        </div>
+        <div class="card-body" style="border-top:1px solid #ede9fe">
+          <div class="strong mb" style="margin-bottom:6px"><i data-lucide="message-circle"></i> Ne söyleyebilirsiniz</div>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text-2)">
+            <li><b>Açılış:</b> "Yanaklarınızdaki lekelerden bahsettiniz. Yaz güneşi sık sık bunları bırakır; cildinizi tahriş etmeden nazikçe açabiliriz."</li>
+            <li><b>Serum:</b> "Bu serum cilt tonunu nazikçe eşitler ve lazerle etkileşime girmez; kürünüz boyunca kullanmaya devam edebilirsiniz."</li>
+            <li><b>Güneş kremi:</b> "Her gün SPF 50, özellikle lazer sürecinde yeni lekelerin oluşmasını engeller."</li>
+            <li><b>"Hassas cilt için uygun mu?" diye sorarsa:</b> niasinamid genellikle iyi tolere edilir; ilk hafta gün aşırı kullanarak başlanabilir.</li>
+            <li><b>Fiyat endişesi varsa:</b> yalnızca güneş kremiyle başlayın (₺1.150) ya da sonra/taksitle ödeme önerin.</li>
+          </ul>
+          <div class="strong" style="margin:10px 0 6px"><i data-lucide="help-circle"></i> Sorulmaya değer sorular</div>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text-2)">
+            <li>"Şu an sabahları yüzünüze ne kullanıyorsunuz?"</li>
+            <li>"Lekeler yeni mi çıktı, yoksa yıllardır var mı?"</li>
+          </ul>
+        </div>
+        <div class="card-body row between" style="border-top:1px solid #ede9fe">
+          <span class="disclaimer"><i data-lucide="info"></i>Yapay zekâ önerisidir: tavsiye etmeden önce kontrol edin. Tıbbi tavsiye değildir.</span>
+          <button class="btn sm" data-open="drawer-routine"><i data-lucide="file-text"></i>Bakım ve rutin sayfası oluştur</button>
+        </div>
+      </div>
+
+      <div class="card"><div class="card-head"><h3><i data-lucide="history"></i>Bu müşteriye önceki öneriler</h3></div><div class="card-body flush"><table class="table">
+        <thead><tr><th>Tarih</th><th>Öneri</th><th>Öneren</th><th>Sonuç</th></tr></thead>
+        <tbody><tr><td>01.10.2026</td><td>Yatıştırıcı Aloe Jel</td><td>Ayşe Demir</td><td><span class="tag green">Satıldı</span></td></tr>
+        <tr><td>01.10.2026</td><td>SPF 50 Güneş Kremi</td><td>Ayşe Demir</td><td><span class="tag">Reddedildi · "evde yeterince var"</span></td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-routine">
+  <div class="drawer-head"><h3><i data-lucide="file-text"></i>Uygulama sonrası bakım ve bakım rutini</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body">
+    <div class="row mb"><div class="seg"><button class="on">Türkçe</button><button>English</button></div></div>
+    <div class="card"><div class="card-body" style="font-size:13px">
+      <b>Lazer sonrası bakım (ilk 48 saat)</b>
+      <ul><li>Sıcak duş, sauna ve spordan kaçının.</li><li>Yatıştırıcı Aloe Jel'i günde 2 kez uygulayın.</li><li>Güneşe çıkmadan önce SPF 50 kullanın.</li></ul>
+      <b>Günlük rutin</b>
+      <ul><li><b>Sabah:</b> temizleyici → Niasinamid serum → SPF 50</li><li><b>Akşam:</b> temizleyici → Niasinamid serum</li><li>Lazer günü ve sonraki 2 gün serumu kullanmayın.</li></ul>
+      <span class="small muted">Sonraki seansınız: 24.12.2026 14:00</span>
+    </div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn"><i data-lucide="printer"></i>Yazdır</button><button class="btn primary" data-toast="0532 *** 41 18 numarasına SMS olarak gönderildi">SMS ile gönder</button></div>
+</aside>
+<aside class="drawer" id="drawer-save-walkin">
+  <div class="drawer-head"><h3><i data-lucide="user-plus"></i>Randevusuz müşteriyi kaydet</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="alert ai small"><i data-lucide="sparkles"></i><div>Bu danışmadaki ihtiyaçlar, güvenlik cevapları ve öneriler yeni profile kaydedilir.</div></div>
+    <div class="form-grid">
+      <div class="field"><label>Ad <span class="req">*</span></label><input class="input" value="Pınar"></div>
+      <div class="field"><label>Soyad <span class="req">*</span></label><input class="input" value="Doğan"></div>
+      <div class="field"><label>Cep telefonu <span class="req">*</span></label><input class="input" value="0543 *** 18 92"></div>
+      <div class="field"><label>Doğum yılı</label><input class="input" placeholder="isteğe bağlı"></div>
+    </div>
+    <div class="card"><div class="card-body stack small">
+      <label class="chk"><input type="checkbox" checked> KVKK aydınlatma metni verildi</label>
+      <label class="chk"><input type="checkbox" checked> Açık rıza: sağlık verileri (güvenlik cevaplarını saklamak için gerekli)</label>
+      <label class="chk"><input type="checkbox"> Ticari SMS (İYS)</label>
+      <span class="muted">İmzalı formlar daha sonra profilden yüklenebilir.</span>
+    </div></div>
+    <div class="field"><label>Sonra</label>
+      <div class="seg"><button class="on">Kasaya git</button><button>Randevu oluştur</button><button>Sadece kaydet</button></div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><a class="btn primary" href="kasa.html">Kaydet ve devam et</a></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

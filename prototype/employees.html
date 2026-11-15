@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Team · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="team">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Team</h1><p>Employees, their activity and (optional) commission</p></div>
+  </div>
+  <div class="tabs main-tabs" data-tabs="team"><button class="on" data-tab="t-employees"><i data-lucide="users"></i>Employees</button><button data-tab="t-commission"><i data-lucide="percent"></i>Commission <span class="tag">off</span></button></div>
+  <div class="tab-panel on" id="t-employees" data-group="team">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Employees</h1><p>5 active employees · November 2026</p></div>
+    <div class="actions"><input class="input" style="width:auto" value="November 2026"><button class="btn primary" data-open="drawer-emp"><i data-lucide="user-plus"></i>New employee</button></div>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Employee</th><th>Title</th><th>Qualifications</th><th class="num">Treatments</th><th class="num">Service revenue</th><th class="num">Products sold</th><th class="num">AI suggestions accepted</th><th>Utilisation</th><th>Login</th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">AD</span><b>Ayşe Demir</b></div></td><td>Laser operator</td><td><span class="tag indigo">Certified laser</span></td><td class="num">96</td><td class="num">₺84,200</td><td class="num">21 · ₺12,900</td><td class="num">14 / 31 (45%)</td><td><div class="progress" style="width:90px"><span style="width:86%"></span></div><span class="small">86%</span></td><td><span class="tag green">Specialist</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">MK</span><b>Merve Kaya</b></div></td><td>Aesthetician</td><td><span class="tag">Facials</span> <span class="tag">Brows</span></td><td class="num">58</td><td class="num">₺61,400</td><td class="num">38 · ₺24,350</td><td class="num">22 / 40 (55%)</td><td><div class="progress" style="width:90px"><span style="width:72%"></span></div><span class="small">72%</span></td><td><span class="tag green">Specialist</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">SA</span><b>Dr. Selin Aydın</b></div></td><td>Physician (part-time)</td><td><span class="tag red">Physician</span> <span class="tag indigo">Certified laser</span></td><td class="num">22</td><td class="num">₺78,900</td><td class="num">4 · ₺3,800</td><td class="num">3 / 6</td><td><div class="progress" style="width:90px"><span style="width:58%"></span></div><span class="small">58%</span></td><td><span class="tag green">Physician</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar">EŞ</span><b>Elif Şahin</b></div></td><td>Spa therapist</td><td><span class="tag">Massage</span> <span class="tag">Body</span></td><td class="num">31</td><td class="num">₺42,100</td><td class="num">9 · ₺5,120</td><td class="num">2 / 9</td><td><div class="progress orange" style="width:90px"><span style="width:44%"></span></div><span class="small">44%</span></td><td><span class="tag green">Specialist</span></td></tr>
+      <tr class="clickable" data-href="employee-detail.html"><td><div class="row"><span class="avatar" style="background:#fef3c7;color:#92400e">ZA</span><b>Zeynep Arslan</b></div></td><td>Receptionist</td><td>–</td><td class="num">–</td><td class="num">–</td><td class="num">12 · ₺7,400</td><td class="num">–</td><td>–</td><td><span class="tag green">Receptionist</span></td></tr>
+    </tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="t-commission" data-group="team">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Commission</h1><p>Optional. When off, nothing is calculated and commission columns are hidden everywhere.</p></div>
+    <div class="actions"><label class="switch" style="font-weight:600"><input type="checkbox" id="commToggle"><span class="track"></span>Commission enabled</label></div>
+  </div>
+  <div class="alert warning mb" id="commOff"><i data-lucide="power"></i><div>Commission is <b>off</b>. You can still prepare rules below; they take effect from the date you turn it on. The preview shows what the statement would look like.</div></div>
+
+  <div class="grid g2 mb">
+    <div class="card"><div class="card-head"><h3>Calculation settings</h3></div><div class="card-body stack">
+      <div class="field"><label>Basis</label><select class="select"><option>Net after discount</option><option>List price</option><option>Net after discount minus consumable cost</option></select></div>
+      <div class="field"><label>Packages</label><select class="select"><option>Per session performed</option><option>At package sale</option></select></div>
+      <div class="field"><label>Refunds</label><select class="select"><option>Reverse commission in the refund month</option></select></div>
+      <label class="switch"><input type="checkbox"><span class="track"></span>Use monthly tiers</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Allow splitting a line between two employees</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Employees can see their own commission</label>
+    </div></div>
+    <div class="card"><div class="card-head"><h3>Tiers (optional)</h3><button class="btn sm"><i data-lucide="plus"></i>Add tier</button></div><div class="card-body flush"><table class="table">
+      <thead><tr><th>Monthly revenue from</th><th>to</th><th class="num">Service %</th><th class="num">Product %</th></tr></thead>
+      <tbody><tr><td>₺0</td><td>₺50,000</td><td class="num">–</td><td class="num">–</td></tr><tr><td>₺50,000</td><td>–</td><td class="num">–</td><td class="num">–</td></tr></tbody></table>
+      <div class="card-body small muted">Rates are not set yet; the owner enters them when turning commission on.</div></div></div>
+  </div>
+
+  <div class="card mb"><div class="card-head"><h3>Rules</h3><button class="btn sm primary" data-toast="Rule form: scope, type, value, dates"><i data-lucide="plus"></i>Add rule</button></div><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Scope</th><th>Applies to</th><th>Employee</th><th>Type</th><th class="num">Value</th><th>Valid</th><th></th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag">Default</span></td><td>All services</td><td>All</td><td>Percent</td><td class="num muted">not set</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+      <tr><td><span class="tag">Default</span></td><td>All products</td><td>All</td><td>Percent</td><td class="num muted">not set</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+      <tr><td><span class="tag indigo">Category</span></td><td>Medical aesthetics</td><td>Dr. Selin Aydın</td><td>Percent</td><td class="num muted">not set</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+      <tr><td><span class="tag blue">Item</span></td><td>Laser · Full body</td><td>All</td><td>Fixed per session</td><td class="num muted">not set</td><td>–</td><td><button class="btn sm text"><i data-lucide="pencil"></i></button></td></tr>
+    </tbody></table><div class="card-body small muted">Most specific rule wins: item → category → default; employee-specific beats "All".</div></div></div>
+
+  <div class="card"><div class="card-head"><h3>Statement preview · Ayşe Demir · November 2026</h3><button class="btn sm"><i data-lucide="download"></i>Export</button></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Group</th><th class="num">Base</th><th class="num">Rate</th><th class="num">Commission</th></tr></thead>
+    <tbody><tr><td>Services (96 sessions)</td><td class="num">₺84,200</td><td class="num muted">–</td><td class="num muted">–</td></tr><tr><td>Products (21 items)</td><td class="num">₺12,900</td><td class="num muted">–</td><td class="num muted">–</td></tr><tr><td>Refund reversals</td><td class="num">₺0</td><td></td><td class="num">₺0</td></tr><tr><td>Manual adjustments</td><td></td><td></td><td class="num">₺0</td></tr></tbody>
+    <tfoot><tr><td>Total</td><td class="num">₺97,100</td><td></td><td class="num muted">–</td></tr></tfoot></table></div></div>
+
+  </div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-emp">
+  <div class="drawer-head"><h3>New employee</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field"><label>First name</label><input class="input"></div><div class="field"><label>Last name</label><input class="input"></div>
+    <div class="field"><label>Title</label><input class="input"></div><div class="field"><label>Phone</label><input class="input"></div>
+    <div class="field"><label>Hire date</label><input class="input"></div><div class="field"><label>Calendar colour</label><input class="input" value="#db2777"></div>
+    <div class="field span-2"><label>Flags</label><div class="row wrap"><label class="chk"><input type="checkbox"> Physician</label><label class="chk"><input type="checkbox"> Certified laser operator</label></div></div>
+    <div class="field span-2"><label class="switch"><input type="checkbox" checked><span class="track"></span>Create login (role: Specialist)</label></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><a class="btn primary" href="employee-detail.html">Save</a></div>
+</aside>
+
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+<script>
+  document.getElementById('commToggle').addEventListener('change', function (e) {
+    document.getElementById('commOff').style.display = e.target.checked ? 'none' : '';
+    toast(e.target.checked ? 'Commission <b>enabled</b> from today' : 'Commission <b>disabled</b>');
+  });
+</script>
+</body>
+</html>

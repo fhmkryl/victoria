@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consultation · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="customers:consult">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="breadcrumb"><a href="customers.html">Customers</a><i data-lucide="chevron-right"></i><a href="customer-detail.html">Burcu Koç</a><i data-lucide="chevron-right"></i>AI consultation</div>
+  <div class="page-header">
+    <div class="title"><h1 class="row"><i data-lucide="sparkles" style="color:#7c3aed;width:22px;height:22px"></i>AI consultation · Burcu Koç</h1><p>Enter what the customer wants today; get matching products and services with what to say. Review before recommending.</p></div>
+    <div class="actions"><a class="btn" href="customer-detail.html">Back to profile</a><a class="btn primary" href="kasa.html"><i data-lucide="shopping-cart"></i>Go to checkout (2)</a></div>
+  </div>
+
+  <!-- Needs intake -->
+  <div class="card ai-card mb">
+    <div class="card-head"><h3><i data-lucide="clipboard-pen"></i>What does the customer need today?</h3>
+      <div class="seg"><button class="on">Customer: Burcu Koç</button><button data-show="walkin-safety">Walk-in / no profile</button></div></div>
+    <div class="card-body needs-grid">
+      <div class="stack" style="gap:12px">
+        <div class="field"><label>Concerns (tap all that apply)</label>
+          <div class="chips">
+            <button>Unwanted hair</button><button class="on">Dark spots / pigmentation</button><button>Acne / oily skin</button><button>Dryness</button><button>Fine lines / wrinkles</button><button class="on">Redness / sensitivity</button><button>Dull skin</button><button>Pores</button><button>Under-eye</button><button>Relaxation / stress</button><button>Body / cellulite</button><button>After-treatment care</button>
+          </div></div>
+        <div class="field"><label>Area</label>
+          <div class="chips"><button class="on">Face</button><button>Neck &amp; décolleté</button><button>Underarm</button><button>Legs</button><button>Bikini</button><button>Back</button><button>Whole body</button></div></div>
+        <div class="field"><label>Interested in</label>
+          <div class="chips"><button class="on">Home-care products</button><button class="on">Treatments</button><button>Packages</button></div></div>
+      </div>
+      <div class="stack" style="gap:12px">
+        <div class="form-grid" style="grid-template-columns:1fr 1fr;gap:10px">
+          <div class="field"><label>Budget</label><select class="select"><option>Under ₺1,500</option><option>Any</option><option>₺1,500–3,000</option><option>₺3,000+</option><option>Pay later possible</option></select></div>
+          <div class="field"><label>When</label><select class="select"><option>Today</option><option>Within a month</option><option>Flexible</option></select></div>
+        </div>
+        <div class="field"><label>In her own words</label>
+          <div class="row" style="align-items:stretch"><textarea class="input" placeholder="What did the customer say?">Noticed dark spots on her cheeks after summer; skin gets red easily. Wants something gentle she can use between laser sessions.</textarea><button class="btn" title="Dictate" style="height:auto"><i data-lucide="mic"></i></button></div></div>
+        <div id="walkin-safety" class="alert warning" style="display:none;flex-direction:column;gap:6px">
+          <b>Quick safety questions (no profile yet)</b>
+          <label class="chk"><input type="checkbox"> Pregnant or breastfeeding</label>
+          <label class="chk"><input type="checkbox"> Known allergies <input class="input" style="height:24px;margin-left:6px" placeholder="which?"></label>
+          <label class="chk"><input type="checkbox"> Uses retinoids / isotretinoin / photosensitising medication</label>
+          <label class="chk"><input type="checkbox"> Recent tanning or sunburn</label>
+          <label class="chk"><input type="checkbox"> Active skin infection, eczema or open wounds</label>
+          <span class="small">Answers are used by the safety filter only and are not saved unless you create a customer.</span>
+          <button class="btn sm primary" style="align-self:flex-start" data-open="drawer-save-walkin"><i data-lucide="user-plus"></i>Save as new customer</button>
+        </div>
+        <div class="row between wrap"><span class="small muted">Tip: 30 seconds of tapping is enough; the AI asks nothing back.</span>
+          <button class="btn ai lg" data-toast="Suggestions updated for: dark spots, redness · face · under ₺1,500"><i data-lucide="sparkles"></i>Suggest products &amp; services</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid g-side">
+    <!-- Context -->
+    <div class="stack">
+      <div class="card"><div class="card-head"><h3><i data-lucide="user-round"></i>What the AI knows</h3></div><div class="card-body">
+        <dl class="desc" style="grid-template-columns:110px 1fr">
+          <dt>Age range</dt><dd>30–35</dd><dt>Skin</dt><dd>Combination, sensitive · Fitzpatrick III</dd>
+          <dt>Concerns</dt><dd>Facial hair, mild pigmentation</dd><dt>Current course</dt><dd>Laser face 3/6, next 24.12</dd>
+          <dt>Recent buys</dt><dd>Aloe gel (01.10), SPF 50 (20.08)</dd>
+        </dl>
+        <div class="alert info mt small"><i data-lucide="lock"></i><div>Sent as pseudonymised ID. No name or phone. Health details shared because AI consent was given on 20.08.2026.</div></div>
+      </div></div>
+      <div class="card"><div class="card-head"><h3><i data-lucide="shield-check"></i>Safety filter</h3><span class="tag">Code, not AI</span></div>
+        <ul class="list small">
+          <li><i data-lucide="x-circle" style="color:#dc2626"></i><div class="grow">Numbing cream (lidocaine): allergy</div></li>
+          <li><i data-lucide="x-circle" style="color:#dc2626"></i><div class="grow">Retinol Night Cream: sensitive skin + laser course</div></li>
+          <li><i data-lucide="x-circle" style="color:#dc2626"></i><div class="grow">Chemical peel: within 2 weeks of laser</div></li>
+          <li><i data-lucide="package-x" style="color:#d97706"></i><div class="grow">Vitamin C Serum 50 ml: out of stock</div></li>
+          <li><i data-lucide="check-circle" style="color:#059669"></i><div class="grow">34 products and 12 services passed to AI</div></li>
+        </ul></div>
+    </div>
+
+    <!-- Recommendations -->
+    <div class="stack">
+      <div class="card ai-card"><div class="card-head"><h3><i data-lucide="sparkles"></i>Recommendations</h3><span class="small muted">For: dark spots, redness · face · under ₺1,500 · 14:02 · 3.1 s</span></div>
+        <div class="card-body grid g2">
+          <div class="reco">
+            <div class="row between"><b>Niacinamide 10% Serum 30 ml</b><span class="tag blue">Product</span></div>
+            <div class="why"><b>Why:</b> targets mild pigmentation, non-photosensitising, so it is safe between laser sessions; suits combination skin.</div>
+            <div class="small muted">Use morning and evening on clean skin · lasts ~2 months · ₺980 · 7 in stock</div>
+            <div class="caution"><i data-lucide="info"></i>Pause on the day of laser and 2 days after.</div>
+            <div class="row"><button class="btn sm primary" data-reco="accept"><i data-lucide="plus"></i>Add to sale</button><button class="btn sm" data-reco="reject">Not now</button></div>
+          </div>
+          <div class="reco">
+            <div class="row between"><b>SPF 50 Sunscreen 50 ml</b><span class="tag blue">Product</span></div>
+            <div class="why"><b>Why:</b> essential during the laser course and with a pigmentation serum; her last purchase was 10 weeks ago (typically lasts 8).</div>
+            <div class="small muted">Every morning, reapply outdoors · ₺1,150 · 12 in stock</div>
+            <div class="row"><button class="btn sm primary" data-reco="accept"><i data-lucide="plus"></i>Add to sale</button><button class="btn sm" data-reco="reject">Not now</button></div>
+          </div>
+          <div class="reco">
+            <div class="row between"><b>Brightening facial (Vitamin C)</b><span class="tag purple">Service</span></div>
+            <div class="why"><b>Why:</b> addresses pigmentation; can be scheduled 2 weeks after the next laser session (around 07.01.2027).</div>
+            <div class="small muted">50 min · ₺1,400 · Merve Kaya · package of 4 available</div>
+            <div class="row"><a class="btn sm primary" href="calendar.html#new"><i data-lucide="calendar-plus"></i>Book</a><button class="btn sm" data-reco="reject">Not now</button></div>
+          </div>
+          <div class="reco">
+            <div class="row between"><b>Dark spot treatment</b><span class="tag orange">Discuss with physician</span></div>
+            <div class="why"><b>Why:</b> if pigmentation does not improve with home care, a medical treatment may help. Requires assessment by Dr. Selin Aydın.</div>
+            <div class="row"><a class="btn sm" href="calendar.html#new">Book consultation</a><button class="btn sm" data-reco="reject">Not now</button></div>
+          </div>
+        </div>
+        <div class="card-body" style="border-top:1px solid #ede9fe">
+          <div class="strong mb" style="margin-bottom:6px"><i data-lucide="message-circle"></i> What to say</div>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text-2)">
+            <li><b>Open with:</b> "You mentioned the spots on your cheeks. Summer sun often leaves these; we can lighten them gently without irritating your skin."</li>
+            <li><b>Serum:</b> "This serum evens out tone gently and doesn't react with the laser, so you can keep using it during your course."</li>
+            <li><b>Sunscreen:</b> "Daily SPF 50 is what keeps new spots from forming, especially while we do laser."</li>
+            <li><b>If she asks "Is it OK for sensitive skin?":</b> niacinamide is generally well tolerated; start every other day for the first week.</li>
+            <li><b>If price is a concern:</b> start with the sunscreen alone (₺1,150), or pay later in installments.</li>
+          </ul>
+          <div class="strong" style="margin:10px 0 6px"><i data-lucide="help-circle"></i> Questions worth asking</div>
+          <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--text-2)">
+            <li>"What do you use on your face in the morning now?"</li>
+            <li>"Have the spots appeared recently or been there for years?"</li>
+          </ul>
+        </div>
+        <div class="card-body row between" style="border-top:1px solid #ede9fe">
+          <span class="disclaimer"><i data-lucide="info"></i>AI suggestion: check before recommending. Not medical advice.</span>
+          <button class="btn sm" data-open="drawer-routine"><i data-lucide="file-text"></i>Create aftercare &amp; routine sheet</button>
+        </div>
+      </div>
+
+      <div class="card"><div class="card-head"><h3><i data-lucide="history"></i>Previous suggestions for this customer</h3></div><div class="card-body flush"><table class="table">
+        <thead><tr><th>Date</th><th>Suggestion</th><th>By</th><th>Outcome</th></tr></thead>
+        <tbody><tr><td>01.10.2026</td><td>Soothing Aloe Gel</td><td>Ayşe Demir</td><td><span class="tag green">Sold</span></td></tr>
+        <tr><td>01.10.2026</td><td>SPF 50 Sunscreen</td><td>Ayşe Demir</td><td><span class="tag">Rejected · "has enough at home"</span></td></tr></tbody></table></div></div>
+    </div>
+  </div>
+</main></div></div>
+
+<aside class="drawer" id="drawer-routine">
+  <div class="drawer-head"><h3><i data-lucide="file-text"></i>Aftercare &amp; routine sheet</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body">
+    <div class="row mb"><div class="seg"><button class="on">Türkçe</button><button>English</button></div></div>
+    <div class="card"><div class="card-body" style="font-size:13px">
+      <b>Lazer sonrası bakım (ilk 48 saat)</b>
+      <ul><li>Sıcak duş, sauna ve spordan kaçının.</li><li>Soothing Aloe Gel'i günde 2 kez uygulayın.</li><li>Güneşe çıkmadan önce SPF 50 kullanın.</li></ul>
+      <b>Günlük rutin</b>
+      <ul><li><b>Sabah:</b> temizleyici → Niacinamide serum → SPF 50</li><li><b>Akşam:</b> temizleyici → Niacinamide serum</li><li>Lazer günü ve sonraki 2 gün serumu kullanmayın.</li></ul>
+      <span class="small muted">Sonraki seansınız: 24.12.2026 14:00</span>
+    </div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn"><i data-lucide="printer"></i>Print</button><button class="btn primary" data-toast="Sent as SMS to 0532 *** 41 18">Send by SMS</button></div>
+</aside>
+<aside class="drawer" id="drawer-save-walkin">
+  <div class="drawer-head"><h3><i data-lucide="user-plus"></i>Save walk-in as new customer</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="alert ai small"><i data-lucide="sparkles"></i><div>The needs, safety answers and suggestions from this consultation are saved to the new profile.</div></div>
+    <div class="form-grid">
+      <div class="field"><label>First name <span class="req">*</span></label><input class="input" value="Pınar"></div>
+      <div class="field"><label>Last name <span class="req">*</span></label><input class="input" value="Doğan"></div>
+      <div class="field"><label>Mobile phone <span class="req">*</span></label><input class="input" value="0543 *** 18 92"></div>
+      <div class="field"><label>Birth year</label><input class="input" placeholder="optional"></div>
+    </div>
+    <div class="card"><div class="card-body stack small">
+      <label class="chk"><input type="checkbox" checked> KVKK notice given</label>
+      <label class="chk"><input type="checkbox" checked> Explicit consent: health data (needed to keep the safety answers)</label>
+      <label class="chk"><input type="checkbox"> Commercial SMS (İYS)</label>
+      <span class="muted">Signed forms can be uploaded later from the profile.</span>
+    </div></div>
+    <div class="field"><label>Then</label>
+      <div class="seg"><button class="on">Go to checkout</button><button>Book appointment</button><button>Just save</button></div></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><a class="btn primary" href="kasa.html">Save &amp; continue</a></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Katalog ve stok · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="catalog">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Katalog ve stok</h1><p>Hizmetler, ürünler, paketler ve stok</p></div>
+  </div>
+  <div class="tabs main-tabs" data-tabs="cat"><button class="on" data-tab="c-services"><i data-lucide="sparkles"></i>Hizmetler</button><button data-tab="c-products"><i data-lucide="package"></i>Ürünler</button><button data-tab="c-packages"><i data-lucide="gift"></i>Paketler</button><button data-tab="c-stock"><i data-lucide="boxes"></i>Stok hareketleri</button></div>
+  <div class="tab-panel on" id="c-services" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Hizmetler</h1><p>5 kategoride 32 hizmet. İçerik alanları yapay zekâ konsültasyon asistanını besler.</p></div>
+    <div class="actions"><button class="btn"><i data-lucide="folder-plus"></i>Kategori</button><a class="btn primary" href="service-detail.html"><i data-lucide="plus"></i>Yeni hizmet</a></div>
+  </div>
+  <div class="filter-bar">
+    <input class="input" placeholder="Hizmet ara…">
+    <div class="seg"><button class="on">Tümü</button><button>Lazer</button><button>Cilt bakımı</button><button>Medikal estetik</button><button>Spa</button><button>Kaş ve kirpik</button></div>
+    <label class="chk"><input type="checkbox"> İçeriği eksik</label>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Hizmet</th><th>Kategori</th><th>Süre</th><th class="num">Fiyat</th><th>Gereksinimler</th><th>Kaynak</th><th>Sarf malzemesi</th><th>YZ içeriği</th><th>Aktif</th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Lazer epilasyon</b><div class="small muted">12 bölge</div></td><td>Lazer</td><td>15–90 dk</td><td class="num">₺600–4.500</td><td><span class="tag indigo">Sertifikalı uzman</span> <span class="tag">Onam</span></td><td>Lazer cihazı</td><td>3</td><td><span class="tag green">Tamam</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>HydraFacial</b></td><td>Cilt bakımı</td><td>60 dk</td><td class="num">₺1.800</td><td>–</td><td>Oda 2</td><td>4</td><td><span class="tag green">Tamam</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Kimyasal peeling</b></td><td>Medikal estetik</td><td>45 dk</td><td class="num">₺2.200</td><td><span class="tag red">Hekim</span> <span class="tag">Onam</span></td><td>Oda 1</td><td>3</td><td><span class="tag green">Tamam</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Botoks</b></td><td>Medikal estetik</td><td>30 dk</td><td class="num">₺6.500</td><td><span class="tag red">Hekim</span> <span class="tag">Onam</span> <span class="tag">Lot takibi</span></td><td>Oda 1</td><td>2</td><td><span class="tag orange">Kontrendikasyonlar eksik</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Aydınlatıcı cilt bakımı (C vitamini)</b></td><td>Cilt bakımı</td><td>50 dk</td><td class="num">₺1.400</td><td>–</td><td>Oda 2</td><td>3</td><td><span class="tag green">Tamam</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Akne bakımı</b></td><td>Cilt bakımı</td><td>60 dk</td><td class="num">₺1.500</td><td>–</td><td>Oda 2</td><td>4</td><td><span class="tag orange">Açıklama yok</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Rahatlatıcı masaj</b></td><td>Spa</td><td>60 / 90 dk</td><td class="num">₺1.300–1.800</td><td>–</td><td>Spa odası</td><td>1</td><td><span class="tag green">Tamam</span></td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+      <tr class="clickable" data-href="service-detail.html"><td><b>Kaş şekillendirme</b></td><td>Kaş ve kirpik</td><td>20 dk</td><td class="num">₺400</td><td>–</td><td>–</td><td>0</td><td><span class="tag green">Tamam</span></td><td><label class="switch"><input type="checkbox"><span class="track"></span></label></td></tr>
+    </tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="c-products" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Ürünler</h1><p>86 ürün · alış fiyatıyla stok değeri ₺148.600</p></div>
+    <div class="actions"><a class="btn" href="catalog.html#drawer-receipt"><i data-lucide="truck"></i>Mal kabul</a><a class="btn primary" href="product-detail.html"><i data-lucide="plus"></i>Yeni ürün</a></div>
+  </div>
+  <div class="grid g4 mb">
+    <div class="stat neutral"><div class="label">Stok değeri</div><div class="value">₺148.600</div><div class="note">Perakende ₺96 bin · sarf malzemesi ₺52 bin</div></div>
+    <div class="stat warning"><div class="label">Kritik stok</div><div class="value">4</div></div>
+    <div class="stat error"><div class="label">SKT ≤ 60 gün</div><div class="value">3 lot</div></div>
+    <div class="stat primary"><div class="label">Eksik YZ içeriği</div><div class="value">9</div><div class="note">Önerilerde kullanılmıyor</div></div>
+  </div>
+  <div class="filter-bar">
+    <input class="input" placeholder="Ad, marka, barkod…">
+    <div class="seg"><button class="on">Tümü</button><button>Perakende</button><button>Sarf malzemesi</button></div>
+    <select class="select"><option>Tüm kategoriler</option><option>Güneş bakımı</option><option>Serumlar</option><option>Temizleyiciler</option><option>Kabin malzemeleri</option></select>
+    <select class="select"><option>Tüm durumlar</option><option>Kritik stok</option><option>Stokta yok</option><option>SKT yaklaşıyor</option></select>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Ürün</th><th>Tür</th><th>Kategori</th><th class="num">Stok</th><th class="num">Min.</th><th>En yakın SKT</th><th class="num">Alış</th><th class="num">Satış</th><th>YZ içeriği</th><th>Durum</th></tr></thead>
+    <tbody>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Lazer soğutma jeli 5 L</b><div class="small muted">Dermaline · 8690000000011</div></td><td><span class="tag">Sarf malzemesi</span></td><td>Kabin malzemeleri</td><td class="num">1,8 L</td><td class="num">3 L</td><td>06/2027</td><td class="num">₺1.400</td><td class="num">–</td><td>–</td><td><span class="tag orange">Kritik</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>SPF 50 Güneş Kremi 50 ml</b><div class="small muted">Dermaline</div></td><td><span class="tag blue">Perakende</span></td><td>Güneş bakımı</td><td class="num">12</td><td class="num">5</td><td>09/2027</td><td class="num">₺520</td><td class="num">₺1.150</td><td><span class="tag green">Tamam</span></td><td><span class="tag green">Normal</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Yatıştırıcı Aloe Jel 200 ml</b><div class="small muted">Dermaline</div></td><td><span class="tag blue">Perakende</span> <span class="tag">Sarf malzemesi</span></td><td>Uygulama sonrası bakım</td><td class="num">9 + 0,6 L</td><td class="num">4</td><td>02/2027</td><td class="num">₺380</td><td class="num">₺890</td><td><span class="tag green">Tamam</span></td><td><span class="tag green">Normal</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>C Vitamini Serum 50 ml</b><div class="small muted">Lumière Lab</div></td><td><span class="tag blue">Perakende</span></td><td>Serumlar</td><td class="num">0</td><td class="num">3</td><td class="down">03.12.2026 (kabinde 6 adet)</td><td class="num">₺640</td><td class="num">₺1.490</td><td><span class="tag green">Tamam</span></td><td><span class="tag red">Yok</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>%10 Niasinamid Serum 30 ml</b><div class="small muted">Lumière Lab</div></td><td><span class="tag blue">Perakende</span></td><td>Serumlar</td><td class="num">7</td><td class="num">3</td><td>04/2028</td><td class="num">₺410</td><td class="num">₺980</td><td><span class="tag green">Tamam</span></td><td><span class="tag green">Normal</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Retinol Gece Kremi 50 ml</b><div class="small muted">Lumière Lab</div></td><td><span class="tag blue">Perakende</span></td><td>Gece bakımı</td><td class="num">5</td><td class="num">3</td><td>11/2027</td><td class="num">₺590</td><td class="num">₺1.350</td><td><span class="tag orange">Kontrendikasyon yok</span></td><td><span class="tag green">Normal</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Botulinum toksini 100U</b><div class="small muted">Medikal · lot takipli</div></td><td><span class="tag">Sarf malzemesi</span></td><td>Medikal</td><td class="num">4 flakon</td><td class="num">2</td><td>08/2027</td><td class="num">₺4.200</td><td class="num">–</td><td>–</td><td><span class="tag green">Normal</span></td></tr>
+      <tr class="clickable" data-href="product-detail.html"><td><b>Nitril eldiven (100'lü kutu)</b></td><td><span class="tag">Sarf malzemesi</span></td><td>Kabin malzemeleri</td><td class="num">140 çift</td><td class="num">100</td><td>–</td><td class="num">₺300</td><td class="num">–</td><td>–</td><td><span class="tag green">Normal</span></td></tr>
+    </tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="c-packages" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Paketler</h1><p>Seans paketleri, taksitler ve açılış bakiyeleri</p></div>
+    <div class="actions"><button class="btn" data-open="drawer-opening"><i data-lucide="import"></i>Mevcut paketi gir</button><button class="btn primary" data-open="drawer-template"><i data-lucide="plus"></i>Yeni paket şablonu</button></div>
+  </div>
+  <div class="grid g4 mb">
+    <div class="stat primary"><div class="label">Aktif paketler</div><div class="value">142</div></div>
+    <div class="stat neutral"><div class="label">Kullanılmamış seanslar</div><div class="value">488</div><div class="note">≈ ₺512.000 ertelenmiş gelir</div></div>
+    <div class="stat warning"><div class="label">Vadesi gelen taksitler (7 gün)</div><div class="value">₺21.000</div><div class="note">7 taksit</div></div>
+    <div class="stat error"><div class="label">Gecikmiş</div><div class="value">₺6.000</div><div class="note">2 müşteri</div></div>
+  </div>
+
+  <div class="tabs" data-tabs="pk">
+    <button class="on" data-tab="p-customer">Müşteri paketleri</button>
+    <button data-tab="p-inst">Taksitler</button>
+    <button data-tab="p-tpl">Şablonlar</button>
+    <button data-tab="p-gift">Hediye kartları <span class="tag orange">Faz 2</span></button>
+  </div>
+
+  <div class="tab-panel on" id="p-customer" data-group="pk">
+    <div class="filter-bar"><input class="input" placeholder="Müşteri…"><select class="select"><option>Aktif</option><option>30 gün içinde süresi doluyor</option><option>Tamamlandı</option><option>Donduruldu</option></select></div>
+    <div class="card"><div class="card-body flush table-wrap"><table class="table">
+      <thead><tr><th>Müşteri</th><th>Paket</th><th>Seanslar</th><th>Son geçerlilik</th><th class="num">Fiyat</th><th class="num">Kalan borç</th><th>Durum</th></tr></thead>
+      <tbody>
+        <tr class="clickable" data-href="customer-detail.html"><td>Deniz Yılmaz</td><td>Lazer Tüm bacak 8</td><td><div class="progress" style="width:120px"><span style="width:62%"></span></div><span class="small">5 kullanıldı · 3 kaldı</span></td><td>02.2027</td><td class="num">₺24.000</td><td class="num down">₺6.000</td><td><span class="tag green">Aktif</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Burcu Koç</td><td>Lazer Yüz 6</td><td><div class="progress" style="width:120px"><span style="width:50%"></span></div><span class="small">3 kullanıldı · 3 kaldı</span></td><td>07.2027</td><td class="num">₺7.200</td><td class="num">₺0</td><td><span class="tag green">Aktif</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Hande Polat</td><td>Lazer Tüm vücut 8</td><td><div class="progress" style="width:120px"><span style="width:0"></span></div><span class="small">0 kullanıldı · 8 kaldı</span></td><td>11.2027</td><td class="num">₺24.000</td><td class="num down">₺16.000</td><td><span class="tag green">Aktif</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Cansu Yıldız</td><td>Lazer Bikini 6</td><td><div class="progress orange" style="width:120px"><span style="width:66%"></span></div><span class="small">4 kullanıldı · 2 kaldı</span></td><td><span class="down">20.12.2026</span></td><td class="num">₺6.000</td><td class="num">₺0</td><td><span class="tag orange">Süresi doluyor</span></td></tr>
+        <tr class="clickable" data-href="customer-detail.html"><td>Gizem Öztürk</td><td>Kimyasal peeling 4</td><td><div class="progress" style="width:120px"><span style="width:50%"></span></div><span class="small">2 kullanıldı · 2 kaldı</span></td><td>05.2027</td><td class="num">₺7.600</td><td class="num down">₺2.800</td><td><span class="tag green">Aktif</span></td></tr>
+        <tr><td>Aylin Sarı</td><td>Lazer Koltuk altı 6</td><td><span class="small">3 kullanıldı · 3 kaldı</span></td><td>–</td><td class="num">₺4.800</td><td class="num">₺0</td><td><span class="tag blue">Donduruldu · gebelik</span></td></tr>
+      </tbody></table></div></div>
+  </div>
+
+  <div class="tab-panel" id="p-inst" data-group="pk"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Vade</th><th>Müşteri</th><th>Paket</th><th>Taksit</th><th class="num">Tutar</th><th>Durum</th><th></th></tr></thead>
+    <tbody><tr><td class="down">01.11.2026</td><td>Cem Aktaş</td><td>Lazer Tüm bacak 8</td><td>2 / 4</td><td class="num">₺3.000</td><td><span class="tag red">Gecikmiş</span></td><td><a class="btn sm" href="settings.html#x-sms">SMS</a> <a class="btn sm primary" href="kasa.html">Tahsil et</a></td></tr>
+    <tr><td>15.11.2026</td><td>Deniz Yılmaz</td><td>Lazer Tüm bacak 8</td><td>4 / 4</td><td class="num">₺3.000</td><td><span class="tag orange">Vadesi yaklaşıyor</span></td><td><a class="btn sm primary" href="kasa.html">Tahsil et</a></td></tr>
+    <tr><td>18.11.2026</td><td>Hande Polat</td><td>Lazer Tüm vücut 8</td><td>2 / 3</td><td class="num">₺8.000</td><td><span class="tag">Planlandı</span></td><td><a class="btn sm primary" href="kasa.html">Tahsil et</a></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="p-tpl" data-group="pk"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Şablon</th><th>Hizmet · bölge</th><th class="num">Seans</th><th>Geçerlilik</th><th class="num">Fiyat</th><th class="num">Seans başı</th><th>Taksit</th><th>Aktif</th></tr></thead>
+    <tbody><tr><td>Lazer Yüz 6</td><td>Lazer · Yüz</td><td class="num">6</td><td>12 ay</td><td class="num">₺7.200</td><td class="num">₺1.200</td><td>En fazla 2</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Lazer Tüm bacak 8</td><td>Lazer · Tüm bacak</td><td class="num">8</td><td>18 ay</td><td class="num">₺24.000</td><td class="num">₺3.000</td><td>En fazla 4</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Kimyasal peeling 4</td><td>Kimyasal peeling</td><td class="num">4</td><td>6 ay</td><td class="num">₺7.600</td><td class="num">₺1.900</td><td>En fazla 2</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="p-gift" data-group="pk"><div class="alert info"><i data-lucide="gift"></i>Hediye kartları ve hediye çekleri Faz 2'de geliyor: kodlu tutar veya hizmet çeki satın, satış ekranında tamamen ya da kısmen kullandırın.</div></div>
+
+  </div>
+  <div class="tab-panel" id="c-stock" data-group="cat">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Stok hareketleri</h1><p>Her stok değişikliği bir harekettir. Stok = hareketlerin toplamı.</p></div>
+    <div class="actions"><button class="btn" data-toast="Stok sayımı: Faz 2"><i data-lucide="clipboard-check"></i>Stok sayımı</button><button class="btn primary" data-open="drawer-receipt"><i data-lucide="truck"></i>Mal kabul</button></div>
+  </div>
+
+  <div class="card ai-card mb"><div class="card-head"><h3><i data-lucide="sparkles"></i>Sipariş önerileri</h3><span class="tag purple">YZ · Faz 2</span></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Ürün</th><th class="num">Stokta</th><th class="num">Tahmini tüketim (14 gün)</th><th>Gerekçe</th><th class="num">Önerilen sipariş</th><th></th></tr></thead>
+    <tbody><tr><td>Lazer soğutma jeli 5 L</td><td class="num">1,8 L</td><td class="num">2,6 L</td><td class="small">Önümüzdeki 14 günde 41 lazer seansı planlı; tedarik süresi 3 gün</td><td class="num">2 × 5 L</td><td><button class="btn sm" data-open="drawer-receipt">Sipariş taslağı</button></td></tr>
+    <tr><td>C Vitamini Serum 50 ml</td><td class="num">0</td><td class="num">4</td><td class="small">Stokta yok; bu ay 6 kez önerildi ancak satılamadı</td><td class="num">6</td><td><button class="btn sm" data-open="drawer-receipt">Sipariş taslağı</button></td></tr></tbody></table></div></div>
+
+  <div class="filter-bar">
+    <input class="input" placeholder="Ürün…"><input class="input" value="01.11.2026 – 12.11.2026">
+    <select class="select"><option>Tüm türler</option><option>Mal kabul</option><option>Satış</option><option>Uygulama tüketimi</option><option>İade</option><option>Düzeltme</option><option>Fire</option><option>Sayım düzeltmesi</option></select>
+    <select class="select"><option>Tüm kullanıcılar</option></select>
+  </div>
+  <div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Tarih</th><th>Ürün</th><th>Tür</th><th>Lot</th><th>Referans</th><th>Personel</th><th class="num">Miktar</th><th class="num">Değer</th></tr></thead>
+    <tbody>
+      <tr><td>12.11 13:40</td><td>Lazer soğutma jeli 5 L</td><td><span class="tag indigo">Uygulama</span></td><td>CG-551</td><td><a href="treatment.html">Nazlı Aksoy · Koltuk altı</a></td><td>Ayşe Demir</td><td class="num down">−35 ml</td><td class="num">₺9,80</td></tr>
+      <tr><td>12.11 13:32</td><td>SPF 50 Güneş Kremi</td><td><span class="tag blue">Satış</span></td><td>SP-7720</td><td><a href="kasa.html#k-sales">S-2026-1188</a></td><td>Ayşe Demir</td><td class="num down">−1</td><td class="num">₺505</td></tr>
+      <tr><td>12.11 13:32</td><td>Yatıştırıcı Aloe Jel</td><td><span class="tag blue">Satış</span></td><td>AG-310</td><td><a href="kasa.html#k-sales">S-2026-1188</a></td><td>Ayşe Demir</td><td class="num down">−1</td><td class="num">₺380</td></tr>
+      <tr><td>12.11 11:00</td><td>Hyaluronik Serum (kabin)</td><td><span class="tag indigo">Uygulama</span></td><td>HS-120</td><td>Ece Çelik · HydraFacial</td><td>Merve Kaya</td><td class="num down">−2 ml</td><td class="num">₺26</td></tr>
+      <tr><td>12.11 09:45</td><td>Lazer soğutma jeli 5 L</td><td><span class="tag indigo">Uygulama</span></td><td>CG-551</td><td>Deniz Yılmaz · Tüm bacak</td><td>Ayşe Demir</td><td class="num down">−180 ml</td><td class="num">₺50,40</td></tr>
+      <tr><td>11.11 12:00</td><td>Peeling solüsyonu TCA %15</td><td><span class="tag indigo">Uygulama</span></td><td>TC-019</td><td>Gizem Öztürk · Peeling</td><td>Dr. Selin Aydın</td><td class="num down">−4 ml</td><td class="num">₺48</td></tr>
+      <tr><td>10.11 16:30</td><td>Nitril eldiven</td><td><span class="tag red">Fire</span></td><td>–</td><td>Yırtık kutu</td><td>Elif Şahin</td><td class="num down">−20</td><td class="num">₺60</td></tr>
+      <tr><td>28.10 10:20</td><td>SPF 50 Güneş Kremi</td><td><span class="tag green">Mal kabul</span></td><td>SP-8014</td><td>GR-2026-044 · Derma Dağıtım</td><td>Zeynep Arslan</td><td class="num up">+12</td><td class="num">₺6.240</td></tr>
+    </tbody></table></div></div>
+
+  </div>
+</main></div></div>
+
+
+
+<aside class="drawer" id="drawer-opening">
+  <div class="drawer-head"><h3><i data-lucide="import"></i>Mevcut paketi gir (geçiş)</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="alert info"><i data-lucide="info"></i>Victoria'dan önce satılmış paketler içindir. Satış veya ciro oluşmaz; yalnızca bakiye kaydedilir.</div>
+    <div class="field"><label>Müşteri</label><input class="input" placeholder="Ara…"></div>
+    <div class="form-grid">
+      <div class="field"><label>Paket şablonu</label><select class="select"><option>Lazer Tüm bacak 8</option></select></div>
+      <div class="field"><label>Kullanılmış seanslar</label><input class="input" value="3"></div>
+      <div class="field"><label>Asıl satış tarihi</label><input class="input" placeholder="gg.aa.yyyy"></div>
+      <div class="field"><label>Son geçerlilik</label><input class="input" placeholder="gg.aa.yyyy"></div>
+      <div class="field"><label>Kalan borç</label><input class="input" value="0"></div>
+      <div class="field"><label>Kalan taksitler</label><input class="input" value="0"></div>
+    </div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Açılış paketi kaydedildi">Kaydet</button></div>
+</aside>
+<aside class="drawer" id="drawer-template">
+  <div class="drawer-head"><h3>Yeni paket şablonu</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field span-2"><label>Ad</label><input class="input"></div>
+    <div class="field"><label>Hizmet</label><select class="select"><option>Lazer epilasyon</option></select></div><div class="field"><label>Bölge</label><select class="select"><option>Koltuk altı</option></select></div>
+    <div class="field"><label>Seans</label><input class="input"></div><div class="field"><label>Geçerlilik (ay)</label><input class="input"></div>
+    <div class="field"><label>Fiyat</label><input class="input"></div><div class="field"><label>En fazla taksit</label><input class="input"></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Şablon kaydedildi">Kaydet</button></div>
+</aside>
+<aside class="drawer wide" id="drawer-receipt">
+  <div class="drawer-head"><h3><i data-lucide="truck"></i>Mal kabul</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="form-grid">
+      <div class="field"><label>Tedarikçi</label><select class="select"><option>Derma Dağıtım A.Ş.</option></select></div>
+      <div class="field"><label>Fatura no</label><input class="input"></div>
+      <div class="field"><label>Tarih</label><input class="input" value="12.11.2026"></div>
+      <div class="field"><label>Fatura fotoğrafı / PDF</label><div class="upload" style="padding:6px">Yükle</div></div>
+    </div>
+    <table class="table"><thead><tr><th>Ürün</th><th>Lot</th><th>SKT</th><th class="num">Miktar</th><th class="num">Birim maliyet</th></tr></thead><tbody>
+      <tr><td>Lazer soğutma jeli 5 L</td><td><input class="input" value="CG-602"></td><td><input class="input" value="11/2027"></td><td><input class="input" style="text-align:right" value="2"></td><td><input class="input" style="text-align:right" value="1.400,00"></td></tr>
+      <tr><td>C Vitamini Serum 50 ml</td><td><input class="input"></td><td><input class="input"></td><td><input class="input" style="text-align:right" value="6"></td><td><input class="input" style="text-align:right" value="640,00"></td></tr></tbody></table>
+    <button class="btn sm" style="align-self:flex-start"><i data-lucide="plus"></i>Satır ekle</button>
+    <div class="alert info small"><i data-lucide="file-code"></i>Faz 2: Satırları otomatik doldurmak için tedarikçinin e-Faturasını (UBL-TR XML) içe aktarın.</div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Mal kabul yapıldı · stok güncellendi">Teslim al</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+
+</body>
+</html>

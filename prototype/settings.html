@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Settings · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="settings">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+
+  <div class="page-header">
+    <div class="title"><h1>Settings</h1><p>Management panel for the owner and admins</p></div>
+    <div class="actions"><button class="btn primary" data-toast="Settings saved">Save</button></div>
+  </div>
+  <div class="tabs" data-tabs="set">
+    <button class="on" data-tab="x-biz">Business</button><button data-tab="x-hours">Hours &amp; holidays</button><button data-tab="x-tax">Tax &amp; receipts</button><button data-tab="x-features">Features</button><button data-tab="x-ai"><i data-lucide="sparkles"></i>AI</button><button data-tab="x-consent">Consent forms</button><button data-tab="x-int">Integrations</button><button data-tab="x-audit">Audit log</button>
+  <button data-tab="x-users"><i data-lucide="shield"></i>Users &amp; roles</button><button data-tab="x-devices"><i data-lucide="zap"></i>Devices &amp; rooms</button><button data-tab="x-sms"><i data-lucide="message-square"></i>SMS</button></div>
+
+  <div class="tab-panel on" id="x-biz" data-group="set"><div class="card"><div class="card-body form-grid">
+    <div class="field"><label>Trade name</label><input class="input" value="Victoria Güzellik &amp; Bakım"></div><div class="field"><label>Legal name</label><input class="input" value="Victoria Güzellik Hizmetleri Ltd. Şti."></div>
+    <div class="field"><label>Vergi dairesi</label><input class="input" value="Kadıköy"></div><div class="field"><label>Vergi no</label><input class="input" value="0000000000"></div>
+    <div class="field"><label>MERSİS no</label><input class="input"></div><div class="field"><label>Phone</label><input class="input" value="0212 000 00 00"></div>
+    <div class="field span-2"><label>Address</label><input class="input" value="Örnek Mah. Güzellik Sok. No:1, Kadıköy / İstanbul"></div>
+    <div class="field"><label>Default language</label><select class="select"><option>Türkçe</option><option>English</option></select></div><div class="field"><label>Time zone</label><select class="select"><option>Europe/Istanbul</option></select></div>
+    <div class="field"><label>Currency</label><select class="select"><option>TRY ₺</option></select></div><div class="field"><label>Logo</label><div class="upload" style="padding:6px">Upload</div></div>
+  </div></div></div>
+
+  <div class="tab-panel" id="x-hours" data-group="set"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Opening hours</h3></div><div class="card-body flush"><table class="table"><tbody><tr><td>Mon–Fri</td><td>09:00–19:00</td></tr><tr><td>Saturday</td><td>10:00–17:00</td></tr><tr><td>Sunday</td><td class="muted">Closed</td></tr></tbody></table></div></div>
+    <div class="card"><div class="card-head"><h3>Holidays</h3><button class="btn sm"><i data-lucide="plus"></i>Add</button></div><ul class="list"><li><div class="grow">Yılbaşı · 01.01.2027</div></li><li><div class="grow">Ramazan Bayramı · 20–22.03.2027</div></li></ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-tax" data-group="set"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>KDV rates</h3><button class="btn sm"><i data-lucide="plus"></i>Add</button></div><div class="card-body flush"><table class="table"><thead><tr><th>Name</th><th class="num">Rate</th><th>Default for</th></tr></thead><tbody><tr><td>Standard</td><td class="num">20%</td><td>Services, cosmetics</td></tr><tr><td>Reduced</td><td class="num">10%</td><td>–</td></tr><tr><td>Low</td><td class="num">1%</td><td>–</td></tr></tbody></table><div class="card-body small muted">Prices are entered KDV-inclusive.</div></div></div>
+    <div class="card"><div class="card-head"><h3>Official receipts</h3></div><div class="card-body stack">
+      <div class="field"><label>Mode</label><select class="select"><option>Manual: number + photo upload (MVP)</option><option disabled>e-Arşiv integration (Later)</option></select></div>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Remind to attach receipt after payment</label>
+      <label class="switch"><input type="checkbox" checked><span class="track"></span>Show missing receipts at day close</label>
+    </div></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-features" data-group="set"><div class="card"><ul class="list">
+    <li><label class="switch"><input type="checkbox"><span class="track"></span></label><div class="grow"><b>Commission</b><div class="small muted">Off by default. Configure in <a href="employees.html#t-commission">Commission</a>.</div></div></li>
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Packages &amp; installments</b></div></li>
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Lot &amp; expiry tracking</b></div></li>
+    <li><label class="switch"><input type="checkbox" disabled><span class="track"></span></label><div class="grow"><b>Loyalty points</b> <span class="tag orange">Phase 2</span></div></li>
+    <li><label class="switch"><input type="checkbox" disabled><span class="track"></span></label><div class="grow"><b>Gift cards</b> <span class="tag orange">Phase 2</span></div></li>
+    <li><div class="grow"><b>Discount limits</b><div class="small muted">Receptionist up to 10%, specialist up to 5%; above requires manager approval</div></div><button class="btn sm">Edit</button></li>
+  </ul></div></div>
+
+  <div class="tab-panel" id="x-ai" data-group="set"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Provider</h3></div><div class="card-body stack">
+      <div class="field"><label>Provider</label><select class="select"><option>Anthropic</option><option>OpenAI</option><option>Azure OpenAI</option><option>Google</option><option>Disabled</option></select><span class="hint">Provider-agnostic: switch here without code changes.</span></div>
+      <div class="field"><label>Model</label><input class="input" placeholder="model id"></div>
+      <div class="field"><label>API key</label><input class="input" type="password" value="••••••••••••"><span class="hint">Stored in Azure Key Vault.</span></div>
+      <div class="field"><label>Monthly budget</label><input class="input" value="₺2.000"></div>
+      <div class="alert warning small"><i data-lucide="globe"></i><div>If the provider processes data outside Turkey, this is a cross-border transfer under KVKK. Confirm the legal basis before using real customer data.</div></div>
+    </div></div>
+    <div class="card"><div class="card-head"><h3>AI features</h3></div><ul class="list">
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Consultation assistant</div><span class="tag green">MVP</span></li>
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Send health data (only with customer AI consent)</div></li>
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Product &amp; service content drafting</div><span class="tag green">MVP</span></li>
+      <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow">Aftercare routine sheet</div><span class="tag green">MVP</span></li>
+      <li><label class="switch"><input type="checkbox" disabled><span class="track"></span></label><div class="grow">Ask your data · Daily digest · Reorder suggestions · Receipt reading</div><span class="tag orange">Phase 2</span></li>
+    </ul></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-consent" data-group="set"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>Form</th><th>Version</th><th>Languages</th><th>Validity</th><th>Used by</th><th></th></tr></thead>
+    <tbody><tr><td>KVKK notice (aydınlatma metni)</td><td>v3</td><td>TR, EN</td><td>–</td><td>All customers</td><td><button class="btn sm">Edit</button></td></tr>
+    <tr><td>Explicit consent: health data</td><td>v2</td><td>TR, EN</td><td>–</td><td>All customers</td><td><button class="btn sm">Edit</button></td></tr>
+    <tr><td>AI-assisted recommendations</td><td>v1</td><td>TR, EN</td><td>–</td><td>Consultation</td><td><button class="btn sm">Edit</button></td></tr>
+    <tr><td>Laser treatment consent</td><td>v4</td><td>TR, EN</td><td>12 months</td><td>Laser epilation</td><td><button class="btn sm">Edit</button></td></tr>
+    <tr><td>Chemical peel consent</td><td>v2</td><td>TR</td><td>12 months</td><td>Chemical peel</td><td><button class="btn sm">Edit</button></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="x-int" data-group="set"><div class="grid g3">
+    <div class="card"><div class="card-head"><h3><i data-lucide="message-square"></i>SMS provider</h3><span class="tag">Not set</span></div><div class="card-body stack"><select class="select"><option>– choose later –</option></select><input class="input" placeholder="Sender ID (başlık)"><span class="small muted">Until set, messages are only logged.</span></div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="shield-check"></i>İYS</h3><span class="tag orange">Phase 2</span></div><div class="card-body small muted">Sync commercial-message consents with İleti Yönetim Sistemi.</div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="file-text"></i>e-Arşiv integrator</h3><span class="tag">Later</span></div><div class="card-body small muted">Issue invoices directly from checkout instead of uploading photos.</div></div>
+  </div></div>
+
+  <div class="tab-panel" id="x-audit" data-group="set"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Time</th><th>User</th><th>Action</th><th>Entity</th><th>Details</th></tr></thead>
+    <tbody><tr><td>12.11 14:02</td><td>Ayşe Demir</td><td><span class="tag purple">Viewed health data</span></td><td>Customer Burcu Koç</td><td class="small">Consultation</td></tr>
+    <tr><td>12.11 13:32</td><td>Zeynep Arslan</td><td><span class="tag">Discount</span></td><td>Sale S-2026-1188</td><td class="small">−10% on SPF 50 · reason "loyal customer"</td></tr>
+    <tr><td>12.11 09:10</td><td>Owner</td><td><span class="tag orange">Price change</span></td><td>Service HydraFacial</td><td class="small">₺1,650 → ₺1,800</td></tr>
+    <tr><td>11.11 16:30</td><td>Elif Şahin</td><td><span class="tag red">Stock waste</span></td><td>Nitrile gloves</td><td class="small">−20 · torn box</td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="x-users" data-group="set">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Users &amp; roles</h1><p>Roles are bundles of permissions; the owner can change them without code changes.</p></div>
+    <div class="actions"><button class="btn primary" data-toast="Invitation form"><i data-lucide="user-plus"></i>Invite user</button></div>
+  </div>
+  <div class="tabs" data-tabs="usr"><button class="on" data-tab="u-users">Users</button><button data-tab="u-roles">Roles &amp; permissions</button></div>
+
+  <div class="tab-panel" id="u-users" data-group="usr"><div class="card"><div class="card-body flush"><table class="table">
+    <thead><tr><th>User</th><th>Employee</th><th>Role</th><th>2FA</th><th>Last login</th><th>Status</th></tr></thead>
+    <tbody><tr><td>owner@victoria.example</td><td>–</td><td><span class="tag indigo">Owner</span></td><td><span class="tag green">On</span></td><td>Today 08:40</td><td><span class="tag green">Active</span></td></tr>
+    <tr><td>ayse@victoria.example</td><td>Ayşe Demir</td><td><span class="tag">Specialist</span></td><td>–</td><td>Today 08:55</td><td><span class="tag green">Active</span></td></tr>
+    <tr><td>merve@victoria.example</td><td>Merve Kaya</td><td><span class="tag">Specialist</span></td><td>–</td><td>Today 09:02</td><td><span class="tag green">Active</span></td></tr>
+    <tr><td>selin@victoria.example</td><td>Dr. Selin Aydın</td><td><span class="tag red">Physician</span></td><td>–</td><td>11.11.2026</td><td><span class="tag green">Active</span></td></tr>
+    <tr><td>zeynep@victoria.example</td><td>Zeynep Arslan</td><td><span class="tag">Receptionist</span></td><td>–</td><td>Today 08:45</td><td><span class="tag green">Active</span></td></tr>
+    <tr><td>muhasebe@example.com</td><td>–</td><td><span class="tag">Accountant (read-only)</span></td><td>–</td><td>01.11.2026</td><td><span class="tag green">Active</span></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="u-roles" data-group="usr"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Permission</th><th>Owner</th><th>Manager</th><th>Reception</th><th>Specialist</th><th>Physician</th><th>Accountant</th></tr></thead>
+    <tbody>
+      <tr><td>calendar.manage</td><td>✓</td><td>✓</td><td>✓</td><td>own</td><td>own</td><td>–</td></tr>
+      <tr><td>customers.edit</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>customers.health.view</td><td>✓</td><td>✓</td><td>warnings only</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>treatments.record</td><td>✓</td><td>–</td><td>–</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>treatments.approvePlan</td><td>–</td><td>–</td><td>–</td><td>–</td><td>✓</td><td>–</td></tr>
+      <tr><td>ai.consult</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>sales.create</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>–</td></tr>
+      <tr><td>sales.refund</td><td>✓</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+      <tr><td>stock.adjust</td><td>✓</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+      <tr><td>commission.view</td><td>all</td><td>all</td><td>–</td><td>own</td><td>own</td><td>–</td></tr>
+      <tr><td>reports.financial</td><td>✓</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>✓</td></tr>
+      <tr><td>settings.manage</td><td>✓</td><td>–</td><td>–</td><td>–</td><td>–</td><td>–</td></tr>
+    </tbody></table></div></div></div>
+
+  </div>
+  <div class="tab-panel" id="x-devices" data-group="set">
+
+  <div class="page-header sub">
+    <div class="title"><h1>Laser devices &amp; rooms</h1><p>Specs and shot counts are entered by staff. Devices and rooms are bookable resources in the calendar.</p></div>
+    <div class="actions"><button class="btn" data-toast="Room form">Add room</button><button class="btn primary" data-open="drawer-device"><i data-lucide="plus"></i>Add device</button></div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card"><div class="card-head"><h3><i data-lucide="zap"></i>Diode 808</h3><span class="tag green">Available</span></div><div class="card-body stack">
+      <dl class="desc"><dt>Model / serial</dt><dd>Generic Diode 808 · DL-80812</dd><dt>Type</dt><dd>Diode laser</dd><dt>Wavelength(s)</dt><dd>808 nm</dd><dt>Fluence range</dt><dd>5–60 J/cm²</dd><dt>Spot sizes</dt><dd>12 × 12 mm, 9 × 9 mm</dd><dt>Purchased</dt><dd>03/2024</dd></dl>
+      <div><div class="row between small"><span><b>Handpiece HP-2</b> · 1,820,450 / 2,000,000 shots</span><span class="down">91%</span></div><div class="progress red"><span style="width:91%"></span></div></div>
+      <div><div class="row between small"><span>Total device shots</span><span>4,812,300</span></div></div>
+      <div class="row between small"><span>Next maintenance: <b>15.01.2027</b> <span class="tag orange">Phase 2</span></span><span>This month: 96 sessions · 61,200 shots</span></div>
+    </div></div>
+    <div class="card"><div class="card-head"><h3><i data-lucide="zap"></i>Alexandrite 755</h3><span class="tag green">Available</span></div><div class="card-body stack">
+      <dl class="desc"><dt>Model / serial</dt><dd>Generic Alex 755 · AX-75501</dd><dt>Type</dt><dd>Alexandrite laser</dd><dt>Wavelength(s)</dt><dd>755 nm</dd><dt>Fluence range</dt><dd>4–40 J/cm²</dd><dt>Spot sizes</dt><dd>10, 12, 15, 18 mm</dd><dt>Purchased</dt><dd>09/2025</dd></dl>
+      <div><div class="row between small"><span><b>Handpiece A-1</b> · 412,000 / 1,500,000 shots</span><span>27%</span></div><div class="progress green"><span style="width:27%"></span></div></div>
+      <div class="row between small"><span>Next maintenance: <b>01.03.2027</b></span><span>This month: 31 sessions · 18,400 shots</span></div>
+    </div></div>
+  </div>
+
+  <div class="card mt"><div class="card-head"><h3>Rooms</h3></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Room</th><th>Used for</th><th>Today</th><th>Active</th></tr></thead>
+    <tbody><tr><td>Room 1 (medical)</td><td>Chemical peel, Botox, consultations</td><td>2 bookings</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Room 2 (skin care)</td><td>HydraFacial, facials</td><td>3 bookings</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Laser room</td><td>Laser devices</td><td>5 bookings</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr>
+    <tr><td>Spa room</td><td>Massage, body treatments</td><td>2 bookings</td><td><label class="switch"><input type="checkbox" checked><span class="track"></span></label></td></tr></tbody></table></div></div>
+
+  <div class="card mt"><div class="card-head"><h3>Shot log · Diode 808</h3><span class="small muted">From treatment records</span></div><div class="card-body flush"><table class="table">
+    <thead><tr><th>Date</th><th>Customer</th><th>Area</th><th>Operator</th><th class="num">Shots</th><th class="num">Fluence</th></tr></thead>
+    <tbody><tr><td>12.11 13:00</td><td>Nazlı Aksoy</td><td>Underarm</td><td>Ayşe Demir</td><td class="num">640</td><td class="num">18 J/cm²</td></tr>
+    <tr><td>12.11 09:00</td><td>Deniz Yılmaz</td><td>Full leg</td><td>Ayşe Demir</td><td class="num">3,620</td><td class="num">22 J/cm²</td></tr>
+    <tr><td>11.11 16:00</td><td>Cem Aktaş</td><td>Back</td><td>Ayşe Demir</td><td class="num">2,950</td><td class="num">24 J/cm²</td></tr></tbody></table></div></div>
+
+  </div>
+  <div class="tab-panel" id="x-sms" data-group="set">
+
+  <div class="page-header sub">
+    <div class="title"><h1>SMS</h1><p>Provider: <b>not selected</b> (messages are logged only) · İYS: Phase 2</p></div>
+    <div class="actions"><button class="btn primary" data-open="drawer-send"><i data-lucide="send"></i>Send SMS</button></div>
+  </div>
+  <div class="alert warning mb"><i data-lucide="plug"></i><div>No SMS provider configured yet. Choose one in <a href="settings.html">Settings → Integrations</a> before go-live.</div></div>
+
+  <div class="tabs" data-tabs="sms"><button class="on" data-tab="m-log">Message log</button><button data-tab="m-tpl">Templates</button><button data-tab="m-auto">Automations</button><button data-tab="m-drafts"><i data-lucide="sparkles"></i>Win-back drafts <span class="tag purple">6</span></button></div>
+
+  <div class="tab-panel" id="m-log" data-group="sms"><div class="card"><div class="card-body flush table-wrap"><table class="table">
+    <thead><tr><th>Time</th><th>Customer</th><th>Type</th><th>Message</th><th class="num">Parts</th><th>Status</th></tr></thead>
+    <tbody><tr><td>12.11 13:45</td><td>Nazlı Aksoy</td><td><span class="tag">Aftercare</span></td><td class="small">Lazer sonrası 48 saat sıcak duş ve güneşten kaçının…</td><td class="num">2</td><td><span class="tag">Logged (no provider)</span></td></tr>
+    <tr><td>12.11 10:00</td><td>Burcu Koç</td><td><span class="tag">Reminder</span></td><td class="small">Sayın Burcu Koç, yarın 14:00 Lazer randevunuz…</td><td class="num">1</td><td><span class="tag">Logged (no provider)</span></td></tr></tbody></table></div></div></div>
+
+  <div class="tab-panel" id="m-tpl" data-group="sms"><div class="grid g2">
+    <div class="card"><div class="card-head"><h3>Appointment reminder</h3><div class="seg"><button class="on">TR</button><button>EN</button></div></div><div class="card-body stack">
+      <textarea class="input">Sayın {Ad}, {Tarih} {Saat} {Hizmet} randevunuzu hatırlatırız. Değişiklik için 0212 000 00 00. Victoria Güzellik &amp; Bakım</textarea>
+      <div class="row between small muted"><span>Placeholders: {Ad} {Tarih} {Saat} {Hizmet} {Personel}</span><span>118 / 160 · 1 SMS</span></div></div></div>
+    <div class="card"><div class="card-head"><h3>Aftercare (laser)</h3><div class="seg"><button class="on">TR</button><button>EN</button></div></div><div class="card-body stack">
+      <textarea class="input">{Ad}, lazer sonrası 48 saat sıcak duş, sauna ve güneşten kaçının. SPF 50 kullanmayı unutmayın. Sonraki seans: {SonrakiTarih}</textarea>
+      <div class="row between small muted"><span>Transactional · no İYS needed</span><span>142 / 160 · 1 SMS</span></div></div></div>
+  </div></div>
+
+  <div class="tab-panel" id="m-auto" data-group="sms"><div class="card"><ul class="list">
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Reminder</b> 24 h before each appointment</div><span class="tag green">MVP</span></li>
+    <li><label class="switch"><input type="checkbox" checked><span class="track"></span></label><div class="grow"><b>Aftercare</b> right after a laser or peel treatment</div><span class="tag green">MVP</span></li>
+    <li><label class="switch"><input type="checkbox"><span class="track"></span></label><div class="grow"><b>Next session due</b> when a course interval has passed without a booking</div><span class="tag orange">Phase 2</span></li>
+    <li><label class="switch"><input type="checkbox"><span class="track"></span></label><div class="grow"><b>Birthday</b> greeting with offer (commercial: İYS consent required)</div><span class="tag orange">Phase 2</span></li>
+  </ul></div></div>
+
+  <div class="tab-panel" id="m-drafts" data-group="sms">
+    <div class="alert ai mb"><i data-lucide="sparkles"></i>Customers overdue for their next session. Drafts are written by AI; nothing is sent until you approve.</div>
+    <div class="card"><div class="card-body flush"><table class="table">
+      <thead><tr><th>Customer</th><th>Reason</th><th>Draft</th><th></th></tr></thead>
+      <tbody><tr><td>Cansu Yıldız</td><td class="small">Bikini course 4/6, last visit 02.08 (14 weeks), package expires 20.12</td><td class="small">Merhaba Cansu Hanım, lazer paketinizde 2 seans kaldı ve 20 Aralık'ta sona eriyor. Size uygun bir gün ayarlayalım mı?</td><td><button class="btn sm primary" data-toast="Queued for sending">Approve</button> <button class="btn sm">Edit</button></td></tr>
+      <tr><td>Cem Aktaş</td><td class="small">Full leg 2/8, last visit 16.09, installment overdue</td><td class="small">Merhaba Cem Bey, bir sonraki lazer seansınızın zamanı geldi. Randevu için bizi arayabilirsiniz.</td><td><button class="btn sm primary" data-toast="Queued for sending">Approve</button> <button class="btn sm">Edit</button></td></tr></tbody></table></div></div>
+  </div>
+
+  </div>
+</main></div></div>
+
+
+
+<aside class="drawer" id="drawer-device">
+  <div class="drawer-head"><h3>Add laser device</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body form-grid">
+    <div class="field span-2"><label>Name <span class="req">*</span></label><input class="input" placeholder="e.g. Diode 808"></div>
+    <div class="field"><label>Brand / model</label><input class="input"></div><div class="field"><label>Serial number</label><input class="input"></div>
+    <div class="field"><label>Laser type</label><select class="select"><option>Diode</option><option>Alexandrite</option><option>Nd:YAG</option><option>IPL</option></select></div>
+    <div class="field"><label>Wavelength(s) nm</label><input class="input" placeholder="755, 808, 1064"></div>
+    <div class="field"><label>Fluence min–max (J/cm²)</label><input class="input"></div><div class="field"><label>Spot sizes</label><input class="input"></div>
+    <div class="field"><label>Handpiece name</label><input class="input"></div><div class="field"><label>Rated shots</label><input class="input"></div>
+    <div class="field"><label>Current shot counter</label><input class="input"><span class="hint">From the device screen at setup</span></div>
+    <div class="field"><label>Room</label><select class="select"><option>Laser room</option></select></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Device saved">Save</button></div>
+</aside>
+<aside class="drawer" id="drawer-send">
+  <div class="drawer-head"><h3><i data-lucide="send"></i>Send SMS</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>To</label><input class="input" placeholder="Customer or segment"></div>
+    <div class="field"><label>Template</label><select class="select"><option>– free text –</option><option>Appointment reminder</option></select></div>
+    <div class="field"><label>Message</label><textarea class="input"></textarea><span class="hint">0 / 160 · 1 SMS</span></div>
+    <button class="btn ai" style="align-self:flex-start" data-toast="Draft written"><i data-lucide="sparkles"></i>Draft with AI</button>
+    <label class="chk"><input type="checkbox"> This is a commercial message (requires İYS consent)</label>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Cancel</button><button class="btn primary" data-toast="Logged (no provider configured)">Send</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

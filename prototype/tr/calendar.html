@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Takvim · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body data-page="calendar">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+  <div class="page-header">
+    <div class="title"><h1>Takvim</h1><p>Taşımak için sürükleyin, randevu için boş bir alana tıklayın. Personel, cihaz ve oda çakışmaları engellenir.</p></div>
+    <div class="actions">
+      <button class="btn"><i data-lucide="chevron-left"></i></button>
+      <button class="btn">Bugün</button>
+      <button class="btn"><i data-lucide="chevron-right"></i></button>
+      <span class="strong" style="margin:0 8px">12 Kas 2026 Çar</span>
+      <div class="seg"><button class="on">Gün</button><button>Hafta</button></div>
+      <div class="seg"><button class="on">Personele göre</button><button>Cihaz / odaya göre</button></div>
+      <button class="btn primary" data-open="drawer-new"><i data-lucide="plus"></i>Yeni randevu</button>
+    </div>
+  </div>
+
+  <div class="cal" style="grid-template-columns:56px repeat(5,minmax(170px,1fr))">
+    <div class="corner"></div>
+    <div class="colhead"><span class="avatar">AD</span><div>Ayşe Demir<small>Lazer uzmanı · 09–18</small></div></div>
+    <div class="colhead"><span class="avatar">MK</span><div>Merve Kaya<small>Estetisyen · 09–18</small></div></div>
+    <div class="colhead"><span class="avatar">SA</span><div>Dr. Selin Aydın<small>Hekim · 11–17</small></div></div>
+    <div class="colhead"><span class="avatar">EŞ</span><div>Elif Şahin<small>Terapist · 10–19</small></div></div>
+    <div class="colhead"><span class="avatar" style="background:#fef3c7;color:#92400e">ZA</span><div>Zeynep Arslan<small>Resepsiyon · randevusuz müşteriler</small></div></div>
+
+    <div class="times">
+      <div class="time">09:00</div><div class="time">10:00</div><div class="time">11:00</div><div class="time">12:00</div><div class="time">13:00</div>
+      <div class="time">14:00</div><div class="time">15:00</div><div class="time">16:00</div><div class="time">17:00</div><div class="time">18:00</div>
+    </div>
+
+    <!-- Ayşe -->
+    <div class="col">
+      <div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div>
+      <div class="appt c1 done" style="top:0;height:70px" data-open="drawer-appt"><b>Deniz Yılmaz</b>Lazer · Tüm bacak 5/8<br>Diode 808 · Ödendi</div>
+      <div class="appt c1" style="top:192px;height:46px" data-open="drawer-appt"><b>Nazlı Aksoy</b>Koltuk altı 2/6 · İşlemde</div>
+      <div class="appt c1" style="top:240px;height:46px" data-open="drawer-appt"><b>Burcu Koç <span class="warn">⚠ onam</span></b>Lazer · Yüz</div>
+      <div class="appt c1" style="top:336px;height:94px" data-open="drawer-appt"><b>Hande Polat</b>Lazer · Tüm vücut 1/8<br>Diode 808</div>
+    </div>
+    <!-- Merve -->
+    <div class="col">
+      <div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div>
+      <div class="appt c2 done" style="top:48px;height:70px" data-open="drawer-appt"><b>Ece Çelik</b>HydraFacial · Oda 2<br>Ödendi</div>
+      <div class="appt c2" style="top:240px;height:70px" data-open="drawer-appt"><b>Pınar Doğan</b>Akne bakımı · Oda 2</div>
+      <div class="appt c2" style="top:384px;height:46px" data-open="drawer-appt"><b>Randevusuz müşteri</b>Kaş şekillendirme</div>
+    </div>
+    <!-- Dr. Selin -->
+    <div class="col">
+      <div class="slot off"></div><div class="slot off"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot off"></div><div class="slot off"></div>
+      <div class="appt c3" style="top:120px;height:70px" data-open="drawer-appt"><b>Gizem Öztürk</b>Kimyasal peeling · Oda 1<br>Tamamlandı · ödenmedi</div>
+      <div class="appt c3" style="top:360px;height:46px" data-open="drawer-appt"><b>Ayten Kurt</b>Botoks konsültasyonu</div>
+    </div>
+    <!-- Elif -->
+    <div class="col">
+      <div class="slot off"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div>
+      <div class="appt c4" style="top:288px;height:46px" data-open="drawer-appt"><b>Selin Er</b>Rahatlatıcı masaj 60 dk · Spa</div>
+      <div class="appt c4" style="top:384px;height:70px" data-open="drawer-appt"><b>Melis Ural</b>Vücut sargısı · Spa</div>
+    </div>
+    <!-- Zeynep -->
+    <div class="col">
+      <div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div><div class="slot" data-open="drawer-new"></div>
+      <div class="appt c5" style="top:168px;height:30px" data-open="drawer-appt"><b>Öğle arası</b></div>
+    </div>
+  </div>
+</main></div></div>
+
+<!-- Yeni randevu -->
+<aside class="drawer" id="drawer-new">
+  <div class="drawer-head"><h3><i data-lucide="calendar-plus"></i>Yeni randevu</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>Müşteri <span class="req">*</span></label>
+      <div class="row"><input class="input" value="Burcu Koç · 0532 *** 41 18"><button class="btn" data-toast="Hızlı müşteri oluşturma formu"><i data-lucide="user-plus"></i></button></div></div>
+    <div class="alert error"><i data-lucide="file-warning"></i><div><b>Lazer onamı eksik.</b> Uygulama başlamadan önce imzalanmalıdır. <a href="customer-detail.html">Onamları aç</a></div></div>
+    <div class="alert warning"><i data-lucide="alert-triangle"></i><div><b>Alerji:</b> lidokain. <b>İlaç:</b> izotretinoin 08/2026'da bırakıldı (lazer için 6 aylık aralığı kontrol edin).</div></div>
+    <div class="form-grid">
+      <div class="field"><label>Hizmet <span class="req">*</span></label><select class="select"><option>Lazer epilasyon</option><option>HydraFacial</option><option>Kimyasal peeling</option></select></div>
+      <div class="field"><label>Bölge(ler)</label><select class="select"><option>Yüz · 20 dk · ₺1.200</option><option>Koltuk altı · 15 dk</option><option>Tüm bacak · 60 dk</option></select></div>
+      <div class="field"><label>Personel <span class="req">*</span></label><select class="select"><option>Ayşe Demir (sertifikalı uzman)</option><option>Dr. Selin Aydın</option></select><span class="hint">Yalnızca bu hizmet için yetkin personel listelenir.</span></div>
+      <div class="field"><label>Cihaz / oda</label><select class="select"><option>Diode 808 · müsait</option><option>Alexandrite 755 · dolu 14:00–15:00</option></select></div>
+      <div class="field"><label>Tarih</label><input class="input" value="12.11.2026"></div>
+      <div class="field"><label>Başlangıç</label><input class="input" value="14:00"><span class="hint">Bitiş 14:30 (20 dk + 10 dk ara)</span></div>
+    </div>
+    <div class="field"><label>Paket kullan</label><select class="select"><option>Lazer Yüz 6 seans · 3 kaldı · son geçerlilik 04/2027</option><option>Paketsiz (seans başı ödeme)</option></select></div>
+    <label class="chk"><input type="checkbox" checked> Sonraki seansları seri olarak planla (6 haftada bir, 3 seans daha)</label>
+    <label class="chk"><input type="checkbox" checked> 24 saat önce SMS hatırlatması gönder</label>
+    <div class="field"><label>Not</label><textarea class="input" placeholder="Personel tarafından görülür"></textarea></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Randevu oluşturuldu · SMS hatırlatması planlandı">Randevu oluştur</button></div>
+</aside>
+
+<!-- Randevu detayları -->
+<aside class="drawer" id="drawer-appt">
+  <div class="drawer-head"><h3>Nazlı Aksoy · 13:00–13:30</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="row wrap"><span class="tag indigo">İşlemde</span><span class="tag">Paket 2/6</span><span class="tag green">Onamlar tamam</span><span class="tag">Fitzpatrick III</span></div>
+    <dl class="desc">
+      <dt>Hizmet</dt><dd>Lazer epilasyon · Koltuk altı</dd>
+      <dt>Personel</dt><dd>Ayşe Demir</dd>
+      <dt>Cihaz</dt><dd>Diode 808 (başlık HP-2)</dd>
+      <dt>Telefon</dt><dd>0533 *** 12 90</dd>
+      <dt>Son seans</dt><dd>01.10.2026 · 18 J/cm² · 620 atım · reaksiyon yok</dd>
+    </dl>
+    <div class="card"><div class="card-head"><h3>Durum</h3></div><div class="card-body row wrap">
+      <button class="btn sm">Rezerve</button><button class="btn sm">Onaylandı</button><button class="btn sm">Geldi</button><button class="btn sm primary">İşlemde</button><button class="btn sm">Tamamlandı</button><button class="btn sm danger" data-open="drawer-noshow">Gelmedi</button><button class="btn sm danger" data-open="drawer-cancel">İptal</button><button class="btn sm" data-open="drawer-reschedule"><i data-lucide="calendar-clock"></i>Ertele</button>
+    </div></div>
+  </div>
+  <div class="drawer-foot">
+    <a class="btn" href="customer-detail.html"><i data-lucide="user-round"></i>Müşteri</a>
+    <a class="btn ai" href="consultation.html"><i data-lucide="sparkles"></i>YZ ile danış</a>
+    <a class="btn" href="treatment.html"><i data-lucide="clipboard-list"></i>Uygulama kaydı</a>
+    <a class="btn primary" href="kasa.html"><i data-lucide="shopping-cart"></i>Ödeme al</a>
+  </div>
+</aside>
+<aside class="drawer" id="drawer-reschedule">
+  <div class="drawer-head"><h3><i data-lucide="calendar-clock"></i>Ertele · Nazlı Aksoy</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="small muted">Şu an: Çar 12.11 · 13:00 · Ayşe Demir · Diode 808</div>
+    <div class="form-grid"><div class="field"><label>Yeni tarih</label><input class="input" value="14.11.2026"></div><div class="field"><label>Personel</label><select class="select"><option>Ayşe Demir</option><option>Dr. Selin Aydın</option></select></div></div>
+    <div class="field"><label>Cum 14.11 boş saatler (Diode 808)</label><div class="chips"><button>10:00</button><button class="on">11:30</button><button>13:00</button><button>15:30</button><button>17:00</button></div></div>
+    <div class="field"><label>Seans serisinin parçası</label><div class="seg"><button class="on">Yalnızca bu</button><button>Bu ve sonrakiler</button></div></div>
+    <label class="chk"><input type="checkbox" checked> Yeni saati SMS ile gönder</label>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>İptal</button><button class="btn primary" data-toast="Cum 14.11 11:30'a taşındı · SMS gönderildi">Randevuyu taşı</button></div>
+</aside>
+<aside class="drawer" id="drawer-cancel">
+  <div class="drawer-head"><h3><i data-lucide="calendar-x"></i>Randevuyu iptal et</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="field"><label>İptal eden</label><div class="seg"><button class="on">Müşteri</button><button>Merkez</button></div></div>
+    <div class="field"><label>Neden</label><select class="select"><option>Hastalık</option><option>Program çakışması</option><option>Fiyat</option><option>Cihaz / personel müsait değil</option><option>Diğer</option></select></div>
+    <div class="alert warning small"><i data-lucide="clock"></i><div>Randevuya 24 saatten az kaldı: müşteride geç iptal olarak kaydedilir.</div></div>
+    <label class="chk"><input type="checkbox" checked> Seansı pakete geri ekle</label>
+    <label class="chk"><input type="checkbox" checked> Boşalan saati bekleme listesine öner</label>
+    <label class="chk"><input type="checkbox"> SMS gönder</label>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Geri</button><button class="btn danger" data-toast="Randevu iptal edildi">Randevuyu iptal et</button></div>
+</aside>
+<aside class="drawer" id="drawer-noshow">
+  <div class="drawer-head"><h3><i data-lucide="user-x"></i>Gelmedi olarak işaretle</h3><button class="icon-btn" data-close><i data-lucide="x"></i></button></div>
+  <div class="drawer-body stack">
+    <div class="small muted">Nazlı Aksoy'un daha önce gelmediği randevu yok.</div>
+    <div class="field"><label>Paket seansı</label><div class="seg"><button class="on">Pakette kalsın</button><button>Kullanılmış say</button></div><span class="hint">Varsayılan Ayarlar'dan gelir (gelmeme politikası).</span></div>
+    <label class="chk"><input type="checkbox" checked> "Sizi özledik" SMS'i gönder (arayıp yeniden randevu alması için)</label>
+    <div class="field"><label>Not</label><input class="input"></div>
+  </div>
+  <div class="drawer-foot"><button class="btn" data-close>Geri</button><button class="btn danger" data-toast="Gelmedi olarak işaretlendi · SMS gönderildi">Gelmedi olarak işaretle</button></div>
+</aside>
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

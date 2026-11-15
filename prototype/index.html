@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today · Victoria</title>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="dashboard" data-role="owner">
+<div class="shell"><aside id="sider"></aside><div class="main"><header id="header"></header>
+<main class="content">
+
+
+  <div class="page-header">
+    <div class="title"><h1>Good morning, Fehmi</h1><p>Wednesday, 12 November 2026 · 14 appointments today · 2 devices in use</p></div>
+    <div class="actions">
+      <div class="seg"><button class="on">Today</button><button>Week</button><button>Month</button></div>
+      <a class="btn primary" href="kasa.html"><i data-lucide="shopping-cart"></i>New sale</a>
+    </div>
+  </div>
+
+  <div class="tabs main-tabs" data-tabs="dash"><button class="on" data-tab="d-today"><i data-lucide="sun"></i>Today</button><button data-tab="d-reports"><i data-lucide="bar-chart-3"></i>Reports</button></div>
+  <div class="tab-panel on" id="d-today" data-group="dash">
+    <div class="card mb" id="setup-card"><div class="card-head"><h3><i data-lucide="list-checks"></i>Getting started · 6 of 9 done</h3><div class="row"><div class="progress" style="width:120px"><span style="width:66%"></span></div><button class="btn sm text" onclick="document.getElementById('setup-card').style.display='none'">Hide</button></div></div>
+      <div class="card-body"><div class="grid g3" style="gap:6px 16px;font-size:13px">
+        <span class="up">✓ Business details &amp; logo</span><span class="up">✓ Opening hours</span><span class="up">✓ Services &amp; prices</span>
+        <span class="up">✓ Employees &amp; PINs</span><span class="up">✓ Laser devices</span><span class="up">✓ Products &amp; opening stock</span>
+        <a href="catalog.html#c-packages">○ Existing packages &amp; balances →</a><a href="settings.html#x-sms">○ SMS provider →</a><a href="settings.html">○ Consent form texts →</a>
+      </div></div></div>
+<div class="grid g4 mb">
+    <div class="stat primary"><div class="label">Revenue today</div><div class="value">₺18,450</div><div class="note"><i data-lucide="trending-up" class="up"></i><span class="up">+12%</span> vs last Wednesday</div></div>
+    <div class="stat success"><div class="label">Appointments</div><div class="value">9 / 14</div><div class="note">completed · 1 no-show</div></div>
+    <div class="stat neutral"><div class="label">Products sold</div><div class="value">11</div><div class="note">₺6,320 retail · 4 from AI suggestions</div></div>
+    <div class="stat warning"><div class="label">Open balances</div><div class="value">₺48,300</div><div class="note">₺21,500 due this week · ₺6,000 overdue · <a href="kasa.html#k-receivables">Receivables</a></div></div>
+  </div>
+
+  <div class="grid g-main">
+    <div class="stack">
+      <div class="card ai-card">
+        <div class="card-head"><h3><i data-lucide="sparkles"></i>Daily digest</h3><span class="tag purple">AI · Phase 2</span></div>
+        <div class="card-body" style="font-size:14px">
+          <p style="margin:0 0 8px">Yesterday's revenue was <b>₺21,300</b>, 8% above the Tuesday average. Laser epilation made up 54% of it.</p>
+          <ul style="margin:0;padding-left:18px;color:var(--text-2)">
+            <li><b>Laser cooling gel</b> will run out in ~5 days at the current booking rate. <a href="catalog.html#drawer-receipt">Create order draft</a></li>
+            <li><b>6 customers</b> are overdue for their next laser session by more than 2 weeks. <a href="settings.html#x-sms">Review SMS drafts</a></li>
+            <li>Thursday afternoon has <b>9 free hours</b> on the Diode 808. Consider a promotion.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3><i data-lucide="calendar-days"></i>Today's appointments</h3><a class="btn sm" href="calendar.html">Open calendar</a></div>
+        <div class="card-body flush table-wrap">
+          <table class="table">
+            <thead><tr><th>Time</th><th>Customer</th><th>Service</th><th>Employee</th><th>Device / room</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr data-href="customer-detail.html" class="clickable"><td>09:00</td><td>Deniz Yılmaz</td><td>Laser · Full leg (5/8)</td><td>Ayşe Demir</td><td>Diode 808</td><td><span class="tag green">Paid</span></td><td></td></tr>
+              <tr data-href="customer-detail.html" class="clickable"><td>10:00</td><td>Ece Çelik</td><td>HydraFacial</td><td>Merve Kaya</td><td>Room 2</td><td><span class="tag green">Paid</span></td><td></td></tr>
+              <tr data-href="customer-detail.html" class="clickable"><td>11:30</td><td>Gizem Öztürk</td><td>Chemical peel</td><td>Dr. Selin Aydın</td><td>Room 1</td><td><span class="tag blue">Completed</span></td><td><a class="btn sm primary" href="kasa.html">Checkout</a></td></tr>
+              <tr data-href="treatment.html" class="clickable"><td>13:00</td><td>Nazlı Aksoy</td><td>Laser · Underarm (2/6)</td><td>Ayşe Demir</td><td>Diode 808</td><td><span class="tag indigo">In progress</span></td><td><a class="btn sm" href="treatment.html">Record</a></td></tr>
+              <tr data-href="customer-detail.html" class="clickable"><td>14:00</td><td>Burcu Koç <i data-lucide="file-warning" style="color:#dc2626;width:14px;height:14px" title="Consent missing"></i></td><td>Laser · Face</td><td>Ayşe Demir</td><td>Diode 808</td><td><span class="tag">Confirmed</span></td><td><a class="btn sm" href="customer-detail.html">Check-in</a></td></tr>
+              <tr data-href="customer-detail.html" class="clickable"><td>15:00</td><td>Selin Er</td><td>Relax massage 60'</td><td>Elif Şahin</td><td>Spa room</td><td><span class="tag">Booked</span></td><td></td></tr>
+              <tr data-href="customer-detail.html" class="clickable"><td>16:30</td><td>Ayten Kurt</td><td>Botox consultation</td><td>Dr. Selin Aydın</td><td>Room 1</td><td><span class="tag">Booked</span></td><td></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="card">
+        <div class="card-head"><h3><i data-lucide="alert-triangle" style="color:#d97706"></i>Alerts</h3><span class="tag orange">6</span></div>
+        <ul class="list">
+          <li><i data-lucide="package" style="color:#d97706"></i><div class="grow">Laser cooling gel 5 L<div class="small muted">1.8 L left · min 3 L</div></div><a class="btn sm" href="product-detail.html">View</a></li>
+          <li><i data-lucide="calendar-clock" style="color:#dc2626"></i><div class="grow">Vitamin C Serum · lot VC-2291<div class="small muted">expires 03.12.2026 · 6 pcs</div></div><a class="btn sm" href="product-detail.html">View</a></li>
+          <li><i data-lucide="file-warning" style="color:#dc2626"></i><div class="grow">Burcu Koç: laser consent missing<div class="small muted">appointment 14:00</div></div><a class="btn sm" href="customer-detail.html">View</a></li>
+          <li><i data-lucide="receipt" style="color:#d97706"></i><div class="grow">3 sales without receipt photo</div><a class="btn sm" href="kasa.html#k-sales">View</a></li>
+          <li><i data-lucide="hand-coins" style="color:#0284c7"></i><div class="grow">Installment due: Deniz Yılmaz<div class="small muted">₺3,000 · 15.11.2026</div></div><a class="btn sm" href="catalog.html#c-packages">View</a></li>
+          <li><i data-lucide="cake" style="color:#db2777"></i><div class="grow">Birthday today: Ece Çelik</div><a class="btn sm" href="settings.html#x-sms">SMS</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-head"><h3><i data-lucide="users"></i>Team today</h3></div>
+        <div class="card-body">
+          <div class="hbar"><span>Ayşe Demir</span><div class="progress"><span style="width:88%"></span></div><span class="small muted right">7h / 8h</span></div>
+          <div class="hbar"><span>Merve Kaya</span><div class="progress"><span style="width:62%"></span></div><span class="small muted right">5h / 8h</span></div>
+          <div class="hbar"><span>Dr. Selin Aydın</span><div class="progress"><span style="width:50%"></span></div><span class="small muted right">2h / 4h</span></div>
+          <div class="hbar"><span>Elif Şahin</span><div class="progress orange"><span style="width:25%"></span></div><span class="small muted right">2h / 8h</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <div class="tab-panel" id="d-reports" data-group="dash">
+
+    <div class="row between wrap mb"><div class="seg"><button class="on">This month</button><button>Last month</button><button>This year</button></div>
+      <div class="row"><button class="btn"><i data-lucide="download"></i>Export to Excel</button><button class="btn ai" data-open="drawer-assistant"><i data-lucide="sparkles"></i>Ask your data</button></div></div>
+    <div class="grid g4 mb">
+      <div class="stat primary"><div class="label">Revenue</div><div class="value">₺214,800</div><div class="note"><span class="up">+9%</span> vs same days last month</div></div>
+      <div class="stat neutral"><div class="label">Expenses · approx. profit</div><div class="value">₺61,200 · ₺153,600</div><div class="note">salaries (₺140,000) due 30.11 · <a href="kasa.html#k-expenses">Expenses</a></div></div>
+      <div class="stat success"><div class="label">Collected from receivables</div><div class="value">₺27,250</div><div class="note">₺48,300 still open</div></div>
+      <div class="stat neutral"><div class="label">AI suggestions accepted</div><div class="value">44%</div><div class="note">₺28,700 in sales</div></div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="card-head"><h3>By employee</h3></div><div class="card-body flush"><table class="table">
+        <thead><tr><th>Employee</th><th class="num">Treatments</th><th class="num">Revenue</th><th class="num">Products sold</th></tr></thead>
+        <tbody><tr><td>Ayşe Demir</td><td class="num">96</td><td class="num">₺97,100</td><td class="num">21</td></tr><tr><td>Merve Kaya</td><td class="num">58</td><td class="num">₺85,750</td><td class="num">38</td></tr><tr><td>Dr. Selin Aydın</td><td class="num">22</td><td class="num">₺82,700</td><td class="num">4</td></tr><tr><td>Elif Şahin</td><td class="num">31</td><td class="num">₺47,220</td><td class="num">9</td></tr></tbody></table></div></div>
+      <div class="card"><div class="card-head"><h3>Best sellers</h3></div><div class="card-body">
+        <div class="hbar"><span>Laser epilation</span><div class="progress"><span style="width:100%"></span></div><span class="right small">₺96,400</span></div>
+        <div class="hbar"><span>Botox</span><div class="progress"><span style="width:40%"></span></div><span class="right small">₺39,000</span></div>
+        <div class="hbar"><span>HydraFacial</span><div class="progress"><span style="width:28%"></span></div><span class="right small">₺27,000</span></div>
+        <div class="hbar"><span>SPF 50 Sunscreen</span><div class="progress green"><span style="width:17%"></span></div><span class="right small">₺16,100</span></div>
+        <div class="hbar"><span>Soothing Aloe Gel</span><div class="progress green"><span style="width:10%"></span></div><span class="right small">₺9,790</span></div>
+      </div></div>
+    </div>
+    <p class="small muted mt">More reports (customer retention, package liability, device utilisation) come in Phase 2. Every list in the app can already be exported to Excel.</p>
+  </div>
+</main></div></div>
+
+
+<script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>
